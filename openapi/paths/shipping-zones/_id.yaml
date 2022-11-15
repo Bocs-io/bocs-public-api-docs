@@ -1,0 +1,132 @@
+get:
+  operationId: GetShippingZone
+  summary: Get Shipping Zone
+  description: Returns a shipping zone
+  tags:
+    - Shipping Zones
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required: true
+      description: ID of the shipping zone
+  security:
+    - api_key: []
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request GET \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/shipping-zones/ShippingZonesGetResponse.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+
+put:
+  operationId: PutShippingZone
+  summary: Update Shipping Zone
+  description: Updates a shipping zone
+  tags:
+    - Shipping Zones
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required: true
+      description: ID of the shipping zone
+  security:
+    - api_key: []
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request PUT \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' \
+        --data '{"lastName": "updated"}' \
+        | jq
+  requestBody:
+    description: Shipping Zone Fields
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/shipping-zones/ShippingZonesPutRequest.yaml
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/shipping-zones/ShippingZonesPutResponse.yaml
+    "400":
+      $ref: ../../components/responses/400.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+
+delete:
+  operationId: DeleteShippingZone
+  summary: Delete Shipping Zone
+  description: Deletes a shipping zone
+  tags:
+    - Shipping Zones
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required: true
+      description: ID of the shipping zone
+  security:
+    - api_key: []
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request DELETE \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/shipping-zones/ShippingZonesDeleteResponse.yaml
+    "400":
+      $ref: ../../components/responses/400.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml

@@ -1,0 +1,34 @@
+type: object
+properties:
+  code:
+    type: integer
+    example: 200
+  message:
+    type: string
+    example: success
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        contactId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+        createdAt:
+          type: string
+          example: 2022-10-25T11:25:08.394Z
+        updatedAt:
+          type: string
+          example: 2022-10-25T11:25:08.394Z
+  nextPageLink:
+    type: string
+    example: https://api.bocs.io/dev/contacts?pageToken=c70e668c

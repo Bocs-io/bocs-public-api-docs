@@ -17,13 +17,29 @@ x-tagGroups:
   - name: People
     tags:
       - Contacts
+      - Subscribers
+      - Address
+  - name: Bocs
+    tags:
+      - Collections
+      - Bocs
   - name: Products
     tags:
       - Products
+      - Categories
+      - Tags
   - name: Sales
     tags:
       - Orders
       - Subscriptions
+  - name: Shipping & Tax
+    tags:
+      - Shipping Zones
+      - Tax Rates
+  - name: Widgets
+    tags:
+      - Widgets
+
 # tags:
 #   - name: Echo
 #     description: Example echo operations.
@@ -32,25 +48,69 @@ x-tagGroups:
 #   - name: Tag
 #     description: This is a tag description.
 paths:
+  # People
   /contacts:
     $ref: "paths/contacts/_index.yaml"
   /contacts/{id}:
     $ref: "paths/contacts/_id.yaml"
+  /subscribers:
+    $ref: "paths/subscribers/_index.yaml"
+  /subscribers/{id}:
+    $ref: "paths/subscribers/_id.yaml"
+  /address:
+    $ref: "paths/address/_index.yaml"
+  /address/{id}:
+    $ref: "paths/address/_id.yaml"
 
-  /orders:
-    $ref: "paths/orders/_index.yaml"
-  /orders/{id}:
-    $ref: "paths/orders/_id.yaml"
+  # Bocs
+  /collections:
+    $ref: "paths/collections/_index.yaml"
+  /collections/{id}:
+    $ref: "paths/collections/_id.yaml"
+  /bocs:
+    $ref: "paths/bocs/_index.yaml"
+  /bocs/{id}:
+    $ref: "paths/bocs/_id.yaml"
 
+  # Products
   /products:
     $ref: "paths/products/_index.yaml"
   /products/{id}:
     $ref: "paths/products/_id.yaml"
+  /categories:
+    $ref: "paths/categories/_index.yaml"
+  /categories/{id}:
+    $ref: "paths/categories/_id.yaml"
+  /tags:
+    $ref: "paths/tags/_index.yaml"
+  /tags/{id}:
+    $ref: "paths/tags/_id.yaml"
 
+  # Sales
+  /orders:
+    $ref: "paths/orders/_index.yaml"
+  /orders/{id}:
+    $ref: "paths/orders/_id.yaml"
   /subscriptions:
     $ref: "paths/subscriptions/_index.yaml"
   /subscriptions/{id}:
     $ref: "paths/subscriptions/_id.yaml"
+
+  # Shipping & Tax
+  /shipping-zones:
+    $ref: "paths/shipping-zones/_index.yaml"
+  /shipping-zones/{id}:
+    $ref: "paths/shipping-zones/_id.yaml"
+  /tax-rates:
+    $ref: "paths/tax-rates/_index.yaml"
+  /tax-rates/{id}:
+    $ref: "paths/tax-rates/_id.yaml"
+
+  # Widgets
+  /widgets:
+    $ref: "paths/widgets/_index.yaml"
+  /widgets/{id}:
+    $ref: "paths/widgets/_id.yaml"
 
 components:
   securitySchemes:

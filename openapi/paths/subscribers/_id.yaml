@@ -1,0 +1,132 @@
+get:
+  operationId: GetSubscriber
+  summary: Get Subscriber
+  description: Returns a subscriber
+  tags:
+    - Subscribers
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required: true
+      description: ID of the subscriber
+  security:
+    - api_key: []
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request GET \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/subscribers/SubscribersGetResponse.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+
+put:
+  operationId: PutSubscriber
+  summary: Update Subscriber
+  description: Updates a subscriber
+  tags:
+    - Subscribers
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required: true
+      description: ID of the subscriber
+  security:
+    - api_key: []
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request PUT \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \
+        --data '{"lastName": "updated"}' \
+        | jq
+  requestBody:
+    description: Subscriber Fields
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/subscribers/SubscribersPutRequest.yaml
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/subscribers/SubscribersPutResponse.yaml
+    "400":
+      $ref: ../../components/responses/400.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+
+delete:
+  operationId: DeleteSubscriber
+  summary: Delete Subscriber
+  description: Deletes a subscriber
+  tags:
+    - Subscribers
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required: true
+      description: ID of the subscriber
+  security:
+    - api_key: []
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request DELETE \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/subscribers/SubscribersDeleteResponse.yaml
+    "400":
+      $ref: ../../components/responses/400.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml

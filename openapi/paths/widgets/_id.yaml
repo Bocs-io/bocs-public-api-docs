@@ -1,0 +1,131 @@
+get:
+  operationId: GetWidget
+  summary: Get Widget
+  description: Returns a widget
+  tags:
+    - Widgets
+  parameters:
+    - name: id
+      in: path
+      schema:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required: true
+      description: ID of the widget
+  security:
+    - api_key: []
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request GET \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/widgets/<widget ID>' | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/widgets/WidgetsGetResponse.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+# put:
+#   operationId: PutWidget
+#   summary: Update Widget
+#   description: Updates a widget
+#   tags:
+#     - Widgets
+#   parameters:
+#     - name: id
+#       in: path
+#       schema:
+#         type: string
+#         example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+#       required: true
+#       description: ID of the widget
+#   security:
+#     - api_key: []
+#   x-codeSamples:
+#     - label: "CLI"
+#       lang: "cURL"
+#       source: |
+#         curl --request PUT \
+#         --header 'Authorization: <your API Key>' \
+#         --header 'Content-Type: application/json' \
+#         --url 'https://api.bocs.io/test/widgets/<widget ID>' \
+#         --data '{"lastName": "updated"}' \
+#         | jq
+#   requestBody:
+#     description: Widget Fields
+#     required: true
+#     content:
+#       application/json:
+#         schema:
+#           $ref: ../../components/schemas/widgets/WidgetsPutRequest.yaml
+#   responses:
+#     "200":
+#       description: Success
+#       content:
+#         application/json:
+#           schema:
+#             $ref: ../../components/responses/widgets/WidgetsPutResponse.yaml
+#     "400":
+#       $ref: ../../components/responses/400.yaml
+#     "401":
+#       $ref: ../../components/responses/401.yaml
+#     "403":
+#       $ref: ../../components/responses/403.yaml
+#     "404":
+#       $ref: ../../components/responses/404.yaml
+#     "500":
+#       $ref: ../../components/responses/500.yaml
+
+# delete:
+#   operationId: DeleteWidget
+#   summary: Delete Widget
+#   description: Deletes a widget
+#   tags:
+#     - Widgets
+#   parameters:
+#     - name: id
+#       in: path
+#       schema:
+#         type: string
+#         example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+#       required: true
+#       description: ID of the widget
+#   security:
+#     - api_key: []
+#   x-codeSamples:
+#     - label: "CLI"
+#       lang: "cURL"
+#       source: |
+#         curl --request DELETE \
+#         --header 'Authorization: <your API Key>' \
+#         --header 'Content-Type: application/json' \
+#         --url 'https://api.bocs.io/test/widgets/<widget ID>' | jq
+#   responses:
+#     "200":
+#       description: Success
+#       content:
+#         application/json:
+#           schema:
+#             $ref: ../../components/responses/widgets/WidgetsDeleteResponse.yaml
+#     "400":
+#       $ref: ../../components/responses/400.yaml
+#     "401":
+#       $ref: ../../components/responses/401.yaml
+#     "403":
+#       $ref: ../../components/responses/403.yaml
+#     "404":
+#       $ref: ../../components/responses/404.yaml
+#     "500":
+#       $ref: ../../components/responses/500.yaml
