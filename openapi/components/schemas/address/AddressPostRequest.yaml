@@ -1,29 +1,6 @@
 type: object
 properties:
-  address1:
-    type: string
-    example: Urban Homes
-    description: Address line 1 of the address
-  address2:
-    type: string
-    example: Phase 2 Building
-    description: Address line 2 of the address
-  city:
-    type: string
-    example: Victoria
-    description: City of the address
-  state:
-    type: string
-    example: Victoria
-    description: State of the address
-  country:
-    type: string
-    example: AU
-    description: Country of the address
-  postcode:
-    type: string
-    example: 6000
-    description: Post code of the address
+  $ref: ./properties.yaml
 required:
   - address1
   - city

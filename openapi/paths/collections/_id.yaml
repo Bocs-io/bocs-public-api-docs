@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/collections/<collection ID>' | jq
+        --url 'https://api.bocs.io/test/collections/<collection ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -65,7 +66,7 @@ put:
         --data '{"lastName": "updated"}' \
         | jq
   requestBody:
-    description: Collection Fields
+    description: Parameters for updating collection
     required: true
     content:
       application/json:

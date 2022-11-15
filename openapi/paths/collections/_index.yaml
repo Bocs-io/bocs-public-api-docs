@@ -58,7 +58,7 @@ post:
   security:
     - api_key: []
   requestBody:
-    description: Collection Fields
+    description: Parameters for creating a collection
     required: true
     content:
       application/json:
