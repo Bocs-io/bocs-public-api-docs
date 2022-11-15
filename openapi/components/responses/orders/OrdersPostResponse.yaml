@@ -23,7 +23,8 @@ properties:
         example: Bar
       status:
         type: string
-      paymentDate: type
+      paymentDate:
+        type: string
 
       createdAt:
         type: string

@@ -10,9 +10,20 @@ info:
     name: Apache 2.0
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
   x-logo:
-    url: "https://bocs-io.github.io/bocs-public-api-docs/bocs.png"
+    url: "https://git.bocs.io/bocs.png"
   description:
     $ref: ./info-description.md
+x-tagGroups:
+  - name: People
+    tags:
+      - Contacts
+  - name: Products
+    tags:
+      - Products
+  - name: Sales
+    tags:
+      - Orders
+      - Subscriptions
 # tags:
 #   - name: Echo
 #     description: Example echo operations.
@@ -41,14 +52,6 @@ paths:
   /subscriptions/{id}:
     $ref: "paths/subscriptions/_id.yaml"
 
-  # "/users/{username}":
-  #   $ref: "paths/users_{username}.yaml"
-  # /echo:
-  #   $ref: paths/echo.yaml
-  # /pathItem:
-  #   $ref: paths/path-item.yaml
-  # /pathItemWithExamples:
-  #   $ref: paths/path-item-with-examples.yaml
 components:
   securitySchemes:
     # main_auth:
