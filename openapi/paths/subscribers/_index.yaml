@@ -1,7 +1,7 @@
 get:
   operationId: ListSubscribers
   summary: List Subscribers
-  description: List of subscribers
+  description: Returns a list of subscribers
   tags:
     - Subscribers
   security:
@@ -14,6 +14,13 @@ get:
         example: firstName:"bar"
       description: Filter returned rows
     - in: query
+      name: limit
+      schema:
+        type: string
+        default: 25
+        example: 25
+      description: The pagination page limit
+    - in: query
       name: pageToken
       schema:
         type: string
@@ -25,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/subscribers' | jq
+        --url 'https://api.bocs.io/test/subscribers' \
+        | jq
   responses:
     "200":
       description: Success
@@ -45,13 +53,13 @@ get:
 post:
   operationId: PostSubscriber
   summary: Create Subscriber
-  description: Creates a subscriber
+  description: Create properties of a subscriber
   tags:
     - Subscribers
   security:
     - api_key: []
   requestBody:
-    description: Subscriber Fields
+    description: Parameters for creating a subscriber
     required: true
     content:
       application/json:

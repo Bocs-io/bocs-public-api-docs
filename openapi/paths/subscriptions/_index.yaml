@@ -14,6 +14,13 @@ get:
         example: firstName:"bar"
       description: Filter returned rows
     - in: query
+      name: limit
+      schema:
+        type: string
+        default: 25
+        example: 25
+      description: The pagination page limit
+    - in: query
       name: pageToken
       schema:
         type: string

@@ -1,11 +1,86 @@
 type: object
 properties:
+  company:
+    type: string
+    example: Qualia Wine Services
+    description: Company of the subscriber
   email:
     type: string
-    example: foo@bocs.io
+    example: ear+irwin@bocs.io
+    description: Email of the subscriber
   firstName:
     type: string
-    example: Foo
+    example: Earl
+    description: First name of the subscriber
   lastName:
     type: string
-    example: Bar
+    example: Irwin
+    description: Last name of the subscriber
+  gender:
+    type: string
+    enum: [male, female]
+    example: male
+    description: Gender of the subscriber
+  phone:
+    type: string
+    example: +619125324436
+    description: Phone of the subscriber
+  billingAddress:
+    type: object
+    description: Billing address of the subscriber
+    properties:
+      address1:
+        type: string
+        example: Urban Homes
+        description: Billing address line 1 of the subscriber
+      address2:
+        type: string
+        example: Phase 2 Building
+        description: Billing address line 2 of the subscriber
+      city:
+        type: string
+        example: Victoria
+        description: Billing city of the subscriber
+      state:
+        type: string
+        example: Victoria
+        description: Billing state of the subscriber
+      country:
+        type: string
+        example: AU
+        description: Billing country of the subscriber
+      postcode:
+        type: string
+        example: 6000
+        description: Billing post code of the subscriber
+  shippingAddress:
+    type: object
+    description: Shipping address of the subscriber
+    properties:
+      address1:
+        type: string
+        example: Urban Homes
+        description: Shipping address line 1 of the subscriber
+      address2:
+        type: string
+        example: Phase 2 Building
+        description: Shipping address line 2 of the subscriber
+      city:
+        type: string
+        example: Victoria
+        description: Shipping city of the subscriber
+      state:
+        type: string
+        example: Victoria
+        description: Shipping state of the subscriber
+      country:
+        type: string
+        example: AU
+        description: Shipping country of the subscriber
+      postcode:
+        type: string
+        example: 6000
+        description: Shipping post code of the subscriber
+required:
+  - email
+  - company

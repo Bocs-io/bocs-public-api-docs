@@ -93,6 +93,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -104,7 +111,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/contacts' | jq
+            --url 'https://api.bocs.io/test/contacts' \
+            | jq
       responses:
         '200':
           description: Success
@@ -123,13 +131,13 @@ paths:
     post:
       operationId: PostContact
       summary: Create Contact
-      description: Creates a contact
+      description: Create properties of a contact
       tags:
         - Contacts
       security:
         - api_key: []
       requestBody:
-        description: Contact Fields
+        description: Parameters for creating a contact
         required: true
         content:
           application/json:
@@ -164,7 +172,7 @@ paths:
     get:
       operationId: GetContact
       summary: Get Contact
-      description: Returns a contact
+      description: Returns details about a contact
       tags:
         - Contacts
       parameters:
@@ -184,7 +192,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/contacts/<contact ID>' | jq
+            --url 'https://api.bocs.io/test/contacts/<contact ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -203,7 +212,7 @@ paths:
     put:
       operationId: PutContact
       summary: Update Contact
-      description: Updates a contact
+      description: Update properties for a contact
       tags:
         - Contacts
       parameters:
@@ -227,7 +236,7 @@ paths:
             --data '{"lastName": "updated"}' \
             | jq
       requestBody:
-        description: Contact Fields
+        description: Parameters for updating a contact
         required: true
         content:
           application/json:
@@ -253,7 +262,7 @@ paths:
     delete:
       operationId: DeleteContact
       summary: Delete Contact
-      description: Deletes a contact
+      description: Deletes a specified contact
       tags:
         - Contacts
       parameters:
@@ -273,7 +282,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/contacts/<contact ID>' | jq
+            --url 'https://api.bocs.io/test/contacts/<contact ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -295,7 +305,7 @@ paths:
     get:
       operationId: ListSubscribers
       summary: List Subscribers
-      description: List of subscribers
+      description: Returns a list of subscribers
       tags:
         - Subscribers
       security:
@@ -308,6 +318,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -319,7 +336,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/subscribers' | jq
+            --url 'https://api.bocs.io/test/subscribers' \
+            | jq
       responses:
         '200':
           description: Success
@@ -338,13 +356,13 @@ paths:
     post:
       operationId: PostSubscriber
       summary: Create Subscriber
-      description: Creates a subscriber
+      description: Create properties of a subscriber
       tags:
         - Subscribers
       security:
         - api_key: []
       requestBody:
-        description: Subscriber Fields
+        description: Parameters for creating a subscriber
         required: true
         content:
           application/json:
@@ -379,7 +397,7 @@ paths:
     get:
       operationId: GetSubscriber
       summary: Get Subscriber
-      description: Returns a subscriber
+      description: Returns details about a subscriber
       tags:
         - Subscribers
       parameters:
@@ -399,7 +417,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq
+            --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -418,7 +437,7 @@ paths:
     put:
       operationId: PutSubscriber
       summary: Update Subscriber
-      description: Updates a subscriber
+      description: Update details of a subscriber
       tags:
         - Subscribers
       parameters:
@@ -442,7 +461,7 @@ paths:
             --data '{"lastName": "updated"}' \
             | jq
       requestBody:
-        description: Subscriber Fields
+        description: Parameters for updating a subscriber
         required: true
         content:
           application/json:
@@ -468,7 +487,7 @@ paths:
     delete:
       operationId: DeleteSubscriber
       summary: Delete Subscriber
-      description: Deletes a subscriber
+      description: Deletes a specified subscriber
       tags:
         - Subscribers
       parameters:
@@ -488,7 +507,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq
+            --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -522,6 +542,13 @@ paths:
             type: string
             example: firstName:"bar"
           description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
         - in: query
           name: pageToken
           schema:
@@ -738,6 +765,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -952,6 +986,13 @@ paths:
             type: string
             example: firstName:"bar"
           description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
         - in: query
           name: pageToken
           schema:
@@ -1168,6 +1209,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -1382,6 +1430,13 @@ paths:
             type: string
             example: firstName:"bar"
           description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
         - in: query
           name: pageToken
           schema:
@@ -1598,6 +1653,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -1812,6 +1874,13 @@ paths:
             type: string
             example: firstName:"bar"
           description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
         - in: query
           name: pageToken
           schema:
@@ -2028,6 +2097,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -2242,6 +2318,13 @@ paths:
             type: string
             example: firstName:"bar"
           description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
         - in: query
           name: pageToken
           schema:
@@ -2458,6 +2541,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -2673,6 +2763,13 @@ paths:
             example: firstName:"bar"
           description: Filter returned rows
         - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
           name: pageToken
           schema:
             type: string
@@ -2769,13 +2866,13 @@ components:
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
               email:
                 type: string
-                example: foo@bocs.io
+                example: earl+irwin@bocs.io
               firstName:
                 type: string
-                example: Foo
+                example: Earl
               lastName:
                 type: string
-                example: Bar
+                example: Irwin
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
@@ -2797,13 +2894,18 @@ components:
       properties:
         email:
           type: string
-          example: foo@bocs.io
+          example: earl+irwin@bocs.io
+          description: Email of the contact
         firstName:
           type: string
-          example: Foo
+          example: Earl
+          description: First name of the contact
         lastName:
           type: string
-          example: Bar
+          example: Irwin
+          description: Last name of the contact
+      required:
+        - email
     ContactsPostResponse:
       type: object
       properties:
@@ -2821,13 +2923,13 @@ components:
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
             email:
               type: string
-              example: foo@bocs.io
+              example: earl+irwin@bocs.io
             firstName:
               type: string
-              example: Foo
+              example: Earl
             lastName:
               type: string
-              example: Bar
+              example: Irwin
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
@@ -2851,13 +2953,13 @@ components:
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
             email:
               type: string
-              example: foo@bocs.io
+              example: earl+irwin@bocs.io
             firstName:
               type: string
-              example: Foo
+              example: Earl
             lastName:
               type: string
-              example: Bar
+              example: Irwin
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
@@ -2869,13 +2971,16 @@ components:
       properties:
         email:
           type: string
-          example: foo@bocs.io
+          example: earl+irwin@bocs.io
+          description: Email of the contact
         firstName:
           type: string
-          example: Foo
+          example: Earl
+          description: First name of the contact
         lastName:
           type: string
-          example: Bar
+          example: Irwin
+          description: Last name of the contact
     ContactsPutResponse:
       type: object
       properties:
@@ -2893,13 +2998,13 @@ components:
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
             email:
               type: string
-              example: foo@bocs.io
+              example: earl+irwin@bocs.io
             firstName:
               type: string
-              example: Foo
+              example: Earl
             lastName:
               type: string
-              example: Bar
+              example: Irwin
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
@@ -2929,18 +3034,75 @@ components:
           items:
             type: object
             properties:
-              contactId:
+              userId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              subscriberId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
               email:
                 type: string
-                example: foo@bocs.io
+                example: ear+irwin@bocs.io
               firstName:
                 type: string
-                example: Foo
+                example: Earl
               lastName:
                 type: string
-                example: Bar
+                example: Irwin
+              gender:
+                type: string
+                example: male
+              company:
+                type: string
+                example: Qualia Wine Services
+              phone:
+                type: string
+                example: 619125324436
+              billingAddress:
+                type: object
+                properties:
+                  address1:
+                    type: string
+                    example: Urban Homes
+                  address2:
+                    type: string
+                    example: Phase 2 Building
+                  city:
+                    type: string
+                    example: Victoria
+                  state:
+                    type: string
+                    example: Victoria
+                  country:
+                    type: string
+                    example: AU
+                  postcode:
+                    type: string
+                    example: 6000
+              shippingAddress:
+                type: object
+                properties:
+                  address1:
+                    type: string
+                    example: Urban Homes
+                  address2:
+                    type: string
+                    example: Phase 2 Building
+                  city:
+                    type: string
+                    example: Victoria
+                  state:
+                    type: string
+                    example: Victoria
+                  country:
+                    type: string
+                    example: AU
+                  postcode:
+                    type: string
+                    example: 6000
+              status:
+                type: string
+                example: active
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
@@ -2953,15 +3115,72 @@ components:
     SubscribersPostRequest:
       type: object
       properties:
+        company:
+          type: string
+          example: Qualia Wine Services
         email:
           type: string
-          example: foo@bocs.io
+          example: ear+irwin@bocs.io
         firstName:
           type: string
-          example: Foo
+          example: Earl
         lastName:
           type: string
-          example: Bar
+          example: Irwin
+        gender:
+          type: string
+          enum:
+            - male
+            - female
+          example: male
+        phone:
+          type: string
+          example: 619125324436
+        billingAddress:
+          type: object
+          properties:
+            address1:
+              type: string
+              example: Urban Homes
+            address2:
+              type: string
+              example: Phase 2 Building
+            city:
+              type: string
+              example: Victoria
+            state:
+              type: string
+              example: Victoria
+            country:
+              type: string
+              example: AU
+            postcode:
+              type: string
+              example: 6000
+        shippingAddress:
+          type: object
+          properties:
+            address1:
+              type: string
+              example: Urban Homes
+            address2:
+              type: string
+              example: Phase 2 Building
+            city:
+              type: string
+              example: Victoria
+            state:
+              type: string
+              example: Victoria
+            country:
+              type: string
+              example: AU
+            postcode:
+              type: string
+              example: 6000
+      required:
+        - email
+        - company
     SubscribersPostResponse:
       type: object
       properties:
@@ -3004,18 +3223,75 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            userId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            subscriberId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
             email:
               type: string
-              example: foo@bocs.io
+              example: ear+irwin@bocs.io
             firstName:
               type: string
-              example: Foo
+              example: Earl
             lastName:
               type: string
-              example: Bar
+              example: Irwin
+            gender:
+              type: string
+              example: male
+            company:
+              type: string
+              example: Qualia Wine Services
+            phone:
+              type: string
+              example: 619125324436
+            billingAddress:
+              type: object
+              properties:
+                address1:
+                  type: string
+                  example: Urban Homes
+                address2:
+                  type: string
+                  example: Phase 2 Building
+                city:
+                  type: string
+                  example: Victoria
+                state:
+                  type: string
+                  example: Victoria
+                country:
+                  type: string
+                  example: AU
+                postcode:
+                  type: string
+                  example: 6000
+            shippingAddress:
+              type: object
+              properties:
+                address1:
+                  type: string
+                  example: Urban Homes
+                address2:
+                  type: string
+                  example: Phase 2 Building
+                city:
+                  type: string
+                  example: Victoria
+                state:
+                  type: string
+                  example: Victoria
+                country:
+                  type: string
+                  example: AU
+                postcode:
+                  type: string
+                  example: 6000
+            status:
+              type: string
+              example: active
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'

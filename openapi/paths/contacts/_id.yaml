@@ -1,7 +1,7 @@
 get:
   operationId: GetContact
   summary: Get Contact
-  description: Returns a contact
+  description: Returns details about a contact
   tags:
     - Contacts
   parameters:
@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/contacts/<contact ID>' | jq
+        --url 'https://api.bocs.io/test/contacts/<contact ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -41,7 +42,7 @@ get:
 put:
   operationId: PutContact
   summary: Update Contact
-  description: Updates a contact
+  description: Update properties for a contact
   tags:
     - Contacts
   parameters:
@@ -65,7 +66,7 @@ put:
         --data '{"lastName": "updated"}' \
         | jq
   requestBody:
-    description: Contact Fields
+    description: Parameters for updating a contact
     required: true
     content:
       application/json:
@@ -92,7 +93,7 @@ put:
 delete:
   operationId: DeleteContact
   summary: Delete Contact
-  description: Deletes a contact
+  description: Deletes a specified contact
   tags:
     - Contacts
   parameters:
@@ -112,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/contacts/<contact ID>' | jq
+        --url 'https://api.bocs.io/test/contacts/<contact ID>' \
+        | jq
   responses:
     "200":
       description: Success

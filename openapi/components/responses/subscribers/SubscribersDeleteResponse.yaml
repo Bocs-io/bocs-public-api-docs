@@ -3,6 +3,8 @@ properties:
   code:
     type: integer
     example: 201
+    description: Status code
   message:
     type: string
     example: success
+    description: Success or error message

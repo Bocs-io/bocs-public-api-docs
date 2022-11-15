@@ -2,10 +2,13 @@ type: object
 properties:
   email:
     type: string
-    example: foo@bocs.io
+    example: earl+irwin@bocs.io
+    description: Email of the contact
   firstName:
     type: string
-    example: Foo
+    example: Earl
+    description: First name of the contact
   lastName:
     type: string
-    example: Bar
+    example: Irwin
+    description: Last name of the contact

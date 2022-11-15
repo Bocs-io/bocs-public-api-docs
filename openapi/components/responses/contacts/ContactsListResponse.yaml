@@ -3,32 +3,42 @@ properties:
   code:
     type: integer
     example: 200
+    description: Status code
   message:
     type: string
     example: success
+    description: Success or error message
   data:
     type: array
+    description: Response data
     items:
       type: object
       properties:
         contactId:
           type: string
           example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Contact Id
         email:
           type: string
-          example: foo@bocs.io
+          example: earl+irwin@bocs.io
+          description: Email of the contact
         firstName:
           type: string
-          example: Foo
+          example: Earl
+          description: First name of the contact
         lastName:
           type: string
-          example: Bar
+          example: Irwin
+          description: Last name of the contact
         createdAt:
           type: string
           example: 2022-10-25T11:25:08.394Z
+          description: Created date of the contact
         updatedAt:
           type: string
           example: 2022-10-25T11:25:08.394Z
+          description: Updated date of the contact
   nextPageLink:
     type: string
     example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    description: Next page link
