@@ -547,12 +547,12 @@
         } ]
       }
     },
-    "/orders" : {
+    "/subscribers" : {
       "get" : {
-        "tags" : [ "Orders" ],
-        "summary" : "List Orders",
-        "description" : "List of orders",
-        "operationId" : "ListOrders",
+        "tags" : [ "Subscribers" ],
+        "summary" : "List Subscribers",
+        "description" : "List of subscribers",
+        "operationId" : "ListSubscribers",
         "parameters" : [ {
           "name" : "query",
           "in" : "query",
@@ -581,7 +581,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/OrdersListResponse"
+                  "$ref" : "#/components/schemas/SubscribersListResponse"
                 }
               }
             }
@@ -649,20 +649,20 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers' | jq\n"
         } ]
       },
       "post" : {
-        "tags" : [ "Orders" ],
-        "summary" : "Create Order",
-        "description" : "Creates an order",
-        "operationId" : "PostOrder",
+        "tags" : [ "Subscribers" ],
+        "summary" : "Create Subscriber",
+        "description" : "Creates a subscriber",
+        "operationId" : "PostSubscriber",
         "requestBody" : {
-          "description" : "Order Fields",
+          "description" : "Subscriber Fields",
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/OrdersPostRequest"
+                "$ref" : "#/components/schemas/SubscribersPostRequest"
               }
             }
           },
@@ -674,7 +674,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/OrdersPostResponse"
+                  "$ref" : "#/components/schemas/SubscribersPostResponse"
                 }
               }
             }
@@ -742,20 +742,20 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
         } ]
       }
     },
-    "/orders/{id}" : {
+    "/subscribers/{id}" : {
       "get" : {
-        "tags" : [ "Orders" ],
-        "summary" : "Get Order",
-        "description" : "Returns an order",
-        "operationId" : "GetOrder",
+        "tags" : [ "Subscribers" ],
+        "summary" : "Get Subscriber",
+        "description" : "Returns a subscriber",
+        "operationId" : "GetSubscriber",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "ID of the order",
+          "description" : "ID of the subscriber",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -770,7 +770,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/OrdersGetResponse"
+                  "$ref" : "#/components/schemas/SubscribersGetResponse"
                 }
               }
             }
@@ -838,18 +838,18 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq\n"
         } ]
       },
       "put" : {
-        "tags" : [ "Orders" ],
-        "summary" : "Update Order",
-        "description" : "Updates an order",
-        "operationId" : "PutOrder",
+        "tags" : [ "Subscribers" ],
+        "summary" : "Update Subscriber",
+        "description" : "Updates a subscriber",
+        "operationId" : "PutSubscriber",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "ID of the order",
+          "description" : "ID of the subscriber",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -859,11 +859,11 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Order Fields",
+          "description" : "Subscriber Fields",
           "content" : {
             "application/json" : {
               "schema" : {
-                "$ref" : "#/components/schemas/OrdersPutRequest"
+                "$ref" : "#/components/schemas/SubscribersPutRequest"
               }
             }
           },
@@ -875,7 +875,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/OrdersPutResponse"
+                  "$ref" : "#/components/schemas/SubscribersPutResponse"
                 }
               }
             }
@@ -957,18 +957,18 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
         } ]
       },
       "delete" : {
-        "tags" : [ "Orders" ],
-        "summary" : "Delete Order",
-        "description" : "Deletes an order",
-        "operationId" : "DeleteOrder",
+        "tags" : [ "Subscribers" ],
+        "summary" : "Delete Subscriber",
+        "description" : "Deletes a subscriber",
+        "operationId" : "DeleteSubscriber",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
-          "description" : "ID of the order",
+          "description" : "ID of the subscriber",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -983,7 +983,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/OrdersDeleteResponse"
+                  "$ref" : "#/components/schemas/SubscribersDeleteResponse"
                 }
               }
             }
@@ -1065,7 +1065,1573 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq\n"
+        } ]
+      }
+    },
+    "/address" : {
+      "get" : {
+        "tags" : [ "Address" ],
+        "summary" : "List Address",
+        "description" : "List of address",
+        "operationId" : "ListAddress",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AddressListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Address" ],
+        "summary" : "Create Address",
+        "description" : "Creates a address",
+        "operationId" : "PostAddress",
+        "requestBody" : {
+          "description" : "Address Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AddressPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AddressPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/address/{id}" : {
+      "get" : {
+        "tags" : [ "Address" ],
+        "summary" : "Get Address",
+        "description" : "Returns a address",
+        "operationId" : "GetAddress",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the address",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AddressGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Address" ],
+        "summary" : "Update Address",
+        "description" : "Updates a address",
+        "operationId" : "PutAddress",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the address",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Address Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AddressPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AddressPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Address" ],
+        "summary" : "Delete Address",
+        "description" : "Deletes a address",
+        "operationId" : "DeleteAddress",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the address",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AddressDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' | jq\n"
+        } ]
+      }
+    },
+    "/collections" : {
+      "get" : {
+        "tags" : [ "Collections" ],
+        "summary" : "List Collections",
+        "description" : "List of collections",
+        "operationId" : "ListCollections",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CollectionsListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Collections" ],
+        "summary" : "Create Collection",
+        "description" : "Creates a collection",
+        "operationId" : "PostCollection",
+        "requestBody" : {
+          "description" : "Collection Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CollectionsPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CollectionsPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/collections/{id}" : {
+      "get" : {
+        "tags" : [ "Collections" ],
+        "summary" : "Get Collection",
+        "description" : "Returns a collection",
+        "operationId" : "GetCollection",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the collection",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CollectionsGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Collections" ],
+        "summary" : "Update Collection",
+        "description" : "Updates a collection",
+        "operationId" : "PutCollection",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the collection",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Collection Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CollectionsPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CollectionsPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Collections" ],
+        "summary" : "Delete Collection",
+        "description" : "Deletes a collection",
+        "operationId" : "DeleteCollection",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the collection",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CollectionsDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' | jq\n"
+        } ]
+      }
+    },
+    "/bocs" : {
+      "get" : {
+        "tags" : [ "Bocs" ],
+        "summary" : "List Bocs",
+        "description" : "List of bocs",
+        "operationId" : "ListBocs",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BocsListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Bocs" ],
+        "summary" : "Create Bocs",
+        "description" : "Creates a bocs",
+        "operationId" : "PostBocs",
+        "requestBody" : {
+          "description" : "Bocs Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BocsPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BocsPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/bocs/{id}" : {
+      "get" : {
+        "tags" : [ "Bocs" ],
+        "summary" : "Get Bocs",
+        "description" : "Returns a bocs",
+        "operationId" : "GetBocs",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the bocs",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BocsGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Bocs" ],
+        "summary" : "Update Bocs",
+        "description" : "Updates a bocs",
+        "operationId" : "PutBocs",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the bocs",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Bocs Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BocsPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BocsPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Bocs" ],
+        "summary" : "Delete Bocs",
+        "description" : "Deletes a bocs",
+        "operationId" : "DeleteBocs",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the bocs",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BocsDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' | jq\n"
         } ]
       }
     },
@@ -1591,6 +3157,1572 @@
         } ]
       }
     },
+    "/categories" : {
+      "get" : {
+        "tags" : [ "Categories" ],
+        "summary" : "List Categories",
+        "description" : "List of categories",
+        "operationId" : "ListCategories",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CategoriesListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Categories" ],
+        "summary" : "Create Category",
+        "description" : "Creates a category",
+        "operationId" : "PostCategory",
+        "requestBody" : {
+          "description" : "Category Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CategoriesPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CategoriesPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/categories/{id}" : {
+      "get" : {
+        "tags" : [ "Categories" ],
+        "summary" : "Get Category",
+        "description" : "Returns a category",
+        "operationId" : "GetCategory",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the category",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CategoriesGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Categories" ],
+        "summary" : "Update Category",
+        "description" : "Updates a category",
+        "operationId" : "PutCategory",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the category",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Category Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CategoriesPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CategoriesPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Categories" ],
+        "summary" : "Delete Category",
+        "description" : "Deletes a category",
+        "operationId" : "DeleteCategory",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the category",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CategoriesDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' | jq\n"
+        } ]
+      }
+    },
+    "/tags" : {
+      "get" : {
+        "tags" : [ "Tags" ],
+        "summary" : "List Tags",
+        "description" : "List of tags",
+        "operationId" : "ListTags",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TagsListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Tags" ],
+        "summary" : "Create Tag",
+        "description" : "Creates a tag",
+        "operationId" : "PostTag",
+        "requestBody" : {
+          "description" : "Tag Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TagsPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TagsPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/tags/{id}" : {
+      "get" : {
+        "tags" : [ "Tags" ],
+        "summary" : "Get Tag",
+        "description" : "Returns a tag",
+        "operationId" : "GetTag",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the tag",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TagsGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Tags" ],
+        "summary" : "Update Tag",
+        "description" : "Updates a tag",
+        "operationId" : "PutTag",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the tag",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Tag Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TagsPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TagsPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Tags" ],
+        "summary" : "Delete Tag",
+        "description" : "Deletes a tag",
+        "operationId" : "DeleteTag",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the tag",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TagsDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' | jq\n"
+        } ]
+      }
+    },
+    "/orders" : {
+      "get" : {
+        "tags" : [ "Orders" ],
+        "summary" : "List Orders",
+        "description" : "List of orders",
+        "operationId" : "ListOrders",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrdersListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Create Order",
+        "description" : "Creates an order",
+        "operationId" : "PostOrder",
+        "requestBody" : {
+          "description" : "Order Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OrdersPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrdersPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/orders/{id}" : {
+      "get" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Get Order",
+        "description" : "Returns an order",
+        "operationId" : "GetOrder",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the order",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrdersGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Update Order",
+        "description" : "Updates an order",
+        "operationId" : "PutOrder",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the order",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Order Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/OrdersPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrdersPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Orders" ],
+        "summary" : "Delete Order",
+        "description" : "Deletes an order",
+        "operationId" : "DeleteOrder",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the order",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/OrdersDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' | jq\n"
+        } ]
+      }
+    },
     "/subscriptions" : {
       "get" : {
         "tags" : [ "Subscriptions" ],
@@ -2112,6 +5244,1252 @@
           "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq\n"
         } ]
       }
+    },
+    "/shipping-zones" : {
+      "get" : {
+        "tags" : [ "Shipping Zones" ],
+        "summary" : "List Shipping Zones",
+        "description" : "List of shipping zones",
+        "operationId" : "ListShippingZones",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ShippingZonesListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Shipping Zones" ],
+        "summary" : "CreateShipping Zone",
+        "description" : "Creates a shipping zone",
+        "operationId" : "PostShippingZone",
+        "requestBody" : {
+          "description" : "Shipping Zone Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ShippingZonesPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ShippingZonesPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/shipping-zones/{id}" : {
+      "get" : {
+        "tags" : [ "Shipping Zones" ],
+        "summary" : "Get Shipping Zone",
+        "description" : "Returns a shipping zone",
+        "operationId" : "GetShippingZone",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the shipping zone",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ShippingZonesGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Shipping Zones" ],
+        "summary" : "Update Shipping Zone",
+        "description" : "Updates a shipping zone",
+        "operationId" : "PutShippingZone",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the shipping zone",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Shipping Zone Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ShippingZonesPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ShippingZonesPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Shipping Zones" ],
+        "summary" : "Delete Shipping Zone",
+        "description" : "Deletes a shipping zone",
+        "operationId" : "DeleteShippingZone",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the shipping zone",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ShippingZonesDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' | jq\n"
+        } ]
+      }
+    },
+    "/tax-rates" : {
+      "get" : {
+        "tags" : [ "Tax Rates" ],
+        "summary" : "List Tax Rates",
+        "description" : "List of tax rates",
+        "operationId" : "ListTaxRates",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TaxRatesListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates' | jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Tax Rates" ],
+        "summary" : "Create Tax Rate",
+        "description" : "Creates a tax rate",
+        "operationId" : "PostTaxRate",
+        "requestBody" : {
+          "description" : "Tax Rate Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TaxRatesPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TaxRatesPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/tax-rates/{id}" : {
+      "get" : {
+        "tags" : [ "Tax Rates" ],
+        "summary" : "Get Tax Rate",
+        "description" : "Returns a tax rate",
+        "operationId" : "GetTaxRate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the tax rate",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TaxRatesGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Tax Rates" ],
+        "summary" : "Update Tax Rate",
+        "description" : "Updates a tax rate",
+        "operationId" : "PutTaxRate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the tax rate",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Tax Rate Fields",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TaxRatesPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TaxRatesPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Tax Rates" ],
+        "summary" : "Delete Tax Rate",
+        "description" : "Deletes a tax rate",
+        "operationId" : "DeleteTaxRate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the tax rate",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TaxRatesDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq\n"
+        } ]
+      }
+    },
+    "/widgets" : {
+      "get" : {
+        "tags" : [ "Widgets" ],
+        "summary" : "List Widgets",
+        "description" : "List of widgets",
+        "operationId" : "ListWidgets",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WidgetsListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/widgets' | jq\n"
+        } ]
+      }
+    },
+    "/widgets/{id}" : {
+      "get" : {
+        "tags" : [ "Widgets" ],
+        "summary" : "Get Widget",
+        "description" : "Returns a widget",
+        "operationId" : "GetWidget",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the widget",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WidgetsGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/widgets/<widget ID>' | jq\n"
+        } ]
+      }
     }
   },
   "components" : {
@@ -2245,7 +6623,7 @@
           }
         }
       },
-      "OrdersListResponse" : {
+      "SubscribersListResponse" : {
         "type" : "object",
         "properties" : {
           "code" : {
@@ -2259,7 +6637,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/OrdersListResponse_data"
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -2268,7 +6646,7 @@
           }
         }
       },
-      "OrdersPostRequest" : {
+      "SubscribersPostRequest" : {
         "type" : "object",
         "properties" : {
           "email" : {
@@ -2285,7 +6663,7 @@
           }
         }
       },
-      "OrdersPostResponse" : {
+      "SubscribersPostResponse" : {
         "type" : "object",
         "properties" : {
           "code" : {
@@ -2297,11 +6675,11 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersPostResponse_data"
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
           }
         }
       },
-      "OrdersGetResponse" : {
+      "SubscribersGetResponse" : {
         "type" : "object",
         "properties" : {
           "code" : {
@@ -2317,7 +6695,7 @@
           }
         }
       },
-      "OrdersPutRequest" : {
+      "SubscribersPutRequest" : {
         "type" : "object",
         "properties" : {
           "email" : {
@@ -2334,7 +6712,7 @@
           }
         }
       },
-      "OrdersPutResponse" : {
+      "SubscribersPutResponse" : {
         "type" : "object",
         "properties" : {
           "code" : {
@@ -2350,7 +6728,361 @@
           }
         }
       },
-      "OrdersDeleteResponse" : {
+      "SubscribersDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
+      "AddressListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "AddressPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "AddressPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "AddressGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "AddressPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "AddressPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "AddressDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
+      "CollectionsListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "CollectionsPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "CollectionsPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "CollectionsGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "CollectionsPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "CollectionsPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "CollectionsDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
+      "BocsListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "BocsPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "BocsPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "BocsGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "BocsPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "BocsPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "BocsDeleteResponse" : {
         "type" : "object",
         "properties" : {
           "code" : {
@@ -2481,6 +7213,360 @@
           }
         }
       },
+      "CategoriesListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "CategoriesPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "CategoriesPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "CategoriesGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "CategoriesPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "CategoriesPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "CategoriesDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
+      "TagsListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "TagsPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "TagsPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "TagsGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "TagsPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "TagsPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "TagsDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
+      "OrdersListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/OrdersListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "OrdersPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "OrdersPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/OrdersPostResponse_data"
+          }
+        }
+      },
+      "OrdersGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "OrdersPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "OrdersPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "OrdersDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
       "SubscriptionsListResponse" : {
         "type" : "object",
         "properties" : {
@@ -2596,6 +7682,281 @@
           "message" : {
             "type" : "string",
             "example" : "success"
+          }
+        }
+      },
+      "ShippingZonesListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "ShippingZonesPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "ShippingZonesPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "ShippingZonesGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "ShippingZonesPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "ShippingZonesPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "ShippingZonesDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
+      "TaxRatesListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "TaxRatesPostRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "TaxRatesPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "TaxRatesGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "TaxRatesPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
+          }
+        }
+      },
+      "TaxRatesPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
+          }
+        }
+      },
+      "TaxRatesDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          }
+        }
+      },
+      "WidgetsListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+          }
+        }
+      },
+      "WidgetsGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_data"
           }
         }
       },
@@ -2859,12 +8220,21 @@
   },
   "x-tagGroups" : [ {
     "name" : "People",
-    "tags" : [ "Contacts" ]
+    "tags" : [ "Contacts", "Subscribers", "Address" ]
+  }, {
+    "name" : "Bocs",
+    "tags" : [ "Collections", "Bocs" ]
   }, {
     "name" : "Products",
-    "tags" : [ "Products" ]
+    "tags" : [ "Products", "Categories", "Tags" ]
   }, {
     "name" : "Sales",
     "tags" : [ "Orders", "Subscriptions" ]
+  }, {
+    "name" : "Shipping & Tax",
+    "tags" : [ "Shipping Zones", "Tax Rates" ]
+  }, {
+    "name" : "Widgets",
+    "tags" : [ "Widgets" ]
   } ]
 }
