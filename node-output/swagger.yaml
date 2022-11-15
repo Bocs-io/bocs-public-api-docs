@@ -1097,7 +1097,7 @@
       "get" : {
         "tags" : [ "Address" ],
         "summary" : "List Address",
-        "description" : "List of address",
+        "description" : "Returns a list of address",
         "operationId" : "ListAddress",
         "parameters" : [ {
           "name" : "query",
@@ -1207,16 +1207,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Address" ],
         "summary" : "Create Address",
-        "description" : "Creates a address",
+        "description" : "Create properties of an address",
         "operationId" : "PostAddress",
         "requestBody" : {
-          "description" : "Address Fields",
+          "description" : "Parameters for creating an address",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1308,7 +1308,7 @@
       "get" : {
         "tags" : [ "Address" ],
         "summary" : "Get Address",
-        "description" : "Returns a address",
+        "description" : "Returns details about an address",
         "operationId" : "GetAddress",
         "parameters" : [ {
           "name" : "id",
@@ -1396,13 +1396,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Address" ],
         "summary" : "Update Address",
-        "description" : "Updates a address",
+        "description" : "Update properties for an address",
         "operationId" : "PutAddress",
         "parameters" : [ {
           "name" : "id",
@@ -1417,7 +1417,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Address Fields",
+          "description" : "Parameters for updating an address",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1521,7 +1521,7 @@
       "delete" : {
         "tags" : [ "Address" ],
         "summary" : "Delete Address",
-        "description" : "Deletes a address",
+        "description" : "Deletes a specified address",
         "operationId" : "DeleteAddress",
         "parameters" : [ {
           "name" : "id",
@@ -1623,7 +1623,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -6984,38 +6984,61 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 200
+            "description" : "Status code",
+            "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
               "$ref" : "#/components/schemas/AddressListResponse_data"
             }
           },
           "nextPageLink" : {
             "type" : "string",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/address?pageToken=c70e668c"
           }
         }
       },
       "AddressPostRequest" : {
+        "required" : [ "address1", "city", "country", "postcode", "state" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "address1" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Address line 1 of the address",
+            "example" : "Urban Homes"
           },
-          "firstName" : {
+          "address2" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Address line 2 of the address",
+            "example" : "Phase 2 Building"
           },
-          "lastName" : {
+          "city" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "City of the address",
+            "example" : "Victoria"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the address",
+            "example" : "Victoria"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the address",
+            "example" : "AU"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the address",
+            "example" : "6000"
           }
         }
       },
@@ -7024,14 +7047,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/AddressPostResponse_data"
           }
         }
       },
@@ -7040,31 +7065,51 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 200
+            "description" : "Status code",
+            "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/AddressPostResponse_data"
           }
         }
       },
       "AddressPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "address1" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Address line 1 of the address",
+            "example" : "Urban Homes"
           },
-          "firstName" : {
+          "address2" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Address line 2 of the address",
+            "example" : "Phase 2 Building"
           },
-          "lastName" : {
+          "city" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "City of the address",
+            "example" : "Victoria"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the address",
+            "example" : "Victoria"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the address",
+            "example" : "AU"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the address",
+            "example" : "6000"
           }
         }
       },
@@ -7073,14 +7118,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 200
+            "description" : "Status code",
+            "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/AddressPostResponse_data"
           }
         }
       },
@@ -7089,10 +7136,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -7111,7 +7160,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7149,7 +7198,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7165,7 +7214,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7198,7 +7247,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7229,7 +7278,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7267,7 +7316,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7283,7 +7332,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7316,7 +7365,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7347,7 +7396,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7385,7 +7434,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7401,7 +7450,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7434,7 +7483,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7465,7 +7514,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7503,7 +7552,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7519,7 +7568,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7552,7 +7601,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7583,7 +7632,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7621,7 +7670,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7637,7 +7686,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7670,7 +7719,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7755,7 +7804,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7788,7 +7837,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7819,7 +7868,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7857,7 +7906,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7873,7 +7922,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7906,7 +7955,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7937,7 +7986,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7975,7 +8024,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -7991,7 +8040,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -8024,7 +8073,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -8055,7 +8104,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8093,7 +8142,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -8109,7 +8158,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -8142,7 +8191,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -8173,7 +8222,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/AddressListResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8194,7 +8243,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/AddressListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsListResponse_data"
           }
         }
       },
@@ -8477,6 +8526,105 @@
         "description" : "Response data"
       },
       "AddressListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "addressId" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "address1" : {
+            "type" : "string",
+            "description" : "Address line 1 of the address",
+            "example" : "Urban Homes"
+          },
+          "address2" : {
+            "type" : "string",
+            "description" : "Address line 2 of the address",
+            "example" : "Phase 2 Building"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the address",
+            "example" : "Victoria"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the address",
+            "example" : "Victoria"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the address",
+            "example" : "AU"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the address",
+            "example" : "6000"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the address",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the address",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "AddressPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "addressId" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "address1" : {
+            "type" : "string",
+            "description" : "Address line 1 of the address",
+            "example" : "Urban Homes"
+          },
+          "address2" : {
+            "type" : "string",
+            "description" : "Address line 2 of the address",
+            "example" : "Phase 2 Building"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the address",
+            "example" : "Victoria"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the address",
+            "example" : "Victoria"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the address",
+            "example" : "AU"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the address",
+            "example" : "6000"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the address",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the address",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
+      "CollectionsListResponse_data" : {
         "type" : "object",
         "properties" : {
           "contactId" : {
