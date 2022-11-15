@@ -1750,7 +1750,7 @@
         "description" : "Creates a collection",
         "operationId" : "PostCollection",
         "requestBody" : {
-          "description" : "Collection Fields",
+          "description" : "Parameters for creating a collection",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -1930,7 +1930,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
@@ -1951,7 +1951,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Collection Fields",
+          "description" : "Parameters for updating collection",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -6789,7 +6789,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -6804,7 +6804,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -6892,7 +6892,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -6952,7 +6952,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -6970,7 +6970,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -7151,10 +7151,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
@@ -7165,24 +7167,43 @@
           },
           "nextPageLink" : {
             "type" : "string",
+            "description" : "Next page link",
             "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
           }
         }
       },
       "CollectionsPostRequest" : {
+        "required" : [ "boxes", "collectionType", "name" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "collectionType" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Type of the collection",
+            "example" : "fixed"
           },
-          "firstName" : {
+          "name" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Name of the collection",
+            "example" : "My Collection"
           },
-          "lastName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Description of the collection",
+            "example" : "My description of collection"
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_images"
+            }
+          },
+          "boxes" : {
+            "type" : "array",
+            "description" : "Boxes of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsPostRequest_boxes"
+            }
           }
         }
       },
@@ -7191,10 +7212,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
@@ -7207,10 +7230,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
@@ -7221,17 +7246,34 @@
       "CollectionsPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "collectionType" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Type of the collection",
+            "example" : "fixed"
           },
-          "firstName" : {
+          "name" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Name of the collection",
+            "example" : "My Collection"
           },
-          "lastName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Description of the collection",
+            "example" : "My description of collection"
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_images"
+            }
+          },
+          "boxes" : {
+            "type" : "array",
+            "description" : "Boxes of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsPostRequest_boxes"
+            }
           }
         }
       },
@@ -7240,14 +7282,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsPutResponse_data"
           }
         }
       },
@@ -7256,10 +7300,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "description" : "Status code",
+            "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -7278,7 +7324,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7316,7 +7362,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7332,7 +7378,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7365,7 +7411,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7396,7 +7442,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7434,7 +7480,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7450,7 +7496,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7483,7 +7529,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7514,7 +7560,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7552,7 +7598,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7568,7 +7614,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7601,7 +7647,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7632,7 +7678,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7670,7 +7716,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7686,7 +7732,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7719,7 +7765,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7804,7 +7850,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7837,7 +7883,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7868,7 +7914,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7906,7 +7952,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7922,7 +7968,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7955,7 +8001,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -7986,7 +8032,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8024,7 +8070,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -8040,7 +8086,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -8073,7 +8119,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -8104,7 +8150,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8142,7 +8188,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -8158,7 +8204,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -8191,7 +8237,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -8222,7 +8268,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CollectionsListResponse_data"
+              "$ref" : "#/components/schemas/BocsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8243,7 +8289,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/BocsListResponse_data"
           }
         }
       },
@@ -8624,7 +8670,359 @@
         },
         "description" : "Response data"
       },
+      "CollectionsListResponse_images" : {
+        "type" : "object",
+        "properties" : {
+          "url" : {
+            "type" : "string",
+            "description" : "Image of the collection",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          },
+          "thumbnail" : {
+            "type" : "string",
+            "description" : "Image of the collection",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          }
+        }
+      },
+      "CollectionsListResponse_boxPricing" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Id of the box pricing",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "discount" : {
+            "type" : "number",
+            "description" : "Discount of the box pricing",
+            "example" : 0
+          },
+          "discountType" : {
+            "type" : "string",
+            "description" : "Discount type of the box pricing",
+            "example" : "percentage"
+          },
+          "frequency" : {
+            "type" : "number",
+            "description" : "Frequency of the box pricing",
+            "example" : 7
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box pricing",
+            "example" : "Collection-SKU"
+          },
+          "timeUnit" : {
+            "type" : "string",
+            "description" : "Time unit of the box pricing",
+            "example" : "day"
+          }
+        }
+      },
+      "CollectionsListResponse_images_1" : {
+        "properties" : {
+          "url" : {
+            "type" : "string",
+            "description" : "Image of the items under collection",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          },
+          "thumbnail" : {
+            "type" : "string",
+            "description" : "Image of the items under collection",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          }
+        }
+      },
+      "CollectionsListResponse_items" : {
+        "type" : "object",
+        "properties" : {
+          "productId" : {
+            "type" : "string",
+            "description" : "Id of the item",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the item",
+            "example" : "Item 1"
+          },
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the item",
+            "example" : 25
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the item",
+            "example" : 2
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the items under collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_images_1"
+            }
+          }
+        }
+      },
+      "CollectionsListResponse_images_2" : {
+        "type" : "object",
+        "properties" : {
+          "url" : {
+            "type" : "string",
+            "description" : "Image of the box under collection",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          },
+          "thumbnail" : {
+            "type" : "string",
+            "description" : "Image of the box under collection",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          }
+        }
+      },
+      "CollectionsListResponse_boxes" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Id of the box collection",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "collectionId" : {
+            "type" : "string",
+            "description" : "Id of the collection",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "boxPrice" : {
+            "type" : "number",
+            "description" : "Price of the box collection",
+            "example" : 4
+          },
+          "boxDescription" : {
+            "type" : "string",
+            "description" : "Description of the box collection",
+            "example" : "My box description"
+          },
+          "boxName" : {
+            "type" : "string",
+            "description" : "Name of the box collection",
+            "example" : "My Box"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box collection",
+            "example" : "Test-SKU"
+          },
+          "boxPricing" : {
+            "type" : "array",
+            "description" : "Pricing of the box collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_boxPricing"
+            }
+          },
+          "items" : {
+            "type" : "array",
+            "description" : "Items of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_items"
+            }
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the box under collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_images_2"
+            }
+          }
+        }
+      },
       "CollectionsListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "string",
+            "description" : "Id of the bocs user",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "collectionId" : {
+            "type" : "string",
+            "description" : "Id of the collection",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "collectionType" : {
+            "type" : "string",
+            "description" : "Type of the collection",
+            "example" : "fixed"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the collection",
+            "example" : "My Collection"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the collection",
+            "example" : "My description of collection"
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_images"
+            }
+          },
+          "boxes" : {
+            "type" : "array",
+            "description" : "Boxes of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_boxes"
+            }
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "CollectionsPostRequest_boxPricing" : {
+        "type" : "object",
+        "properties" : {
+          "discount" : {
+            "type" : "number",
+            "description" : "Discount of the box pricing",
+            "example" : 0
+          },
+          "discountType" : {
+            "type" : "string",
+            "description" : "Discount type of the box pricing",
+            "example" : "percentage"
+          },
+          "frequency" : {
+            "type" : "number",
+            "description" : "Frequency of the box pricing",
+            "example" : 7
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box pricing",
+            "example" : "Collection-SKU"
+          },
+          "timeUnit" : {
+            "type" : "string",
+            "description" : "Time unit of the box pricing",
+            "example" : "day"
+          }
+        }
+      },
+      "CollectionsPostRequest_boxes" : {
+        "type" : "object",
+        "properties" : {
+          "boxPrice" : {
+            "type" : "number",
+            "description" : "Price of the box collection",
+            "example" : 4
+          },
+          "boxDescription" : {
+            "type" : "string",
+            "description" : "Description of the box collection",
+            "example" : "My box description"
+          },
+          "boxName" : {
+            "type" : "string",
+            "description" : "Name of the box collection",
+            "example" : "My Box"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box collection",
+            "example" : "Test-SKU"
+          },
+          "boxPricing" : {
+            "type" : "array",
+            "description" : "Pricing of the box collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsPostRequest_boxPricing"
+            }
+          },
+          "items" : {
+            "type" : "array",
+            "description" : "Items of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_items"
+            }
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the box under collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_images_2"
+            }
+          }
+        }
+      },
+      "CollectionsPutResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "string",
+            "description" : "Id of the bocs user",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "collectionId" : {
+            "type" : "string",
+            "description" : "Id of the collection",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "collectionType" : {
+            "type" : "string",
+            "description" : "Type of the collection",
+            "example" : "fixed"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the collection",
+            "example" : "My Collection"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the collection",
+            "example" : "My description of collection"
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_images"
+            }
+          },
+          "boxes" : {
+            "type" : "array",
+            "description" : "Boxes of the collection",
+            "items" : {
+              "$ref" : "#/components/schemas/CollectionsListResponse_boxes"
+            }
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
+      "BocsListResponse_data" : {
         "type" : "object",
         "properties" : {
           "contactId" : {
