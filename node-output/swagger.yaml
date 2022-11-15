@@ -43,6 +43,18 @@
             "example" : "firstName:\"bar\""
           }
         }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
           "name" : "pageToken",
           "in" : "query",
           "description" : "The pagination page token",
@@ -127,16 +139,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Contacts" ],
         "summary" : "Create Contact",
-        "description" : "Creates a contact",
+        "description" : "Create properties of a contact",
         "operationId" : "PostContact",
         "requestBody" : {
-          "description" : "Contact Fields",
+          "description" : "Parameters for creating a contact",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -228,7 +240,7 @@
       "get" : {
         "tags" : [ "Contacts" ],
         "summary" : "Get Contact",
-        "description" : "Returns a contact",
+        "description" : "Returns details about a contact",
         "operationId" : "GetContact",
         "parameters" : [ {
           "name" : "id",
@@ -316,13 +328,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts/<contact ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts/<contact ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Contacts" ],
         "summary" : "Update Contact",
-        "description" : "Updates a contact",
+        "description" : "Update properties for a contact",
         "operationId" : "PutContact",
         "parameters" : [ {
           "name" : "id",
@@ -337,7 +349,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Contact Fields",
+          "description" : "Parameters for updating a contact",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -441,7 +453,7 @@
       "delete" : {
         "tags" : [ "Contacts" ],
         "summary" : "Delete Contact",
-        "description" : "Deletes a contact",
+        "description" : "Deletes a specified contact",
         "operationId" : "DeleteContact",
         "parameters" : [ {
           "name" : "id",
@@ -543,7 +555,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts/<contact ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts/<contact ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -551,7 +563,7 @@
       "get" : {
         "tags" : [ "Subscribers" ],
         "summary" : "List Subscribers",
-        "description" : "List of subscribers",
+        "description" : "Returns a list of subscribers",
         "operationId" : "ListSubscribers",
         "parameters" : [ {
           "name" : "query",
@@ -563,6 +575,18 @@
           "schema" : {
             "type" : "string",
             "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
           }
         }, {
           "name" : "pageToken",
@@ -649,16 +673,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Subscribers" ],
         "summary" : "Create Subscriber",
-        "description" : "Creates a subscriber",
+        "description" : "Create properties of a subscriber",
         "operationId" : "PostSubscriber",
         "requestBody" : {
-          "description" : "Subscriber Fields",
+          "description" : "Parameters for creating a subscriber",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -750,7 +774,7 @@
       "get" : {
         "tags" : [ "Subscribers" ],
         "summary" : "Get Subscriber",
-        "description" : "Returns a subscriber",
+        "description" : "Returns details about a subscriber",
         "operationId" : "GetSubscriber",
         "parameters" : [ {
           "name" : "id",
@@ -838,13 +862,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Subscribers" ],
         "summary" : "Update Subscriber",
-        "description" : "Updates a subscriber",
+        "description" : "Update details of a subscriber",
         "operationId" : "PutSubscriber",
         "parameters" : [ {
           "name" : "id",
@@ -859,7 +883,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Subscriber Fields",
+          "description" : "Parameters for updating a subscriber",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -963,7 +987,7 @@
       "delete" : {
         "tags" : [ "Subscribers" ],
         "summary" : "Delete Subscriber",
-        "description" : "Deletes a subscriber",
+        "description" : "Deletes a specified subscriber",
         "operationId" : "DeleteSubscriber",
         "parameters" : [ {
           "name" : "id",
@@ -1065,7 +1089,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -1085,6 +1109,18 @@
           "schema" : {
             "type" : "string",
             "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
           }
         }, {
           "name" : "pageToken",
@@ -1609,6 +1645,18 @@
             "example" : "firstName:\"bar\""
           }
         }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
           "name" : "pageToken",
           "in" : "query",
           "description" : "The pagination page token",
@@ -2129,6 +2177,18 @@
           "schema" : {
             "type" : "string",
             "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
           }
         }, {
           "name" : "pageToken",
@@ -2653,6 +2713,18 @@
             "example" : "firstName:\"bar\""
           }
         }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
           "name" : "pageToken",
           "in" : "query",
           "description" : "The pagination page token",
@@ -3173,6 +3245,18 @@
           "schema" : {
             "type" : "string",
             "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
           }
         }, {
           "name" : "pageToken",
@@ -3697,6 +3781,18 @@
             "example" : "firstName:\"bar\""
           }
         }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
           "name" : "pageToken",
           "in" : "query",
           "description" : "The pagination page token",
@@ -4217,6 +4313,18 @@
           "schema" : {
             "type" : "string",
             "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
           }
         }, {
           "name" : "pageToken",
@@ -4741,6 +4849,18 @@
             "example" : "firstName:\"bar\""
           }
         }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
           "name" : "pageToken",
           "in" : "query",
           "description" : "The pagination page token",
@@ -5261,6 +5381,18 @@
           "schema" : {
             "type" : "string",
             "example" : "firstName:\"bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
           }
         }, {
           "name" : "pageToken",
@@ -5785,6 +5917,18 @@
             "example" : "firstName:\"bar\""
           }
         }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
           "name" : "pageToken",
           "in" : "query",
           "description" : "The pagination page token",
@@ -6307,6 +6451,18 @@
             "example" : "firstName:\"bar\""
           }
         }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
           "name" : "pageToken",
           "in" : "query",
           "description" : "The pagination page token",
@@ -6529,19 +6685,23 @@
         }
       },
       "ContactsPostRequest" : {
+        "required" : [ "email" ],
         "type" : "object",
         "properties" : {
           "email" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Email of the contact",
+            "example" : "earl+irwin@bocs.io"
           },
           "firstName" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "First name of the contact",
+            "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Last name of the contact",
+            "example" : "Irwin"
           }
         }
       },
@@ -6582,15 +6742,18 @@
         "properties" : {
           "email" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Email of the contact",
+            "example" : "earl+irwin@bocs.io"
           },
           "firstName" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "First name of the contact",
+            "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Last name of the contact",
+            "example" : "Irwin"
           }
         }
       },
@@ -6637,7 +6800,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -6647,19 +6810,39 @@
         }
       },
       "SubscribersPostRequest" : {
+        "required" : [ "company", "email" ],
         "type" : "object",
         "properties" : {
+          "company" : {
+            "type" : "string",
+            "example" : "Qualia Wine Services"
+          },
           "email" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "example" : "ear+irwin@bocs.io"
           },
           "firstName" : {
             "type" : "string",
-            "example" : "Foo"
+            "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "example" : "Bar"
+            "example" : "Irwin"
+          },
+          "gender" : {
+            "type" : "string",
+            "example" : "male",
+            "enum" : [ "male", "female" ]
+          },
+          "phone" : {
+            "type" : "string",
+            "example" : "619125324436"
+          },
+          "billingAddress" : {
+            "$ref" : "#/components/schemas/SubscribersListResponse_billingAddress"
+          },
+          "shippingAddress" : {
+            "$ref" : "#/components/schemas/SubscribersListResponse_billingAddress"
           }
         }
       },
@@ -6675,7 +6858,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6691,7 +6874,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersListResponse_data"
           }
         }
       },
@@ -6724,7 +6907,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6755,7 +6938,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -6793,7 +6976,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6809,7 +6992,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6842,7 +7025,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6873,7 +7056,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -6911,7 +7094,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6927,7 +7110,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6960,7 +7143,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -6991,7 +7174,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7029,7 +7212,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7045,7 +7228,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7078,7 +7261,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7109,7 +7292,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7147,7 +7330,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7163,7 +7346,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7196,7 +7379,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7227,7 +7410,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7265,7 +7448,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7281,7 +7464,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7314,7 +7497,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7345,7 +7528,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7383,7 +7566,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7399,7 +7582,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7432,7 +7615,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7517,7 +7700,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7550,7 +7733,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7581,7 +7764,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7619,7 +7802,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7635,7 +7818,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7668,7 +7851,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7699,7 +7882,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7737,7 +7920,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7753,7 +7936,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7786,7 +7969,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7817,7 +8000,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7855,7 +8038,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7871,7 +8054,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7904,7 +8087,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
@@ -7935,7 +8118,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ContactsListResponse_data"
+              "$ref" : "#/components/schemas/SubscribersPostResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7956,11 +8139,124 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/SubscribersPostResponse_data"
           }
         }
       },
       "ContactsListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "contactId" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "email" : {
+            "type" : "string",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Irwin"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "SubscribersListResponse_billingAddress" : {
+        "type" : "object",
+        "properties" : {
+          "address1" : {
+            "type" : "string",
+            "example" : "Urban Homes"
+          },
+          "address2" : {
+            "type" : "string",
+            "example" : "Phase 2 Building"
+          },
+          "city" : {
+            "type" : "string",
+            "example" : "Victoria"
+          },
+          "state" : {
+            "type" : "string",
+            "example" : "Victoria"
+          },
+          "country" : {
+            "type" : "string",
+            "example" : "AU"
+          },
+          "postcode" : {
+            "type" : "string",
+            "example" : "6000"
+          }
+        }
+      },
+      "SubscribersListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "subscriberId" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "email" : {
+            "type" : "string",
+            "example" : "ear+irwin@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Irwin"
+          },
+          "gender" : {
+            "type" : "string",
+            "example" : "male"
+          },
+          "company" : {
+            "type" : "string",
+            "example" : "Qualia Wine Services"
+          },
+          "phone" : {
+            "type" : "string",
+            "example" : "619125324436"
+          },
+          "billingAddress" : {
+            "$ref" : "#/components/schemas/SubscribersListResponse_billingAddress"
+          },
+          "shippingAddress" : {
+            "$ref" : "#/components/schemas/SubscribersListResponse_billingAddress"
+          },
+          "status" : {
+            "type" : "string",
+            "example" : "active"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "SubscribersPostResponse_data" : {
         "type" : "object",
         "properties" : {
           "contactId" : {
