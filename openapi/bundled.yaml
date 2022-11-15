@@ -1,0 +1,1662 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Bocs API
+  termsOfService: https://api.bocs.io/terms/
+  contact:
+    email: contact@bocs.io
+    url: https://bocs.io/contact
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://admsa.github.io/bocs.io/bocs.png
+  description: |
+    This is an **example** API to demonstrate features of the OpenAPI specification.
+
+    # Introduction
+
+    This API definition is intended to to be a good starting point for
+    describing your API in 
+
+    [OpenAPI/Swagger
+    format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md).
+
+    It also demonstrates features of the
+    [create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
+    and 
+
+    the [Redoc](https://github.com/Redocly/Redoc) documentation engine. Beyond
+    the standard OpenAPI syntax, we use a few 
+
+    [vendor
+    extensions](https://github.com/Redocly/Redoc/blob/master/docs/redoc-vendor-extensions.md).
+
+
+    # OpenAPI Specification
+
+    The goal of The OpenAPI Specification is to define a standard,
+    language-agnostic interface to REST APIs which
+
+    allows both humans and computers to discover and understand the capabilities
+    of the service without access to source
+
+    code, documentation, or through network traffic inspection. When properly
+    defined via OpenAPI, a consumer can 
+
+    understand and interact with the remote service with a minimal amount of
+    implementation logic. Similar to what
+
+    interfaces have done for lower-level programming, OpenAPI removes the
+    guesswork in calling the service.
+paths:
+  /contacts:
+    get:
+      operationId: ListContacts
+      summary: List Contacts
+      description: List of contacts
+      tags:
+        - Contacts
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+            example: firstName:"bar"
+          description: Filter returned rows
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/contacts' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsListResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: PostContact
+      summary: Create Contact
+      description: Creates a contact
+      tags:
+        - Contacts
+      security:
+        - api_key: []
+      requestBody:
+        description: Contact Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactsPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/contacts' \
+            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /contacts/{id}:
+    get:
+      operationId: GetContact
+      summary: Get Contact
+      description: Returns a contact
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the contact
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/contacts/<contact ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsGetResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: PutContact
+      summary: Update Contact
+      description: Updates a contact
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the contact
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request PUT \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/contacts/<contact ID>' \
+            --data '{"lastName": "updated"}' \
+            | jq
+      requestBody:
+        description: Contact Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactsPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsPutResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: DeleteContact
+      summary: Delete Contact
+      description: Deletes a contact
+      tags:
+        - Contacts
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the contact
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/contacts/<contact ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactsDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /orders:
+    get:
+      operationId: ListOrders
+      summary: List Orders
+      description: List of orders
+      tags:
+        - Orders
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+            example: firstName:"bar"
+          description: Filter returned rows
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/orders' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersListResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: PostOrder
+      summary: Create Order
+      description: Creates an order
+      tags:
+        - Orders
+      security:
+        - api_key: []
+      requestBody:
+        description: Order Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdersPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/orders' \
+            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /orders/{id}:
+    get:
+      operationId: GetOrder
+      summary: Get Order
+      description: Returns an order
+      tags:
+        - Orders
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the order
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/orders/<order ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersGetResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: PutOrder
+      summary: Update Order
+      description: Updates an order
+      tags:
+        - Orders
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the order
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request PUT \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/orders/<order ID>' \
+            --data '{"lastName": "updated"}' \
+            | jq
+      requestBody:
+        description: Order Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrdersPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersPutResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: DeleteOrder
+      summary: Delete Order
+      description: Deletes an order
+      tags:
+        - Orders
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the order
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/orders/<order ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrdersDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /products:
+    get:
+      operationId: ListProducts
+      summary: List Products
+      description: List of products
+      tags:
+        - Products
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+            example: firstName:"bar"
+          description: Filter returned rows
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/products' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsListResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: PostProduct
+      summary: Create Product
+      description: Creates a product
+      tags:
+        - Products
+      security:
+        - api_key: []
+      requestBody:
+        description: Product Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductsPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/products' \
+            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /products/{id}:
+    get:
+      operationId: GetProduct
+      summary: Get Product
+      description: Returns a product
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the product
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/products/<product ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsGetResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: PutProduct
+      summary: Update Product
+      description: Updates a product
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the product
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request PUT \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/products/<product ID>' \
+            --data '{"lastName": "updated"}' \
+            | jq
+      requestBody:
+        description: Product Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductsPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsPutResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: DeleteProduct
+      summary: Delete Product
+      description: Deletes a product
+      tags:
+        - Products
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the product
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/products/<product ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /subscriptions:
+    get:
+      operationId: ListSubscriptions
+      summary: List Subscriptions
+      description: List of subscriptions
+      tags:
+        - Subscriptions
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+            example: firstName:"bar"
+          description: Filter returned rows
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/subscriptions' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionsListResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: PostSubscription
+      summary: Create Subscription
+      description: Creates a subscription
+      tags:
+        - Subscriptions
+      security:
+        - api_key: []
+      requestBody:
+        description: Subscription Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionsPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/subscriptions' \
+            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionsPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /subscriptions/{id}:
+    get:
+      operationId: GetSubscription
+      summary: Get Subscription
+      description: Returns a subscription
+      tags:
+        - Subscriptions
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the subscription
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionsGetResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: PutSubscription
+      summary: Update Subscription
+      description: Updates a subscription
+      tags:
+        - Subscriptions
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the subscription
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request PUT \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \
+            --data '{"lastName": "updated"}' \
+            | jq
+      requestBody:
+        description: Subscription Fields
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionsPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionsPutResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: DeleteSubscription
+      summary: Delete Subscription
+      description: Deletes a subscription
+      tags:
+        - Subscriptions
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the subscription
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionsDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: api_key
+    basic_auth:
+      type: http
+      scheme: basic
+  schemas:
+    ContactsListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              contactId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              email:
+                type: string
+                example: foo@bocs.io
+              firstName:
+                type: string
+                example: Foo
+              lastName:
+                type: string
+                example: Bar
+              createdAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+              updatedAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+    ContactsPostRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    ContactsPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    ContactsGetResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    ContactsPutRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    ContactsPutResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    ContactsDeleteResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+    OrdersListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              userId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              orderId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              isSubscription:
+                type: boolean
+                example: false
+              total:
+                type: number
+                example: 100
+              discount:
+                type: number
+                example: 3
+              shippingRate:
+                type: number
+                example: 2
+              currency:
+                type: string
+                example: AUD
+              status:
+                type: string
+                example: active
+              paymentDate:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+              isPaid:
+                type: boolean
+                example: false
+              platform:
+                type: string
+                example: woocommerce
+              customer:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                  firstName:
+                    type: string
+                    example: Foo
+                  lastName:
+                    type: string
+                    example: Bar
+                  email:
+                    type: string
+                    example: foo@example.com
+              refunds:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    reason:
+                      type: string
+                      example: Foo Bar
+                    total:
+                      type: number
+                      example: 100
+              createdAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+              updatedAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    OrdersPostRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    OrdersPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    OrdersGetResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    OrdersPutRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    OrdersPutResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    OrdersDeleteResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+    ProductsListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              contactId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              email:
+                type: string
+                example: foo@bocs.io
+              firstName:
+                type: string
+                example: Foo
+              lastName:
+                type: string
+                example: Bar
+              createdAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+              updatedAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    ProductsPostRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    ProductsPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    ProductsGetResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    ProductsPutRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    ProductsPutResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    ProductsDeleteResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+    SubscriptionsListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              contactId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              email:
+                type: string
+                example: foo@bocs.io
+              firstName:
+                type: string
+                example: Foo
+              lastName:
+                type: string
+                example: Bar
+              createdAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+              updatedAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    SubscriptionsPostRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    SubscriptionsPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    SubscriptionsGetResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    SubscriptionsPutRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          example: foo@bocs.io
+        firstName:
+          type: string
+          example: Foo
+        lastName:
+          type: string
+          example: Bar
+    SubscriptionsPutResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+        message:
+          type: string
+          example: success
+        data:
+          type: object
+          properties:
+            contactId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            email:
+              type: string
+              example: foo@bocs.io
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+    SubscriptionsDeleteResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        message:
+          type: string
+          example: success
+  responses:
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: Field is required
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: Unauthorized
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 500
+            message: Internal server error
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/MyPik-App/bocs/1.0.0
+  - description: Test server
+    url: https://api.bocs.io/test

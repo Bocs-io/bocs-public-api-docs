@@ -1,0 +1,90 @@
+type: object
+properties:
+  code:
+    type: integer
+    example: 200
+  message:
+    type: string
+    example: success
+  data:
+    type: array
+    items:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+        orderId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+        isSubscription:
+          type: boolean
+          example: false
+        total:
+          type: number
+          example: 100
+        discount:
+          type: number
+          example: 3
+        shippingRate:
+          type: number
+          example: 2
+        currency:
+          type: string
+          example: AUD
+        status:
+          type: string
+          example: active
+        paymentDate:
+          type: string
+          example: 2022-10-25T11:25:08.394Z
+        isPaid:
+          type: boolean
+          example: false
+        platform:
+          type: string
+          example: woocommerce
+        customer:
+          type: object
+          properties:
+            id:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            firstName:
+              type: string
+              example: Foo
+            lastName:
+              type: string
+              example: Bar
+            email:
+              type: string
+              example: foo@example.com
+        refunds:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              reason:
+                type: string
+                example: Foo Bar
+              total:
+                type: number
+                example: 100
+              createdAt:
+                type: string
+                example: 2022-10-25T11:25:08.394Z
+              updatedAt:
+                type: string
+                example: 2022-10-25T11:25:08.394Z
+        createdAt:
+          type: string
+          example: 2022-10-25T11:25:08.394Z
+        updatedAt:
+          type: string
+          example: 2022-10-25T11:25:08.394Z
+  nextPageLink:
+    type: string
+    example: https://api.bocs.io/dev/contacts?pageToken=c70e668c

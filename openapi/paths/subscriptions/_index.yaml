@@ -1,0 +1,84 @@
+get:
+  operationId: ListSubscriptions
+  summary: List Subscriptions
+  description: List of subscriptions
+  tags:
+    - Subscriptions
+  security:
+    - api_key: []
+  parameters:
+    - in: query
+      name: query
+      schema:
+        type: string
+        example: firstName:"bar"
+      description: Filter returned rows
+    - in: query
+      name: pageToken
+      schema:
+        type: string
+      description: The pagination page token
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request GET \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/subscriptions' | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/subscriptions/SubscriptionsListResponse.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+
+post:
+  operationId: PostSubscription
+  summary: Create Subscription
+  description: Creates a subscription
+  tags:
+    - Subscriptions
+  security:
+    - api_key: []
+  requestBody:
+    description: Subscription Fields
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/subscriptions/SubscriptionsPostRequest.yaml
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request POST \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/subscriptions' \
+        --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+        | jq
+  responses:
+    "201":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/subscriptions/SubscriptionsPostResponse.yaml
+    "400":
+      $ref: ../../components/responses/400.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml

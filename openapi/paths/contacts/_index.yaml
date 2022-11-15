@@ -1,0 +1,84 @@
+get:
+  operationId: ListContacts
+  summary: List Contacts
+  description: Returns a list of contacts
+  tags:
+    - Contacts
+  security:
+    - api_key: []
+  parameters:
+    - in: query
+      name: query
+      schema:
+        type: string
+        example: firstName:"bar"
+      description: Filter returned rows
+    - in: query
+      name: pageToken
+      schema:
+        type: string
+      description: The pagination page token
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request GET \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/contacts' | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/contacts/ContactsListResponse.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+
+post:
+  operationId: PostContact
+  summary: Create Contact
+  description: Creates a contact
+  tags:
+    - Contacts
+  security:
+    - api_key: []
+  requestBody:
+    description: Contact Fields
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/contacts/ContactsPostRequest.yaml
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request POST \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/contacts' \
+        --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+        | jq
+  responses:
+    "201":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/contacts/ContactsPostResponse.yaml
+    "400":
+      $ref: ../../components/responses/400.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
