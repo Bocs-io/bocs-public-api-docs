@@ -14,7 +14,7 @@
     },
     "version" : "1.0.0",
     "x-logo" : {
-      "url" : "https://admsa.github.io/bocs.io/bocs.png"
+      "url" : "https://git.bocs.io/bocs.png"
     }
   },
   "servers" : [ {
@@ -29,7 +29,7 @@
       "get" : {
         "tags" : [ "Contacts" ],
         "summary" : "List Contacts",
-        "description" : "List of contacts",
+        "description" : "Returns a list of contacts",
         "operationId" : "ListContacts",
         "parameters" : [ {
           "name" : "query",
@@ -2297,7 +2297,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersPostResponse_data"
           }
         }
       },
@@ -2663,6 +2663,14 @@
           "total" : {
             "type" : "number",
             "example" : 100
+          },
+          "createdAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
           }
         }
       },
@@ -2721,6 +2729,38 @@
             "items" : {
               "$ref" : "#/components/schemas/OrdersListResponse_refunds"
             }
+          },
+          "createdAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "OrdersPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "total" : {
+            "type" : "string"
+          },
+          "discount" : {
+            "type" : "number"
+          },
+          "shippingRate" : {
+            "type" : "number"
+          },
+          "currency" : {
+            "type" : "string",
+            "example" : "Bar"
+          },
+          "status" : {
+            "type" : "string"
+          },
+          "paymentDate" : {
+            "type" : "string"
           },
           "createdAt" : {
             "type" : "string",
