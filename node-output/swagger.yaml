@@ -2856,5 +2856,15 @@
         "scheme" : "basic"
       }
     }
-  }
+  },
+  "x-tagGroups" : [ {
+    "name" : "People",
+    "tags" : [ "Contacts" ]
+  }, {
+    "name" : "Products",
+    "tags" : [ "Products" ]
+  }, {
+    "name" : "Sales",
+    "tags" : [ "Orders", "Subscriptions" ]
+  } ]
 }
