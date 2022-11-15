@@ -530,7 +530,7 @@ paths:
     get:
       operationId: ListAddress
       summary: List Address
-      description: List of address
+      description: Returns a list of address
       tags:
         - Address
       security:
@@ -561,7 +561,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/address' | jq
+            --url 'https://api.bocs.io/test/address' \
+            | jq
       responses:
         '200':
           description: Success
@@ -580,13 +581,13 @@ paths:
     post:
       operationId: PostAddress
       summary: Create Address
-      description: Creates a address
+      description: Create properties of an address
       tags:
         - Address
       security:
         - api_key: []
       requestBody:
-        description: Address Fields
+        description: Parameters for creating an address
         required: true
         content:
           application/json:
@@ -621,7 +622,7 @@ paths:
     get:
       operationId: GetAddress
       summary: Get Address
-      description: Returns a address
+      description: Returns details about an address
       tags:
         - Address
       parameters:
@@ -641,7 +642,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/address/<address ID>' | jq
+            --url 'https://api.bocs.io/test/address/<address ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -660,7 +662,7 @@ paths:
     put:
       operationId: PutAddress
       summary: Update Address
-      description: Updates a address
+      description: Update properties for an address
       tags:
         - Address
       parameters:
@@ -684,7 +686,7 @@ paths:
             --data '{"lastName": "updated"}' \
             | jq
       requestBody:
-        description: Address Fields
+        description: Parameters for updating an address
         required: true
         content:
           application/json:
@@ -710,7 +712,7 @@ paths:
     delete:
       operationId: DeleteAddress
       summary: Delete Address
-      description: Deletes a address
+      description: Deletes a specified address
       tags:
         - Address
       parameters:
@@ -730,7 +732,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/address/<address ID>' | jq
+            --url 'https://api.bocs.io/test/address/<address ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2853,35 +2856,45 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
               contactId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Contact Id
               email:
                 type: string
                 example: earl+irwin@bocs.io
+                description: Email of the contact
               firstName:
                 type: string
                 example: Earl
+                description: First name of the contact
               lastName:
                 type: string
                 example: Irwin
+                description: Last name of the contact
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the contact
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the contact
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          description: Next page link
     Error:
       type: object
       properties:
@@ -2911,61 +2924,79 @@ components:
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             contactId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Contact Id
             email:
               type: string
               example: earl+irwin@bocs.io
+              description: Email of the contact
             firstName:
               type: string
               example: Earl
+              description: First name of the contact
             lastName:
               type: string
               example: Irwin
+              description: Last name of the contact
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact
     ContactsGetResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             contactId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Contact Id
             email:
               type: string
               example: earl+irwin@bocs.io
+              description: Email of the contact
             firstName:
               type: string
               example: Earl
+              description: First name of the contact
             lastName:
               type: string
               example: Irwin
+              description: Last name of the contact
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact
     ContactsPutRequest:
       type: object
       properties:
@@ -2987,197 +3018,260 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             contactId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Contact Id
             email:
               type: string
               example: earl+irwin@bocs.io
+              description: Email of the contact
             firstName:
               type: string
               example: Earl
+              description: First name of the contact
             lastName:
               type: string
               example: Irwin
+              description: Last name of the contact
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact
     ContactsDeleteResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     SubscribersListResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 200
+          example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
               userId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Id of the bocs user
               subscriberId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
-                type: string
-                example: ear+irwin@bocs.io
-              firstName:
-                type: string
-                example: Earl
-              lastName:
-                type: string
-                example: Irwin
-              gender:
-                type: string
-                example: male
+                description: Id of the subscriber
               company:
                 type: string
                 example: Qualia Wine Services
+                description: Company of the subscriber
+              email:
+                type: string
+                example: ear+irwin@bocs.io
+                description: Email of the subscriber
+              firstName:
+                type: string
+                example: Earl
+                description: First name of the subscriber
+              lastName:
+                type: string
+                example: Irwin
+                description: Last name of the subscriber
+              gender:
+                type: string
+                enum:
+                  - male
+                  - female
+                example: male
+                description: Gender of the subscriber
               phone:
                 type: string
                 example: 619125324436
+                description: Phone of the subscriber
               billingAddress:
                 type: object
+                description: Billing address of the subscriber
                 properties:
                   address1:
                     type: string
                     example: Urban Homes
+                    description: Billing address line 1 of the subscriber
                   address2:
                     type: string
                     example: Phase 2 Building
+                    description: Billing address line 2 of the subscriber
                   city:
                     type: string
                     example: Victoria
+                    description: Billing city of the subscriber
                   state:
                     type: string
                     example: Victoria
+                    description: Billing state of the subscriber
                   country:
                     type: string
                     example: AU
+                    description: Billing country of the subscriber
                   postcode:
                     type: string
                     example: 6000
+                    description: Billing post code of the subscriber
               shippingAddress:
                 type: object
+                description: Shipping address of the subscriber
                 properties:
                   address1:
                     type: string
                     example: Urban Homes
+                    description: Shipping address line 1 of the subscriber
                   address2:
                     type: string
                     example: Phase 2 Building
+                    description: Shipping address line 2 of the subscriber
                   city:
                     type: string
                     example: Victoria
+                    description: Shipping city of the subscriber
                   state:
                     type: string
                     example: Victoria
+                    description: Shipping state of the subscriber
                   country:
                     type: string
                     example: AU
+                    description: Shipping country of the subscriber
                   postcode:
                     type: string
                     example: 6000
+                    description: Shipping post code of the subscriber
               status:
                 type: string
                 example: active
+                description: Status of the subscriber
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the subscriber
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the subscriber
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          description: Next page link
     SubscribersPostRequest:
       type: object
       properties:
         company:
           type: string
           example: Qualia Wine Services
+          description: Company of the subscriber
         email:
           type: string
           example: ear+irwin@bocs.io
+          description: Email of the subscriber
         firstName:
           type: string
           example: Earl
+          description: First name of the subscriber
         lastName:
           type: string
           example: Irwin
+          description: Last name of the subscriber
         gender:
           type: string
           enum:
             - male
             - female
           example: male
+          description: Gender of the subscriber
         phone:
           type: string
           example: 619125324436
+          description: Phone of the subscriber
         billingAddress:
           type: object
+          description: Billing address of the subscriber
           properties:
             address1:
               type: string
               example: Urban Homes
+              description: Billing address line 1 of the subscriber
             address2:
               type: string
               example: Phase 2 Building
+              description: Billing address line 2 of the subscriber
             city:
               type: string
               example: Victoria
+              description: Billing city of the subscriber
             state:
               type: string
               example: Victoria
+              description: Billing state of the subscriber
             country:
               type: string
               example: AU
+              description: Billing country of the subscriber
             postcode:
               type: string
               example: 6000
+              description: Billing post code of the subscriber
         shippingAddress:
           type: object
+          description: Shipping address of the subscriber
           properties:
             address1:
               type: string
               example: Urban Homes
+              description: Shipping address line 1 of the subscriber
             address2:
               type: string
               example: Phase 2 Building
+              description: Shipping address line 2 of the subscriber
             city:
               type: string
               example: Victoria
+              description: Shipping city of the subscriber
             state:
               type: string
               example: Victoria
+              description: Shipping state of the subscriber
             country:
               type: string
               example: AU
+              description: Shipping country of the subscriber
             postcode:
               type: string
               example: 6000
+              description: Shipping post code of the subscriber
       required:
         - email
         - company
@@ -3187,326 +3281,728 @@ components:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            userId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the bocs user
+            subscriberId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the subscriber
+            company:
+              type: string
+              example: Qualia Wine Services
+              description: Company of the subscriber
             email:
               type: string
-              example: foo@bocs.io
+              example: ear+irwin@bocs.io
+              description: Email of the subscriber
             firstName:
               type: string
-              example: Foo
+              example: Earl
+              description: First name of the subscriber
             lastName:
               type: string
-              example: Bar
+              example: Irwin
+              description: Last name of the subscriber
+            gender:
+              type: string
+              enum:
+                - male
+                - female
+              example: male
+              description: Gender of the subscriber
+            phone:
+              type: string
+              example: 619125324436
+              description: Phone of the subscriber
+            billingAddress:
+              type: object
+              description: Billing address of the subscriber
+              properties:
+                address1:
+                  type: string
+                  example: Urban Homes
+                  description: Billing address line 1 of the subscriber
+                address2:
+                  type: string
+                  example: Phase 2 Building
+                  description: Billing address line 2 of the subscriber
+                city:
+                  type: string
+                  example: Victoria
+                  description: Billing city of the subscriber
+                state:
+                  type: string
+                  example: Victoria
+                  description: Billing state of the subscriber
+                country:
+                  type: string
+                  example: AU
+                  description: Billing country of the subscriber
+                postcode:
+                  type: string
+                  example: 6000
+                  description: Billing post code of the subscriber
+            shippingAddress:
+              type: object
+              description: Shipping address of the subscriber
+              properties:
+                address1:
+                  type: string
+                  example: Urban Homes
+                  description: Shipping address line 1 of the subscriber
+                address2:
+                  type: string
+                  example: Phase 2 Building
+                  description: Shipping address line 2 of the subscriber
+                city:
+                  type: string
+                  example: Victoria
+                  description: Shipping city of the subscriber
+                state:
+                  type: string
+                  example: Victoria
+                  description: Shipping state of the subscriber
+                country:
+                  type: string
+                  example: AU
+                  description: Shipping country of the subscriber
+                postcode:
+                  type: string
+                  example: 6000
+                  description: Shipping post code of the subscriber
+            status:
+              type: string
+              example: active
+              description: Status of the subscriber
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscriber
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscriber
     SubscribersGetResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 200
+          example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             userId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the bocs user
             subscriberId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
-              type: string
-              example: ear+irwin@bocs.io
-            firstName:
-              type: string
-              example: Earl
-            lastName:
-              type: string
-              example: Irwin
-            gender:
-              type: string
-              example: male
+              description: Id of the subscriber
             company:
               type: string
               example: Qualia Wine Services
+              description: Company of the subscriber
+            email:
+              type: string
+              example: ear+irwin@bocs.io
+              description: Email of the subscriber
+            firstName:
+              type: string
+              example: Earl
+              description: First name of the subscriber
+            lastName:
+              type: string
+              example: Irwin
+              description: Last name of the subscriber
+            gender:
+              type: string
+              enum:
+                - male
+                - female
+              example: male
+              description: Gender of the subscriber
             phone:
               type: string
               example: 619125324436
+              description: Phone of the subscriber
             billingAddress:
               type: object
+              description: Billing address of the subscriber
               properties:
                 address1:
                   type: string
                   example: Urban Homes
+                  description: Billing address line 1 of the subscriber
                 address2:
                   type: string
                   example: Phase 2 Building
+                  description: Billing address line 2 of the subscriber
                 city:
                   type: string
                   example: Victoria
+                  description: Billing city of the subscriber
                 state:
                   type: string
                   example: Victoria
+                  description: Billing state of the subscriber
                 country:
                   type: string
                   example: AU
+                  description: Billing country of the subscriber
                 postcode:
                   type: string
                   example: 6000
+                  description: Billing post code of the subscriber
             shippingAddress:
               type: object
+              description: Shipping address of the subscriber
               properties:
                 address1:
                   type: string
                   example: Urban Homes
+                  description: Shipping address line 1 of the subscriber
                 address2:
                   type: string
                   example: Phase 2 Building
+                  description: Shipping address line 2 of the subscriber
                 city:
                   type: string
                   example: Victoria
+                  description: Shipping city of the subscriber
                 state:
                   type: string
                   example: Victoria
+                  description: Shipping state of the subscriber
                 country:
                   type: string
                   example: AU
+                  description: Shipping country of the subscriber
                 postcode:
                   type: string
                   example: 6000
+                  description: Shipping post code of the subscriber
             status:
               type: string
               example: active
+              description: Status of the subscriber
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscriber
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscriber
     SubscribersPutRequest:
       type: object
       properties:
+        company:
+          type: string
+          example: Qualia Wine Services
+          description: Company of the subscriber
         email:
           type: string
-          example: foo@bocs.io
+          example: ear+irwin@bocs.io
+          description: Email of the subscriber
         firstName:
           type: string
-          example: Foo
+          example: Earl
+          description: First name of the subscriber
         lastName:
           type: string
-          example: Bar
+          example: Irwin
+          description: Last name of the subscriber
+        gender:
+          type: string
+          enum:
+            - male
+            - female
+          example: male
+          description: Gender of the subscriber
+        phone:
+          type: string
+          example: 619125324436
+          description: Phone of the subscriber
+        billingAddress:
+          type: object
+          description: Billing address of the subscriber
+          properties:
+            address1:
+              type: string
+              example: Urban Homes
+              description: Billing address line 1 of the subscriber
+            address2:
+              type: string
+              example: Phase 2 Building
+              description: Billing address line 2 of the subscriber
+            city:
+              type: string
+              example: Victoria
+              description: Billing city of the subscriber
+            state:
+              type: string
+              example: Victoria
+              description: Billing state of the subscriber
+            country:
+              type: string
+              example: AU
+              description: Billing country of the subscriber
+            postcode:
+              type: string
+              example: 6000
+              description: Billing post code of the subscriber
+        shippingAddress:
+          type: object
+          description: Shipping address of the subscriber
+          properties:
+            address1:
+              type: string
+              example: Urban Homes
+              description: Shipping address line 1 of the subscriber
+            address2:
+              type: string
+              example: Phase 2 Building
+              description: Shipping address line 2 of the subscriber
+            city:
+              type: string
+              example: Victoria
+              description: Shipping city of the subscriber
+            state:
+              type: string
+              example: Victoria
+              description: Shipping state of the subscriber
+            country:
+              type: string
+              example: AU
+              description: Shipping country of the subscriber
+            postcode:
+              type: string
+              example: 6000
+              description: Shipping post code of the subscriber
     SubscribersPutResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 200
+          example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            userId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the bocs user
+            subscriberId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the subscriber
+            company:
+              type: string
+              example: Qualia Wine Services
+              description: Company of the subscriber
             email:
               type: string
-              example: foo@bocs.io
+              example: ear+irwin@bocs.io
+              description: Email of the subscriber
             firstName:
               type: string
-              example: Foo
+              example: Earl
+              description: First name of the subscriber
             lastName:
               type: string
-              example: Bar
+              example: Irwin
+              description: Last name of the subscriber
+            gender:
+              type: string
+              enum:
+                - male
+                - female
+              example: male
+              description: Gender of the subscriber
+            phone:
+              type: string
+              example: 619125324436
+              description: Phone of the subscriber
+            billingAddress:
+              type: object
+              description: Billing address of the subscriber
+              properties:
+                address1:
+                  type: string
+                  example: Urban Homes
+                  description: Billing address line 1 of the subscriber
+                address2:
+                  type: string
+                  example: Phase 2 Building
+                  description: Billing address line 2 of the subscriber
+                city:
+                  type: string
+                  example: Victoria
+                  description: Billing city of the subscriber
+                state:
+                  type: string
+                  example: Victoria
+                  description: Billing state of the subscriber
+                country:
+                  type: string
+                  example: AU
+                  description: Billing country of the subscriber
+                postcode:
+                  type: string
+                  example: 6000
+                  description: Billing post code of the subscriber
+            shippingAddress:
+              type: object
+              description: Shipping address of the subscriber
+              properties:
+                address1:
+                  type: string
+                  example: Urban Homes
+                  description: Shipping address line 1 of the subscriber
+                address2:
+                  type: string
+                  example: Phase 2 Building
+                  description: Shipping address line 2 of the subscriber
+                city:
+                  type: string
+                  example: Victoria
+                  description: Shipping city of the subscriber
+                state:
+                  type: string
+                  example: Victoria
+                  description: Shipping state of the subscriber
+                country:
+                  type: string
+                  example: AU
+                  description: Shipping country of the subscriber
+                postcode:
+                  type: string
+                  example: 6000
+                  description: Shipping post code of the subscriber
+            status:
+              type: string
+              example: active
+              description: Status of the subscriber
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscriber
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscriber
     SubscribersDeleteResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     AddressListResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 200
+          example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
-              contactId:
+              addressId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+              address1:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: Urban Homes
+                description: Address line 1 of the address
+              address2:
                 type: string
-                example: Foo
-              lastName:
+                example: Phase 2 Building
+                description: Address line 2 of the address
+              city:
                 type: string
-                example: Bar
+                example: Victoria
+                description: City of the address
+              state:
+                type: string
+                example: Victoria
+                description: State of the address
+              country:
+                type: string
+                example: AU
+                description: Country of the address
+              postcode:
+                type: string
+                example: 6000
+                description: Post code of the address
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the address
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the address
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/address?pageToken=c70e668c
+          description: Next page link
     AddressPostRequest:
       type: object
       properties:
-        email:
+        address1:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Urban Homes
+          description: Address line 1 of the address
+        address2:
           type: string
-          example: Foo
-        lastName:
+          example: Phase 2 Building
+          description: Address line 2 of the address
+        city:
           type: string
-          example: Bar
+          example: Victoria
+          description: City of the address
+        state:
+          type: string
+          example: Victoria
+          description: State of the address
+        country:
+          type: string
+          example: AU
+          description: Country of the address
+        postcode:
+          type: string
+          example: 6000
+          description: Post code of the address
+      required:
+        - address1
+        - city
+        - state
+        - country
+        - postcode
     AddressPostResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            addressId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+            address1:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Urban Homes
+              description: Address line 1 of the address
+            address2:
               type: string
-              example: Foo
-            lastName:
+              example: Phase 2 Building
+              description: Address line 2 of the address
+            city:
               type: string
-              example: Bar
+              example: Victoria
+              description: City of the address
+            state:
+              type: string
+              example: Victoria
+              description: State of the address
+            country:
+              type: string
+              example: AU
+              description: Country of the address
+            postcode:
+              type: string
+              example: 6000
+              description: Post code of the address
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the address
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the address
     AddressGetResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 200
+          example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            addressId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+            address1:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Urban Homes
+              description: Address line 1 of the address
+            address2:
               type: string
-              example: Foo
-            lastName:
+              example: Phase 2 Building
+              description: Address line 2 of the address
+            city:
               type: string
-              example: Bar
+              example: Victoria
+              description: City of the address
+            state:
+              type: string
+              example: Victoria
+              description: State of the address
+            country:
+              type: string
+              example: AU
+              description: Country of the address
+            postcode:
+              type: string
+              example: 6000
+              description: Post code of the address
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the address
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the address
     AddressPutRequest:
       type: object
       properties:
-        email:
+        address1:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Urban Homes
+          description: Address line 1 of the address
+        address2:
           type: string
-          example: Foo
-        lastName:
+          example: Phase 2 Building
+          description: Address line 2 of the address
+        city:
           type: string
-          example: Bar
+          example: Victoria
+          description: City of the address
+        state:
+          type: string
+          example: Victoria
+          description: State of the address
+        country:
+          type: string
+          example: AU
+          description: Country of the address
+        postcode:
+          type: string
+          example: 6000
+          description: Post code of the address
     AddressPutResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 200
+          example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            addressId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+            address1:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Urban Homes
+              description: Address line 1 of the address
+            address2:
               type: string
-              example: Foo
-            lastName:
+              example: Phase 2 Building
+              description: Address line 2 of the address
+            city:
               type: string
-              example: Bar
+              example: Victoria
+              description: City of the address
+            state:
+              type: string
+              example: Victoria
+              description: State of the address
+            country:
+              type: string
+              example: AU
+              description: Country of the address
+            postcode:
+              type: string
+              example: 6000
+              description: Post code of the address
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the address
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the address
     AddressDeleteResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     CollectionsListResponse:
       type: object
       properties:

@@ -1,7 +1,7 @@
 get:
   operationId: ListAddress
   summary: List Address
-  description: List of address
+  description: Returns a list of address
   tags:
     - Address
   security:
@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/address' | jq
+        --url 'https://api.bocs.io/test/address' \
+        | jq
   responses:
     "200":
       description: Success
@@ -52,13 +53,13 @@ get:
 post:
   operationId: PostAddress
   summary: Create Address
-  description: Creates a address
+  description: Create properties of an address
   tags:
     - Address
   security:
     - api_key: []
   requestBody:
-    description: Address Fields
+    description: Parameters for creating an address
     required: true
     content:
       application/json:

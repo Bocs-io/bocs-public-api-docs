@@ -1,7 +1,7 @@
 get:
   operationId: GetAddress
   summary: Get Address
-  description: Returns a address
+  description: Returns details about an address
   tags:
     - Address
   parameters:
@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/address/<address ID>' | jq
+        --url 'https://api.bocs.io/test/address/<address ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -41,7 +42,7 @@ get:
 put:
   operationId: PutAddress
   summary: Update Address
-  description: Updates a address
+  description: Update properties for an address
   tags:
     - Address
   parameters:
@@ -65,7 +66,7 @@ put:
         --data '{"lastName": "updated"}' \
         | jq
   requestBody:
-    description: Address Fields
+    description: Parameters for updating an address
     required: true
     content:
       application/json:
@@ -92,7 +93,7 @@ put:
 delete:
   operationId: DeleteAddress
   summary: Delete Address
-  description: Deletes a address
+  description: Deletes a specified address
   tags:
     - Address
   parameters:
@@ -112,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/address/<address ID>' | jq
+        --url 'https://api.bocs.io/test/address/<address ID>' \
+        | jq
   responses:
     "200":
       description: Success

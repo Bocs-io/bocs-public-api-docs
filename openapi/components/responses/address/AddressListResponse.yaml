@@ -2,33 +2,54 @@ type: object
 properties:
   code:
     type: integer
-    example: 200
+    example: 201
+    description: Status code
   message:
     type: string
     example: success
+    description: Success or error message
   data:
     type: array
+    description: Response data
     items:
       type: object
       properties:
-        contactId:
+        addressId:
           type: string
           example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-        email:
+        address1:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Urban Homes
+          description: Address line 1 of the address
+        address2:
           type: string
-          example: Foo
-        lastName:
+          example: Phase 2 Building
+          description: Address line 2 of the address
+        city:
           type: string
-          example: Bar
+          example: Victoria
+          description: City of the address
+        state:
+          type: string
+          example: Victoria
+          description: State of the address
+        country:
+          type: string
+          example: AU
+          description: Country of the address
+        postcode:
+          type: string
+          example: 6000
+          description: Post code of the address
         createdAt:
           type: string
           example: 2022-10-25T11:25:08.394Z
+          description: Created date of the address
         updatedAt:
           type: string
           example: 2022-10-25T11:25:08.394Z
+          description: Updated date of the address
   nextPageLink:
     type: string
-    example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    example: https://api.bocs.io/dev/address?pageToken=c70e668c
+    description: Next page link
