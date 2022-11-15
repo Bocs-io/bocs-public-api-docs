@@ -51,7 +51,7 @@ post:
   security:
     - api_key: []
   requestBody:
-    description:Shipping Zone Fields
+    description: Shipping Zone Fields
     required: true
     content:
       application/json:
