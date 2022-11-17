@@ -540,7 +540,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: city:"foo"
           description: Filter returned rows
         - in: query
           name: limit
@@ -765,7 +765,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: name:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -989,7 +989,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: name:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -1214,7 +1214,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: name:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -1460,7 +1460,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/categories' | jq
+            --url 'https://api.bocs.io/test/categories' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1479,13 +1480,13 @@ paths:
     post:
       operationId: PostCategory
       summary: Create Category
-      description: Creates a category
+      description: Create properties of category
       tags:
         - Categories
       security:
         - api_key: []
       requestBody:
-        description: Category Fields
+        description: Parameters for creating a category
         required: true
         content:
           application/json:
@@ -1520,7 +1521,7 @@ paths:
     get:
       operationId: GetCategory
       summary: Get Category
-      description: Returns a category
+      description: Returns details about a category
       tags:
         - Categories
       parameters:
@@ -1540,7 +1541,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/categories/<category ID>' | jq
+            --url 'https://api.bocs.io/test/categories/<category ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1559,7 +1561,7 @@ paths:
     put:
       operationId: PutCategory
       summary: Update Category
-      description: Updates a category
+      description: Update properties of a category
       tags:
         - Categories
       parameters:
@@ -1583,7 +1585,7 @@ paths:
             --data '' \
             | jq
       requestBody:
-        description: Category Fields
+        description: Parameters for updating a category
         required: true
         content:
           application/json:
@@ -1609,7 +1611,7 @@ paths:
     delete:
       operationId: DeleteCategory
       summary: Delete Category
-      description: Deletes a category
+      description: Deletes a specified category
       tags:
         - Categories
       parameters:
@@ -1629,7 +1631,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/categories/<category ID>' | jq
+            --url 'https://api.bocs.io/test/categories/<category ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1661,7 +1664,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: name:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -1682,7 +1685,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/tags' | jq
+            --url 'https://api.bocs.io/test/tags' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1701,13 +1705,13 @@ paths:
     post:
       operationId: PostTag
       summary: Create Tag
-      description: Creates a tag
+      description: Create properties of a tag
       tags:
         - Tags
       security:
         - api_key: []
       requestBody:
-        description: Tag Fields
+        description: Parameters for creating a category
         required: true
         content:
           application/json:
@@ -1742,7 +1746,7 @@ paths:
     get:
       operationId: GetTag
       summary: Get Tag
-      description: Returns a tag
+      description: Returns details about a tag
       tags:
         - Tags
       parameters:
@@ -1762,7 +1766,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/tags/<tag ID>' | jq
+            --url 'https://api.bocs.io/test/tags/<tag ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1781,7 +1786,7 @@ paths:
     put:
       operationId: PutTag
       summary: Update Tag
-      description: Updates a tag
+      description: Update properties of a tag
       tags:
         - Tags
       parameters:
@@ -1805,7 +1810,7 @@ paths:
             --data '' \
             | jq
       requestBody:
-        description: Tag Fields
+        description: Parameters for updating a tag
         required: true
         content:
           application/json:
@@ -1831,7 +1836,7 @@ paths:
     delete:
       operationId: DeleteTag
       summary: Delete Tag
-      description: Deletes a tag
+      description: Deletes a specified category
       tags:
         - Tags
       parameters:
@@ -1851,7 +1856,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/tags/<tag ID>' | jq
+            --url 'https://api.bocs.io/test/tags/<tag ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -6597,39 +6603,51 @@ components:
           items:
             type: object
             properties:
-              contactId:
+              categoryId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the category
+              parentId:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Parent id of the category
+              name:
                 type: string
-                example: Foo
-              lastName:
+                example: Test Category
+                description: Name of the category
+              description:
                 type: string
-                example: Bar
+                example: Test description
+                description: Descriptioin of the category
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the category
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the category
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          description: Next page link
     CategoriesPostRequest:
       type: object
       properties:
-        email:
+        parentId:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the category
+        name:
           type: string
-          example: Foo
-        lastName:
+          example: Test Category
+          description: Name of the category
+        description:
           type: string
-          example: Bar
+          example: Test description
+          description: Description of the category
+      required:
+        - name
     CategoriesPostResponse:
       type: object
       properties:
@@ -6642,24 +6660,30 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            categoryId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the category
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the category
+            name:
               type: string
-              example: Foo
-            lastName:
+              example: Test Category
+              description: Name of the category
+            description:
               type: string
-              example: Bar
+              example: Test description
+              description: Descriptioin of the category
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the category
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the category
     CategoriesGetResponse:
       type: object
       properties:
@@ -6672,36 +6696,45 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            categoryId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the category
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the category
+            name:
               type: string
-              example: Foo
-            lastName:
+              example: Test Category
+              description: Name of the category
+            description:
               type: string
-              example: Bar
+              example: Test description
+              description: Descriptioin of the category
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the category
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the category
     CategoriesPutRequest:
       type: object
       properties:
-        email:
+        parentId:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the category
+        name:
           type: string
-          example: Foo
-        lastName:
+          example: Test Category
+          description: Name of the category
+        description:
           type: string
-          example: Bar
+          example: Test description
+          description: Description of the category
     CategoriesPutResponse:
       type: object
       properties:
@@ -6714,30 +6747,36 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            categoryId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the category
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the category
+            name:
               type: string
-              example: Foo
-            lastName:
+              example: Test Category
+              description: Name of the category
+            description:
               type: string
-              example: Bar
+              example: Test description
+              description: Descriptioin of the category
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the category
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the category
     CategoriesDeleteResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
         message:
           type: string
           example: success
@@ -6755,39 +6794,43 @@ components:
           items:
             type: object
             properties:
-              contactId:
+              tagId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the tag
+              name:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: Test Tag
+                description: Name of the tag
+              description:
                 type: string
-                example: Foo
-              lastName:
-                type: string
-                example: Bar
+                example: Test description
+                description: Descriptioin of the tag
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the tag
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the tag
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          description: Next page link
     TagsPostRequest:
       type: object
       properties:
-        email:
+        name:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Test Tag
+          description: Name of the tag
+        description:
           type: string
-          example: Foo
-        lastName:
-          type: string
-          example: Bar
+          example: Test description
+          description: Description of the tag
+      required:
+        - name
     TagsPostResponse:
       type: object
       properties:
@@ -6800,24 +6843,26 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            tagId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the tag
+            name:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test Tag
+              description: Name of the tag
+            description:
               type: string
-              example: Foo
-            lastName:
-              type: string
-              example: Bar
+              example: Test description
+              description: Descriptioin of the tag
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the tag
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the tag
     TagsGetResponse:
       type: object
       properties:
@@ -6830,36 +6875,37 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            tagId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the tag
+            name:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test Tag
+              description: Name of the tag
+            description:
               type: string
-              example: Foo
-            lastName:
-              type: string
-              example: Bar
+              example: Test description
+              description: Descriptioin of the tag
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the tag
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the tag
     TagsPutRequest:
       type: object
       properties:
-        email:
+        name:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Test Tag
+          description: Name of the tag
+        description:
           type: string
-          example: Foo
-        lastName:
-          type: string
-          example: Bar
+          example: Test description
+          description: Description of the tag
     TagsPutResponse:
       type: object
       properties:
@@ -6872,30 +6918,32 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            tagId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the tag
+            name:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test Tag
+              description: Name of the tag
+            description:
               type: string
-              example: Foo
-            lastName:
-              type: string
-              example: Bar
+              example: Test description
+              description: Descriptioin of the tag
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the tag
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the tag
     TagsDeleteResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
         message:
           type: string
           example: success

@@ -11,7 +11,7 @@ get:
       name: query
       schema:
         type: string
-        example: firstName:"bar"
+        example: name:"bar"
       description: Filter returned rows
     - in: query
       name: limit
@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/tags' | jq
+        --url 'https://api.bocs.io/test/tags' \
+        | jq
   responses:
     "200":
       description: Success
@@ -52,13 +53,13 @@ get:
 post:
   operationId: PostTag
   summary: Create Tag
-  description: Creates a tag
+  description: Create properties of a tag
   tags:
     - Tags
   security:
     - api_key: []
   requestBody:
-    description: Tag Fields
+    description: Parameters for creating a category
     required: true
     content:
       application/json:

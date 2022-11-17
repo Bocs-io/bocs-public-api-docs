@@ -9,4 +9,4 @@ name:
 description:
   type: string
   example: Test description
-  description: Descriptioin of the category
+  description: Description of the category
