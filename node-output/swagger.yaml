@@ -1631,7 +1631,7 @@
       "get" : {
         "tags" : [ "Collections" ],
         "summary" : "List Collections",
-        "description" : "List of collections",
+        "description" : "Returns list of collections",
         "operationId" : "ListCollections",
         "parameters" : [ {
           "name" : "query",
@@ -1747,7 +1747,7 @@
       "post" : {
         "tags" : [ "Collections" ],
         "summary" : "Create Collection",
-        "description" : "Creates a collection",
+        "description" : "Create properties of a collection",
         "operationId" : "PostCollection",
         "requestBody" : {
           "description" : "Parameters for creating a collection",
@@ -1842,7 +1842,7 @@
       "get" : {
         "tags" : [ "Collections" ],
         "summary" : "Get Collection",
-        "description" : "Returns a collection",
+        "description" : "Returns details about a collection",
         "operationId" : "GetCollection",
         "parameters" : [ {
           "name" : "id",
@@ -1936,7 +1936,7 @@
       "put" : {
         "tags" : [ "Collections" ],
         "summary" : "Update Collection",
-        "description" : "Updates a collection",
+        "description" : "Update properties of a collection",
         "operationId" : "PutCollection",
         "parameters" : [ {
           "name" : "id",
@@ -2055,7 +2055,7 @@
       "delete" : {
         "tags" : [ "Collections" ],
         "summary" : "Delete Collection",
-        "description" : "Deletes a collection",
+        "description" : "Deletes a specified collection",
         "operationId" : "DeleteCollection",
         "parameters" : [ {
           "name" : "id",
@@ -2157,7 +2157,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -2165,7 +2165,7 @@
       "get" : {
         "tags" : [ "Bocs" ],
         "summary" : "List Bocs",
-        "description" : "List of bocs",
+        "description" : "Returns list of bocs",
         "operationId" : "ListBocs",
         "parameters" : [ {
           "name" : "query",
@@ -2281,7 +2281,7 @@
       "post" : {
         "tags" : [ "Bocs" ],
         "summary" : "Create Bocs",
-        "description" : "Creates a bocs",
+        "description" : "Create properties of a bocs",
         "operationId" : "PostBocs",
         "requestBody" : {
           "description" : "Parameters for creating a bocs",
@@ -2376,7 +2376,7 @@
       "get" : {
         "tags" : [ "Bocs" ],
         "summary" : "Get Bocs",
-        "description" : "Returns a bocs",
+        "description" : "Returns details about a bocs",
         "operationId" : "GetBocs",
         "parameters" : [ {
           "name" : "id",
@@ -2470,7 +2470,7 @@
       "put" : {
         "tags" : [ "Bocs" ],
         "summary" : "Update Bocs",
-        "description" : "Updates a bocs",
+        "description" : "Update properties of a bocs",
         "operationId" : "PutBocs",
         "parameters" : [ {
           "name" : "id",
@@ -2589,7 +2589,7 @@
       "delete" : {
         "tags" : [ "Bocs" ],
         "summary" : "Delete Bocs",
-        "description" : "Deletes a bocs",
+        "description" : "Deletes a specified bocs",
         "operationId" : "DeleteBocs",
         "parameters" : [ {
           "name" : "id",
@@ -2809,16 +2809,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Products" ],
         "summary" : "Create Product",
-        "description" : "Creates a product",
+        "description" : "Create properties of a product",
         "operationId" : "PostProduct",
         "requestBody" : {
-          "description" : "Product Fields",
+          "description" : "Parameters for creating a product",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2910,7 +2910,7 @@
       "get" : {
         "tags" : [ "Products" ],
         "summary" : "Get Product",
-        "description" : "Returns a product",
+        "description" : "Returns details about a product",
         "operationId" : "GetProduct",
         "parameters" : [ {
           "name" : "id",
@@ -2998,13 +2998,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products/<product ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products/<product ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Products" ],
         "summary" : "Update Product",
-        "description" : "Updates a product",
+        "description" : "Update properties of a product",
         "operationId" : "PutProduct",
         "parameters" : [ {
           "name" : "id",
@@ -3019,7 +3019,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Product Fields",
+          "description" : "Parameters for updating a product",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3123,7 +3123,7 @@
       "delete" : {
         "tags" : [ "Products" ],
         "summary" : "Delete Product",
-        "description" : "Deletes a product",
+        "description" : "Deletes a specified product",
         "operationId" : "DeleteProduct",
         "parameters" : [ {
           "name" : "id",
@@ -3225,7 +3225,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products/<product ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products/<product ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -7347,6 +7347,7 @@
         }
       },
       "BocsPostRequest" : {
+        "required" : [ "boxPrice", "items", "name", "pricePerFrequency", "pricing", "sku", "type" ],
         "type" : "object",
         "properties" : {
           "parentId" : {
@@ -7564,24 +7565,89 @@
           },
           "nextPageLink" : {
             "type" : "string",
+            "description" : "Next page link",
             "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
           }
         }
       },
       "ProductsPostRequest" : {
+        "required" : [ "description", "name", "price" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "name" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Name of the product",
+            "example" : "Product-1"
           },
-          "firstName" : {
-            "type" : "string",
-            "example" : "Foo"
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the product",
+            "example" : 100
           },
-          "lastName" : {
+          "source" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Source of the product",
+            "example" : "woocommerce"
+          },
+          "externalProductId" : {
+            "type" : "string",
+            "description" : "External product id of the product",
+            "example" : "1"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the product",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the product",
+            "items" : {
+              "$ref" : "#/components/schemas/ProductsListResponse_images"
+            }
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the product",
+            "example" : 5
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the product",
+            "example" : "Description of product-1"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the product",
+            "example" : "SKU-Product-1"
+          },
+          "isVariant" : {
+            "type" : "string",
+            "description" : "Variant of the product",
+            "example" : "test"
+          },
+          "color" : {
+            "type" : "string",
+            "description" : "Color of the product",
+            "example" : "black"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Size of the product",
+            "example" : "10"
+          },
+          "length" : {
+            "type" : "string",
+            "description" : "Length of the product",
+            "example" : "20cm"
+          },
+          "width" : {
+            "type" : "string",
+            "description" : "Width of the product",
+            "example" : "10"
           }
         }
       },
@@ -7620,17 +7686,80 @@
       "ProductsPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "name" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Name of the product",
+            "example" : "Product-1"
           },
-          "firstName" : {
-            "type" : "string",
-            "example" : "Foo"
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the product",
+            "example" : 100
           },
-          "lastName" : {
+          "source" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Source of the product",
+            "example" : "woocommerce"
+          },
+          "externalProductId" : {
+            "type" : "string",
+            "description" : "External product id of the product",
+            "example" : "1"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the product",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the product",
+            "items" : {
+              "$ref" : "#/components/schemas/ProductsListResponse_images"
+            }
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the product",
+            "example" : 5
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the product",
+            "example" : "Description of product-1"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the product",
+            "example" : "SKU-Product-1"
+          },
+          "isVariant" : {
+            "type" : "string",
+            "description" : "Variant of the product",
+            "example" : "test"
+          },
+          "color" : {
+            "type" : "string",
+            "description" : "Color of the product",
+            "example" : "black"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Size of the product",
+            "example" : "10"
+          },
+          "length" : {
+            "type" : "string",
+            "description" : "Length of the product",
+            "example" : "20cm"
+          },
+          "width" : {
+            "type" : "string",
+            "description" : "Width of the product",
+            "example" : "10"
           }
         }
       },
@@ -7677,7 +7806,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ProductsListResponse_data"
+              "$ref" : "#/components/schemas/CategoriesListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7715,7 +7844,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -7731,7 +7860,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -7764,7 +7893,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -7795,7 +7924,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ProductsListResponse_data"
+              "$ref" : "#/components/schemas/CategoriesListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7833,7 +7962,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -7849,7 +7978,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -7882,7 +8011,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -7967,7 +8096,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8000,7 +8129,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8031,7 +8160,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ProductsListResponse_data"
+              "$ref" : "#/components/schemas/CategoriesListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8069,7 +8198,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8085,7 +8214,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8118,7 +8247,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8149,7 +8278,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ProductsListResponse_data"
+              "$ref" : "#/components/schemas/CategoriesListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8187,7 +8316,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8203,7 +8332,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8236,7 +8365,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8267,7 +8396,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ProductsListResponse_data"
+              "$ref" : "#/components/schemas/CategoriesListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8305,7 +8434,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8321,7 +8450,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8354,7 +8483,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -8385,7 +8514,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/ProductsListResponse_data"
+              "$ref" : "#/components/schemas/CategoriesListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8406,7 +8535,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesListResponse_data"
           }
         }
       },
@@ -9417,7 +9546,122 @@
           }
         }
       },
+      "ProductsListResponse_images" : {
+        "type" : "object",
+        "properties" : {
+          "url" : {
+            "type" : "string",
+            "description" : "Image of the product",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          },
+          "thumbnail" : {
+            "type" : "string",
+            "description" : "Image of the product",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          }
+        }
+      },
       "ProductsListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "productId" : {
+            "type" : "string",
+            "description" : "Id of the product",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the product",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the product",
+            "example" : "Product-1"
+          },
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the product",
+            "example" : 100
+          },
+          "source" : {
+            "type" : "string",
+            "description" : "Source of the product",
+            "example" : "woocommerce"
+          },
+          "externalProductId" : {
+            "type" : "string",
+            "description" : "External product id of the product",
+            "example" : "1"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the product",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the product",
+            "items" : {
+              "$ref" : "#/components/schemas/ProductsListResponse_images"
+            }
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the product",
+            "example" : 5
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the product",
+            "example" : "Description of product-1"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the product",
+            "example" : "SKU-Product-1"
+          },
+          "isVariant" : {
+            "type" : "string",
+            "description" : "Variant of the product",
+            "example" : "test"
+          },
+          "color" : {
+            "type" : "string",
+            "description" : "Color of the product",
+            "example" : "black"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Size of the product",
+            "example" : "10"
+          },
+          "length" : {
+            "type" : "string",
+            "description" : "Length of the product",
+            "example" : "20cm"
+          },
+          "width" : {
+            "type" : "string",
+            "description" : "Width of the product",
+            "example" : "10"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "CategoriesListResponse_data" : {
         "type" : "object",
         "properties" : {
           "contactId" : {
