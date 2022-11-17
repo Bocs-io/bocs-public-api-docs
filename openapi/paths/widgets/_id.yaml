@@ -61,7 +61,7 @@ get:
 #         --header 'Authorization: <your API Key>' \
 #         --header 'Content-Type: application/json' \
 #         --url 'https://api.bocs.io/test/widgets/<widget ID>' \
-#         --data '{"lastName": "updated"}' \
+#         --data '' \
 #         | jq
 #   requestBody:
 #     description: Widget Fields

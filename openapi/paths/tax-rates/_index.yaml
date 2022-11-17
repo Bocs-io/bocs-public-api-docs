@@ -72,7 +72,7 @@ post:
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
         --url 'https://api.bocs.io/test/tax-rates' \
-        --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+        --data '{}' \
         | jq
   responses:
     "201":

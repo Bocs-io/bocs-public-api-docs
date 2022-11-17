@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/bocs' | jq
+        --url 'https://api.bocs.io/test/bocs' \
+        | jq
   responses:
     "200":
       description: Success
@@ -58,7 +59,7 @@ post:
   security:
     - api_key: []
   requestBody:
-    description: Bocs Fields
+    description: Parameters for creating a bocs
     required: true
     content:
       application/json:
@@ -72,7 +73,7 @@ post:
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
         --url 'https://api.bocs.io/test/bocs' \
-        --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+        --data '{}' \
         | jq
   responses:
     "201":

@@ -1,0 +1,96 @@
+parentId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Parent id of the bocs
+type:
+  type: string
+  example: fixed
+  description: Type of the bocs
+pricePerFrequency:
+  type: boolean
+  example: true
+  description: Price per frequency of the bocs
+name:
+  type: string
+  example: My Box
+  description: Name of the bocs
+description:
+  type: string
+  example: My bocs description
+  description: Description of the bocs
+categories:
+  type: array
+  items:
+    type: string
+  example: ["test-1", "test-2"]
+  description: Categories of the bocs
+sku:
+  type: string
+  example: SKU-Test
+  description: SKU of the box
+boxPrice:
+  type: number
+  example: 10
+  description: Price of the box
+images:
+  type: array
+  description: Images of the bocs
+  items:
+    type: object
+    properties:
+      url:
+        type: string
+        example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+        description: Image of the bocs
+      thumbnail:
+        type: string
+        example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+        description: Image of the bocs
+items:
+  type: array
+  description: Items of the bocs
+  items:
+    type: object
+    properties:
+      productId:
+        type: string
+        example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+        description: Id of the item
+      name:
+        type: string
+        example: Item 1
+        description: Name of the item
+      price:
+        type: number
+        example: 25
+        description: Price of the item
+      quantity:
+        type: number
+        example: 2
+        description: Quantity of the item
+pricing:
+  type: array
+  description: Pricing of the bocs
+  items:
+    type: object
+    properties:
+      discount:
+        type: number
+        example: 0
+        description: Discount of the bocs pricing
+      discountType:
+        type: string
+        example: percentage
+        description: Discount type of the bocs pricing
+      frequency:
+        type: number
+        example: 7
+        description: Frequency of the bocs pricing
+      sku:
+        type: string
+        example: Collection-SKU
+        description: SKU of the bocs pricing
+      timeUnit:
+        type: string
+        example: day
+        description: Time unit of the bocs pricing

@@ -63,7 +63,7 @@ put:
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
         --url 'https://api.bocs.io/test/contacts/<contact ID>' \
-        --data '{"lastName": "updated"}' \
+        --data '' \
         | jq
   requestBody:
     description: Parameters for updating a contact
