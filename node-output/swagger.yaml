@@ -232,7 +232,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -447,7 +447,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts/<contact ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/contacts/<contact ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -766,7 +766,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -981,7 +981,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -1300,7 +1300,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -1515,7 +1515,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/address/<address ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -1834,7 +1834,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -2049,7 +2049,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/collections/<collection ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -2275,7 +2275,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs' \\\n| jq\n"
         } ]
       },
       "post" : {
@@ -2284,7 +2284,7 @@
         "description" : "Creates a bocs",
         "operationId" : "PostBocs",
         "requestBody" : {
-          "description" : "Bocs Fields",
+          "description" : "Parameters for creating a bocs",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2368,7 +2368,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -2464,7 +2464,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
@@ -2485,7 +2485,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Bocs Fields",
+          "description" : "Parameters for creating a bocs",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -2583,7 +2583,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -2691,7 +2691,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/bocs/<bocs ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -2902,7 +2902,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -3117,7 +3117,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products/<product ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/products/<product ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -3436,7 +3436,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -3651,7 +3651,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -3970,7 +3970,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -4185,7 +4185,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -4504,7 +4504,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -4719,7 +4719,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -5038,7 +5038,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -5253,7 +5253,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -5572,7 +5572,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -5787,7 +5787,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -6106,7 +6106,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates' \\\n--data '{\"email\": \"foo@example.com\", \"firstName\": \"Foo\", \"lastName\": \"Bar\"}' \\\n| jq\n"
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates' \\\n--data '{}' \\\n| jq\n"
         } ]
       }
     },
@@ -6321,7 +6321,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' \\\n--data '{\"lastName\": \"updated\"}' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
@@ -7341,6 +7341,7 @@
           },
           "nextPageLink" : {
             "type" : "string",
+            "description" : "Next page link",
             "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
           }
         }
@@ -7348,17 +7349,69 @@
       "BocsPostRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "parentId" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Parent id of the bocs",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "type" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Type of the bocs",
+            "example" : "fixed"
           },
-          "lastName" : {
+          "pricePerFrequency" : {
+            "type" : "boolean",
+            "description" : "Price per frequency of the bocs",
+            "example" : true
+          },
+          "name" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Name of the bocs",
+            "example" : "My Box"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the bocs",
+            "example" : "My bocs description"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the bocs",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box",
+            "example" : "SKU-Test"
+          },
+          "boxPrice" : {
+            "type" : "number",
+            "description" : "Price of the box",
+            "example" : 10
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_images"
+            }
+          },
+          "items" : {
+            "type" : "array",
+            "description" : "Items of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_items"
+            }
+          },
+          "pricing" : {
+            "type" : "array",
+            "description" : "Pricing of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsPostRequest_pricing"
+            }
           }
         }
       },
@@ -7397,17 +7450,69 @@
       "BocsPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "parentId" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Parent id of the bocs",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "type" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Type of the bocs",
+            "example" : "fixed"
           },
-          "lastName" : {
+          "pricePerFrequency" : {
+            "type" : "boolean",
+            "description" : "Price per frequency of the bocs",
+            "example" : true
+          },
+          "name" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Name of the bocs",
+            "example" : "My Box"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the bocs",
+            "example" : "My bocs description"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the bocs",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box",
+            "example" : "SKU-Test"
+          },
+          "boxPrice" : {
+            "type" : "number",
+            "description" : "Price of the box",
+            "example" : 10
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_images"
+            }
+          },
+          "items" : {
+            "type" : "array",
+            "description" : "Items of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_items"
+            }
+          },
+          "pricing" : {
+            "type" : "array",
+            "description" : "Pricing of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsPostRequest_pricing"
+            }
           }
         }
       },
@@ -7432,7 +7537,7 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -7454,7 +7559,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BocsListResponse_data"
+              "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7492,7 +7597,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7508,7 +7613,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7541,7 +7646,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7572,7 +7677,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BocsListResponse_data"
+              "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7610,7 +7715,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7626,7 +7731,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7659,7 +7764,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7690,7 +7795,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BocsListResponse_data"
+              "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7728,7 +7833,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7744,7 +7849,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7777,7 +7882,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7862,7 +7967,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7895,7 +8000,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7926,7 +8031,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BocsListResponse_data"
+              "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7964,7 +8069,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -7980,7 +8085,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8013,7 +8118,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8044,7 +8149,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BocsListResponse_data"
+              "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8082,7 +8187,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8098,7 +8203,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8131,7 +8236,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8162,7 +8267,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BocsListResponse_data"
+              "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8200,7 +8305,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8216,7 +8321,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8249,7 +8354,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -8280,7 +8385,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/BocsListResponse_data"
+              "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8301,7 +8406,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsListResponse_data"
           }
         }
       },
@@ -9118,7 +9223,201 @@
         },
         "description" : "Response data"
       },
+      "BocsListResponse_images" : {
+        "type" : "object",
+        "properties" : {
+          "url" : {
+            "type" : "string",
+            "description" : "Image of the bocs",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          },
+          "thumbnail" : {
+            "type" : "string",
+            "description" : "Image of the bocs",
+            "example" : "https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png"
+          }
+        }
+      },
+      "BocsListResponse_items" : {
+        "type" : "object",
+        "properties" : {
+          "productId" : {
+            "type" : "string",
+            "description" : "Id of the item",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the item",
+            "example" : "Item 1"
+          },
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the item",
+            "example" : 25
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the item",
+            "example" : 2
+          }
+        }
+      },
+      "BocsListResponse_pricing" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Id of the bocs pricing",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "discount" : {
+            "type" : "number",
+            "description" : "Discount of the bocs pricing",
+            "example" : 0
+          },
+          "discountType" : {
+            "type" : "string",
+            "description" : "Discount type of the bocs pricing",
+            "example" : "percentage"
+          },
+          "frequency" : {
+            "type" : "number",
+            "description" : "Frequency of the bocs pricing",
+            "example" : 7
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the bocs pricing",
+            "example" : "Collection-SKU"
+          },
+          "timeUnit" : {
+            "type" : "string",
+            "description" : "Time unit of the bocs pricing",
+            "example" : "day"
+          }
+        }
+      },
       "BocsListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "boxId" : {
+            "type" : "string",
+            "description" : "Id of the bocs",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the bocs",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "userId" : {
+            "type" : "string",
+            "description" : "Id of the bocs user",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "type" : {
+            "type" : "string",
+            "description" : "Type of the bocs",
+            "example" : "fixed"
+          },
+          "pricePerFrequency" : {
+            "type" : "boolean",
+            "description" : "Price per frequency of the bocs",
+            "example" : true
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the bocs",
+            "example" : "My Box"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the bocs",
+            "example" : "My bocs description"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the bocs",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box",
+            "example" : "SKU-Test"
+          },
+          "boxPrice" : {
+            "type" : "number",
+            "description" : "Price of the box",
+            "example" : 10
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_images"
+            }
+          },
+          "items" : {
+            "type" : "array",
+            "description" : "Items of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_items"
+            }
+          },
+          "pricing" : {
+            "type" : "array",
+            "description" : "Pricing of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_pricing"
+            }
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the bocs",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the bocs",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "BocsPostRequest_pricing" : {
+        "type" : "object",
+        "properties" : {
+          "discount" : {
+            "type" : "number",
+            "description" : "Discount of the bocs pricing",
+            "example" : 0
+          },
+          "discountType" : {
+            "type" : "string",
+            "description" : "Discount type of the bocs pricing",
+            "example" : "percentage"
+          },
+          "frequency" : {
+            "type" : "number",
+            "description" : "Frequency of the bocs pricing",
+            "example" : 7
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the bocs pricing",
+            "example" : "Collection-SKU"
+          },
+          "timeUnit" : {
+            "type" : "string",
+            "description" : "Time unit of the bocs pricing",
+            "example" : "day"
+          }
+        }
+      },
+      "ProductsListResponse_data" : {
         "type" : "object",
         "properties" : {
           "contactId" : {
