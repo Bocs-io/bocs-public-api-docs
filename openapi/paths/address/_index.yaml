@@ -11,7 +11,7 @@ get:
       name: query
       schema:
         type: string
-        example: firstName:"bar"
+        example: city:"foo"
       description: Filter returned rows
     - in: query
       name: limit

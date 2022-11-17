@@ -1,7 +1,7 @@
 get:
   operationId: GetCategory
   summary: Get Category
-  description: Returns a category
+  description: Returns details about a category
   tags:
     - Categories
   parameters:
@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/categories/<category ID>' | jq
+        --url 'https://api.bocs.io/test/categories/<category ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -41,7 +42,7 @@ get:
 put:
   operationId: PutCategory
   summary: Update Category
-  description: Updates a category
+  description: Update properties of a category
   tags:
     - Categories
   parameters:
@@ -65,7 +66,7 @@ put:
         --data '' \
         | jq
   requestBody:
-    description: Category Fields
+    description: Parameters for updating a category
     required: true
     content:
       application/json:
@@ -92,7 +93,7 @@ put:
 delete:
   operationId: DeleteCategory
   summary: Delete Category
-  description: Deletes a category
+  description: Deletes a specified category
   tags:
     - Categories
   parameters:
@@ -112,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/categories/<category ID>' | jq
+        --url 'https://api.bocs.io/test/categories/<category ID>' \
+        | jq
   responses:
     "200":
       description: Success

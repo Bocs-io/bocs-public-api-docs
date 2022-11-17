@@ -755,7 +755,7 @@ paths:
     get:
       operationId: ListCollections
       summary: List Collections
-      description: List of collections
+      description: Returns list of collections
       tags:
         - Collections
       security:
@@ -805,7 +805,7 @@ paths:
     post:
       operationId: PostCollection
       summary: Create Collection
-      description: Creates a collection
+      description: Create properties of a collection
       tags:
         - Collections
       security:
@@ -846,7 +846,7 @@ paths:
     get:
       operationId: GetCollection
       summary: Get Collection
-      description: Returns a collection
+      description: Returns details about a collection
       tags:
         - Collections
       parameters:
@@ -886,7 +886,7 @@ paths:
     put:
       operationId: PutCollection
       summary: Update Collection
-      description: Updates a collection
+      description: Update properties of a collection
       tags:
         - Collections
       parameters:
@@ -936,7 +936,7 @@ paths:
     delete:
       operationId: DeleteCollection
       summary: Delete Collection
-      description: Deletes a collection
+      description: Deletes a specified collection
       tags:
         - Collections
       parameters:
@@ -956,7 +956,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/collections/<collection ID>' | jq
+            --url 'https://api.bocs.io/test/collections/<collection ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -978,7 +979,7 @@ paths:
     get:
       operationId: ListBocs
       summary: List Bocs
-      description: List of bocs
+      description: Returns list of bocs
       tags:
         - Bocs
       security:
@@ -1029,7 +1030,7 @@ paths:
     post:
       operationId: PostBocs
       summary: Create Bocs
-      description: Creates a bocs
+      description: Create properties of a bocs
       tags:
         - Bocs
       security:
@@ -1070,7 +1071,7 @@ paths:
     get:
       operationId: GetBocs
       summary: Get Bocs
-      description: Returns a bocs
+      description: Returns details about a bocs
       tags:
         - Bocs
       parameters:
@@ -1110,7 +1111,7 @@ paths:
     put:
       operationId: PutBocs
       summary: Update Bocs
-      description: Updates a bocs
+      description: Update properties of a bocs
       tags:
         - Bocs
       parameters:
@@ -1160,7 +1161,7 @@ paths:
     delete:
       operationId: DeleteBocs
       summary: Delete Bocs
-      description: Deletes a bocs
+      description: Deletes a specified bocs
       tags:
         - Bocs
       parameters:
@@ -1234,7 +1235,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/products' | jq
+            --url 'https://api.bocs.io/test/products' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1253,13 +1255,13 @@ paths:
     post:
       operationId: PostProduct
       summary: Create Product
-      description: Creates a product
+      description: Create properties of a product
       tags:
         - Products
       security:
         - api_key: []
       requestBody:
-        description: Product Fields
+        description: Parameters for creating a product
         required: true
         content:
           application/json:
@@ -1294,7 +1296,7 @@ paths:
     get:
       operationId: GetProduct
       summary: Get Product
-      description: Returns a product
+      description: Returns details about a product
       tags:
         - Products
       parameters:
@@ -1314,7 +1316,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/products/<product ID>' | jq
+            --url 'https://api.bocs.io/test/products/<product ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1333,7 +1336,7 @@ paths:
     put:
       operationId: PutProduct
       summary: Update Product
-      description: Updates a product
+      description: Update properties of a product
       tags:
         - Products
       parameters:
@@ -1357,7 +1360,7 @@ paths:
             --data '' \
             | jq
       requestBody:
-        description: Product Fields
+        description: Parameters for updating a product
         required: true
         content:
           application/json:
@@ -1383,7 +1386,7 @@ paths:
     delete:
       operationId: DeleteProduct
       summary: Delete Product
-      description: Deletes a product
+      description: Deletes a specified product
       tags:
         - Products
       parameters:
@@ -1403,7 +1406,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/products/<product ID>' | jq
+            --url 'https://api.bocs.io/test/products/<product ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -5514,6 +5518,14 @@ components:
                 type: string
                 example: day
                 description: Time unit of the bocs pricing
+      required:
+        - name
+        - type
+        - pricePerFrequency
+        - sku
+        - boxPrice
+        - items
+        - pricing
     BocsPostResponse:
       type: object
       properties:
@@ -6028,39 +6040,173 @@ components:
           items:
             type: object
             properties:
-              contactId:
+              productId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the product
+              parentId:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Parent id of the product
+              name:
                 type: string
-                example: Foo
-              lastName:
+                example: Product-1
+                description: Name of the product
+              price:
+                type: number
+                example: 100
+                description: Price of the product
+              source:
                 type: string
-                example: Bar
+                example: woocommerce
+                description: Source of the product
+              externalProductId:
+                type: string
+                example: 1
+                description: External product id of the product
+              categories:
+                type: array
+                items:
+                  type: string
+                example:
+                  - test-1
+                  - test-2
+                description: Categories of the product
+              images:
+                type: array
+                description: Images of the product
+                items:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                      description: Image of the product
+                    thumbnail:
+                      type: string
+                      example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                      description: Image of the product
+              quantity:
+                type: number
+                example: 5
+                description: Quantity of the product
+              description:
+                type: string
+                example: Description of product-1
+                description: Description of the product
+              sku:
+                type: string
+                example: SKU-Product-1
+                description: SKU of the product
+              isVariant:
+                type: string
+                example: test
+                description: Variant of the product
+              color:
+                type: string
+                example: black
+                description: Color of the product
+              size:
+                type: string
+                example: 10
+                description: Size of the product
+              length:
+                type: string
+                example: 20cm
+                description: Length of the product
+              width:
+                type: string
+                example: 10
+                description: Width of the product
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the collection
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the collection
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          description: Next page link
     ProductsPostRequest:
       type: object
       properties:
-        email:
+        name:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Product-1
+          description: Name of the product
+        price:
+          type: number
+          example: 100
+          description: Price of the product
+        source:
           type: string
-          example: Foo
-        lastName:
+          example: woocommerce
+          description: Source of the product
+        externalProductId:
           type: string
-          example: Bar
+          example: 1
+          description: External product id of the product
+        categories:
+          type: array
+          items:
+            type: string
+          example:
+            - test-1
+            - test-2
+          description: Categories of the product
+        images:
+          type: array
+          description: Images of the product
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the product
+              thumbnail:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the product
+        quantity:
+          type: number
+          example: 5
+          description: Quantity of the product
+        description:
+          type: string
+          example: Description of product-1
+          description: Description of the product
+        sku:
+          type: string
+          example: SKU-Product-1
+          description: SKU of the product
+        isVariant:
+          type: string
+          example: test
+          description: Variant of the product
+        color:
+          type: string
+          example: black
+          description: Color of the product
+        size:
+          type: string
+          example: 10
+          description: Size of the product
+        length:
+          type: string
+          example: 20cm
+          description: Length of the product
+        width:
+          type: string
+          example: 10
+          description: Width of the product
+      required:
+        - name
+        - description
+        - price
     ProductsPostResponse:
       type: object
       properties:
@@ -6073,24 +6219,92 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            productId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the product
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the product
+            name:
               type: string
-              example: Foo
-            lastName:
+              example: Product-1
+              description: Name of the product
+            price:
+              type: number
+              example: 100
+              description: Price of the product
+            source:
               type: string
-              example: Bar
+              example: woocommerce
+              description: Source of the product
+            externalProductId:
+              type: string
+              example: 1
+              description: External product id of the product
+            categories:
+              type: array
+              items:
+                type: string
+              example:
+                - test-1
+                - test-2
+              description: Categories of the product
+            images:
+              type: array
+              description: Images of the product
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the product
+                  thumbnail:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the product
+            quantity:
+              type: number
+              example: 5
+              description: Quantity of the product
+            description:
+              type: string
+              example: Description of product-1
+              description: Description of the product
+            sku:
+              type: string
+              example: SKU-Product-1
+              description: SKU of the product
+            isVariant:
+              type: string
+              example: test
+              description: Variant of the product
+            color:
+              type: string
+              example: black
+              description: Color of the product
+            size:
+              type: string
+              example: 10
+              description: Size of the product
+            length:
+              type: string
+              example: 20cm
+              description: Length of the product
+            width:
+              type: string
+              example: 10
+              description: Width of the product
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the collection
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the collection
     ProductsGetResponse:
       type: object
       properties:
@@ -6103,36 +6317,165 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            productId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the product
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the product
+            name:
               type: string
-              example: Foo
-            lastName:
+              example: Product-1
+              description: Name of the product
+            price:
+              type: number
+              example: 100
+              description: Price of the product
+            source:
               type: string
-              example: Bar
+              example: woocommerce
+              description: Source of the product
+            externalProductId:
+              type: string
+              example: 1
+              description: External product id of the product
+            categories:
+              type: array
+              items:
+                type: string
+              example:
+                - test-1
+                - test-2
+              description: Categories of the product
+            images:
+              type: array
+              description: Images of the product
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the product
+                  thumbnail:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the product
+            quantity:
+              type: number
+              example: 5
+              description: Quantity of the product
+            description:
+              type: string
+              example: Description of product-1
+              description: Description of the product
+            sku:
+              type: string
+              example: SKU-Product-1
+              description: SKU of the product
+            isVariant:
+              type: string
+              example: test
+              description: Variant of the product
+            color:
+              type: string
+              example: black
+              description: Color of the product
+            size:
+              type: string
+              example: 10
+              description: Size of the product
+            length:
+              type: string
+              example: 20cm
+              description: Length of the product
+            width:
+              type: string
+              example: 10
+              description: Width of the product
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the collection
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the collection
     ProductsPutRequest:
       type: object
       properties:
-        email:
+        name:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Product-1
+          description: Name of the product
+        price:
+          type: number
+          example: 100
+          description: Price of the product
+        source:
           type: string
-          example: Foo
-        lastName:
+          example: woocommerce
+          description: Source of the product
+        externalProductId:
           type: string
-          example: Bar
+          example: 1
+          description: External product id of the product
+        categories:
+          type: array
+          items:
+            type: string
+          example:
+            - test-1
+            - test-2
+          description: Categories of the product
+        images:
+          type: array
+          description: Images of the product
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the product
+              thumbnail:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the product
+        quantity:
+          type: number
+          example: 5
+          description: Quantity of the product
+        description:
+          type: string
+          example: Description of product-1
+          description: Description of the product
+        sku:
+          type: string
+          example: SKU-Product-1
+          description: SKU of the product
+        isVariant:
+          type: string
+          example: test
+          description: Variant of the product
+        color:
+          type: string
+          example: black
+          description: Color of the product
+        size:
+          type: string
+          example: 10
+          description: Size of the product
+        length:
+          type: string
+          example: 20cm
+          description: Length of the product
+        width:
+          type: string
+          example: 10
+          description: Width of the product
     ProductsPutResponse:
       type: object
       properties:
@@ -6145,24 +6488,92 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            productId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the product
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the product
+            name:
               type: string
-              example: Foo
-            lastName:
+              example: Product-1
+              description: Name of the product
+            price:
+              type: number
+              example: 100
+              description: Price of the product
+            source:
               type: string
-              example: Bar
+              example: woocommerce
+              description: Source of the product
+            externalProductId:
+              type: string
+              example: 1
+              description: External product id of the product
+            categories:
+              type: array
+              items:
+                type: string
+              example:
+                - test-1
+                - test-2
+              description: Categories of the product
+            images:
+              type: array
+              description: Images of the product
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the product
+                  thumbnail:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the product
+            quantity:
+              type: number
+              example: 5
+              description: Quantity of the product
+            description:
+              type: string
+              example: Description of product-1
+              description: Description of the product
+            sku:
+              type: string
+              example: SKU-Product-1
+              description: SKU of the product
+            isVariant:
+              type: string
+              example: test
+              description: Variant of the product
+            color:
+              type: string
+              example: black
+              description: Color of the product
+            size:
+              type: string
+              example: 10
+              description: Size of the product
+            length:
+              type: string
+              example: 20cm
+              description: Length of the product
+            width:
+              type: string
+              example: 10
+              description: Width of the product
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the collection
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the collection
     ProductsDeleteResponse:
       type: object
       properties:

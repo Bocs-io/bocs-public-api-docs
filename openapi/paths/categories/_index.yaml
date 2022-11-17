@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/categories' | jq
+        --url 'https://api.bocs.io/test/categories' \
+        | jq
   responses:
     "200":
       description: Success
@@ -52,13 +53,13 @@ get:
 post:
   operationId: PostCategory
   summary: Create Category
-  description: Creates a category
+  description: Create properties of category
   tags:
     - Categories
   security:
     - api_key: []
   requestBody:
-    description: Category Fields
+    description: Parameters for creating a category
     required: true
     content:
       application/json:

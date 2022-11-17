@@ -1,0 +1,12 @@
+parentId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Parent id of the category
+name:
+  type: string
+  example: Test Category
+  description: Name of the category
+description:
+  type: string
+  example: Test description
+  description: Descriptioin of the category

@@ -1,11 +1,5 @@
 type: object
 properties:
-  email:
-    type: string
-    example: foo@bocs.io
-  firstName:
-    type: string
-    example: Foo
-  lastName:
-    type: string
-    example: Bar
+  $ref: ./properties.yaml
+required:
+  - name
