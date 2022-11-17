@@ -1108,7 +1108,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "city:\"foo\""
           }
         }, {
           "name" : "limit",
@@ -1642,7 +1642,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -2176,7 +2176,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -2710,7 +2710,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -3343,16 +3343,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Categories" ],
         "summary" : "Create Category",
-        "description" : "Creates a category",
+        "description" : "Create properties of category",
         "operationId" : "PostCategory",
         "requestBody" : {
-          "description" : "Category Fields",
+          "description" : "Parameters for creating a category",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3444,7 +3444,7 @@
       "get" : {
         "tags" : [ "Categories" ],
         "summary" : "Get Category",
-        "description" : "Returns a category",
+        "description" : "Returns details about a category",
         "operationId" : "GetCategory",
         "parameters" : [ {
           "name" : "id",
@@ -3532,13 +3532,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Categories" ],
         "summary" : "Update Category",
-        "description" : "Updates a category",
+        "description" : "Update properties of a category",
         "operationId" : "PutCategory",
         "parameters" : [ {
           "name" : "id",
@@ -3553,7 +3553,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Category Fields",
+          "description" : "Parameters for updating a category",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3657,7 +3657,7 @@
       "delete" : {
         "tags" : [ "Categories" ],
         "summary" : "Delete Category",
-        "description" : "Deletes a category",
+        "description" : "Deletes a specified category",
         "operationId" : "DeleteCategory",
         "parameters" : [ {
           "name" : "id",
@@ -3759,7 +3759,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/<category ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -7811,24 +7811,29 @@
           },
           "nextPageLink" : {
             "type" : "string",
+            "description" : "Next page link",
             "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
           }
         }
       },
       "CategoriesPostRequest" : {
+        "required" : [ "name" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "parentId" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Parent id of the category",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "name" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Name of the category",
+            "example" : "Test Category"
           },
-          "lastName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Descriptioin of the category",
+            "example" : "Test description"
           }
         }
       },
@@ -7867,17 +7872,20 @@
       "CategoriesPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "parentId" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Parent id of the category",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "name" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Name of the category",
+            "example" : "Test Category"
           },
-          "lastName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Descriptioin of the category",
+            "example" : "Test description"
           }
         }
       },
@@ -7902,7 +7910,7 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -7924,7 +7932,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResponse_data"
+              "$ref" : "#/components/schemas/TagsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -7962,7 +7970,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -7978,7 +7986,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8011,7 +8019,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8096,7 +8104,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8129,7 +8137,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8160,7 +8168,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResponse_data"
+              "$ref" : "#/components/schemas/TagsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8198,7 +8206,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8214,7 +8222,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8247,7 +8255,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8278,7 +8286,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResponse_data"
+              "$ref" : "#/components/schemas/TagsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8316,7 +8324,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8332,7 +8340,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8365,7 +8373,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8396,7 +8404,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResponse_data"
+              "$ref" : "#/components/schemas/TagsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8434,7 +8442,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8450,7 +8458,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8483,7 +8491,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -8514,7 +8522,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResponse_data"
+              "$ref" : "#/components/schemas/TagsListResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8535,7 +8543,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/TagsListResponse_data"
           }
         }
       },
@@ -9662,6 +9670,41 @@
         }
       },
       "CategoriesListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "categoryId" : {
+            "type" : "string",
+            "description" : "Id of the category",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the category",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the category",
+            "example" : "Test Category"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Descriptioin of the category",
+            "example" : "Test description"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the category",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the category",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "TagsListResponse_data" : {
         "type" : "object",
         "properties" : {
           "contactId" : {
