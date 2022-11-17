@@ -3778,7 +3778,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -3877,16 +3877,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Tags" ],
         "summary" : "Create Tag",
-        "description" : "Creates a tag",
+        "description" : "Create properties of a tag",
         "operationId" : "PostTag",
         "requestBody" : {
-          "description" : "Tag Fields",
+          "description" : "Parameters for creating a category",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -3978,7 +3978,7 @@
       "get" : {
         "tags" : [ "Tags" ],
         "summary" : "Get Tag",
-        "description" : "Returns a tag",
+        "description" : "Returns details about a tag",
         "operationId" : "GetTag",
         "parameters" : [ {
           "name" : "id",
@@ -4066,13 +4066,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Tags" ],
         "summary" : "Update Tag",
-        "description" : "Updates a tag",
+        "description" : "Update properties of a tag",
         "operationId" : "PutTag",
         "parameters" : [ {
           "name" : "id",
@@ -4087,7 +4087,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Tag Fields",
+          "description" : "Parameters for updating a tag",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4191,7 +4191,7 @@
       "delete" : {
         "tags" : [ "Tags" ],
         "summary" : "Delete Tag",
-        "description" : "Deletes a tag",
+        "description" : "Deletes a specified category",
         "operationId" : "DeleteTag",
         "parameters" : [ {
           "name" : "id",
@@ -4293,7 +4293,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -7832,7 +7832,7 @@
           },
           "description" : {
             "type" : "string",
-            "description" : "Descriptioin of the category",
+            "description" : "Description of the category",
             "example" : "Test description"
           }
         }
@@ -7884,7 +7884,7 @@
           },
           "description" : {
             "type" : "string",
-            "description" : "Descriptioin of the category",
+            "description" : "Description of the category",
             "example" : "Test description"
           }
         }
@@ -7937,24 +7937,24 @@
           },
           "nextPageLink" : {
             "type" : "string",
+            "description" : "Next page link",
             "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
           }
         }
       },
       "TagsPostRequest" : {
+        "required" : [ "name" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "name" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Name of the tag",
+            "example" : "Test Tag"
           },
-          "firstName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Foo"
-          },
-          "lastName" : {
-            "type" : "string",
-            "example" : "Bar"
+            "description" : "Description of the tag",
+            "example" : "Test description"
           }
         }
       },
@@ -7993,17 +7993,15 @@
       "TagsPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "name" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Name of the tag",
+            "example" : "Test Tag"
           },
-          "firstName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Foo"
-          },
-          "lastName" : {
-            "type" : "string",
-            "example" : "Bar"
+            "description" : "Description of the tag",
+            "example" : "Test description"
           }
         }
       },
@@ -8028,7 +8026,7 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -8104,7 +8102,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8137,7 +8135,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8168,7 +8166,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/TagsListResponse_data"
+              "$ref" : "#/components/schemas/OrdersGetResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8206,7 +8204,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8222,7 +8220,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8255,7 +8253,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8286,7 +8284,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/TagsListResponse_data"
+              "$ref" : "#/components/schemas/OrdersGetResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8324,7 +8322,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8340,7 +8338,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8373,7 +8371,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8404,7 +8402,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/TagsListResponse_data"
+              "$ref" : "#/components/schemas/OrdersGetResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8442,7 +8440,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8458,7 +8456,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8491,7 +8489,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -8522,7 +8520,7 @@
           "data" : {
             "type" : "array",
             "items" : {
-              "$ref" : "#/components/schemas/TagsListResponse_data"
+              "$ref" : "#/components/schemas/OrdersGetResponse_data"
             }
           },
           "nextPageLink" : {
@@ -8543,7 +8541,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/OrdersGetResponse_data"
           }
         }
       },
@@ -9707,28 +9705,29 @@
       "TagsListResponse_data" : {
         "type" : "object",
         "properties" : {
-          "contactId" : {
+          "tagId" : {
             "type" : "string",
+            "description" : "Id of the tag",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "email" : {
+          "name" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Name of the tag",
+            "example" : "Test Tag"
           },
-          "firstName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Foo"
-          },
-          "lastName" : {
-            "type" : "string",
-            "example" : "Bar"
+            "description" : "Descriptioin of the tag",
+            "example" : "Test description"
           },
           "createdAt" : {
             "type" : "string",
+            "description" : "Created date of the tag",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
+            "description" : "Updated date of the tag",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
@@ -9866,6 +9865,35 @@
           },
           "paymentDate" : {
             "type" : "string"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "OrdersGetResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "contactId" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "email" : {
+            "type" : "string",
+            "example" : "foo@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "example" : "Foo"
+          },
+          "lastName" : {
+            "type" : "string",
+            "example" : "Bar"
           },
           "createdAt" : {
             "type" : "string",
