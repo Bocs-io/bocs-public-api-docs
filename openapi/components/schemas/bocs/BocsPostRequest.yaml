@@ -1,3 +1,11 @@
 type: object
 properties:
   $ref: ./properties.yaml
+required:
+  - name
+  - type
+  - pricePerFrequency
+  - sku
+  - boxPrice
+  - items
+  - pricing

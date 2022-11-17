@@ -1,7 +1,7 @@
 get:
   operationId: ListCollections
   summary: List Collections
-  description: List of collections
+  description: Returns list of collections
   tags:
     - Collections
   security:
@@ -52,7 +52,7 @@ get:
 post:
   operationId: PostCollection
   summary: Create Collection
-  description: Creates a collection
+  description: Create properties of a collection
   tags:
     - Collections
   security:

@@ -1,7 +1,7 @@
 get:
   operationId: GetBocs
   summary: Get Bocs
-  description: Returns a bocs
+  description: Returns details about a bocs
   tags:
     - Bocs
   parameters:
@@ -42,7 +42,7 @@ get:
 put:
   operationId: PutBocs
   summary: Update Bocs
-  description: Updates a bocs
+  description: Update properties of a bocs
   tags:
     - Bocs
   parameters:
@@ -93,7 +93,7 @@ put:
 delete:
   operationId: DeleteBocs
   summary: Delete Bocs
-  description: Deletes a bocs
+  description: Deletes a specified bocs
   tags:
     - Bocs
   parameters:

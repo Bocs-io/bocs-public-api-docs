@@ -151,7 +151,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/contacts' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -233,7 +233,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/contacts/<contact ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Parameters for updating a contact
@@ -376,7 +376,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/subscribers' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -458,7 +458,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/subscribers/<subscriber ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Parameters for updating a subscriber
@@ -601,7 +601,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/address' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -683,7 +683,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/address/<address ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Parameters for updating an address
@@ -825,7 +825,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/collections' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -907,7 +907,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/collections/<collection ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Parameters for updating collection
@@ -1009,7 +1009,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/bocs' | jq
+            --url 'https://api.bocs.io/test/bocs' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1034,7 +1035,7 @@ paths:
       security:
         - api_key: []
       requestBody:
-        description: Bocs Fields
+        description: Parameters for creating a bocs
         required: true
         content:
           application/json:
@@ -1048,7 +1049,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/bocs' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -1089,7 +1090,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/bocs/<bocs ID>' | jq
+            --url 'https://api.bocs.io/test/bocs/<bocs ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1129,10 +1131,10 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/bocs/<bocs ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
-        description: Bocs Fields
+        description: Parameters for creating a bocs
         required: true
         content:
           application/json:
@@ -1178,7 +1180,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/bocs/<bocs ID>' | jq
+            --url 'https://api.bocs.io/test/bocs/<bocs ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1270,7 +1273,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/products' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -1351,7 +1354,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/products/<product ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Product Fields
@@ -1492,7 +1495,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/categories' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -1573,7 +1576,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/categories/<category ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Category Fields
@@ -1714,7 +1717,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/tags' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -1795,7 +1798,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/tags/<tag ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Tag Fields
@@ -1936,7 +1939,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/orders' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -2017,7 +2020,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/orders/<order ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Order Fields
@@ -2158,7 +2161,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/subscriptions' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -2239,7 +2242,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Subscription Fields
@@ -2380,7 +2383,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/shipping-zones' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -2461,7 +2464,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/shipping-zones/<shipping zone ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Shipping Zone Fields
@@ -2602,7 +2605,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/tax-rates' \
-            --data '{"email": "foo@example.com", "firstName": "Foo", "lastName": "Bar"}' \
+            --data '{}' \
             | jq
       responses:
         '201':
@@ -2683,7 +2686,7 @@ paths:
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
             --url 'https://api.bocs.io/test/tax-rates/<subscription ID>' \
-            --data '{"lastName": "updated"}' \
+            --data '' \
             | jq
       requestBody:
         description: Tax Rate Fields
@@ -5288,39 +5291,229 @@ components:
           items:
             type: object
             properties:
-              contactId:
+              boxId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the bocs
+              parentId:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Parent id of the bocs
+              userId:
                 type: string
-                example: Foo
-              lastName:
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Id of the bocs user
+              type:
                 type: string
-                example: Bar
+                example: fixed
+                description: Type of the bocs
+              pricePerFrequency:
+                type: boolean
+                example: true
+                description: Price per frequency of the bocs
+              name:
+                type: string
+                example: My Box
+                description: Name of the bocs
+              description:
+                type: string
+                example: My bocs description
+                description: Description of the bocs
+              categories:
+                type: array
+                items:
+                  type: string
+                example:
+                  - test-1
+                  - test-2
+                description: Categories of the bocs
+              sku:
+                type: string
+                example: SKU-Test
+                description: SKU of the box
+              boxPrice:
+                type: number
+                example: 10
+                description: Price of the box
+              images:
+                type: array
+                description: Images of the bocs
+                items:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                      description: Image of the bocs
+                    thumbnail:
+                      type: string
+                      example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                      description: Image of the bocs
+              items:
+                type: array
+                description: Items of the bocs
+                items:
+                  type: object
+                  properties:
+                    productId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Id of the item
+                    name:
+                      type: string
+                      example: Item 1
+                      description: Name of the item
+                    price:
+                      type: number
+                      example: 25
+                      description: Price of the item
+                    quantity:
+                      type: number
+                      example: 2
+                      description: Quantity of the item
+              pricing:
+                type: array
+                description: Pricing of the bocs
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Id of the bocs pricing
+                    discount:
+                      type: number
+                      example: 0
+                      description: Discount of the bocs pricing
+                    discountType:
+                      type: string
+                      example: percentage
+                      description: Discount type of the bocs pricing
+                    frequency:
+                      type: number
+                      example: 7
+                      description: Frequency of the bocs pricing
+                    sku:
+                      type: string
+                      example: Collection-SKU
+                      description: SKU of the bocs pricing
+                    timeUnit:
+                      type: string
+                      example: day
+                      description: Time unit of the bocs pricing
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the bocs
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the bocs
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          description: Next page link
     BocsPostRequest:
       type: object
       properties:
-        email:
+        parentId:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the bocs
+        type:
           type: string
-          example: Foo
-        lastName:
+          example: fixed
+          description: Type of the bocs
+        pricePerFrequency:
+          type: boolean
+          example: true
+          description: Price per frequency of the bocs
+        name:
           type: string
-          example: Bar
+          example: My Box
+          description: Name of the bocs
+        description:
+          type: string
+          example: My bocs description
+          description: Description of the bocs
+        categories:
+          type: array
+          items:
+            type: string
+          example:
+            - test-1
+            - test-2
+          description: Categories of the bocs
+        sku:
+          type: string
+          example: SKU-Test
+          description: SKU of the box
+        boxPrice:
+          type: number
+          example: 10
+          description: Price of the box
+        images:
+          type: array
+          description: Images of the bocs
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the bocs
+              thumbnail:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the bocs
+        items:
+          type: array
+          description: Items of the bocs
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Id of the item
+              name:
+                type: string
+                example: Item 1
+                description: Name of the item
+              price:
+                type: number
+                example: 25
+                description: Price of the item
+              quantity:
+                type: number
+                example: 2
+                description: Quantity of the item
+        pricing:
+          type: array
+          description: Pricing of the bocs
+          items:
+            type: object
+            properties:
+              discount:
+                type: number
+                example: 0
+                description: Discount of the bocs pricing
+              discountType:
+                type: string
+                example: percentage
+                description: Discount type of the bocs pricing
+              frequency:
+                type: number
+                example: 7
+                description: Frequency of the bocs pricing
+              sku:
+                type: string
+                example: Collection-SKU
+                description: SKU of the bocs pricing
+              timeUnit:
+                type: string
+                example: day
+                description: Time unit of the bocs pricing
     BocsPostResponse:
       type: object
       properties:
@@ -5333,24 +5526,124 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            boxId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the bocs
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the bocs
+            userId:
               type: string
-              example: Foo
-            lastName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the bocs user
+            type:
               type: string
-              example: Bar
+              example: fixed
+              description: Type of the bocs
+            pricePerFrequency:
+              type: boolean
+              example: true
+              description: Price per frequency of the bocs
+            name:
+              type: string
+              example: My Box
+              description: Name of the bocs
+            description:
+              type: string
+              example: My bocs description
+              description: Description of the bocs
+            categories:
+              type: array
+              items:
+                type: string
+              example:
+                - test-1
+                - test-2
+              description: Categories of the bocs
+            sku:
+              type: string
+              example: SKU-Test
+              description: SKU of the box
+            boxPrice:
+              type: number
+              example: 10
+              description: Price of the box
+            images:
+              type: array
+              description: Images of the bocs
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the bocs
+                  thumbnail:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the bocs
+            items:
+              type: array
+              description: Items of the bocs
+              items:
+                type: object
+                properties:
+                  productId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the item
+                  name:
+                    type: string
+                    example: Item 1
+                    description: Name of the item
+                  price:
+                    type: number
+                    example: 25
+                    description: Price of the item
+                  quantity:
+                    type: number
+                    example: 2
+                    description: Quantity of the item
+            pricing:
+              type: array
+              description: Pricing of the bocs
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the bocs pricing
+                  discount:
+                    type: number
+                    example: 0
+                    description: Discount of the bocs pricing
+                  discountType:
+                    type: string
+                    example: percentage
+                    description: Discount type of the bocs pricing
+                  frequency:
+                    type: number
+                    example: 7
+                    description: Frequency of the bocs pricing
+                  sku:
+                    type: string
+                    example: Collection-SKU
+                    description: SKU of the bocs pricing
+                  timeUnit:
+                    type: string
+                    example: day
+                    description: Time unit of the bocs pricing
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the bocs
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the bocs
     BocsGetResponse:
       type: object
       properties:
@@ -5363,36 +5656,225 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            boxId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the bocs
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the bocs
+            userId:
               type: string
-              example: Foo
-            lastName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the bocs user
+            type:
               type: string
-              example: Bar
+              example: fixed
+              description: Type of the bocs
+            pricePerFrequency:
+              type: boolean
+              example: true
+              description: Price per frequency of the bocs
+            name:
+              type: string
+              example: My Box
+              description: Name of the bocs
+            description:
+              type: string
+              example: My bocs description
+              description: Description of the bocs
+            categories:
+              type: array
+              items:
+                type: string
+              example:
+                - test-1
+                - test-2
+              description: Categories of the bocs
+            sku:
+              type: string
+              example: SKU-Test
+              description: SKU of the box
+            boxPrice:
+              type: number
+              example: 10
+              description: Price of the box
+            images:
+              type: array
+              description: Images of the bocs
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the bocs
+                  thumbnail:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the bocs
+            items:
+              type: array
+              description: Items of the bocs
+              items:
+                type: object
+                properties:
+                  productId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the item
+                  name:
+                    type: string
+                    example: Item 1
+                    description: Name of the item
+                  price:
+                    type: number
+                    example: 25
+                    description: Price of the item
+                  quantity:
+                    type: number
+                    example: 2
+                    description: Quantity of the item
+            pricing:
+              type: array
+              description: Pricing of the bocs
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the bocs pricing
+                  discount:
+                    type: number
+                    example: 0
+                    description: Discount of the bocs pricing
+                  discountType:
+                    type: string
+                    example: percentage
+                    description: Discount type of the bocs pricing
+                  frequency:
+                    type: number
+                    example: 7
+                    description: Frequency of the bocs pricing
+                  sku:
+                    type: string
+                    example: Collection-SKU
+                    description: SKU of the bocs pricing
+                  timeUnit:
+                    type: string
+                    example: day
+                    description: Time unit of the bocs pricing
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the bocs
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the bocs
     BocsPutRequest:
       type: object
       properties:
-        email:
+        parentId:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the bocs
+        type:
           type: string
-          example: Foo
-        lastName:
+          example: fixed
+          description: Type of the bocs
+        pricePerFrequency:
+          type: boolean
+          example: true
+          description: Price per frequency of the bocs
+        name:
           type: string
-          example: Bar
+          example: My Box
+          description: Name of the bocs
+        description:
+          type: string
+          example: My bocs description
+          description: Description of the bocs
+        categories:
+          type: array
+          items:
+            type: string
+          example:
+            - test-1
+            - test-2
+          description: Categories of the bocs
+        sku:
+          type: string
+          example: SKU-Test
+          description: SKU of the box
+        boxPrice:
+          type: number
+          example: 10
+          description: Price of the box
+        images:
+          type: array
+          description: Images of the bocs
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the bocs
+              thumbnail:
+                type: string
+                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                description: Image of the bocs
+        items:
+          type: array
+          description: Items of the bocs
+          items:
+            type: object
+            properties:
+              productId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Id of the item
+              name:
+                type: string
+                example: Item 1
+                description: Name of the item
+              price:
+                type: number
+                example: 25
+                description: Price of the item
+              quantity:
+                type: number
+                example: 2
+                description: Quantity of the item
+        pricing:
+          type: array
+          description: Pricing of the bocs
+          items:
+            type: object
+            properties:
+              discount:
+                type: number
+                example: 0
+                description: Discount of the bocs pricing
+              discountType:
+                type: string
+                example: percentage
+                description: Discount type of the bocs pricing
+              frequency:
+                type: number
+                example: 7
+                description: Frequency of the bocs pricing
+              sku:
+                type: string
+                example: Collection-SKU
+                description: SKU of the bocs pricing
+              timeUnit:
+                type: string
+                example: day
+                description: Time unit of the bocs pricing
     BocsPutResponse:
       type: object
       properties:
@@ -5405,30 +5887,130 @@ components:
         data:
           type: object
           properties:
-            contactId:
+            boxId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the bocs
+            parentId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the bocs
+            userId:
               type: string
-              example: Foo
-            lastName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the bocs user
+            type:
               type: string
-              example: Bar
+              example: fixed
+              description: Type of the bocs
+            pricePerFrequency:
+              type: boolean
+              example: true
+              description: Price per frequency of the bocs
+            name:
+              type: string
+              example: My Box
+              description: Name of the bocs
+            description:
+              type: string
+              example: My bocs description
+              description: Description of the bocs
+            categories:
+              type: array
+              items:
+                type: string
+              example:
+                - test-1
+                - test-2
+              description: Categories of the bocs
+            sku:
+              type: string
+              example: SKU-Test
+              description: SKU of the box
+            boxPrice:
+              type: number
+              example: 10
+              description: Price of the box
+            images:
+              type: array
+              description: Images of the bocs
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the bocs
+                  thumbnail:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the bocs
+            items:
+              type: array
+              description: Items of the bocs
+              items:
+                type: object
+                properties:
+                  productId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the item
+                  name:
+                    type: string
+                    example: Item 1
+                    description: Name of the item
+                  price:
+                    type: number
+                    example: 25
+                    description: Price of the item
+                  quantity:
+                    type: number
+                    example: 2
+                    description: Quantity of the item
+            pricing:
+              type: array
+              description: Pricing of the bocs
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the bocs pricing
+                  discount:
+                    type: number
+                    example: 0
+                    description: Discount of the bocs pricing
+                  discountType:
+                    type: string
+                    example: percentage
+                    description: Discount type of the bocs pricing
+                  frequency:
+                    type: number
+                    example: 7
+                    description: Frequency of the bocs pricing
+                  sku:
+                    type: string
+                    example: Collection-SKU
+                    description: SKU of the bocs pricing
+                  timeUnit:
+                    type: string
+                    example: day
+                    description: Time unit of the bocs pricing
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the bocs
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the bocs
     BocsDeleteResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
         message:
           type: string
           example: success

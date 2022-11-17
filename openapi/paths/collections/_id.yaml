@@ -1,7 +1,7 @@
 get:
   operationId: GetCollection
   summary: Get Collection
-  description: Returns a collection
+  description: Returns details about a collection
   tags:
     - Collections
   parameters:
@@ -42,7 +42,7 @@ get:
 put:
   operationId: PutCollection
   summary: Update Collection
-  description: Updates a collection
+  description: Update properties of a collection
   tags:
     - Collections
   parameters:
@@ -93,7 +93,7 @@ put:
 delete:
   operationId: DeleteCollection
   summary: Delete Collection
-  description: Deletes a collection
+  description: Deletes a specified collection
   tags:
     - Collections
   parameters:
@@ -113,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/collections/<collection ID>' | jq
+        --url 'https://api.bocs.io/test/collections/<collection ID>' \
+        | jq
   responses:
     "200":
       description: Success

@@ -1,0 +1,84 @@
+productId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Id of the product
+parentId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Parent id of the product
+name:
+  type: string
+  example: Product-1
+  description: Name of the product
+price:
+  type: number
+  example: 100
+  description: Price of the product
+source:
+  type: string
+  example: woocommerce
+  description: Source of the product
+externalProductId:
+  type: string
+  example: 1
+  description: External product id of the product
+categories:
+  type: array
+  items:
+    type: string
+  example: ["test-1", "test-2"]
+  description: Categories of the product
+images:
+  type: array
+  description: Images of the product
+  items:
+    type: object
+    properties:
+      url:
+        type: string
+        example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+        description: Image of the product
+      thumbnail:
+        type: string
+        example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+        description: Image of the product
+quantity:
+  type: number
+  example: 5
+  description: Quantity of the product
+description:
+  type: string
+  example: Description of product-1
+  description: Description of the product
+sku:
+  type: string
+  example: SKU-Product-1
+  description: SKU of the product
+isVariant:
+  type: string
+  example: test
+  description: Variant of the product
+color:
+  type: string
+  example: black
+  description: Color of the product
+size:
+  type: string
+  example: 10
+  description: Size of the product
+length:
+  type: string
+  example: 20cm
+  description: Length of the product
+width:
+  type: string
+  example: 10
+  description: Width of the product
+createdAt:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Created date of the collection
+updatedAt:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Updated date of the collection

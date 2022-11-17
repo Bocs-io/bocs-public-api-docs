@@ -1,7 +1,7 @@
 get:
   operationId: ListBocs
   summary: List Bocs
-  description: List of bocs
+  description: Returns list of bocs
   tags:
     - Bocs
   security:
@@ -53,7 +53,7 @@ get:
 post:
   operationId: PostBocs
   summary: Create Bocs
-  description: Creates a bocs
+  description: Create properties of a bocs
   tags:
     - Bocs
   security:

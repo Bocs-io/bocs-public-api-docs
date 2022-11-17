@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/products' | jq
+        --url 'https://api.bocs.io/test/products' \
+        | jq
   responses:
     "200":
       description: Success
@@ -52,13 +53,13 @@ get:
 post:
   operationId: PostProduct
   summary: Create Product
-  description: Creates a product
+  description: Create properties of a product
   tags:
     - Products
   security:
     - api_key: []
   requestBody:
-    description: Product Fields
+    description: Parameters for creating a product
     required: true
     content:
       application/json:

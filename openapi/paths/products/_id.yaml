@@ -1,7 +1,7 @@
 get:
   operationId: GetProduct
   summary: Get Product
-  description: Returns a product
+  description: Returns details about a product
   tags:
     - Products
   parameters:
@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/products/<product ID>' | jq
+        --url 'https://api.bocs.io/test/products/<product ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -41,7 +42,7 @@ get:
 put:
   operationId: PutProduct
   summary: Update Product
-  description: Updates a product
+  description: Update properties of a product
   tags:
     - Products
   parameters:
@@ -65,7 +66,7 @@ put:
         --data '' \
         | jq
   requestBody:
-    description: Product Fields
+    description: Parameters for updating a product
     required: true
     content:
       application/json:
@@ -92,7 +93,7 @@ put:
 delete:
   operationId: DeleteProduct
   summary: Delete Product
-  description: Deletes a product
+  description: Deletes a specified product
   tags:
     - Products
   parameters:
@@ -112,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/products/<product ID>' | jq
+        --url 'https://api.bocs.io/test/products/<product ID>' \
+        | jq
   responses:
     "200":
       description: Success
