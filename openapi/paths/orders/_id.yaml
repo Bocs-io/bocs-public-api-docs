@@ -1,7 +1,7 @@
 get:
   operationId: GetOrder
   summary: Get Order
-  description: Returns an order
+  description: Returns details about an order
   tags:
     - Orders
   parameters:
@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/orders/<order ID>' | jq
+        --url 'https://api.bocs.io/test/orders/<order ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -41,7 +42,7 @@ get:
 put:
   operationId: PutOrder
   summary: Update Order
-  description: Updates an order
+  description: Update properties of an order
   tags:
     - Orders
   parameters:
@@ -65,7 +66,7 @@ put:
         --data '' \
         | jq
   requestBody:
-    description: Order Fields
+    description: Parameters for updating an order
     required: true
     content:
       application/json:
@@ -92,7 +93,7 @@ put:
 delete:
   operationId: DeleteOrder
   summary: Delete Order
-  description: Deletes an order
+  description: Deletes a specified order
   tags:
     - Orders
   parameters:
@@ -112,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/orders/<order ID>' | jq
+        --url 'https://api.bocs.io/test/orders/<order ID>' \
+        | jq
   responses:
     "200":
       description: Success

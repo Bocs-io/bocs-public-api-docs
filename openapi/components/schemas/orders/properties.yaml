@@ -1,0 +1,64 @@
+isSubscription:
+  type: boolean
+  example: false
+  description: Determines if order is from subscription
+total:
+  type: number
+  example: 100
+  description: Total of the order
+discount:
+  type: number
+  example: 1
+  description: Discount of the order
+shippingRate:
+  type: number
+  example: 2
+  description: Shipping rate of the order
+currency:
+  type: string
+  example: AUD
+  description: Currency of the order
+paymentDate:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Payment date of the order
+isPaid:
+  type: boolean
+  example: false
+  description: Determines if order has been paid
+platform:
+  type: string
+  example: woocommerce
+  description: Platform of the order
+customer:
+  type: object
+  description: Billing address of the contact
+  properties:
+    customerId:
+      type: string
+      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      description: Id of the customer
+    email:
+      type: string
+      example: earl+irwin@bocs.io
+      description: Email of the customer
+    firstName:
+      type: string
+      example: Earl
+      description: First name of the customer
+    lastName:
+      type: string
+      example: Irwin
+      description: Last name of the customer
+refunds:
+  type: object
+  description: Shipping address of the contact
+  properties:
+    reason:
+      type: string
+      example: Test reason
+      description: Reason of the refund
+    total:
+      type: number
+      example: 100
+      description: Total of the refund

@@ -3,32 +3,13 @@ properties:
   code:
     type: integer
     example: 201
+    description: Status code
   message:
     type: string
     example: success
+    description: Success or error message
   data:
     type: object
+    description: Response data
     properties:
-      total:
-        type: string
-        # example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-      discount:
-        type: number
-        # example: foo@bocs.io
-      shippingRate:
-        type: number
-        # example: Foo
-      currency:
-        type: string
-        example: Bar
-      status:
-        type: string
-      paymentDate:
-        type: string
-
-      createdAt:
-        type: string
-        example: 2022-10-25T11:25:08.394Z
-      updatedAt:
-        type: string
-        example: 2022-10-25T11:25:08.394Z
+      $ref: ./properties.yaml

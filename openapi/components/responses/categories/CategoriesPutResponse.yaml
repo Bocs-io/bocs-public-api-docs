@@ -3,10 +3,13 @@ properties:
   code:
     type: integer
     example: 200
+    description: Status code
   message:
     type: string
     example: success
+    description: Success or error message
   data:
     type: object
+    description: Response data
     properties:
       $ref: ./properties.yaml

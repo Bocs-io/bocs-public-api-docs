@@ -10,5 +10,6 @@ properties:
     description: Success or error message
   data:
     type: object
+    description: Response data
     properties:
       $ref: ./properties.yaml

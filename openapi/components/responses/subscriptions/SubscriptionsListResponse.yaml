@@ -3,11 +3,14 @@ properties:
   code:
     type: integer
     example: 200
+    description: Status code
   message:
     type: string
     example: success
+    description: Success or error message
   data:
     type: array
+    description: Response data
     items:
       type: object
       properties:
@@ -32,3 +35,4 @@ properties:
   nextPageLink:
     type: string
     example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    description: Next page link

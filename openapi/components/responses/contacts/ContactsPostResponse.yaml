@@ -2,7 +2,7 @@ type: object
 properties:
   code:
     type: integer
-    example: 200
+    example: 201
     description: Status code
   message:
     type: string
