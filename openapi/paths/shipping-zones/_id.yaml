@@ -1,7 +1,7 @@
 get:
   operationId: GetShippingZone
   summary: Get Shipping Zone
-  description: Returns a shipping zone
+  description: Returns details about a shipping zone
   tags:
     - Shipping Zones
   parameters:
@@ -41,7 +41,7 @@ get:
 put:
   operationId: PutShippingZone
   summary: Update Shipping Zone
-  description: Updates a shipping zone
+  description: Update properties of a shipping zone
   tags:
     - Shipping Zones
   parameters:
@@ -65,7 +65,7 @@ put:
         --data '' \
         | jq
   requestBody:
-    description: Shipping Zone Fields
+    description: Parameters for updating shipping zone
     required: true
     content:
       application/json:
@@ -92,7 +92,7 @@ put:
 delete:
   operationId: DeleteShippingZone
   summary: Delete Shipping Zone
-  description: Deletes a shipping zone
+  description: Deletes a specified shipping zone
   tags:
     - Shipping Zones
   parameters:

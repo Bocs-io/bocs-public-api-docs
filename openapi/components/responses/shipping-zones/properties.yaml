@@ -1,0 +1,48 @@
+shippingZoneId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Id of the shipping zone
+title:
+  type: string
+  example: Test Title
+  description: Title of the shipping zone
+description:
+  type: string
+  example: Test Description
+  description: Description of the shipping zone
+country:
+  type: string
+  example: AU
+  description: Country of the shipping zone
+city:
+  type: string
+  example: Adelaide
+  description: City of the shipping zone
+state:
+  type: string
+  example: Adelaide
+  description: State of the shipping zone
+postcode:
+  type: number
+  example: 6000
+  description: Postcode of the shipping zone
+cost:
+  type: number
+  example: 15
+  description: Cost of the shipping zone
+enabled:
+  type: boolean
+  example: true
+  description: Determines if the shipping zone is enabled
+order:
+  type: number
+  example: 1
+  description: Order of the shipping zone
+createdAt:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Created date of the subscription
+updatedAt:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Updated date of the subscription

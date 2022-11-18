@@ -11,7 +11,7 @@ get:
       name: query
       schema:
         type: string
-        example: firstName:"bar"
+        example: title:"bar"
       description: Filter returned rows
     - in: query
       name: limit
@@ -52,13 +52,13 @@ get:
 post:
   operationId: PostShippingZone
   summary: CreateShipping Zone
-  description: Creates a shipping zone
+  description: Create properties of a shipping zone
   tags:
     - Shipping Zones
   security:
     - api_key: []
   requestBody:
-    description: Shipping Zone Fields
+    description: Parameters for creating a shipping zone
     required: true
     content:
       application/json:
