@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/widgets' | jq
+        --url 'https://api.bocs.io/test/widgets' \
+        | jq
   responses:
     "200":
       description: Success
@@ -51,13 +52,13 @@ get:
 # post:
 #   operationId: PostWidget
 #   summary: Create Widget
-#   description: Creates a widget
+#   description: Create properties of a widget
 #   tags:
 #     - Widgets
 #   security:
 #     - api_key: []
 #   requestBody:
-#     description: Widget Fields
+#     description: Parameters for creating a widget
 #     required: true
 #     content:
 #       application/json:

@@ -1,7 +1,7 @@
 get:
   operationId: GetWidget
   summary: Get Widget
-  description: Returns a widget
+  description: Returns details about a widget
   tags:
     - Widgets
   parameters:
@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/widgets/<widget ID>' | jq
+        --url 'https://api.bocs.io/test/widgets/<widget ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -40,7 +41,7 @@ get:
 # put:
 #   operationId: PutWidget
 #   summary: Update Widget
-#   description: Updates a widget
+#   description: Update properties of a widget
 #   tags:
 #     - Widgets
 #   parameters:
@@ -64,7 +65,7 @@ get:
 #         --data '' \
 #         | jq
 #   requestBody:
-#     description: Widget Fields
+#     description: Parameters for updating a widget
 #     required: true
 #     content:
 #       application/json:
@@ -91,7 +92,7 @@ get:
 # delete:
 #   operationId: DeleteWidget
 #   summary: Delete Widget
-#   description: Deletes a widget
+#   description: Deletes a specified widget
 #   tags:
 #     - Widgets
 #   parameters:
@@ -111,7 +112,8 @@ get:
 #         curl --request DELETE \
 #         --header 'Authorization: <your API Key>' \
 #         --header 'Content-Type: application/json' \
-#         --url 'https://api.bocs.io/test/widgets/<widget ID>' | jq
+#         --url 'https://api.bocs.io/test/widgets/<widget ID>' \
+#         | jq
 #   responses:
 #     "200":
 #       description: Success

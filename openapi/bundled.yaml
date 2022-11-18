@@ -1439,7 +1439,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: name:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -1889,7 +1889,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: customer:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -1910,7 +1910,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/orders' | jq
+            --url 'https://api.bocs.io/test/orders' \
+            | jq
       responses:
         '200':
           description: Success
@@ -1929,13 +1930,13 @@ paths:
     post:
       operationId: PostOrder
       summary: Create Order
-      description: Creates an order
+      description: Creates properties of an order
       tags:
         - Orders
       security:
         - api_key: []
       requestBody:
-        description: Order Fields
+        description: Parameters for creating an order
         required: true
         content:
           application/json:
@@ -1970,7 +1971,7 @@ paths:
     get:
       operationId: GetOrder
       summary: Get Order
-      description: Returns an order
+      description: Returns details about an order
       tags:
         - Orders
       parameters:
@@ -1990,7 +1991,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/orders/<order ID>' | jq
+            --url 'https://api.bocs.io/test/orders/<order ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2009,7 +2011,7 @@ paths:
     put:
       operationId: PutOrder
       summary: Update Order
-      description: Updates an order
+      description: Update properties of an order
       tags:
         - Orders
       parameters:
@@ -2033,7 +2035,7 @@ paths:
             --data '' \
             | jq
       requestBody:
-        description: Order Fields
+        description: Parameters for updating an order
         required: true
         content:
           application/json:
@@ -2059,7 +2061,7 @@ paths:
     delete:
       operationId: DeleteOrder
       summary: Delete Order
-      description: Deletes an order
+      description: Deletes a specified order
       tags:
         - Orders
       parameters:
@@ -2079,7 +2081,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/orders/<order ID>' | jq
+            --url 'https://api.bocs.io/test/orders/<order ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2111,7 +2114,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: name:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -2132,7 +2135,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/subscriptions' | jq
+            --url 'https://api.bocs.io/test/subscriptions' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2151,13 +2155,13 @@ paths:
     post:
       operationId: PostSubscription
       summary: Create Subscription
-      description: Creates a subscription
+      description: Create properties of a subscription
       tags:
         - Subscriptions
       security:
         - api_key: []
       requestBody:
-        description: Subscription Fields
+        description: Parameters for creating a subscription
         required: true
         content:
           application/json:
@@ -2192,7 +2196,7 @@ paths:
     get:
       operationId: GetSubscription
       summary: Get Subscription
-      description: Returns a subscription
+      description: Returns details about a subscription
       tags:
         - Subscriptions
       parameters:
@@ -2212,7 +2216,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq
+            --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2231,7 +2236,7 @@ paths:
     put:
       operationId: PutSubscription
       summary: Update Subscription
-      description: Updates a subscription
+      description: Update properties of a subscription
       tags:
         - Subscriptions
       parameters:
@@ -2255,7 +2260,7 @@ paths:
             --data '' \
             | jq
       requestBody:
-        description: Subscription Fields
+        description: Parameters for updating a subscription
         required: true
         content:
           application/json:
@@ -2281,7 +2286,7 @@ paths:
     delete:
       operationId: DeleteSubscription
       summary: Delete Subscription
-      description: Deletes a subscription
+      description: Deletes a specified subscription
       tags:
         - Subscriptions
       parameters:
@@ -2301,7 +2306,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq
+            --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2333,7 +2339,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: title:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -2373,13 +2379,13 @@ paths:
     post:
       operationId: PostShippingZone
       summary: CreateShipping Zone
-      description: Creates a shipping zone
+      description: Create properties of a shipping zone
       tags:
         - Shipping Zones
       security:
         - api_key: []
       requestBody:
-        description: Shipping Zone Fields
+        description: Parameters for creating a shipping zone
         required: true
         content:
           application/json:
@@ -2414,7 +2420,7 @@ paths:
     get:
       operationId: GetShippingZone
       summary: Get Shipping Zone
-      description: Returns a shipping zone
+      description: Returns details about a shipping zone
       tags:
         - Shipping Zones
       parameters:
@@ -2453,7 +2459,7 @@ paths:
     put:
       operationId: PutShippingZone
       summary: Update Shipping Zone
-      description: Updates a shipping zone
+      description: Update properties of a shipping zone
       tags:
         - Shipping Zones
       parameters:
@@ -2477,7 +2483,7 @@ paths:
             --data '' \
             | jq
       requestBody:
-        description: Shipping Zone Fields
+        description: Parameters for updating shipping zone
         required: true
         content:
           application/json:
@@ -2503,7 +2509,7 @@ paths:
     delete:
       operationId: DeleteShippingZone
       summary: Delete Shipping Zone
-      description: Deletes a shipping zone
+      description: Deletes a specified shipping zone
       tags:
         - Shipping Zones
       parameters:
@@ -2576,7 +2582,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/tax-rates' | jq
+            --url 'https://api.bocs.io/test/tax-rates' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2595,13 +2602,13 @@ paths:
     post:
       operationId: PostTaxRate
       summary: Create Tax Rate
-      description: Creates a tax rate
+      description: Create properties of tax rates
       tags:
         - Tax Rates
       security:
         - api_key: []
       requestBody:
-        description: Tax Rate Fields
+        description: Parameters for creating a tax rate
         required: true
         content:
           application/json:
@@ -2636,7 +2643,7 @@ paths:
     get:
       operationId: GetTaxRate
       summary: Get Tax Rate
-      description: Returns a tax rate
+      description: Returns details about a tax rate
       tags:
         - Tax Rates
       parameters:
@@ -2656,7 +2663,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq
+            --url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2675,7 +2683,7 @@ paths:
     put:
       operationId: PutTaxRate
       summary: Update Tax Rate
-      description: Updates a tax rate
+      description: Update properties of tax rate
       tags:
         - Tax Rates
       parameters:
@@ -2695,11 +2703,11 @@ paths:
             curl --request PUT \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/tax-rates/<subscription ID>' \
+            --url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \
             --data '' \
             | jq
       requestBody:
-        description: Tax Rate Fields
+        description: Parameters for updating a tax rate
         required: true
         content:
           application/json:
@@ -2725,7 +2733,7 @@ paths:
     delete:
       operationId: DeleteTaxRate
       summary: Delete Tax Rate
-      description: Deletes a tax rate
+      description: Deletes a specified tax rate
       tags:
         - Tax Rates
       parameters:
@@ -2745,7 +2753,8 @@ paths:
             curl --request DELETE \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq
+            --url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2798,7 +2807,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/widgets' | jq
+            --url 'https://api.bocs.io/test/widgets' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2818,7 +2828,7 @@ paths:
     get:
       operationId: GetWidget
       summary: Get Widget
-      description: Returns a widget
+      description: Returns details about a widget
       tags:
         - Widgets
       parameters:
@@ -2838,7 +2848,8 @@ paths:
             curl --request GET \
             --header 'Authorization: <your API Key>' \
             --header 'Content-Type: application/json' \
-            --url 'https://api.bocs.io/test/widgets/<widget ID>' | jq
+            --url 'https://api.bocs.io/test/widgets/<widget ID>' \
+            | jq
       responses:
         '200':
           description: Success
@@ -2911,11 +2922,11 @@ components:
                     description: Address line 2 of the address
                   city:
                     type: string
-                    example: Victoria
+                    example: Adelaide
                     description: City of the address
                   state:
                     type: string
-                    example: Victoria
+                    example: South Australia
                     description: State of the address
                   country:
                     type: string
@@ -2939,11 +2950,11 @@ components:
                     description: Address line 2 of the address
                   city:
                     type: string
-                    example: Victoria
+                    example: Adelaide
                     description: City of the address
                   state:
                     type: string
-                    example: Victoria
+                    example: South Australia
                     description: State of the address
                   country:
                     type: string
@@ -3001,11 +3012,11 @@ components:
               description: Address line 2 of the address
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: City of the address
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: State of the address
             country:
               type: string
@@ -3029,11 +3040,11 @@ components:
               description: Address line 2 of the address
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: City of the address
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: State of the address
             country:
               type: string
@@ -3050,7 +3061,7 @@ components:
       properties:
         code:
           type: integer
-          example: 200
+          example: 201
           description: Status code
         message:
           type: string
@@ -3090,11 +3101,11 @@ components:
                   description: Address line 2 of the address
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: City of the address
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: State of the address
                 country:
                   type: string
@@ -3118,11 +3129,11 @@ components:
                   description: Address line 2 of the address
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: City of the address
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: State of the address
                 country:
                   type: string
@@ -3185,11 +3196,11 @@ components:
                   description: Address line 2 of the address
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: City of the address
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: State of the address
                 country:
                   type: string
@@ -3213,11 +3224,11 @@ components:
                   description: Address line 2 of the address
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: City of the address
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: State of the address
                 country:
                   type: string
@@ -3264,11 +3275,11 @@ components:
               description: Address line 2 of the address
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: City of the address
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: State of the address
             country:
               type: string
@@ -3292,11 +3303,11 @@ components:
               description: Address line 2 of the address
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: City of the address
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: State of the address
             country:
               type: string
@@ -3351,11 +3362,11 @@ components:
                   description: Address line 2 of the address
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: City of the address
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: State of the address
                 country:
                   type: string
@@ -3379,11 +3390,11 @@ components:
                   description: Address line 2 of the address
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: City of the address
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: State of the address
                 country:
                   type: string
@@ -3429,10 +3440,6 @@ components:
           items:
             type: object
             properties:
-              userId:
-                type: string
-                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                description: Id of the bocs user
               subscriberId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -3478,11 +3485,11 @@ components:
                     description: Billing address line 2 of the subscriber
                   city:
                     type: string
-                    example: Victoria
+                    example: Adelaide
                     description: Billing city of the subscriber
                   state:
                     type: string
-                    example: Victoria
+                    example: South Australia
                     description: Billing state of the subscriber
                   country:
                     type: string
@@ -3506,11 +3513,11 @@ components:
                     description: Shipping address line 2 of the subscriber
                   city:
                     type: string
-                    example: Victoria
+                    example: Adelaide
                     description: Shipping city of the subscriber
                   state:
                     type: string
-                    example: Victoria
+                    example: South Australia
                     description: Shipping state of the subscriber
                   country:
                     type: string
@@ -3534,7 +3541,7 @@ components:
                 description: Updated date of the subscriber
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/subscribers?pageToken=c70e668c
           description: Next page link
     SubscribersPostRequest:
       type: object
@@ -3580,11 +3587,11 @@ components:
               description: Billing address line 2 of the subscriber
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: Billing city of the subscriber
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: Billing state of the subscriber
             country:
               type: string
@@ -3608,11 +3615,11 @@ components:
               description: Shipping address line 2 of the subscriber
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: Shipping city of the subscriber
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: Shipping state of the subscriber
             country:
               type: string
@@ -3640,10 +3647,6 @@ components:
           type: object
           description: Response data
           properties:
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             subscriberId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -3689,11 +3692,11 @@ components:
                   description: Billing address line 2 of the subscriber
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: Billing city of the subscriber
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: Billing state of the subscriber
                 country:
                   type: string
@@ -3717,11 +3720,11 @@ components:
                   description: Shipping address line 2 of the subscriber
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: Shipping city of the subscriber
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: Shipping state of the subscriber
                 country:
                   type: string
@@ -3758,10 +3761,6 @@ components:
           type: object
           description: Response data
           properties:
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             subscriberId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -3807,11 +3806,11 @@ components:
                   description: Billing address line 2 of the subscriber
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: Billing city of the subscriber
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: Billing state of the subscriber
                 country:
                   type: string
@@ -3835,11 +3834,11 @@ components:
                   description: Shipping address line 2 of the subscriber
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: Shipping city of the subscriber
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: Shipping state of the subscriber
                 country:
                   type: string
@@ -3905,11 +3904,11 @@ components:
               description: Billing address line 2 of the subscriber
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: Billing city of the subscriber
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: Billing state of the subscriber
             country:
               type: string
@@ -3933,11 +3932,11 @@ components:
               description: Shipping address line 2 of the subscriber
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: Shipping city of the subscriber
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: Shipping state of the subscriber
             country:
               type: string
@@ -3962,10 +3961,6 @@ components:
           type: object
           description: Response data
           properties:
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             subscriberId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -4011,11 +4006,11 @@ components:
                   description: Billing address line 2 of the subscriber
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: Billing city of the subscriber
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: Billing state of the subscriber
                 country:
                   type: string
@@ -4039,11 +4034,11 @@ components:
                   description: Shipping address line 2 of the subscriber
                 city:
                   type: string
-                  example: Victoria
+                  example: Adelaide
                   description: Shipping city of the subscriber
                 state:
                   type: string
-                  example: Victoria
+                  example: South Australia
                   description: Shipping state of the subscriber
                 country:
                   type: string
@@ -4081,7 +4076,7 @@ components:
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
           description: Status code
         message:
           type: string
@@ -4106,11 +4101,11 @@ components:
                 description: Address line 2 of the address
               city:
                 type: string
-                example: Victoria
+                example: Adelaide
                 description: City of the address
               state:
                 type: string
-                example: Victoria
+                example: South Australia
                 description: State of the address
               country:
                 type: string
@@ -4145,11 +4140,11 @@ components:
           description: Address line 2 of the address
         city:
           type: string
-          example: Victoria
+          example: Adelaide
           description: City of the address
         state:
           type: string
-          example: Victoria
+          example: South Australia
           description: State of the address
         country:
           type: string
@@ -4193,11 +4188,11 @@ components:
               description: Address line 2 of the address
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: City of the address
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: State of the address
             country:
               type: string
@@ -4220,7 +4215,7 @@ components:
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
           description: Status code
         message:
           type: string
@@ -4243,11 +4238,11 @@ components:
               description: Address line 2 of the address
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: City of the address
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: State of the address
             country:
               type: string
@@ -4278,11 +4273,11 @@ components:
           description: Address line 2 of the address
         city:
           type: string
-          example: Victoria
+          example: Adelaide
           description: City of the address
         state:
           type: string
-          example: Victoria
+          example: South Australia
           description: State of the address
         country:
           type: string
@@ -4297,7 +4292,7 @@ components:
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
           description: Status code
         message:
           type: string
@@ -4320,11 +4315,11 @@ components:
               description: Address line 2 of the address
             city:
               type: string
-              example: Victoria
+              example: Adelaide
               description: City of the address
             state:
               type: string
-              example: Victoria
+              example: South Australia
               description: State of the address
             country:
               type: string
@@ -4347,7 +4342,7 @@ components:
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
           description: Status code
         message:
           type: string
@@ -4366,13 +4361,10 @@ components:
           description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
-              userId:
-                type: string
-                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                description: Id of the bocs user
               collectionId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -4522,7 +4514,7 @@ components:
                 description: Updated date of the collection
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/collections?pageToken=c70e668c
           description: Next page link
     CollectionsPostRequest:
       type: object
@@ -4667,11 +4659,8 @@ components:
           description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             collectionId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -4832,11 +4821,8 @@ components:
           description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             collectionId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -5125,10 +5111,6 @@ components:
           type: object
           description: Response data
           properties:
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             collectionId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
@@ -5293,11 +5275,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
@@ -5309,10 +5294,6 @@ components:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
                 description: Parent id of the bocs
-              userId:
-                type: string
-                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                description: Id of the bocs user
               type:
                 type: string
                 example: fixed
@@ -5421,7 +5402,7 @@ components:
                 description: Updated date of the bocs
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/bocs?pageToken=c70e668c
           description: Next page link
     BocsPostRequest:
       type: object
@@ -5538,11 +5519,14 @@ components:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             boxId:
               type: string
@@ -5552,10 +5536,6 @@ components:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
               description: Parent id of the bocs
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             type:
               type: string
               example: fixed
@@ -5668,11 +5648,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             boxId:
               type: string
@@ -5682,10 +5665,6 @@ components:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
               description: Parent id of the bocs
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             type:
               type: string
               example: fixed
@@ -5899,11 +5878,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             boxId:
               type: string
@@ -5913,10 +5895,6 @@ components:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
               description: Parent id of the bocs
-            userId:
-              type: string
-              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the bocs user
             type:
               type: string
               example: fixed
@@ -6029,20 +6007,25 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     ProductsListResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
@@ -6134,7 +6117,7 @@ components:
                 description: Updated date of the collection
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/products?pageToken=c70e668c
           description: Next page link
     ProductsPostRequest:
       type: object
@@ -6219,11 +6202,14 @@ components:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             productId:
               type: string
@@ -6317,11 +6303,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             productId:
               type: string
@@ -6488,11 +6477,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             productId:
               type: string
@@ -6585,21 +6577,26 @@ components:
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     CategoriesListResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
@@ -6629,7 +6626,7 @@ components:
                 description: Updated date of the category
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/categories?pageToken=c70e668c
           description: Next page link
     CategoriesPostRequest:
       type: object
@@ -6654,11 +6651,14 @@ components:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             categoryId:
               type: string
@@ -6690,11 +6690,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             categoryId:
               type: string
@@ -6741,11 +6744,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             categoryId:
               type: string
@@ -6777,20 +6783,25 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     TagsListResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
@@ -6816,7 +6827,7 @@ components:
                 description: Updated date of the tag
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/tags?pageToken=c70e668c
           description: Next page link
     TagsPostRequest:
       type: object
@@ -6837,11 +6848,14 @@ components:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             tagId:
               type: string
@@ -6869,11 +6883,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             tagId:
               type: string
@@ -6912,11 +6929,14 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
             tagId:
               type: string
@@ -6944,379 +6964,1472 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     OrdersListResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
-              userId:
-                type: string
-                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
               orderId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Contact Id
               isSubscription:
                 type: boolean
                 example: false
+                description: Determines if order is from subscription
               total:
                 type: number
                 example: 100
+                description: Total of the order
               discount:
                 type: number
-                example: 3
+                example: 1
+                description: Discount of the order
               shippingRate:
                 type: number
                 example: 2
+                description: Shipping rate of the order
               currency:
                 type: string
                 example: AUD
-              status:
-                type: string
-                example: active
+                description: Currency of the order
               paymentDate:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Payment date of the order
               isPaid:
                 type: boolean
                 example: false
+                description: Determines if order has been paid
               platform:
                 type: string
                 example: woocommerce
+                description: Platform of the order
               customer:
                 type: object
+                description: Billing address of the contact
                 properties:
-                  id:
+                  customerId:
                     type: string
                     example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                  firstName:
-                    type: string
-                    example: Foo
-                  lastName:
-                    type: string
-                    example: Bar
+                    description: Id of the customer
                   email:
                     type: string
-                    example: foo@example.com
+                    example: earl+irwin@bocs.io
+                    description: Email of the customer
+                  firstName:
+                    type: string
+                    example: Earl
+                    description: First name of the customer
+                  lastName:
+                    type: string
+                    example: Irwin
+                    description: Last name of the customer
               refunds:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                    reason:
-                      type: string
-                      example: Foo Bar
-                    total:
-                      type: number
-                      example: 100
-                    createdAt:
-                      type: string
-                      example: '2022-10-25T11:25:08.394Z'
-                    updatedAt:
-                      type: string
-                      example: '2022-10-25T11:25:08.394Z'
+                type: object
+                description: Shipping address of the contact
+                properties:
+                  refundId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the refund
+                  reason:
+                    type: string
+                    example: Test reason
+                    description: Reason of the refund
+                  total:
+                    type: number
+                    example: 100
+                    description: Total of the refund
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the contact
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the contact
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/orders?pageToken=c70e668c
+          description: Next page link
     OrdersPostRequest:
       type: object
       properties:
-        email:
+        isSubscription:
+          type: boolean
+          example: false
+          description: Determines if order is from subscription
+        total:
+          type: number
+          example: 100
+          description: Total of the order
+        discount:
+          type: number
+          example: 1
+          description: Discount of the order
+        shippingRate:
+          type: number
+          example: 2
+          description: Shipping rate of the order
+        currency:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: AUD
+          description: Currency of the order
+        paymentDate:
           type: string
-          example: Foo
-        lastName:
+          example: '2022-10-25T11:25:08.394Z'
+          description: Payment date of the order
+        isPaid:
+          type: boolean
+          example: false
+          description: Determines if order has been paid
+        platform:
           type: string
-          example: Bar
+          example: woocommerce
+          description: Platform of the order
+        customer:
+          type: object
+          description: Billing address of the contact
+          properties:
+            customerId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the customer
+            email:
+              type: string
+              example: earl+irwin@bocs.io
+              description: Email of the customer
+            firstName:
+              type: string
+              example: Earl
+              description: First name of the customer
+            lastName:
+              type: string
+              example: Irwin
+              description: Last name of the customer
+        refunds:
+          type: object
+          description: Shipping address of the contact
+          properties:
+            reason:
+              type: string
+              example: Test reason
+              description: Reason of the refund
+            total:
+              type: number
+              example: 100
+              description: Total of the refund
+      required:
+        - total
+        - paymentDate
+        - customer
     OrdersPostResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            total:
+            orderId:
               type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Contact Id
+            isSubscription:
+              type: boolean
+              example: false
+              description: Determines if order is from subscription
+            total:
+              type: number
+              example: 100
+              description: Total of the order
             discount:
               type: number
+              example: 1
+              description: Discount of the order
             shippingRate:
               type: number
+              example: 2
+              description: Shipping rate of the order
             currency:
               type: string
-              example: Bar
-            status:
-              type: string
+              example: AUD
+              description: Currency of the order
             paymentDate:
               type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Payment date of the order
+            isPaid:
+              type: boolean
+              example: false
+              description: Determines if order has been paid
+            platform:
+              type: string
+              example: woocommerce
+              description: Platform of the order
+            customer:
+              type: object
+              description: Billing address of the contact
+              properties:
+                customerId:
+                  type: string
+                  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                  description: Id of the customer
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Email of the customer
+                firstName:
+                  type: string
+                  example: Earl
+                  description: First name of the customer
+                lastName:
+                  type: string
+                  example: Irwin
+                  description: Last name of the customer
+            refunds:
+              type: object
+              description: Shipping address of the contact
+              properties:
+                refundId:
+                  type: string
+                  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                  description: Id of the refund
+                reason:
+                  type: string
+                  example: Test reason
+                  description: Reason of the refund
+                total:
+                  type: number
+                  example: 100
+                  description: Total of the refund
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact
     OrdersGetResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            orderId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Contact Id
+            isSubscription:
+              type: boolean
+              example: false
+              description: Determines if order is from subscription
+            total:
+              type: number
+              example: 100
+              description: Total of the order
+            discount:
+              type: number
+              example: 1
+              description: Discount of the order
+            shippingRate:
+              type: number
+              example: 2
+              description: Shipping rate of the order
+            currency:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: AUD
+              description: Currency of the order
+            paymentDate:
               type: string
-              example: Foo
-            lastName:
+              example: '2022-10-25T11:25:08.394Z'
+              description: Payment date of the order
+            isPaid:
+              type: boolean
+              example: false
+              description: Determines if order has been paid
+            platform:
               type: string
-              example: Bar
+              example: woocommerce
+              description: Platform of the order
+            customer:
+              type: object
+              description: Billing address of the contact
+              properties:
+                customerId:
+                  type: string
+                  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                  description: Id of the customer
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Email of the customer
+                firstName:
+                  type: string
+                  example: Earl
+                  description: First name of the customer
+                lastName:
+                  type: string
+                  example: Irwin
+                  description: Last name of the customer
+            refunds:
+              type: object
+              description: Shipping address of the contact
+              properties:
+                refundId:
+                  type: string
+                  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                  description: Id of the refund
+                reason:
+                  type: string
+                  example: Test reason
+                  description: Reason of the refund
+                total:
+                  type: number
+                  example: 100
+                  description: Total of the refund
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact
     OrdersPutRequest:
       type: object
       properties:
-        email:
+        isSubscription:
+          type: boolean
+          example: false
+          description: Determines if order is from subscription
+        total:
+          type: number
+          example: 100
+          description: Total of the order
+        discount:
+          type: number
+          example: 1
+          description: Discount of the order
+        shippingRate:
+          type: number
+          example: 2
+          description: Shipping rate of the order
+        currency:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: AUD
+          description: Currency of the order
+        paymentDate:
           type: string
-          example: Foo
-        lastName:
+          example: '2022-10-25T11:25:08.394Z'
+          description: Payment date of the order
+        isPaid:
+          type: boolean
+          example: false
+          description: Determines if order has been paid
+        platform:
           type: string
-          example: Bar
+          example: woocommerce
+          description: Platform of the order
+        customer:
+          type: object
+          description: Billing address of the contact
+          properties:
+            customerId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Id of the customer
+            email:
+              type: string
+              example: earl+irwin@bocs.io
+              description: Email of the customer
+            firstName:
+              type: string
+              example: Earl
+              description: First name of the customer
+            lastName:
+              type: string
+              example: Irwin
+              description: Last name of the customer
+        refunds:
+          type: object
+          description: Shipping address of the contact
+          properties:
+            reason:
+              type: string
+              example: Test reason
+              description: Reason of the refund
+            total:
+              type: number
+              example: 100
+              description: Total of the refund
     OrdersPutResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            orderId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Contact Id
+            isSubscription:
+              type: boolean
+              example: false
+              description: Determines if order is from subscription
+            total:
+              type: number
+              example: 100
+              description: Total of the order
+            discount:
+              type: number
+              example: 1
+              description: Discount of the order
+            shippingRate:
+              type: number
+              example: 2
+              description: Shipping rate of the order
+            currency:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: AUD
+              description: Currency of the order
+            paymentDate:
               type: string
-              example: Foo
-            lastName:
+              example: '2022-10-25T11:25:08.394Z'
+              description: Payment date of the order
+            isPaid:
+              type: boolean
+              example: false
+              description: Determines if order has been paid
+            platform:
               type: string
-              example: Bar
+              example: woocommerce
+              description: Platform of the order
+            customer:
+              type: object
+              description: Billing address of the contact
+              properties:
+                customerId:
+                  type: string
+                  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                  description: Id of the customer
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Email of the customer
+                firstName:
+                  type: string
+                  example: Earl
+                  description: First name of the customer
+                lastName:
+                  type: string
+                  example: Irwin
+                  description: Last name of the customer
+            refunds:
+              type: object
+              description: Shipping address of the contact
+              properties:
+                refundId:
+                  type: string
+                  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                  description: Id of the refund
+                reason:
+                  type: string
+                  example: Test reason
+                  description: Reason of the refund
+                total:
+                  type: number
+                  example: 100
+                  description: Total of the refund
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact
     OrdersDeleteResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     SubscriptionsListResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
-              contactId:
+              subscriptionId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the subscription
+              subscriberId:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Subscriber id of the subscription
+              boxId:
                 type: string
-                example: Foo
-              lastName:
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Box id of the subscription
+              settingsId:
                 type: string
-                example: Bar
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Settings id of the subscription
+              shippingId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Shipping id of the subscription
+              taxRateId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Tax rate id of the subscription
+              name:
+                type: string
+                example: Subscription 1
+                description: Name of the subscription
+              boxName:
+                type: string
+                example: Test box
+                description: Box name of the subscription
+              billingPeriod:
+                type: string
+                example: days
+                description: Box name of the subscription
+              billingInterval:
+                type: number
+                example: 7
+                description: Billing interval of the subscription
+              cancelledDate:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Cancelled date of the subscription
+              discountTax:
+                type: number
+                example: 0
+                description: Discount tax of the subscription
+              discountTotal:
+                type: number
+                example: 0
+                description: Discount total of the subscription
+              endDate:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: End date of the subscription
+              nextPaymentDate:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Next payment date of the subscription
+              shippingTax:
+                type: number
+                example: 0
+                description: Shipping tax of the subscription
+              startDate:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Start date of the subscription
+              total:
+                type: number
+                example: 100
+                description: Total of the subscription
+              totalTax:
+                type: number
+                example: 0
+                description: Total tax of the subscription
+              shippingTotal:
+                type: number
+                example: 0
+                description: Total shipping of the subscription
+              subscriptionItems:
+                type: array
+                items:
+                  type: object
+                  description: Subscription items of the subscription
+                  properties:
+                    subscriptionItemId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Id of the subscription item
+                    productName:
+                      type: string
+                      example: Test product
+                      description: Product name of the subscription item
+                    sku:
+                      type: string
+                      example: SKU-Test
+                      description: SKU of the subscription item
+                    price:
+                      type: number
+                      example: 10
+                      description: Price of the subscription item
+                    quantity:
+                      type: number
+                      example: 10
+                      description: Quantity of the subscription item
+                    subTotal:
+                      type: number
+                      example: 100
+                      description: Sub total of the subscription item
+                    subTotalTax:
+                      type: number
+                      example: 0
+                      description: Sub total tax of the subscription item
+                    total:
+                      type: number
+                      example: 100
+                      description: Total of the subscription item
+                    totalTax:
+                      type: number
+                      example: 0
+                      description: Total tax of the subscription item
+                    taxes:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          taxId:
+                            type: string
+                            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                            description: Tax id of the tax
+                          total:
+                            type: number
+                            example: 5
+                            description: Total of the tax
+                          subTotal:
+                            type: number
+                            example: 5
+                            description: Sub total of the tax
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the subscription
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the subscription
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/subscriptions?pageToken=c70e668c
+          description: Next page link
     SubscriptionsPostRequest:
       type: object
       properties:
-        email:
+        subscriberId:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Subscriber id of the subscription
+        boxId:
           type: string
-          example: Foo
-        lastName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Box id of the subscription
+        settingsId:
           type: string
-          example: Bar
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Settings id of the subscription
+        shippingId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Shipping id of the subscription
+        taxRateId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Tax rate id of the subscription
+        name:
+          type: string
+          example: Subscription 1
+          description: Name of the subscription
+        boxName:
+          type: string
+          example: Test box
+          description: Box name of the subscription
+        billingPeriod:
+          type: string
+          example: days
+          description: Box name of the subscription
+        billingInterval:
+          type: number
+          example: 7
+          description: Billing interval of the subscription
+        cancelledDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Cancelled date of the subscription
+        discountTax:
+          type: number
+          example: 0
+          description: Discount tax of the subscription
+        discountTotal:
+          type: number
+          example: 0
+          description: Discount total of the subscription
+        endDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: End date of the subscription
+        nextPaymentDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Next payment date of the subscription
+        shippingTax:
+          type: number
+          example: 0
+          description: Shipping tax of the subscription
+        startDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Start date of the subscription
+        total:
+          type: number
+          example: 100
+          description: Total of the subscription
+        totalTax:
+          type: number
+          example: 0
+          description: Total tax of the subscription
+        shippingTotal:
+          type: number
+          example: 0
+          description: Total shipping of the subscription
+        subscriptionItems:
+          type: array
+          items:
+            type: object
+            description: Subscription items of the subscription
+            properties:
+              productName:
+                type: string
+                example: Test product
+                description: Product name of the subscription item
+              sku:
+                type: string
+                example: SKU-Test
+                description: SKU of the subscription item
+              price:
+                type: number
+                example: 10
+                description: Price of the subscription item
+              quantity:
+                type: number
+                example: 10
+                description: Quantity of the subscription item
+              subTotal:
+                type: number
+                example: 100
+                description: Sub total of the subscription item
+              subTotalTax:
+                type: number
+                example: 0
+                description: Sub total tax of the subscription item
+              total:
+                type: number
+                example: 100
+                description: Total of the subscription item
+              totalTax:
+                type: number
+                example: 0
+                description: Total tax of the subscription item
+              taxes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    total:
+                      type: number
+                      example: 5
+                      description: Total of the tax
+                    subTotal:
+                      type: number
+                      example: 5
+                      description: Sub total of the tax
+      required:
+        - subscriptionItems
+        - boxId
+        - settingsId
+        - taxRateId
+        - shippingId
     SubscriptionsPostResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            subscriptionId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the subscription
+            subscriberId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Subscriber id of the subscription
+            boxId:
               type: string
-              example: Foo
-            lastName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Box id of the subscription
+            settingsId:
               type: string
-              example: Bar
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Settings id of the subscription
+            shippingId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Shipping id of the subscription
+            taxRateId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Tax rate id of the subscription
+            name:
+              type: string
+              example: Subscription 1
+              description: Name of the subscription
+            boxName:
+              type: string
+              example: Test box
+              description: Box name of the subscription
+            billingPeriod:
+              type: string
+              example: days
+              description: Box name of the subscription
+            billingInterval:
+              type: number
+              example: 7
+              description: Billing interval of the subscription
+            cancelledDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Cancelled date of the subscription
+            discountTax:
+              type: number
+              example: 0
+              description: Discount tax of the subscription
+            discountTotal:
+              type: number
+              example: 0
+              description: Discount total of the subscription
+            endDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: End date of the subscription
+            nextPaymentDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Next payment date of the subscription
+            shippingTax:
+              type: number
+              example: 0
+              description: Shipping tax of the subscription
+            startDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Start date of the subscription
+            total:
+              type: number
+              example: 100
+              description: Total of the subscription
+            totalTax:
+              type: number
+              example: 0
+              description: Total tax of the subscription
+            shippingTotal:
+              type: number
+              example: 0
+              description: Total shipping of the subscription
+            subscriptionItems:
+              type: array
+              items:
+                type: object
+                description: Subscription items of the subscription
+                properties:
+                  subscriptionItemId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the subscription item
+                  productName:
+                    type: string
+                    example: Test product
+                    description: Product name of the subscription item
+                  sku:
+                    type: string
+                    example: SKU-Test
+                    description: SKU of the subscription item
+                  price:
+                    type: number
+                    example: 10
+                    description: Price of the subscription item
+                  quantity:
+                    type: number
+                    example: 10
+                    description: Quantity of the subscription item
+                  subTotal:
+                    type: number
+                    example: 100
+                    description: Sub total of the subscription item
+                  subTotalTax:
+                    type: number
+                    example: 0
+                    description: Sub total tax of the subscription item
+                  total:
+                    type: number
+                    example: 100
+                    description: Total of the subscription item
+                  totalTax:
+                    type: number
+                    example: 0
+                    description: Total tax of the subscription item
+                  taxes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        taxId:
+                          type: string
+                          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                          description: Tax id of the tax
+                        total:
+                          type: number
+                          example: 5
+                          description: Total of the tax
+                        subTotal:
+                          type: number
+                          example: 5
+                          description: Sub total of the tax
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscription
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscription
     SubscriptionsGetResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            subscriptionId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the subscription
+            subscriberId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Subscriber id of the subscription
+            boxId:
               type: string
-              example: Foo
-            lastName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Box id of the subscription
+            settingsId:
               type: string
-              example: Bar
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Settings id of the subscription
+            shippingId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Shipping id of the subscription
+            taxRateId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Tax rate id of the subscription
+            name:
+              type: string
+              example: Subscription 1
+              description: Name of the subscription
+            boxName:
+              type: string
+              example: Test box
+              description: Box name of the subscription
+            billingPeriod:
+              type: string
+              example: days
+              description: Box name of the subscription
+            billingInterval:
+              type: number
+              example: 7
+              description: Billing interval of the subscription
+            cancelledDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Cancelled date of the subscription
+            discountTax:
+              type: number
+              example: 0
+              description: Discount tax of the subscription
+            discountTotal:
+              type: number
+              example: 0
+              description: Discount total of the subscription
+            endDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: End date of the subscription
+            nextPaymentDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Next payment date of the subscription
+            shippingTax:
+              type: number
+              example: 0
+              description: Shipping tax of the subscription
+            startDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Start date of the subscription
+            total:
+              type: number
+              example: 100
+              description: Total of the subscription
+            totalTax:
+              type: number
+              example: 0
+              description: Total tax of the subscription
+            shippingTotal:
+              type: number
+              example: 0
+              description: Total shipping of the subscription
+            subscriptionItems:
+              type: array
+              items:
+                type: object
+                description: Subscription items of the subscription
+                properties:
+                  subscriptionItemId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the subscription item
+                  productName:
+                    type: string
+                    example: Test product
+                    description: Product name of the subscription item
+                  sku:
+                    type: string
+                    example: SKU-Test
+                    description: SKU of the subscription item
+                  price:
+                    type: number
+                    example: 10
+                    description: Price of the subscription item
+                  quantity:
+                    type: number
+                    example: 10
+                    description: Quantity of the subscription item
+                  subTotal:
+                    type: number
+                    example: 100
+                    description: Sub total of the subscription item
+                  subTotalTax:
+                    type: number
+                    example: 0
+                    description: Sub total tax of the subscription item
+                  total:
+                    type: number
+                    example: 100
+                    description: Total of the subscription item
+                  totalTax:
+                    type: number
+                    example: 0
+                    description: Total tax of the subscription item
+                  taxes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        taxId:
+                          type: string
+                          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                          description: Tax id of the tax
+                        total:
+                          type: number
+                          example: 5
+                          description: Total of the tax
+                        subTotal:
+                          type: number
+                          example: 5
+                          description: Sub total of the tax
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscription
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscription
     SubscriptionsPutRequest:
       type: object
       properties:
-        email:
+        subscriberId:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Subscriber id of the subscription
+        boxId:
           type: string
-          example: Foo
-        lastName:
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Box id of the subscription
+        settingsId:
           type: string
-          example: Bar
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Settings id of the subscription
+        shippingId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Shipping id of the subscription
+        taxRateId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Tax rate id of the subscription
+        name:
+          type: string
+          example: Subscription 1
+          description: Name of the subscription
+        boxName:
+          type: string
+          example: Test box
+          description: Box name of the subscription
+        billingPeriod:
+          type: string
+          example: days
+          description: Box name of the subscription
+        billingInterval:
+          type: number
+          example: 7
+          description: Billing interval of the subscription
+        cancelledDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Cancelled date of the subscription
+        discountTax:
+          type: number
+          example: 0
+          description: Discount tax of the subscription
+        discountTotal:
+          type: number
+          example: 0
+          description: Discount total of the subscription
+        endDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: End date of the subscription
+        nextPaymentDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Next payment date of the subscription
+        shippingTax:
+          type: number
+          example: 0
+          description: Shipping tax of the subscription
+        startDate:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Start date of the subscription
+        total:
+          type: number
+          example: 100
+          description: Total of the subscription
+        totalTax:
+          type: number
+          example: 0
+          description: Total tax of the subscription
+        shippingTotal:
+          type: number
+          example: 0
+          description: Total shipping of the subscription
+        subscriptionItems:
+          type: array
+          items:
+            type: object
+            description: Subscription items of the subscription
+            properties:
+              productName:
+                type: string
+                example: Test product
+                description: Product name of the subscription item
+              sku:
+                type: string
+                example: SKU-Test
+                description: SKU of the subscription item
+              price:
+                type: number
+                example: 10
+                description: Price of the subscription item
+              quantity:
+                type: number
+                example: 10
+                description: Quantity of the subscription item
+              subTotal:
+                type: number
+                example: 100
+                description: Sub total of the subscription item
+              subTotalTax:
+                type: number
+                example: 0
+                description: Sub total tax of the subscription item
+              total:
+                type: number
+                example: 100
+                description: Total of the subscription item
+              totalTax:
+                type: number
+                example: 0
+                description: Total tax of the subscription item
+              taxes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    total:
+                      type: number
+                      example: 5
+                      description: Total of the tax
+                    subTotal:
+                      type: number
+                      example: 5
+                      description: Sub total of the tax
     SubscriptionsPutResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            subscriptionId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the subscription
+            subscriberId:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Subscriber id of the subscription
+            boxId:
               type: string
-              example: Foo
-            lastName:
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Box id of the subscription
+            settingsId:
               type: string
-              example: Bar
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Settings id of the subscription
+            shippingId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Shipping id of the subscription
+            taxRateId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Tax rate id of the subscription
+            name:
+              type: string
+              example: Subscription 1
+              description: Name of the subscription
+            boxName:
+              type: string
+              example: Test box
+              description: Box name of the subscription
+            billingPeriod:
+              type: string
+              example: days
+              description: Box name of the subscription
+            billingInterval:
+              type: number
+              example: 7
+              description: Billing interval of the subscription
+            cancelledDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Cancelled date of the subscription
+            discountTax:
+              type: number
+              example: 0
+              description: Discount tax of the subscription
+            discountTotal:
+              type: number
+              example: 0
+              description: Discount total of the subscription
+            endDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: End date of the subscription
+            nextPaymentDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Next payment date of the subscription
+            shippingTax:
+              type: number
+              example: 0
+              description: Shipping tax of the subscription
+            startDate:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Start date of the subscription
+            total:
+              type: number
+              example: 100
+              description: Total of the subscription
+            totalTax:
+              type: number
+              example: 0
+              description: Total tax of the subscription
+            shippingTotal:
+              type: number
+              example: 0
+              description: Total shipping of the subscription
+            subscriptionItems:
+              type: array
+              items:
+                type: object
+                description: Subscription items of the subscription
+                properties:
+                  subscriptionItemId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the subscription item
+                  productName:
+                    type: string
+                    example: Test product
+                    description: Product name of the subscription item
+                  sku:
+                    type: string
+                    example: SKU-Test
+                    description: SKU of the subscription item
+                  price:
+                    type: number
+                    example: 10
+                    description: Price of the subscription item
+                  quantity:
+                    type: number
+                    example: 10
+                    description: Quantity of the subscription item
+                  subTotal:
+                    type: number
+                    example: 100
+                    description: Sub total of the subscription item
+                  subTotalTax:
+                    type: number
+                    example: 0
+                    description: Sub total tax of the subscription item
+                  total:
+                    type: number
+                    example: 100
+                    description: Total of the subscription item
+                  totalTax:
+                    type: number
+                    example: 0
+                    description: Total tax of the subscription item
+                  taxes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        taxId:
+                          type: string
+                          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                          description: Tax id of the tax
+                        total:
+                          type: number
+                          example: 5
+                          description: Total of the tax
+                        subTotal:
+                          type: number
+                          example: 5
+                          description: Sub total of the tax
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscription
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscription
     SubscriptionsDeleteResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
         message:
           type: string
           example: success
@@ -7326,381 +8439,1082 @@ components:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
-              contactId:
+              shippingZoneId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the shipping zone
+              title:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: Test Title
+                description: Title of the shipping zone
+              description:
                 type: string
-                example: Foo
-              lastName:
+                example: Test Description
+                description: Description of the shipping zone
+              country:
                 type: string
-                example: Bar
+                example: AU
+                description: Country of the shipping zone
+              city:
+                type: string
+                example: Adelaide
+                description: City of the shipping zone
+              state:
+                type: string
+                example: South Australia
+                description: State of the shipping zone
+              postcode:
+                type: number
+                example: 6000
+                description: Postcode of the shipping zone
+              cost:
+                type: number
+                example: 15
+                description: Cost of the shipping zone
+              enabled:
+                type: boolean
+                example: true
+                description: Determines if the shipping zone is enabled
+              order:
+                type: number
+                example: 1
+                description: Order of the shipping zone
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the subscription
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the subscription
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/shipping-zones?pageToken=c70e668c
+          description: Next page link
     ShippingZonesPostRequest:
       type: object
       properties:
-        email:
+        title:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Test Title
+          description: Title of the shipping zone
+        description:
           type: string
-          example: Foo
-        lastName:
+          example: Test Description
+          description: Description of the shipping zone
+        country:
           type: string
-          example: Bar
+          example: AU
+          description: Country of the shipping zone
+        city:
+          type: string
+          example: Adelaide
+          description: City of the shipping zone
+        state:
+          type: string
+          example: South Australia
+          description: State of the shipping zone
+        postcode:
+          type: number
+          example: 6000
+          description: Postcode of the shipping zone
+        cost:
+          type: number
+          example: 15
+          description: Cost of the shipping zone
+        enabled:
+          type: boolean
+          example: true
+          description: Determines if the shipping zone is enabled
+        order:
+          type: number
+          example: 1
+          description: Order of the shipping zone
+      required:
+        - title
+        - country
+        - city
+        - state
+        - postcode
+        - cost
     ShippingZonesPostResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            shippingZoneId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the shipping zone
+            title:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test Title
+              description: Title of the shipping zone
+            description:
               type: string
-              example: Foo
-            lastName:
+              example: Test Description
+              description: Description of the shipping zone
+            country:
               type: string
-              example: Bar
+              example: AU
+              description: Country of the shipping zone
+            city:
+              type: string
+              example: Adelaide
+              description: City of the shipping zone
+            state:
+              type: string
+              example: South Australia
+              description: State of the shipping zone
+            postcode:
+              type: number
+              example: 6000
+              description: Postcode of the shipping zone
+            cost:
+              type: number
+              example: 15
+              description: Cost of the shipping zone
+            enabled:
+              type: boolean
+              example: true
+              description: Determines if the shipping zone is enabled
+            order:
+              type: number
+              example: 1
+              description: Order of the shipping zone
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscription
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscription
     ShippingZonesGetResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            shippingZoneId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the shipping zone
+            title:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test Title
+              description: Title of the shipping zone
+            description:
               type: string
-              example: Foo
-            lastName:
+              example: Test Description
+              description: Description of the shipping zone
+            country:
               type: string
-              example: Bar
+              example: AU
+              description: Country of the shipping zone
+            city:
+              type: string
+              example: Adelaide
+              description: City of the shipping zone
+            state:
+              type: string
+              example: South Australia
+              description: State of the shipping zone
+            postcode:
+              type: number
+              example: 6000
+              description: Postcode of the shipping zone
+            cost:
+              type: number
+              example: 15
+              description: Cost of the shipping zone
+            enabled:
+              type: boolean
+              example: true
+              description: Determines if the shipping zone is enabled
+            order:
+              type: number
+              example: 1
+              description: Order of the shipping zone
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscription
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscription
     ShippingZonesPutRequest:
       type: object
       properties:
-        email:
+        title:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Test Title
+          description: Title of the shipping zone
+        description:
           type: string
-          example: Foo
-        lastName:
+          example: Test Description
+          description: Description of the shipping zone
+        country:
           type: string
-          example: Bar
+          example: AU
+          description: Country of the shipping zone
+        city:
+          type: string
+          example: Adelaide
+          description: City of the shipping zone
+        state:
+          type: string
+          example: South Australia
+          description: State of the shipping zone
+        postcode:
+          type: number
+          example: 6000
+          description: Postcode of the shipping zone
+        cost:
+          type: number
+          example: 15
+          description: Cost of the shipping zone
+        enabled:
+          type: boolean
+          example: true
+          description: Determines if the shipping zone is enabled
+        order:
+          type: number
+          example: 1
+          description: Order of the shipping zone
     ShippingZonesPutResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            shippingZoneId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the shipping zone
+            title:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test Title
+              description: Title of the shipping zone
+            description:
               type: string
-              example: Foo
-            lastName:
+              example: Test Description
+              description: Description of the shipping zone
+            country:
               type: string
-              example: Bar
+              example: AU
+              description: Country of the shipping zone
+            city:
+              type: string
+              example: Adelaide
+              description: City of the shipping zone
+            state:
+              type: string
+              example: South Australia
+              description: State of the shipping zone
+            postcode:
+              type: number
+              example: 6000
+              description: Postcode of the shipping zone
+            cost:
+              type: number
+              example: 15
+              description: Cost of the shipping zone
+            enabled:
+              type: boolean
+              example: true
+              description: Determines if the shipping zone is enabled
+            order:
+              type: number
+              example: 1
+              description: Order of the shipping zone
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the subscription
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the subscription
     ShippingZonesDeleteResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     TaxRatesListResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
-              contactId:
+              taxRateSettingsId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the tax rate
+              name:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: Test name
+                description: Name of the tax rate
+              class:
                 type: string
-                example: Foo
-              lastName:
+                example: Test
+                description: Class of the tax rate
+              country:
                 type: string
-                example: Bar
+                example: AU
+                description: Country of the tax rate
+              city:
+                type: string
+                example: Adelaide
+                description: City of the tax rate
+              state:
+                type: string
+                example: South Australia
+                description: State of the tax rate
+              postcode:
+                type: string
+                example: 6000
+                description: Post code of the tax rate
+              rate:
+                type: number
+                example: 10
+                description: Rate of the tax rate
+              shipping:
+                type: boolean
+                example: true
+                description: Determines if the tax rate is shipping
+              priority:
+                type: number
+                example: 1
+                description: Priority of the tax rate
+              order:
+                type: number
+                example: 1
+                description: Order of the tax rate
+              compound:
+                type: string
+                example: boolean
+                description: Determines if tax rate is compound
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the tax rate
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the tax rate
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/tax-rates?pageToken=c70e668c
+          description: Next page link
     TaxRatesPostRequest:
       type: object
       properties:
-        email:
+        name:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Test name
+          description: Name of the tax rate
+        class:
           type: string
-          example: Foo
-        lastName:
+          example: Test
+          description: Class of the tax rate
+        country:
           type: string
-          example: Bar
+          example: AU
+          description: Country of the tax rate
+        city:
+          type: string
+          example: Adelaide
+          description: City of the tax rate
+        state:
+          type: string
+          example: South Australia
+          description: State of the tax rate
+        postcode:
+          type: string
+          example: 6000
+          description: Post code of the tax rate
+        rate:
+          type: number
+          example: 10
+          description: Rate of the tax rate
+        shipping:
+          type: boolean
+          example: true
+          description: Determines if the tax rate is shipping
+        priority:
+          type: number
+          example: 1
+          description: Priority of the tax rate
+        order:
+          type: number
+          example: 1
+          description: Order of the tax rate
+        compound:
+          type: string
+          example: boolean
+          description: Determines if tax rate is compound
+      required:
+        - name
+        - class
     TaxRatesPostResponse:
       type: object
       properties:
         code:
           type: integer
           example: 201
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            taxRateSettingsId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the tax rate
+            name:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test name
+              description: Name of the tax rate
+            class:
               type: string
-              example: Foo
-            lastName:
+              example: Test
+              description: Class of the tax rate
+            country:
               type: string
-              example: Bar
+              example: AU
+              description: Country of the tax rate
+            city:
+              type: string
+              example: Adelaide
+              description: City of the tax rate
+            state:
+              type: string
+              example: South Australia
+              description: State of the tax rate
+            postcode:
+              type: string
+              example: 6000
+              description: Post code of the tax rate
+            rate:
+              type: number
+              example: 10
+              description: Rate of the tax rate
+            shipping:
+              type: boolean
+              example: true
+              description: Determines if the tax rate is shipping
+            priority:
+              type: number
+              example: 1
+              description: Priority of the tax rate
+            order:
+              type: number
+              example: 1
+              description: Order of the tax rate
+            compound:
+              type: string
+              example: boolean
+              description: Determines if tax rate is compound
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the tax rate
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the tax rate
     TaxRatesGetResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            taxRateSettingsId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the tax rate
+            name:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test name
+              description: Name of the tax rate
+            class:
               type: string
-              example: Foo
-            lastName:
+              example: Test
+              description: Class of the tax rate
+            country:
               type: string
-              example: Bar
+              example: AU
+              description: Country of the tax rate
+            city:
+              type: string
+              example: Adelaide
+              description: City of the tax rate
+            state:
+              type: string
+              example: South Australia
+              description: State of the tax rate
+            postcode:
+              type: string
+              example: 6000
+              description: Post code of the tax rate
+            rate:
+              type: number
+              example: 10
+              description: Rate of the tax rate
+            shipping:
+              type: boolean
+              example: true
+              description: Determines if the tax rate is shipping
+            priority:
+              type: number
+              example: 1
+              description: Priority of the tax rate
+            order:
+              type: number
+              example: 1
+              description: Order of the tax rate
+            compound:
+              type: string
+              example: boolean
+              description: Determines if tax rate is compound
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the tax rate
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the tax rate
     TaxRatesPutRequest:
       type: object
       properties:
-        email:
+        name:
           type: string
-          example: foo@bocs.io
-        firstName:
+          example: Test name
+          description: Name of the tax rate
+        class:
           type: string
-          example: Foo
-        lastName:
+          example: Test
+          description: Class of the tax rate
+        country:
           type: string
-          example: Bar
+          example: AU
+          description: Country of the tax rate
+        city:
+          type: string
+          example: Adelaide
+          description: City of the tax rate
+        state:
+          type: string
+          example: South Australia
+          description: State of the tax rate
+        postcode:
+          type: string
+          example: 6000
+          description: Post code of the tax rate
+        rate:
+          type: number
+          example: 10
+          description: Rate of the tax rate
+        shipping:
+          type: boolean
+          example: true
+          description: Determines if the tax rate is shipping
+        priority:
+          type: number
+          example: 1
+          description: Priority of the tax rate
+        order:
+          type: number
+          example: 1
+          description: Order of the tax rate
+        compound:
+          type: string
+          example: boolean
+          description: Determines if tax rate is compound
     TaxRatesPutResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            taxRateSettingsId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the tax rate
+            name:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: Test name
+              description: Name of the tax rate
+            class:
               type: string
-              example: Foo
-            lastName:
+              example: Test
+              description: Class of the tax rate
+            country:
               type: string
-              example: Bar
+              example: AU
+              description: Country of the tax rate
+            city:
+              type: string
+              example: Adelaide
+              description: City of the tax rate
+            state:
+              type: string
+              example: South Australia
+              description: State of the tax rate
+            postcode:
+              type: string
+              example: 6000
+              description: Post code of the tax rate
+            rate:
+              type: number
+              example: 10
+              description: Rate of the tax rate
+            shipping:
+              type: boolean
+              example: true
+              description: Determines if the tax rate is shipping
+            priority:
+              type: number
+              example: 1
+              description: Priority of the tax rate
+            order:
+              type: number
+              example: 1
+              description: Order of the tax rate
+            compound:
+              type: string
+              example: boolean
+              description: Determines if tax rate is compound
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the tax rate
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the tax rate
     TaxRatesDeleteResponse:
       type: object
       properties:
         code:
           type: integer
-          example: 201
+          example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
     WidgetsListResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: array
+          description: Response data
           items:
             type: object
             properties:
-              contactId:
+              collectionId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              email:
+                description: Id of the collection
+              collectionType:
                 type: string
-                example: foo@bocs.io
-              firstName:
+                example: fixed
+                description: Type of the collection
+              name:
                 type: string
-                example: Foo
-              lastName:
+                example: My Collection
+                description: Name of the collection
+              description:
                 type: string
-                example: Bar
+                example: My description of collection
+                description: Description of the collection
+              images:
+                type: array
+                description: Images of the collection
+                items:
+                  type: object
+                  properties:
+                    url:
+                      type: string
+                      example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                      description: Image of the collection
+                    thumbnail:
+                      type: string
+                      example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                      description: Image of the collection
+              boxes:
+                type: array
+                description: Boxes of the collection
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Id of the box collection
+                    collectionId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Id of the collection
+                    boxPrice:
+                      type: number
+                      example: 4
+                      description: Price of the box collection
+                    boxDescription:
+                      type: string
+                      example: My box description
+                      description: Description of the box collection
+                    boxName:
+                      type: string
+                      example: My Box
+                      description: Name of the box collection
+                    sku:
+                      type: string
+                      example: Test-SKU
+                      description: SKU of the box collection
+                    boxPricing:
+                      type: array
+                      description: Pricing of the box collection
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                            description: Id of the box pricing
+                          discount:
+                            type: number
+                            example: 0
+                            description: Discount of the box pricing
+                          discountType:
+                            type: string
+                            example: percentage
+                            description: Discount type of the box pricing
+                          frequency:
+                            type: number
+                            example: 7
+                            description: Frequency of the box pricing
+                          sku:
+                            type: string
+                            example: Collection-SKU
+                            description: SKU of the box pricing
+                          timeUnit:
+                            type: string
+                            example: day
+                            description: Time unit of the box pricing
+                    items:
+                      type: array
+                      description: Items of the collection
+                      items:
+                        type: object
+                        properties:
+                          productId:
+                            type: string
+                            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                            description: Id of the item
+                          name:
+                            type: string
+                            example: Item 1
+                            description: Name of the item
+                          price:
+                            type: number
+                            example: 25
+                            description: Price of the item
+                          quantity:
+                            type: number
+                            example: 2
+                            description: Quantity of the item
+                          images:
+                            type: array
+                            description: Images of the items under collection
+                            items:
+                              properties:
+                                url:
+                                  type: string
+                                  example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                                  description: Image of the items under collection
+                                thumbnail:
+                                  type: string
+                                  example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                                  description: Image of the items under collection
+                    images:
+                      type: array
+                      description: Images of the box under collection
+                      items:
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                            example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                            description: Image of the box under collection
+                          thumbnail:
+                            type: string
+                            example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                            description: Image of the box under collection
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the collection
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the collection
         nextPageLink:
           type: string
-          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          example: https://api.bocs.io/dev/widgets?pageToken=c70e668c
+          description: Next page link
     WidgetsGetResponse:
       type: object
       properties:
         code:
           type: integer
           example: 200
+          description: Status code
         message:
           type: string
           example: success
+          description: Success or error message
         data:
           type: object
+          description: Response data
           properties:
-            contactId:
+            collectionId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-            email:
+              description: Id of the collection
+            collectionType:
               type: string
-              example: foo@bocs.io
-            firstName:
+              example: fixed
+              description: Type of the collection
+            name:
               type: string
-              example: Foo
-            lastName:
+              example: My Collection
+              description: Name of the collection
+            description:
               type: string
-              example: Bar
+              example: My description of collection
+              description: Description of the collection
+            images:
+              type: array
+              description: Images of the collection
+              items:
+                type: object
+                properties:
+                  url:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the collection
+                  thumbnail:
+                    type: string
+                    example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                    description: Image of the collection
+            boxes:
+              type: array
+              description: Boxes of the collection
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the box collection
+                  collectionId:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the collection
+                  boxPrice:
+                    type: number
+                    example: 4
+                    description: Price of the box collection
+                  boxDescription:
+                    type: string
+                    example: My box description
+                    description: Description of the box collection
+                  boxName:
+                    type: string
+                    example: My Box
+                    description: Name of the box collection
+                  sku:
+                    type: string
+                    example: Test-SKU
+                    description: SKU of the box collection
+                  boxPricing:
+                    type: array
+                    description: Pricing of the box collection
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                          description: Id of the box pricing
+                        discount:
+                          type: number
+                          example: 0
+                          description: Discount of the box pricing
+                        discountType:
+                          type: string
+                          example: percentage
+                          description: Discount type of the box pricing
+                        frequency:
+                          type: number
+                          example: 7
+                          description: Frequency of the box pricing
+                        sku:
+                          type: string
+                          example: Collection-SKU
+                          description: SKU of the box pricing
+                        timeUnit:
+                          type: string
+                          example: day
+                          description: Time unit of the box pricing
+                  items:
+                    type: array
+                    description: Items of the collection
+                    items:
+                      type: object
+                      properties:
+                        productId:
+                          type: string
+                          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                          description: Id of the item
+                        name:
+                          type: string
+                          example: Item 1
+                          description: Name of the item
+                        price:
+                          type: number
+                          example: 25
+                          description: Price of the item
+                        quantity:
+                          type: number
+                          example: 2
+                          description: Quantity of the item
+                        images:
+                          type: array
+                          description: Images of the items under collection
+                          items:
+                            properties:
+                              url:
+                                type: string
+                                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                                description: Image of the items under collection
+                              thumbnail:
+                                type: string
+                                example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                                description: Image of the items under collection
+                  images:
+                    type: array
+                    description: Images of the box under collection
+                    items:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                          example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                          description: Image of the box under collection
+                        thumbnail:
+                          type: string
+                          example: https://mypik-public.s3.ap-southeast-2.amazonaws.com/collections/collection-1.png
+                          description: Image of the box under collection
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the collection
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the collection
   responses:
     '400':
       description: Bad request

@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq
+        --url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -61,7 +62,7 @@ put:
         curl --request PUT \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/tax-rates/<subscription ID>' \
+        --url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \
         --data '' \
         | jq
   requestBody:
@@ -112,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq
+        --url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \
+        | jq
   responses:
     "200":
       description: Success

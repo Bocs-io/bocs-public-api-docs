@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/tax-rates' | jq
+        --url 'https://api.bocs.io/test/tax-rates' \
+        | jq
   responses:
     "200":
       description: Success

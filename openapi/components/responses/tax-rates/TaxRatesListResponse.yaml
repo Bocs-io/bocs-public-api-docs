@@ -17,5 +17,5 @@ properties:
         $ref: ./properties.yaml
   nextPageLink:
     type: string
-    example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+    example: https://api.bocs.io/dev/tax-rates?pageToken=c70e668c
     description: Next page link
