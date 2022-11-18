@@ -6,10 +6,10 @@ parentId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
   description: Parent id of the bocs
-userId:
-  type: string
-  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-  description: Id of the bocs user
+# userId:
+#   type: string
+#   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+#   description: Id of the bocs user
 type:
   type: string
   example: fixed

@@ -1,0 +1,131 @@
+subscriberId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Subscriber id of the subscription
+boxId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Box id of the subscription
+settingsId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Settings id of the subscription
+shippingId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Shipping id of the subscription
+taxRateId:
+  type: string
+  example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+  description: Tax rate id of the subscription
+name:
+  type: string
+  example: Subscription 1
+  description: Name of the subscription
+boxName:
+  type: string
+  example: Test box
+  description: Box name of the subscription
+billingPeriod:
+  type: string
+  example: days
+  description: Box name of the subscription
+billingInterval:
+  type: number
+  example: 7
+  description: Billing interval of the subscription
+cancelledDate:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Cancelled date of the subscription
+discountTax:
+  type: number
+  example: 0
+  description: Discount tax of the subscription
+discountTotal:
+  type: number
+  example: 0
+  description: Discount total of the subscription
+endDate:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: End date of the subscription
+nextPaymentDate:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Next payment date of the subscription
+# pricing:
+#   type: string
+#   example: 100
+#   description: Pricing of the subscription
+shippingTax:
+  type: number
+  example: 0
+  description: Shipping tax of the subscription
+startDate:
+  type: string
+  example: 2022-10-25T11:25:08.394Z
+  description: Start date of the subscription
+total:
+  type: number
+  example: 100
+  description: Total of the subscription
+totalTax:
+  type: number
+  example: 0
+  description: Total tax of the subscription
+shippingTotal:
+  type: number
+  example: 0
+  description: Total shipping of the subscription
+subscriptionItems:
+  type: array
+  items:
+    type: object
+    description: Subscription items of the subscription
+    properties:
+      productName:
+        type: string
+        example: Test product
+        description: Product name of the subscription item
+      sku:
+        type: string
+        example: SKU-Test
+        description: SKU of the subscription item
+      price:
+        type: number
+        example: 10
+        description: Price of the subscription item
+      quantity:
+        type: number
+        example: 10
+        description: Quantity of the subscription item
+      subTotal:
+        type: number
+        example: 100
+        description: Sub total of the subscription item
+      subTotalTax:
+        type: number
+        example: 0
+        description: Sub total tax of the subscription item
+      total:
+        type: number
+        example: 100
+        description: Total of the subscription item
+      totalTax:
+        type: number
+        example: 0
+        description: Total tax of the subscription item
+      taxes:
+        type: array
+        items:
+          type: object
+          properties:
+            total:
+              type: number
+              example: 5
+              description: Total of the tax
+            subTotal:
+              type: number
+              example: 5
+              description: Sub total of the tax

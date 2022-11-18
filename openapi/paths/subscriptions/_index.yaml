@@ -32,7 +32,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/subscriptions' | jq
+        --url 'https://api.bocs.io/test/subscriptions' \
+        | jq
   responses:
     "200":
       description: Success
@@ -52,13 +53,13 @@ get:
 post:
   operationId: PostSubscription
   summary: Create Subscription
-  description: Creates a subscription
+  description: Create properties of a subscription
   tags:
     - Subscriptions
   security:
     - api_key: []
   requestBody:
-    description: Subscription Fields
+    description: Parameters for creating a subscription
     required: true
     content:
       application/json:

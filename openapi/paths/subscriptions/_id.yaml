@@ -1,7 +1,7 @@
 get:
   operationId: GetSubscription
   summary: Get Subscription
-  description: Returns a subscription
+  description: Returns details about a subscription
   tags:
     - Subscriptions
   parameters:
@@ -21,7 +21,8 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq
+        --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \
+        | jq
   responses:
     "200":
       description: Success
@@ -41,7 +42,7 @@ get:
 put:
   operationId: PutSubscription
   summary: Update Subscription
-  description: Updates a subscription
+  description: Update properties of a subscription
   tags:
     - Subscriptions
   parameters:
@@ -51,7 +52,7 @@ put:
         type: string
         example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
       required: true
-      description: ID of the subscription
+      description: Parameters for updating a subscription
   security:
     - api_key: []
   x-codeSamples:
@@ -92,7 +93,7 @@ put:
 delete:
   operationId: DeleteSubscription
   summary: Delete Subscription
-  description: Deletes a subscription
+  description: Deletes a specified subscription
   tags:
     - Subscriptions
   parameters:
@@ -112,7 +113,8 @@ delete:
         curl --request DELETE \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq
+        --url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \
+        | jq
   responses:
     "200":
       description: Success
