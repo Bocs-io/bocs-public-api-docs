@@ -3244,7 +3244,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -4312,7 +4312,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "customer:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -4411,16 +4411,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Orders" ],
         "summary" : "Create Order",
-        "description" : "Creates an order",
+        "description" : "Creates properties of an order",
         "operationId" : "PostOrder",
         "requestBody" : {
-          "description" : "Order Fields",
+          "description" : "Parameters for creating an order",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4512,7 +4512,7 @@
       "get" : {
         "tags" : [ "Orders" ],
         "summary" : "Get Order",
-        "description" : "Returns an order",
+        "description" : "Returns details about an order",
         "operationId" : "GetOrder",
         "parameters" : [ {
           "name" : "id",
@@ -4600,13 +4600,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Orders" ],
         "summary" : "Update Order",
-        "description" : "Updates an order",
+        "description" : "Update properties of an order",
         "operationId" : "PutOrder",
         "parameters" : [ {
           "name" : "id",
@@ -4621,7 +4621,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Order Fields",
+          "description" : "Parameters for updating an order",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -4725,7 +4725,7 @@
       "delete" : {
         "tags" : [ "Orders" ],
         "summary" : "Delete Order",
-        "description" : "Deletes an order",
+        "description" : "Deletes a specified order",
         "operationId" : "DeleteOrder",
         "parameters" : [ {
           "name" : "id",
@@ -4827,7 +4827,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/orders/<order ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -4846,7 +4846,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -4945,16 +4945,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Subscriptions" ],
         "summary" : "Create Subscription",
-        "description" : "Creates a subscription",
+        "description" : "Create properties of a subscription",
         "operationId" : "PostSubscription",
         "requestBody" : {
-          "description" : "Subscription Fields",
+          "description" : "Parameters for creating a subscription",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -5046,7 +5046,7 @@
       "get" : {
         "tags" : [ "Subscriptions" ],
         "summary" : "Get Subscription",
-        "description" : "Returns a subscription",
+        "description" : "Returns details about a subscription",
         "operationId" : "GetSubscription",
         "parameters" : [ {
           "name" : "id",
@@ -5134,13 +5134,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Subscriptions" ],
         "summary" : "Update Subscription",
-        "description" : "Updates a subscription",
+        "description" : "Update properties of a subscription",
         "operationId" : "PutSubscription",
         "parameters" : [ {
           "name" : "id",
@@ -5155,7 +5155,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Subscription Fields",
+          "description" : "Parameters for updating a subscription",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -5259,7 +5259,7 @@
       "delete" : {
         "tags" : [ "Subscriptions" ],
         "summary" : "Delete Subscription",
-        "description" : "Deletes a subscription",
+        "description" : "Deletes a specified subscription",
         "operationId" : "DeleteSubscription",
         "parameters" : [ {
           "name" : "id",
@@ -5361,7 +5361,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions/<subscription ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/subscriptions/<subscription ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -5380,7 +5380,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "title:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -5485,10 +5485,10 @@
       "post" : {
         "tags" : [ "Shipping Zones" ],
         "summary" : "CreateShipping Zone",
-        "description" : "Creates a shipping zone",
+        "description" : "Create properties of a shipping zone",
         "operationId" : "PostShippingZone",
         "requestBody" : {
-          "description" : "Shipping Zone Fields",
+          "description" : "Parameters for creating a shipping zone",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -5580,7 +5580,7 @@
       "get" : {
         "tags" : [ "Shipping Zones" ],
         "summary" : "Get Shipping Zone",
-        "description" : "Returns a shipping zone",
+        "description" : "Returns details about a shipping zone",
         "operationId" : "GetShippingZone",
         "parameters" : [ {
           "name" : "id",
@@ -5674,7 +5674,7 @@
       "put" : {
         "tags" : [ "Shipping Zones" ],
         "summary" : "Update Shipping Zone",
-        "description" : "Updates a shipping zone",
+        "description" : "Update properties of a shipping zone",
         "operationId" : "PutShippingZone",
         "parameters" : [ {
           "name" : "id",
@@ -5689,7 +5689,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Shipping Zone Fields",
+          "description" : "Parameters for updating shipping zone",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -5793,7 +5793,7 @@
       "delete" : {
         "tags" : [ "Shipping Zones" ],
         "summary" : "Delete Shipping Zone",
-        "description" : "Deletes a shipping zone",
+        "description" : "Deletes a specified shipping zone",
         "operationId" : "DeleteShippingZone",
         "parameters" : [ {
           "name" : "id",
@@ -6013,16 +6013,16 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates' \\\n| jq\n"
         } ]
       },
       "post" : {
         "tags" : [ "Tax Rates" ],
         "summary" : "Create Tax Rate",
-        "description" : "Creates a tax rate",
+        "description" : "Create properties of tax rates",
         "operationId" : "PostTaxRate",
         "requestBody" : {
-          "description" : "Tax Rate Fields",
+          "description" : "Parameters for creating a tax rate",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -6114,7 +6114,7 @@
       "get" : {
         "tags" : [ "Tax Rates" ],
         "summary" : "Get Tax Rate",
-        "description" : "Returns a tax rate",
+        "description" : "Returns details about a tax rate",
         "operationId" : "GetTaxRate",
         "parameters" : [ {
           "name" : "id",
@@ -6202,13 +6202,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \\\n| jq\n"
         } ]
       },
       "put" : {
         "tags" : [ "Tax Rates" ],
         "summary" : "Update Tax Rate",
-        "description" : "Updates a tax rate",
+        "description" : "Update properties of tax rate",
         "operationId" : "PutTaxRate",
         "parameters" : [ {
           "name" : "id",
@@ -6223,7 +6223,7 @@
           }
         } ],
         "requestBody" : {
-          "description" : "Tax Rate Fields",
+          "description" : "Parameters for updating a tax rate",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -6321,13 +6321,13 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' \\\n--data '' \\\n| jq\n"
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \\\n--data '' \\\n| jq\n"
         } ]
       },
       "delete" : {
         "tags" : [ "Tax Rates" ],
         "summary" : "Delete Tax Rate",
-        "description" : "Deletes a tax rate",
+        "description" : "Deletes a specified tax rate",
         "operationId" : "DeleteTaxRate",
         "parameters" : [ {
           "name" : "id",
@@ -6429,7 +6429,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<subscription ID>' | jq\n"
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tax-rates/<tax-rate ID>' \\\n| jq\n"
         } ]
       }
     },
@@ -6547,7 +6547,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/widgets' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/widgets' \\\n| jq\n"
         } ]
       }
     },
@@ -6555,7 +6555,7 @@
       "get" : {
         "tags" : [ "Widgets" ],
         "summary" : "Get Widget",
-        "description" : "Returns a widget",
+        "description" : "Returns details about a widget",
         "operationId" : "GetWidget",
         "parameters" : [ {
           "name" : "id",
@@ -6643,7 +6643,7 @@
         "x-codeSamples" : [ {
           "label" : "CLI",
           "lang" : "cURL",
-          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/widgets/<widget ID>' | jq\n"
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/widgets/<widget ID>' \\\n| jq\n"
         } ]
       }
     }
@@ -6721,7 +6721,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 200
+            "example" : 201
           },
           "message" : {
             "type" : "string",
@@ -6833,7 +6833,7 @@
           "nextPageLink" : {
             "type" : "string",
             "description" : "Next page link",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "example" : "https://api.bocs.io/dev/subscribers?pageToken=c70e668c"
           }
         }
       },
@@ -6997,7 +6997,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -7035,12 +7035,12 @@
           "city" : {
             "type" : "string",
             "description" : "City of the address",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "State of the address",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -7078,7 +7078,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -7106,12 +7106,12 @@
           "city" : {
             "type" : "string",
             "description" : "City of the address",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "State of the address",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -7131,7 +7131,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -7149,7 +7149,7 @@
           "code" : {
             "type" : "integer",
             "description" : "Status code",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -7173,6 +7173,7 @@
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
               "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
@@ -7180,7 +7181,7 @@
           "nextPageLink" : {
             "type" : "string",
             "description" : "Next page link",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "example" : "https://api.bocs.io/dev/collections?pageToken=c70e668c"
           }
         }
       },
@@ -7233,7 +7234,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsPostResponse_data"
           }
         }
       },
@@ -7251,7 +7252,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsListResponse_data"
+            "$ref" : "#/components/schemas/CollectionsPostResponse_data"
           }
         }
       },
@@ -7303,7 +7304,7 @@
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CollectionsPutResponse_data"
+            "$ref" : "#/components/schemas/CollectionsPostResponse_data"
           }
         }
       },
@@ -7327,14 +7328,17 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
               "$ref" : "#/components/schemas/BocsListResponse_data"
             }
@@ -7342,7 +7346,7 @@
           "nextPageLink" : {
             "type" : "string",
             "description" : "Next page link",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "example" : "https://api.bocs.io/dev/bocs?pageToken=c70e668c"
           }
         }
       },
@@ -7421,14 +7425,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/BocsPostResponse_data"
           }
         }
       },
@@ -7437,14 +7443,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/BocsPostResponse_data"
           }
         }
       },
@@ -7522,14 +7530,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/BocsListResponse_data"
+            "$ref" : "#/components/schemas/BocsPostResponse_data"
           }
         }
       },
@@ -7538,10 +7548,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -7551,14 +7563,17 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
               "$ref" : "#/components/schemas/ProductsListResponse_data"
             }
@@ -7566,7 +7581,7 @@
           "nextPageLink" : {
             "type" : "string",
             "description" : "Next page link",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "example" : "https://api.bocs.io/dev/products?pageToken=c70e668c"
           }
         }
       },
@@ -7656,14 +7671,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsPostResponse_data"
           }
         }
       },
@@ -7672,14 +7689,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsPostResponse_data"
           }
         }
       },
@@ -7768,14 +7787,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/ProductsListResponse_data"
+            "$ref" : "#/components/schemas/ProductsPostResponse_data"
           }
         }
       },
@@ -7784,10 +7805,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "description" : "Status code",
+            "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -7797,14 +7820,17 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
               "$ref" : "#/components/schemas/CategoriesListResponse_data"
             }
@@ -7812,7 +7838,7 @@
           "nextPageLink" : {
             "type" : "string",
             "description" : "Next page link",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "example" : "https://api.bocs.io/dev/categories?pageToken=c70e668c"
           }
         }
       },
@@ -7842,14 +7868,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesPostResponse_data"
           }
         }
       },
@@ -7858,14 +7886,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesPostResponse_data"
           }
         }
       },
@@ -7894,14 +7924,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/CategoriesListResponse_data"
+            "$ref" : "#/components/schemas/CategoriesPostResponse_data"
           }
         }
       },
@@ -7910,10 +7942,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -7923,14 +7957,17 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
               "$ref" : "#/components/schemas/TagsListResponse_data"
             }
@@ -7938,7 +7975,7 @@
           "nextPageLink" : {
             "type" : "string",
             "description" : "Next page link",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "example" : "https://api.bocs.io/dev/tags?pageToken=c70e668c"
           }
         }
       },
@@ -7963,14 +8000,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/TagsPostResponse_data"
           }
         }
       },
@@ -7979,14 +8018,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/TagsPostResponse_data"
           }
         }
       },
@@ -8010,14 +8051,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/TagsListResponse_data"
+            "$ref" : "#/components/schemas/TagsPostResponse_data"
           }
         }
       },
@@ -8026,10 +8069,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -8039,38 +8084,77 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
               "$ref" : "#/components/schemas/OrdersListResponse_data"
             }
           },
           "nextPageLink" : {
             "type" : "string",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/orders?pageToken=c70e668c"
           }
         }
       },
       "OrdersPostRequest" : {
+        "required" : [ "customer", "paymentDate", "total" ],
         "type" : "object",
         "properties" : {
-          "email" : {
-            "type" : "string",
-            "example" : "foo@bocs.io"
+          "isSubscription" : {
+            "type" : "boolean",
+            "description" : "Determines if order is from subscription",
+            "example" : false
           },
-          "firstName" : {
-            "type" : "string",
-            "example" : "Foo"
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the order",
+            "example" : 100
           },
-          "lastName" : {
+          "discount" : {
+            "type" : "number",
+            "description" : "Discount of the order",
+            "example" : 1
+          },
+          "shippingRate" : {
+            "type" : "number",
+            "description" : "Shipping rate of the order",
+            "example" : 2
+          },
+          "currency" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Currency of the order",
+            "example" : "AUD"
+          },
+          "paymentDate" : {
+            "type" : "string",
+            "description" : "Payment date of the order",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "isPaid" : {
+            "type" : "boolean",
+            "description" : "Determines if order has been paid",
+            "example" : false
+          },
+          "platform" : {
+            "type" : "string",
+            "description" : "Platform of the order",
+            "example" : "woocommerce"
+          },
+          "customer" : {
+            "$ref" : "#/components/schemas/OrdersListResponse_customer"
+          },
+          "refunds" : {
+            "$ref" : "#/components/schemas/OrdersPostRequest_refunds"
           }
         }
       },
@@ -8079,10 +8163,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
@@ -8095,31 +8181,67 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/OrdersPostResponse_data"
           }
         }
       },
       "OrdersPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
-            "type" : "string",
-            "example" : "foo@bocs.io"
+          "isSubscription" : {
+            "type" : "boolean",
+            "description" : "Determines if order is from subscription",
+            "example" : false
           },
-          "firstName" : {
-            "type" : "string",
-            "example" : "Foo"
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the order",
+            "example" : 100
           },
-          "lastName" : {
+          "discount" : {
+            "type" : "number",
+            "description" : "Discount of the order",
+            "example" : 1
+          },
+          "shippingRate" : {
+            "type" : "number",
+            "description" : "Shipping rate of the order",
+            "example" : 2
+          },
+          "currency" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Currency of the order",
+            "example" : "AUD"
+          },
+          "paymentDate" : {
+            "type" : "string",
+            "description" : "Payment date of the order",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "isPaid" : {
+            "type" : "boolean",
+            "description" : "Determines if order has been paid",
+            "example" : false
+          },
+          "platform" : {
+            "type" : "string",
+            "description" : "Platform of the order",
+            "example" : "woocommerce"
+          },
+          "customer" : {
+            "$ref" : "#/components/schemas/OrdersListResponse_customer"
+          },
+          "refunds" : {
+            "$ref" : "#/components/schemas/OrdersPostRequest_refunds"
           }
         }
       },
@@ -8128,14 +8250,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/OrdersPostResponse_data"
           }
         }
       },
@@ -8144,10 +8268,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "description" : "Status code",
+            "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -8157,38 +8283,132 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
-              "$ref" : "#/components/schemas/OrdersGetResponse_data"
+              "$ref" : "#/components/schemas/SubscriptionsListResponse_data"
             }
           },
           "nextPageLink" : {
             "type" : "string",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/subscriptions?pageToken=c70e668c"
           }
         }
       },
       "SubscriptionsPostRequest" : {
+        "required" : [ "boxId", "settingsId", "shippingId", "subscriptionItems", "taxRateId" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "subscriberId" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Subscriber id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "boxId" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Box id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "lastName" : {
+          "settingsId" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Settings id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "shippingId" : {
+            "type" : "string",
+            "description" : "Shipping id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "taxRateId" : {
+            "type" : "string",
+            "description" : "Tax rate id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the subscription",
+            "example" : "Subscription 1"
+          },
+          "boxName" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "Test box"
+          },
+          "billingPeriod" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "days"
+          },
+          "billingInterval" : {
+            "type" : "number",
+            "description" : "Billing interval of the subscription",
+            "example" : 7
+          },
+          "cancelledDate" : {
+            "type" : "string",
+            "description" : "Cancelled date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "discountTax" : {
+            "type" : "number",
+            "description" : "Discount tax of the subscription",
+            "example" : 0
+          },
+          "discountTotal" : {
+            "type" : "number",
+            "description" : "Discount total of the subscription",
+            "example" : 0
+          },
+          "endDate" : {
+            "type" : "string",
+            "description" : "End date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "nextPaymentDate" : {
+            "type" : "string",
+            "description" : "Next payment date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "shippingTax" : {
+            "type" : "number",
+            "description" : "Shipping tax of the subscription",
+            "example" : 0
+          },
+          "startDate" : {
+            "type" : "string",
+            "description" : "Start date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the subscription",
+            "example" : 100
+          },
+          "totalTax" : {
+            "type" : "number",
+            "description" : "Total tax of the subscription",
+            "example" : 0
+          },
+          "shippingTotal" : {
+            "type" : "number",
+            "description" : "Total shipping of the subscription",
+            "example" : 0
+          },
+          "subscriptionItems" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SubscriptionsPostRequest_subscriptionItems"
+            }
           }
         }
       },
@@ -8197,14 +8417,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/SubscriptionsPostResponse_data"
           }
         }
       },
@@ -8213,31 +8435,122 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/SubscriptionsPostResponse_data"
           }
         }
       },
       "SubscriptionsPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "subscriberId" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Subscriber id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "boxId" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Box id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "lastName" : {
+          "settingsId" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Settings id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "shippingId" : {
+            "type" : "string",
+            "description" : "Shipping id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "taxRateId" : {
+            "type" : "string",
+            "description" : "Tax rate id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the subscription",
+            "example" : "Subscription 1"
+          },
+          "boxName" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "Test box"
+          },
+          "billingPeriod" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "days"
+          },
+          "billingInterval" : {
+            "type" : "number",
+            "description" : "Billing interval of the subscription",
+            "example" : 7
+          },
+          "cancelledDate" : {
+            "type" : "string",
+            "description" : "Cancelled date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "discountTax" : {
+            "type" : "number",
+            "description" : "Discount tax of the subscription",
+            "example" : 0
+          },
+          "discountTotal" : {
+            "type" : "number",
+            "description" : "Discount total of the subscription",
+            "example" : 0
+          },
+          "endDate" : {
+            "type" : "string",
+            "description" : "End date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "nextPaymentDate" : {
+            "type" : "string",
+            "description" : "Next payment date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "shippingTax" : {
+            "type" : "number",
+            "description" : "Shipping tax of the subscription",
+            "example" : 0
+          },
+          "startDate" : {
+            "type" : "string",
+            "description" : "Start date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the subscription",
+            "example" : 100
+          },
+          "totalTax" : {
+            "type" : "number",
+            "description" : "Total tax of the subscription",
+            "example" : 0
+          },
+          "shippingTotal" : {
+            "type" : "number",
+            "description" : "Total shipping of the subscription",
+            "example" : 0
+          },
+          "subscriptionItems" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SubscriptionsPostRequest_subscriptionItems"
+            }
           }
         }
       },
@@ -8246,14 +8559,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/SubscriptionsPostResponse_data"
           }
         }
       },
@@ -8262,7 +8577,7 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "example" : 200
           },
           "message" : {
             "type" : "string",
@@ -8275,38 +8590,76 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
-              "$ref" : "#/components/schemas/OrdersGetResponse_data"
+              "$ref" : "#/components/schemas/ShippingZonesListResponse_data"
             }
           },
           "nextPageLink" : {
             "type" : "string",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/shipping-zones?pageToken=c70e668c"
           }
         }
       },
       "ShippingZonesPostRequest" : {
+        "required" : [ "city", "cost", "country", "postcode", "state", "title" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "title" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Title of the shipping zone",
+            "example" : "Test Title"
           },
-          "firstName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Description of the shipping zone",
+            "example" : "Test Description"
           },
-          "lastName" : {
+          "country" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Country of the shipping zone",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the shipping zone",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the shipping zone",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "number",
+            "description" : "Postcode of the shipping zone",
+            "example" : 6000
+          },
+          "cost" : {
+            "type" : "number",
+            "description" : "Cost of the shipping zone",
+            "example" : 15
+          },
+          "enabled" : {
+            "type" : "boolean",
+            "description" : "Determines if the shipping zone is enabled",
+            "example" : true
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the shipping zone",
+            "example" : 1
           }
         }
       },
@@ -8315,14 +8668,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/ShippingZonesPostResponse_data"
           }
         }
       },
@@ -8331,31 +8686,66 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/ShippingZonesPostResponse_data"
           }
         }
       },
       "ShippingZonesPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "title" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Title of the shipping zone",
+            "example" : "Test Title"
           },
-          "firstName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Description of the shipping zone",
+            "example" : "Test Description"
           },
-          "lastName" : {
+          "country" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Country of the shipping zone",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the shipping zone",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the shipping zone",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "number",
+            "description" : "Postcode of the shipping zone",
+            "example" : 6000
+          },
+          "cost" : {
+            "type" : "number",
+            "description" : "Cost of the shipping zone",
+            "example" : 15
+          },
+          "enabled" : {
+            "type" : "boolean",
+            "description" : "Determines if the shipping zone is enabled",
+            "example" : true
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the shipping zone",
+            "example" : 1
           }
         }
       },
@@ -8364,14 +8754,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/ShippingZonesPostResponse_data"
           }
         }
       },
@@ -8380,10 +8772,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "description" : "Status code",
+            "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -8393,38 +8787,86 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
-              "$ref" : "#/components/schemas/OrdersGetResponse_data"
+              "$ref" : "#/components/schemas/TaxRatesListResponse_data"
             }
           },
           "nextPageLink" : {
             "type" : "string",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/tax-rates?pageToken=c70e668c"
           }
         }
       },
       "TaxRatesPostRequest" : {
+        "required" : [ "class", "name" ],
         "type" : "object",
         "properties" : {
-          "email" : {
+          "name" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Name of the tax rate",
+            "example" : "Test name"
           },
-          "firstName" : {
+          "class" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Class of the tax rate",
+            "example" : "Test"
           },
-          "lastName" : {
+          "country" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Country of the tax rate",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the tax rate",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the tax rate",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the tax rate",
+            "example" : "6000"
+          },
+          "rate" : {
+            "type" : "number",
+            "description" : "Rate of the tax rate",
+            "example" : 10
+          },
+          "shipping" : {
+            "type" : "boolean",
+            "description" : "Determines if the tax rate is shipping",
+            "example" : true
+          },
+          "priority" : {
+            "type" : "number",
+            "description" : "Priority of the tax rate",
+            "example" : 1
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the tax rate",
+            "example" : 1
+          },
+          "compound" : {
+            "type" : "string",
+            "description" : "Determines if tax rate is compound",
+            "example" : "boolean"
           }
         }
       },
@@ -8433,14 +8875,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 201
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/TaxRatesPostResponse_data"
           }
         }
       },
@@ -8449,31 +8893,76 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/TaxRatesPostResponse_data"
           }
         }
       },
       "TaxRatesPutRequest" : {
         "type" : "object",
         "properties" : {
-          "email" : {
+          "name" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Name of the tax rate",
+            "example" : "Test name"
           },
-          "firstName" : {
+          "class" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Class of the tax rate",
+            "example" : "Test"
           },
-          "lastName" : {
+          "country" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Country of the tax rate",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the tax rate",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the tax rate",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the tax rate",
+            "example" : "6000"
+          },
+          "rate" : {
+            "type" : "number",
+            "description" : "Rate of the tax rate",
+            "example" : 10
+          },
+          "shipping" : {
+            "type" : "boolean",
+            "description" : "Determines if the tax rate is shipping",
+            "example" : true
+          },
+          "priority" : {
+            "type" : "number",
+            "description" : "Priority of the tax rate",
+            "example" : 1
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the tax rate",
+            "example" : 1
+          },
+          "compound" : {
+            "type" : "string",
+            "description" : "Determines if tax rate is compound",
+            "example" : "boolean"
           }
         }
       },
@@ -8482,14 +8971,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/TaxRatesPostResponse_data"
           }
         }
       },
@@ -8498,10 +8989,12 @@
         "properties" : {
           "code" : {
             "type" : "integer",
-            "example" : 201
+            "description" : "Status code",
+            "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           }
         }
@@ -8511,21 +9004,25 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
             "type" : "array",
+            "description" : "Response data",
             "items" : {
-              "$ref" : "#/components/schemas/OrdersGetResponse_data"
+              "$ref" : "#/components/schemas/CollectionsListResponse_data"
             }
           },
           "nextPageLink" : {
             "type" : "string",
-            "example" : "https://api.bocs.io/dev/contacts?pageToken=c70e668c"
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/widgets?pageToken=c70e668c"
           }
         }
       },
@@ -8534,14 +9031,16 @@
         "properties" : {
           "code" : {
             "type" : "integer",
+            "description" : "Status code",
             "example" : 200
           },
           "message" : {
             "type" : "string",
+            "description" : "Success or error message",
             "example" : "success"
           },
           "data" : {
-            "$ref" : "#/components/schemas/OrdersGetResponse_data"
+            "$ref" : "#/components/schemas/CollectionsPostResponse_data"
           }
         }
       },
@@ -8561,12 +9060,12 @@
           "city" : {
             "type" : "string",
             "description" : "City of the address",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "State of the address",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -8597,12 +9096,12 @@
           "city" : {
             "type" : "string",
             "description" : "City of the address",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "State of the address",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -8716,12 +9215,12 @@
           "city" : {
             "type" : "string",
             "description" : "Billing city of the subscriber",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "Billing state of the subscriber",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -8752,12 +9251,12 @@
           "city" : {
             "type" : "string",
             "description" : "Shipping city of the subscriber",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "Shipping state of the subscriber",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -8775,11 +9274,6 @@
       "SubscribersListResponse_data" : {
         "type" : "object",
         "properties" : {
-          "userId" : {
-            "type" : "string",
-            "description" : "Id of the bocs user",
-            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
-          },
           "subscriberId" : {
             "type" : "string",
             "description" : "Id of the subscriber",
@@ -8842,11 +9336,6 @@
       "SubscribersPostResponse_data" : {
         "type" : "object",
         "properties" : {
-          "userId" : {
-            "type" : "string",
-            "description" : "Id of the bocs user",
-            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
-          },
           "subscriberId" : {
             "type" : "string",
             "description" : "Id of the subscriber",
@@ -8927,12 +9416,12 @@
           "city" : {
             "type" : "string",
             "description" : "City of the address",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "State of the address",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -8976,12 +9465,12 @@
           "city" : {
             "type" : "string",
             "description" : "City of the address",
-            "example" : "Victoria"
+            "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
             "description" : "State of the address",
-            "example" : "Victoria"
+            "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
@@ -9176,11 +9665,6 @@
       "CollectionsListResponse_data" : {
         "type" : "object",
         "properties" : {
-          "userId" : {
-            "type" : "string",
-            "description" : "Id of the bocs user",
-            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
-          },
           "collectionId" : {
             "type" : "string",
             "description" : "Id of the collection",
@@ -9303,14 +9787,9 @@
           }
         }
       },
-      "CollectionsPutResponse_data" : {
+      "CollectionsPostResponse_data" : {
         "type" : "object",
         "properties" : {
-          "userId" : {
-            "type" : "string",
-            "description" : "Id of the bocs user",
-            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
-          },
           "collectionId" : {
             "type" : "string",
             "description" : "Id of the collection",
@@ -9446,11 +9925,6 @@
             "description" : "Parent id of the bocs",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "userId" : {
-            "type" : "string",
-            "description" : "Id of the bocs user",
-            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
-          },
           "type" : {
             "type" : "string",
             "description" : "Type of the bocs",
@@ -9551,6 +10025,91 @@
             "example" : "day"
           }
         }
+      },
+      "BocsPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "boxId" : {
+            "type" : "string",
+            "description" : "Id of the bocs",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the bocs",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "type" : {
+            "type" : "string",
+            "description" : "Type of the bocs",
+            "example" : "fixed"
+          },
+          "pricePerFrequency" : {
+            "type" : "boolean",
+            "description" : "Price per frequency of the bocs",
+            "example" : true
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the bocs",
+            "example" : "My Box"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the bocs",
+            "example" : "My bocs description"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the bocs",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the box",
+            "example" : "SKU-Test"
+          },
+          "boxPrice" : {
+            "type" : "number",
+            "description" : "Price of the box",
+            "example" : 10
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_images"
+            }
+          },
+          "items" : {
+            "type" : "array",
+            "description" : "Items of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_items"
+            }
+          },
+          "pricing" : {
+            "type" : "array",
+            "description" : "Pricing of the bocs",
+            "items" : {
+              "$ref" : "#/components/schemas/BocsListResponse_pricing"
+            }
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the bocs",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the bocs",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
       },
       "ProductsListResponse_images" : {
         "type" : "object",
@@ -9667,6 +10226,107 @@
           }
         }
       },
+      "ProductsPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "productId" : {
+            "type" : "string",
+            "description" : "Id of the product",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the product",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the product",
+            "example" : "Product-1"
+          },
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the product",
+            "example" : 100
+          },
+          "source" : {
+            "type" : "string",
+            "description" : "Source of the product",
+            "example" : "woocommerce"
+          },
+          "externalProductId" : {
+            "type" : "string",
+            "description" : "External product id of the product",
+            "example" : "1"
+          },
+          "categories" : {
+            "type" : "array",
+            "description" : "Categories of the product",
+            "example" : [ "test-1", "test-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "images" : {
+            "type" : "array",
+            "description" : "Images of the product",
+            "items" : {
+              "$ref" : "#/components/schemas/ProductsListResponse_images"
+            }
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the product",
+            "example" : 5
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the product",
+            "example" : "Description of product-1"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the product",
+            "example" : "SKU-Product-1"
+          },
+          "isVariant" : {
+            "type" : "string",
+            "description" : "Variant of the product",
+            "example" : "test"
+          },
+          "color" : {
+            "type" : "string",
+            "description" : "Color of the product",
+            "example" : "black"
+          },
+          "size" : {
+            "type" : "string",
+            "description" : "Size of the product",
+            "example" : "10"
+          },
+          "length" : {
+            "type" : "string",
+            "description" : "Length of the product",
+            "example" : "20cm"
+          },
+          "width" : {
+            "type" : "string",
+            "description" : "Width of the product",
+            "example" : "10"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the collection",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
       "CategoriesListResponse_data" : {
         "type" : "object",
         "properties" : {
@@ -9702,6 +10362,42 @@
           }
         }
       },
+      "CategoriesPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "categoryId" : {
+            "type" : "string",
+            "description" : "Id of the category",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the category",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the category",
+            "example" : "Test Category"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Descriptioin of the category",
+            "example" : "Test description"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the category",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the category",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
       "TagsListResponse_data" : {
         "type" : "object",
         "properties" : {
@@ -9732,178 +10428,901 @@
           }
         }
       },
-      "OrdersListResponse_customer" : {
+      "TagsPostResponse_data" : {
         "type" : "object",
         "properties" : {
-          "id" : {
+          "tagId" : {
             "type" : "string",
+            "description" : "Id of the tag",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "name" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Name of the tag",
+            "example" : "Test Tag"
           },
-          "lastName" : {
+          "description" : {
             "type" : "string",
-            "example" : "Bar"
-          },
-          "email" : {
-            "type" : "string",
-            "example" : "foo@example.com"
-          }
-        }
-      },
-      "OrdersListResponse_refunds" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string",
-            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
-          },
-          "reason" : {
-            "type" : "string",
-            "example" : "Foo Bar"
-          },
-          "total" : {
-            "type" : "number",
-            "example" : 100
+            "description" : "Descriptioin of the tag",
+            "example" : "Test description"
           },
           "createdAt" : {
             "type" : "string",
+            "description" : "Created date of the tag",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
+            "description" : "Updated date of the tag",
             "example" : "2022-10-25T11:25:08.394Z"
           }
-        }
+        },
+        "description" : "Response data"
+      },
+      "OrdersListResponse_customer" : {
+        "type" : "object",
+        "properties" : {
+          "customerId" : {
+            "type" : "string",
+            "description" : "Id of the customer",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Email of the customer",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "firstName" : {
+            "type" : "string",
+            "description" : "First name of the customer",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last name of the customer",
+            "example" : "Irwin"
+          }
+        },
+        "description" : "Billing address of the contact"
+      },
+      "OrdersListResponse_refunds" : {
+        "type" : "object",
+        "properties" : {
+          "refundId" : {
+            "type" : "string",
+            "description" : "Id of the refund",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "reason" : {
+            "type" : "string",
+            "description" : "Reason of the refund",
+            "example" : "Test reason"
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the refund",
+            "example" : 100
+          }
+        },
+        "description" : "Shipping address of the contact"
       },
       "OrdersListResponse_data" : {
         "type" : "object",
         "properties" : {
-          "userId" : {
-            "type" : "string",
-            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
-          },
           "orderId" : {
             "type" : "string",
+            "description" : "Contact Id",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "isSubscription" : {
             "type" : "boolean",
+            "description" : "Determines if order is from subscription",
             "example" : false
           },
           "total" : {
             "type" : "number",
+            "description" : "Total of the order",
             "example" : 100
           },
           "discount" : {
             "type" : "number",
-            "example" : 3
+            "description" : "Discount of the order",
+            "example" : 1
           },
           "shippingRate" : {
             "type" : "number",
+            "description" : "Shipping rate of the order",
             "example" : 2
           },
           "currency" : {
             "type" : "string",
+            "description" : "Currency of the order",
             "example" : "AUD"
-          },
-          "status" : {
-            "type" : "string",
-            "example" : "active"
           },
           "paymentDate" : {
             "type" : "string",
+            "description" : "Payment date of the order",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "isPaid" : {
             "type" : "boolean",
+            "description" : "Determines if order has been paid",
             "example" : false
           },
           "platform" : {
             "type" : "string",
+            "description" : "Platform of the order",
             "example" : "woocommerce"
           },
           "customer" : {
             "$ref" : "#/components/schemas/OrdersListResponse_customer"
           },
           "refunds" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "#/components/schemas/OrdersListResponse_refunds"
-            }
+            "$ref" : "#/components/schemas/OrdersListResponse_refunds"
           },
           "createdAt" : {
             "type" : "string",
+            "description" : "Created date of the contact",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
+            "description" : "Updated date of the contact",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
+      },
+      "OrdersPostRequest_refunds" : {
+        "type" : "object",
+        "properties" : {
+          "reason" : {
+            "type" : "string",
+            "description" : "Reason of the refund",
+            "example" : "Test reason"
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the refund",
+            "example" : 100
+          }
+        },
+        "description" : "Shipping address of the contact"
       },
       "OrdersPostResponse_data" : {
         "type" : "object",
         "properties" : {
+          "orderId" : {
+            "type" : "string",
+            "description" : "Contact Id",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "isSubscription" : {
+            "type" : "boolean",
+            "description" : "Determines if order is from subscription",
+            "example" : false
+          },
           "total" : {
-            "type" : "string"
+            "type" : "number",
+            "description" : "Total of the order",
+            "example" : 100
           },
           "discount" : {
-            "type" : "number"
+            "type" : "number",
+            "description" : "Discount of the order",
+            "example" : 1
           },
           "shippingRate" : {
-            "type" : "number"
+            "type" : "number",
+            "description" : "Shipping rate of the order",
+            "example" : 2
           },
           "currency" : {
             "type" : "string",
-            "example" : "Bar"
-          },
-          "status" : {
-            "type" : "string"
+            "description" : "Currency of the order",
+            "example" : "AUD"
           },
           "paymentDate" : {
-            "type" : "string"
+            "type" : "string",
+            "description" : "Payment date of the order",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "isPaid" : {
+            "type" : "boolean",
+            "description" : "Determines if order has been paid",
+            "example" : false
+          },
+          "platform" : {
+            "type" : "string",
+            "description" : "Platform of the order",
+            "example" : "woocommerce"
+          },
+          "customer" : {
+            "$ref" : "#/components/schemas/OrdersListResponse_customer"
+          },
+          "refunds" : {
+            "$ref" : "#/components/schemas/OrdersListResponse_refunds"
           },
           "createdAt" : {
             "type" : "string",
+            "description" : "Created date of the contact",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
+            "description" : "Updated date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
+      "SubscriptionsListResponse_taxes" : {
+        "type" : "object",
+        "properties" : {
+          "taxId" : {
+            "type" : "string",
+            "description" : "Tax id of the tax",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the tax",
+            "example" : 5
+          },
+          "subTotal" : {
+            "type" : "number",
+            "description" : "Sub total of the tax",
+            "example" : 5
+          }
+        }
+      },
+      "SubscriptionsListResponse_subscriptionItems" : {
+        "type" : "object",
+        "properties" : {
+          "subscriptionItemId" : {
+            "type" : "string",
+            "description" : "Id of the subscription item",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "productName" : {
+            "type" : "string",
+            "description" : "Product name of the subscription item",
+            "example" : "Test product"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the subscription item",
+            "example" : "SKU-Test"
+          },
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the subscription item",
+            "example" : 10
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the subscription item",
+            "example" : 10
+          },
+          "subTotal" : {
+            "type" : "number",
+            "description" : "Sub total of the subscription item",
+            "example" : 100
+          },
+          "subTotalTax" : {
+            "type" : "number",
+            "description" : "Sub total tax of the subscription item",
+            "example" : 0
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the subscription item",
+            "example" : 100
+          },
+          "totalTax" : {
+            "type" : "number",
+            "description" : "Total tax of the subscription item",
+            "example" : 0
+          },
+          "taxes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SubscriptionsListResponse_taxes"
+            }
+          }
+        },
+        "description" : "Subscription items of the subscription"
+      },
+      "SubscriptionsListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "subscriptionId" : {
+            "type" : "string",
+            "description" : "Id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "subscriberId" : {
+            "type" : "string",
+            "description" : "Subscriber id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "boxId" : {
+            "type" : "string",
+            "description" : "Box id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "settingsId" : {
+            "type" : "string",
+            "description" : "Settings id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "shippingId" : {
+            "type" : "string",
+            "description" : "Shipping id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "taxRateId" : {
+            "type" : "string",
+            "description" : "Tax rate id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the subscription",
+            "example" : "Subscription 1"
+          },
+          "boxName" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "Test box"
+          },
+          "billingPeriod" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "days"
+          },
+          "billingInterval" : {
+            "type" : "number",
+            "description" : "Billing interval of the subscription",
+            "example" : 7
+          },
+          "cancelledDate" : {
+            "type" : "string",
+            "description" : "Cancelled date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "discountTax" : {
+            "type" : "number",
+            "description" : "Discount tax of the subscription",
+            "example" : 0
+          },
+          "discountTotal" : {
+            "type" : "number",
+            "description" : "Discount total of the subscription",
+            "example" : 0
+          },
+          "endDate" : {
+            "type" : "string",
+            "description" : "End date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "nextPaymentDate" : {
+            "type" : "string",
+            "description" : "Next payment date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "shippingTax" : {
+            "type" : "number",
+            "description" : "Shipping tax of the subscription",
+            "example" : 0
+          },
+          "startDate" : {
+            "type" : "string",
+            "description" : "Start date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the subscription",
+            "example" : 100
+          },
+          "totalTax" : {
+            "type" : "number",
+            "description" : "Total tax of the subscription",
+            "example" : 0
+          },
+          "shippingTotal" : {
+            "type" : "number",
+            "description" : "Total shipping of the subscription",
+            "example" : 0
+          },
+          "subscriptionItems" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SubscriptionsListResponse_subscriptionItems"
+            }
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the subscription",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
       },
-      "OrdersGetResponse_data" : {
+      "SubscriptionsPostRequest_taxes" : {
         "type" : "object",
         "properties" : {
-          "contactId" : {
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the tax",
+            "example" : 5
+          },
+          "subTotal" : {
+            "type" : "number",
+            "description" : "Sub total of the tax",
+            "example" : 5
+          }
+        }
+      },
+      "SubscriptionsPostRequest_subscriptionItems" : {
+        "type" : "object",
+        "properties" : {
+          "productName" : {
             "type" : "string",
+            "description" : "Product name of the subscription item",
+            "example" : "Test product"
+          },
+          "sku" : {
+            "type" : "string",
+            "description" : "SKU of the subscription item",
+            "example" : "SKU-Test"
+          },
+          "price" : {
+            "type" : "number",
+            "description" : "Price of the subscription item",
+            "example" : 10
+          },
+          "quantity" : {
+            "type" : "number",
+            "description" : "Quantity of the subscription item",
+            "example" : 10
+          },
+          "subTotal" : {
+            "type" : "number",
+            "description" : "Sub total of the subscription item",
+            "example" : 100
+          },
+          "subTotalTax" : {
+            "type" : "number",
+            "description" : "Sub total tax of the subscription item",
+            "example" : 0
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the subscription item",
+            "example" : 100
+          },
+          "totalTax" : {
+            "type" : "number",
+            "description" : "Total tax of the subscription item",
+            "example" : 0
+          },
+          "taxes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SubscriptionsPostRequest_taxes"
+            }
+          }
+        },
+        "description" : "Subscription items of the subscription"
+      },
+      "SubscriptionsPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "subscriptionId" : {
+            "type" : "string",
+            "description" : "Id of the subscription",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "email" : {
+          "subscriberId" : {
             "type" : "string",
-            "example" : "foo@bocs.io"
+            "description" : "Subscriber id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "firstName" : {
+          "boxId" : {
             "type" : "string",
-            "example" : "Foo"
+            "description" : "Box id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
-          "lastName" : {
+          "settingsId" : {
             "type" : "string",
-            "example" : "Bar"
+            "description" : "Settings id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "shippingId" : {
+            "type" : "string",
+            "description" : "Shipping id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "taxRateId" : {
+            "type" : "string",
+            "description" : "Tax rate id of the subscription",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the subscription",
+            "example" : "Subscription 1"
+          },
+          "boxName" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "Test box"
+          },
+          "billingPeriod" : {
+            "type" : "string",
+            "description" : "Box name of the subscription",
+            "example" : "days"
+          },
+          "billingInterval" : {
+            "type" : "number",
+            "description" : "Billing interval of the subscription",
+            "example" : 7
+          },
+          "cancelledDate" : {
+            "type" : "string",
+            "description" : "Cancelled date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "discountTax" : {
+            "type" : "number",
+            "description" : "Discount tax of the subscription",
+            "example" : 0
+          },
+          "discountTotal" : {
+            "type" : "number",
+            "description" : "Discount total of the subscription",
+            "example" : 0
+          },
+          "endDate" : {
+            "type" : "string",
+            "description" : "End date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "nextPaymentDate" : {
+            "type" : "string",
+            "description" : "Next payment date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "shippingTax" : {
+            "type" : "number",
+            "description" : "Shipping tax of the subscription",
+            "example" : 0
+          },
+          "startDate" : {
+            "type" : "string",
+            "description" : "Start date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "total" : {
+            "type" : "number",
+            "description" : "Total of the subscription",
+            "example" : 100
+          },
+          "totalTax" : {
+            "type" : "number",
+            "description" : "Total tax of the subscription",
+            "example" : 0
+          },
+          "shippingTotal" : {
+            "type" : "number",
+            "description" : "Total shipping of the subscription",
+            "example" : 0
+          },
+          "subscriptionItems" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/SubscriptionsListResponse_subscriptionItems"
+            }
           },
           "createdAt" : {
             "type" : "string",
+            "description" : "Created date of the subscription",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
+            "description" : "Updated date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
+      "ShippingZonesListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "shippingZoneId" : {
+            "type" : "string",
+            "description" : "Id of the shipping zone",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "title" : {
+            "type" : "string",
+            "description" : "Title of the shipping zone",
+            "example" : "Test Title"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the shipping zone",
+            "example" : "Test Description"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the shipping zone",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the shipping zone",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the shipping zone",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "number",
+            "description" : "Postcode of the shipping zone",
+            "example" : 6000
+          },
+          "cost" : {
+            "type" : "number",
+            "description" : "Cost of the shipping zone",
+            "example" : 15
+          },
+          "enabled" : {
+            "type" : "boolean",
+            "description" : "Determines if the shipping zone is enabled",
+            "example" : true
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the shipping zone",
+            "example" : 1
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the subscription",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
+      },
+      "ShippingZonesPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "shippingZoneId" : {
+            "type" : "string",
+            "description" : "Id of the shipping zone",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "title" : {
+            "type" : "string",
+            "description" : "Title of the shipping zone",
+            "example" : "Test Title"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "Description of the shipping zone",
+            "example" : "Test Description"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the shipping zone",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the shipping zone",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the shipping zone",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "number",
+            "description" : "Postcode of the shipping zone",
+            "example" : 6000
+          },
+          "cost" : {
+            "type" : "number",
+            "description" : "Cost of the shipping zone",
+            "example" : 15
+          },
+          "enabled" : {
+            "type" : "boolean",
+            "description" : "Determines if the shipping zone is enabled",
+            "example" : true
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the shipping zone",
+            "example" : 1
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the subscription",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
+      "TaxRatesListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "taxRateSettingsId" : {
+            "type" : "string",
+            "description" : "Id of the tax rate",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the tax rate",
+            "example" : "Test name"
+          },
+          "class" : {
+            "type" : "string",
+            "description" : "Class of the tax rate",
+            "example" : "Test"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the tax rate",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the tax rate",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the tax rate",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the tax rate",
+            "example" : "6000"
+          },
+          "rate" : {
+            "type" : "number",
+            "description" : "Rate of the tax rate",
+            "example" : 10
+          },
+          "shipping" : {
+            "type" : "boolean",
+            "description" : "Determines if the tax rate is shipping",
+            "example" : true
+          },
+          "priority" : {
+            "type" : "number",
+            "description" : "Priority of the tax rate",
+            "example" : 1
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the tax rate",
+            "example" : 1
+          },
+          "compound" : {
+            "type" : "string",
+            "description" : "Determines if tax rate is compound",
+            "example" : "boolean"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the tax rate",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the tax rate",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "TaxRatesPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "taxRateSettingsId" : {
+            "type" : "string",
+            "description" : "Id of the tax rate",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the tax rate",
+            "example" : "Test name"
+          },
+          "class" : {
+            "type" : "string",
+            "description" : "Class of the tax rate",
+            "example" : "Test"
+          },
+          "country" : {
+            "type" : "string",
+            "description" : "Country of the tax rate",
+            "example" : "AU"
+          },
+          "city" : {
+            "type" : "string",
+            "description" : "City of the tax rate",
+            "example" : "Adelaide"
+          },
+          "state" : {
+            "type" : "string",
+            "description" : "State of the tax rate",
+            "example" : "South Australia"
+          },
+          "postcode" : {
+            "type" : "string",
+            "description" : "Post code of the tax rate",
+            "example" : "6000"
+          },
+          "rate" : {
+            "type" : "number",
+            "description" : "Rate of the tax rate",
+            "example" : 10
+          },
+          "shipping" : {
+            "type" : "boolean",
+            "description" : "Determines if the tax rate is shipping",
+            "example" : true
+          },
+          "priority" : {
+            "type" : "number",
+            "description" : "Priority of the tax rate",
+            "example" : 1
+          },
+          "order" : {
+            "type" : "number",
+            "description" : "Order of the tax rate",
+            "example" : 1
+          },
+          "compound" : {
+            "type" : "string",
+            "description" : "Determines if tax rate is compound",
+            "example" : "boolean"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the tax rate",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the tax rate",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
       }
     },
     "responses" : {
