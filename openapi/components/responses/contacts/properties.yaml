@@ -28,11 +28,11 @@ billingAddress:
       description: Address line 2 of the address
     city:
       type: string
-      example: Victoria
+      example: Adelaide
       description: City of the address
     state:
       type: string
-      example: Victoria
+      example: South Australia
       description: State of the address
     country:
       type: string
@@ -56,11 +56,11 @@ shippingAddress:
       description: Address line 2 of the address
     city:
       type: string
-      example: Victoria
+      example: Adelaide
       description: City of the address
     state:
       type: string
-      example: Victoria
+      example: South Australia
       description: State of the address
     country:
       type: string

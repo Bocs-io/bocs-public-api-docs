@@ -20,7 +20,7 @@ city:
   description: City of the shipping zone
 state:
   type: string
-  example: Adelaide
+  example: South Australia
   description: State of the shipping zone
 postcode:
   type: number

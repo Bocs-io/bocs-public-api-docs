@@ -1,0 +1,44 @@
+name:
+  type: string
+  example: Test name
+  description: Name of the tax rate
+class:
+  type: string
+  example: Test
+  description: Class of the tax rate
+country:
+  type: string
+  example: AU
+  description: Country of the tax rate
+city:
+  type: string
+  example: Adelaide
+  description: City of the tax rate
+state:
+  type: string
+  example: South Australia
+  description: State of the tax rate
+postcode:
+  type: string
+  example: 6000
+  description: Post code of the tax rate
+rate:
+  type: number
+  example: 10
+  description: Rate of the tax rate
+shipping:
+  type: boolean
+  example: true
+  description: Determines if the tax rate is shipping
+priority:
+  type: number
+  example: 1
+  description: Priority of the tax rate
+order:
+  type: number
+  example: 1
+  description: Order of the tax rate
+compound:
+  type: string
+  example: boolean
+  description: Determines if tax rate is compound

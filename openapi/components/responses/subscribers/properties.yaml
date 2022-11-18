@@ -45,11 +45,11 @@ billingAddress:
       description: Billing address line 2 of the subscriber
     city:
       type: string
-      example: Victoria
+      example: Adelaide
       description: Billing city of the subscriber
     state:
       type: string
-      example: Victoria
+      example: South Australia
       description: Billing state of the subscriber
     country:
       type: string
@@ -73,11 +73,11 @@ shippingAddress:
       description: Shipping address line 2 of the subscriber
     city:
       type: string
-      example: Victoria
+      example: Adelaide
       description: Shipping city of the subscriber
     state:
       type: string
-      example: Victoria
+      example: South Australia
       description: Shipping state of the subscriber
     country:
       type: string

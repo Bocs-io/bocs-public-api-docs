@@ -52,13 +52,13 @@ get:
 post:
   operationId: PostTaxRate
   summary: Create Tax Rate
-  description: Creates a tax rate
+  description: Create properties of tax rates
   tags:
     - Tax Rates
   security:
     - api_key: []
   requestBody:
-    description: Tax Rate Fields
+    description: Parameters for creating a tax rate
     required: true
     content:
       application/json:

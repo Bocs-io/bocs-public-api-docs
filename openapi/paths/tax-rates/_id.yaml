@@ -1,7 +1,7 @@
 get:
   operationId: GetTaxRate
   summary: Get Tax Rate
-  description: Returns a tax rate
+  description: Returns details about a tax rate
   tags:
     - Tax Rates
   parameters:
@@ -41,7 +41,7 @@ get:
 put:
   operationId: PutTaxRate
   summary: Update Tax Rate
-  description: Updates a tax rate
+  description: Update properties of tax rate
   tags:
     - Tax Rates
   parameters:
@@ -65,7 +65,7 @@ put:
         --data '' \
         | jq
   requestBody:
-    description: Tax Rate Fields
+    description: Parameters for updating a tax rate
     required: true
     content:
       application/json:
@@ -92,7 +92,7 @@ put:
 delete:
   operationId: DeleteTaxRate
   summary: Delete Tax Rate
-  description: Deletes a tax rate
+  description: Deletes a specified tax rate
   tags:
     - Tax Rates
   parameters:
