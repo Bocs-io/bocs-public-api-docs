@@ -11402,10 +11402,6 @@
         "type" : "apiKey",
         "name" : "Authorization",
         "in" : "header"
-      },
-      "basic_auth" : {
-        "type" : "http",
-        "scheme" : "basic"
       }
     }
   },
