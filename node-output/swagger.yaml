@@ -9047,6 +9047,16 @@
       "ContactsListResponse_billingAddress" : {
         "type" : "object",
         "properties" : {
+          "firstName" : {
+            "type" : "string",
+            "description" : "First name of the contact",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last name of the contact",
+            "example" : "Irwin"
+          },
           "address1" : {
             "type" : "string",
             "description" : "Address line 1 of the address",
@@ -9083,6 +9093,16 @@
       "ContactsListResponse_shippingAddress" : {
         "type" : "object",
         "properties" : {
+          "firstName" : {
+            "type" : "string",
+            "description" : "First name of the contact",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last name of the contact",
+            "example" : "Irwin"
+          },
           "address1" : {
             "type" : "string",
             "description" : "Address line 1 of the address",
