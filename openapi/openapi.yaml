@@ -125,10 +125,10 @@ components:
     api_key:
       type: apiKey
       in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
+      name: Authorization
+    # basic_auth:
+    #   type: http
+    #   scheme: basic
 servers:
   # Added by API Auto Mocking Plugin
   - description: SwaggerHub API Auto Mocking

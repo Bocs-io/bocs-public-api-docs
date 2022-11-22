@@ -18,6 +18,14 @@ billingAddress:
   type: object
   description: Billing address of the contact
   properties:
+    firstName:
+      type: string
+      example: Earl
+      description: First name of the contact
+    lastName:
+      type: string
+      example: Irwin
+      description: Last name of the contact
     address1:
       type: string
       example: Urban Homes
@@ -46,6 +54,14 @@ shippingAddress:
   type: object
   description: Shipping address of the contact
   properties:
+    firstName:
+      type: string
+      example: Earl
+      description: First name of the contact
+    lastName:
+      type: string
+      example: Irwin
+      description: Last name of the contact
     address1:
       type: string
       example: Urban Homes
