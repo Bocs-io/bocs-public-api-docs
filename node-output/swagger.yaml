@@ -55,17 +55,6 @@
             "default" : "25"
           }
         }, {
-          "name" : "pageToken",
-          "in" : "query",
-          "description" : "The pagination page token",
-          "required" : false,
-          "style" : "form",
-          "explode" : true,
-          "schema" : {
-            "type" : "string",
-            "example" : "MTUzNzRkMmUtMDZhYS00NTgyLWIyYzgtOTk0N2I0NjU4MDJh"
-          }
-        }, {
           "name" : "sort",
           "in" : "query",
           "description" : "Sort contacts",
