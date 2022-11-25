@@ -11,7 +11,7 @@ get:
       name: query
       schema:
         type: string
-        example: firstName:"bar"
+        example: firstName:foo,lastName:bar
       description: Filter returned rows
     - in: query
       name: limit
@@ -20,11 +20,19 @@ get:
         default: 25
         example: 25
       description: The pagination page limit
+    # - in: query
+    #   name: pageToken
+    #   schema:
+    #     type: string
+    #     example: MTUzNzRkMmUtMDZhYS00NTgyLWIyYzgtOTk0N2I0NjU4MDJh
+    #   description: The pagination page token
     - in: query
-      name: pageToken
+      name: sort
       schema:
         type: string
-      description: The pagination page token
+        example: descending
+        default: descending
+      description: Sort contacts
   x-codeSamples:
     - label: "CLI"
       lang: "cURL"

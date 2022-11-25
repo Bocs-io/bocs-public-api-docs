@@ -90,7 +90,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: firstName:foo,lastName:bar
           description: Filter returned rows
         - in: query
           name: limit
@@ -100,10 +100,12 @@ paths:
             example: 25
           description: The pagination page limit
         - in: query
-          name: pageToken
+          name: sort
           schema:
             type: string
-          description: The pagination page token
+            example: descending
+            default: descending
+          description: Sort contacts
       x-codeSamples:
         - label: CLI
           lang: cURL
@@ -2905,78 +2907,184 @@ components:
                 type: string
                 example: Irwin
                 description: Last name of the contact
-              billingAddress:
+              role:
+                type: string
+                example: customer
+                description: Role of the contact
+              groups:
+                type: array
+                items:
+                  type: string
+                example:
+                  - group-1
+                  - group-2
+                description: Groups of the contact
+              metaData:
+                type: array
+                description: Meta data of the contact
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 1
+                      description: Id of the meta data
+                    key:
+                      type: string
+                      example: test
+                      description: Key of the meta data
+                    value:
+                      type: string
+                      example: test-value
+                      description: Value of the metadata
+              phoneNumber:
+                type: string
+                example: 123456789
+                description: Phone number of the contact
+              source:
+                type: string
+                example: woocommerce
+                description: Source of the contact
+              sourceId:
+                type: string
+                example: 1
+                description: Source id of the contact
+              tags:
+                type: array
+                items:
+                  type: string
+                example:
+                  - tags-1
+                  - tags-2
+                description: Tags of the contact
+              username:
+                type: string
+                example: xyz123
+                description: Username of the contact
+              verifiedEmail:
+                type: boolean
+                example: false
+                description: Determines if the contact email was verified
+              dateCreated:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the contact
+              dateCreatedGMT:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the contact in GMT
+              dateModified:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Modified date of the contact
+              dateModifiedGMT:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Modified date of the contact in GMT
+              billing:
                 type: object
                 description: Billing address of the contact
                 properties:
                   firstName:
                     type: string
                     example: Earl
-                    description: First name of the contact
+                    description: First name of the contact address
                   lastName:
                     type: string
                     example: Irwin
-                    description: Last name of the contact
+                    description: Last name of the contact address
+                  company:
+                    type: string
+                    example: XYZ Company
+                    description: Company of the contact addres
                   address1:
                     type: string
                     example: Urban Homes
-                    description: Address line 1 of the address
+                    description: Address line 1 of the contact address
                   address2:
                     type: string
                     example: Phase 2 Building
-                    description: Address line 2 of the address
+                    description: Address line 2 of the contact address
                   city:
                     type: string
                     example: Adelaide
-                    description: City of the address
+                    description: City of the contact address
                   state:
                     type: string
                     example: South Australia
-                    description: State of the address
+                    description: State of the contact address
                   country:
                     type: string
                     example: AU
-                    description: Country of the address
+                    description: Country of the contact address
                   postcode:
                     type: string
                     example: 6000
-                    description: Post code of the address
-              shippingAddress:
+                    description: Post code of the contact address
+                  phone:
+                    type: string
+                    example: 12345678
+                    description: Post code of the contact address
+                  email:
+                    type: string
+                    example: earl+irwin@bocs.io
+                    description: Post code of the contact address
+                  default:
+                    type: boolean
+                    example: true
+                    description: Determines if this is the default address
+              shipping:
                 type: object
                 description: Shipping address of the contact
                 properties:
                   firstName:
                     type: string
                     example: Earl
-                    description: First name of the contact
+                    description: First name of the contact address
                   lastName:
                     type: string
                     example: Irwin
-                    description: Last name of the contact
+                    description: Last name of the contact address
+                  company:
+                    type: string
+                    example: XYZ Company
+                    description: Company of the contact addres
                   address1:
                     type: string
                     example: Urban Homes
-                    description: Address line 1 of the address
+                    description: Address line 1 of the contact address
                   address2:
                     type: string
                     example: Phase 2 Building
-                    description: Address line 2 of the address
+                    description: Address line 2 of the contact address
                   city:
                     type: string
                     example: Adelaide
-                    description: City of the address
+                    description: City of the contact address
                   state:
                     type: string
                     example: South Australia
-                    description: State of the address
+                    description: State of the contact address
                   country:
                     type: string
                     example: AU
-                    description: Country of the address
+                    description: Country of the contact address
                   postcode:
                     type: string
                     example: 6000
-                    description: Post code of the address
+                    description: Post code of the contact address
+                  phone:
+                    type: string
+                    example: 12345678
+                    description: Post code of the contact address
+                  email:
+                    type: string
+                    example: earl+irwin@bocs.io
+                    description: Post code of the contact address
+                  default:
+                    type: boolean
+                    example: true
+                    description: Determines if this is the default address
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
@@ -3011,78 +3119,184 @@ components:
           type: string
           example: Irwin
           description: Last name of the contact
-        billingAddress:
+        role:
+          type: string
+          example: customer
+          description: Role of the contact
+        groups:
+          type: array
+          items:
+            type: string
+          example:
+            - group-1
+            - group-2
+          description: Groups of the contact
+        metaData:
+          type: array
+          description: Meta data of the contact
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: 1
+                description: Id of the meta data
+              key:
+                type: string
+                example: test
+                description: Key of the meta data
+              value:
+                type: string
+                example: test-value
+                description: Value of the metadata
+        phoneNumber:
+          type: string
+          example: 123456789
+          description: Phone number of the contact
+        source:
+          type: string
+          example: woocommerce
+          description: Source of the contact
+        sourceId:
+          type: string
+          example: 1
+          description: Source id of the contact
+        tags:
+          type: array
+          items:
+            type: string
+          example:
+            - tags-1
+            - tags-2
+          description: Tags of the contact
+        username:
+          type: string
+          example: xyz123
+          description: Username of the contact
+        verifiedEmail:
+          type: boolean
+          example: false
+          description: Determines if the contact email was verified
+        dateCreated:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Created date of the contact
+        dateCreatedGMT:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Created date of the contact in GMT
+        dateModified:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Modified date of the contact
+        dateModifiedGMT:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Modified date of the contact in GMT
+        billing:
           type: object
           description: Billing address of the contact
           properties:
             firstName:
               type: string
               example: Earl
-              description: First name of the contact
+              description: First name of the contact address
             lastName:
               type: string
               example: Irwin
-              description: Last name of the contact
+              description: Last name of the contact address
+            company:
+              type: string
+              example: XYZ Company
+              description: Company of the contact addres
             address1:
               type: string
               example: Urban Homes
-              description: Address line 1 of the address
+              description: Address line 1 of the contact address
             address2:
               type: string
               example: Phase 2 Building
-              description: Address line 2 of the address
+              description: Address line 2 of the contact address
             city:
               type: string
               example: Adelaide
-              description: City of the address
+              description: City of the contact address
             state:
               type: string
               example: South Australia
-              description: State of the address
+              description: State of the contact address
             country:
               type: string
               example: AU
-              description: Country of the address
+              description: Country of the contact address
             postcode:
               type: string
               example: 6000
-              description: Post code of the address
-        shippingAddress:
+              description: Post code of the contact address
+            phone:
+              type: string
+              example: 12345678
+              description: Post code of the contact address
+            email:
+              type: string
+              example: earl+irwin@bocs.io
+              description: Post code of the contact address
+            default:
+              type: boolean
+              example: true
+              description: Determines if this is the default address
+        shipping:
           type: object
           description: Shipping address of the contact
           properties:
             firstName:
               type: string
               example: Earl
-              description: First name of the contact
+              description: First name of the contact address
             lastName:
               type: string
               example: Irwin
-              description: Last name of the contact
+              description: Last name of the contact address
+            company:
+              type: string
+              example: XYZ Company
+              description: Company of the contact addres
             address1:
               type: string
               example: Urban Homes
-              description: Address line 1 of the address
+              description: Address line 1 of the contact address
             address2:
               type: string
               example: Phase 2 Building
-              description: Address line 2 of the address
+              description: Address line 2 of the contact address
             city:
               type: string
               example: Adelaide
-              description: City of the address
+              description: City of the contact address
             state:
               type: string
               example: South Australia
-              description: State of the address
+              description: State of the contact address
             country:
               type: string
               example: AU
-              description: Country of the address
+              description: Country of the contact address
             postcode:
               type: string
               example: 6000
-              description: Post code of the address
+              description: Post code of the contact address
+            phone:
+              type: string
+              example: 12345678
+              description: Post code of the contact address
+            email:
+              type: string
+              example: earl+irwin@bocs.io
+              description: Post code of the contact address
+            default:
+              type: boolean
+              example: true
+              description: Determines if this is the default address
       required:
         - email
     ContactsPostResponse:
@@ -3116,78 +3330,184 @@ components:
               type: string
               example: Irwin
               description: Last name of the contact
-            billingAddress:
+            role:
+              type: string
+              example: customer
+              description: Role of the contact
+            groups:
+              type: array
+              items:
+                type: string
+              example:
+                - group-1
+                - group-2
+              description: Groups of the contact
+            metaData:
+              type: array
+              description: Meta data of the contact
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 1
+                    description: Id of the meta data
+                  key:
+                    type: string
+                    example: test
+                    description: Key of the meta data
+                  value:
+                    type: string
+                    example: test-value
+                    description: Value of the metadata
+            phoneNumber:
+              type: string
+              example: 123456789
+              description: Phone number of the contact
+            source:
+              type: string
+              example: woocommerce
+              description: Source of the contact
+            sourceId:
+              type: string
+              example: 1
+              description: Source id of the contact
+            tags:
+              type: array
+              items:
+                type: string
+              example:
+                - tags-1
+                - tags-2
+              description: Tags of the contact
+            username:
+              type: string
+              example: xyz123
+              description: Username of the contact
+            verifiedEmail:
+              type: boolean
+              example: false
+              description: Determines if the contact email was verified
+            dateCreated:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
+            dateCreatedGMT:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in GMT
+            dateModified:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Modified date of the contact
+            dateModifiedGMT:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Modified date of the contact in GMT
+            billing:
               type: object
               description: Billing address of the contact
               properties:
                 firstName:
                   type: string
                   example: Earl
-                  description: First name of the contact
+                  description: First name of the contact address
                 lastName:
                   type: string
                   example: Irwin
-                  description: Last name of the contact
+                  description: Last name of the contact address
+                company:
+                  type: string
+                  example: XYZ Company
+                  description: Company of the contact addres
                 address1:
                   type: string
                   example: Urban Homes
-                  description: Address line 1 of the address
+                  description: Address line 1 of the contact address
                 address2:
                   type: string
                   example: Phase 2 Building
-                  description: Address line 2 of the address
+                  description: Address line 2 of the contact address
                 city:
                   type: string
                   example: Adelaide
-                  description: City of the address
+                  description: City of the contact address
                 state:
                   type: string
                   example: South Australia
-                  description: State of the address
+                  description: State of the contact address
                 country:
                   type: string
                   example: AU
-                  description: Country of the address
+                  description: Country of the contact address
                 postcode:
                   type: string
                   example: 6000
-                  description: Post code of the address
-            shippingAddress:
+                  description: Post code of the contact address
+                phone:
+                  type: string
+                  example: 12345678
+                  description: Post code of the contact address
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Post code of the contact address
+                default:
+                  type: boolean
+                  example: true
+                  description: Determines if this is the default address
+            shipping:
               type: object
               description: Shipping address of the contact
               properties:
                 firstName:
                   type: string
                   example: Earl
-                  description: First name of the contact
+                  description: First name of the contact address
                 lastName:
                   type: string
                   example: Irwin
-                  description: Last name of the contact
+                  description: Last name of the contact address
+                company:
+                  type: string
+                  example: XYZ Company
+                  description: Company of the contact addres
                 address1:
                   type: string
                   example: Urban Homes
-                  description: Address line 1 of the address
+                  description: Address line 1 of the contact address
                 address2:
                   type: string
                   example: Phase 2 Building
-                  description: Address line 2 of the address
+                  description: Address line 2 of the contact address
                 city:
                   type: string
                   example: Adelaide
-                  description: City of the address
+                  description: City of the contact address
                 state:
                   type: string
                   example: South Australia
-                  description: State of the address
+                  description: State of the contact address
                 country:
                   type: string
                   example: AU
-                  description: Country of the address
+                  description: Country of the contact address
                 postcode:
                   type: string
                   example: 6000
-                  description: Post code of the address
+                  description: Post code of the contact address
+                phone:
+                  type: string
+                  example: 12345678
+                  description: Post code of the contact address
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Post code of the contact address
+                default:
+                  type: boolean
+                  example: true
+                  description: Determines if this is the default address
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
@@ -3227,78 +3547,184 @@ components:
               type: string
               example: Irwin
               description: Last name of the contact
-            billingAddress:
+            role:
+              type: string
+              example: customer
+              description: Role of the contact
+            groups:
+              type: array
+              items:
+                type: string
+              example:
+                - group-1
+                - group-2
+              description: Groups of the contact
+            metaData:
+              type: array
+              description: Meta data of the contact
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 1
+                    description: Id of the meta data
+                  key:
+                    type: string
+                    example: test
+                    description: Key of the meta data
+                  value:
+                    type: string
+                    example: test-value
+                    description: Value of the metadata
+            phoneNumber:
+              type: string
+              example: 123456789
+              description: Phone number of the contact
+            source:
+              type: string
+              example: woocommerce
+              description: Source of the contact
+            sourceId:
+              type: string
+              example: 1
+              description: Source id of the contact
+            tags:
+              type: array
+              items:
+                type: string
+              example:
+                - tags-1
+                - tags-2
+              description: Tags of the contact
+            username:
+              type: string
+              example: xyz123
+              description: Username of the contact
+            verifiedEmail:
+              type: boolean
+              example: false
+              description: Determines if the contact email was verified
+            dateCreated:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
+            dateCreatedGMT:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in GMT
+            dateModified:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Modified date of the contact
+            dateModifiedGMT:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Modified date of the contact in GMT
+            billing:
               type: object
               description: Billing address of the contact
               properties:
                 firstName:
                   type: string
                   example: Earl
-                  description: First name of the contact
+                  description: First name of the contact address
                 lastName:
                   type: string
                   example: Irwin
-                  description: Last name of the contact
+                  description: Last name of the contact address
+                company:
+                  type: string
+                  example: XYZ Company
+                  description: Company of the contact addres
                 address1:
                   type: string
                   example: Urban Homes
-                  description: Address line 1 of the address
+                  description: Address line 1 of the contact address
                 address2:
                   type: string
                   example: Phase 2 Building
-                  description: Address line 2 of the address
+                  description: Address line 2 of the contact address
                 city:
                   type: string
                   example: Adelaide
-                  description: City of the address
+                  description: City of the contact address
                 state:
                   type: string
                   example: South Australia
-                  description: State of the address
+                  description: State of the contact address
                 country:
                   type: string
                   example: AU
-                  description: Country of the address
+                  description: Country of the contact address
                 postcode:
                   type: string
                   example: 6000
-                  description: Post code of the address
-            shippingAddress:
+                  description: Post code of the contact address
+                phone:
+                  type: string
+                  example: 12345678
+                  description: Post code of the contact address
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Post code of the contact address
+                default:
+                  type: boolean
+                  example: true
+                  description: Determines if this is the default address
+            shipping:
               type: object
               description: Shipping address of the contact
               properties:
                 firstName:
                   type: string
                   example: Earl
-                  description: First name of the contact
+                  description: First name of the contact address
                 lastName:
                   type: string
                   example: Irwin
-                  description: Last name of the contact
+                  description: Last name of the contact address
+                company:
+                  type: string
+                  example: XYZ Company
+                  description: Company of the contact addres
                 address1:
                   type: string
                   example: Urban Homes
-                  description: Address line 1 of the address
+                  description: Address line 1 of the contact address
                 address2:
                   type: string
                   example: Phase 2 Building
-                  description: Address line 2 of the address
+                  description: Address line 2 of the contact address
                 city:
                   type: string
                   example: Adelaide
-                  description: City of the address
+                  description: City of the contact address
                 state:
                   type: string
                   example: South Australia
-                  description: State of the address
+                  description: State of the contact address
                 country:
                   type: string
                   example: AU
-                  description: Country of the address
+                  description: Country of the contact address
                 postcode:
                   type: string
                   example: 6000
-                  description: Post code of the address
+                  description: Post code of the contact address
+                phone:
+                  type: string
+                  example: 12345678
+                  description: Post code of the contact address
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Post code of the contact address
+                default:
+                  type: boolean
+                  example: true
+                  description: Determines if this is the default address
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
@@ -3322,78 +3748,184 @@ components:
           type: string
           example: Irwin
           description: Last name of the contact
-        billingAddress:
+        role:
+          type: string
+          example: customer
+          description: Role of the contact
+        groups:
+          type: array
+          items:
+            type: string
+          example:
+            - group-1
+            - group-2
+          description: Groups of the contact
+        metaData:
+          type: array
+          description: Meta data of the contact
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                example: 1
+                description: Id of the meta data
+              key:
+                type: string
+                example: test
+                description: Key of the meta data
+              value:
+                type: string
+                example: test-value
+                description: Value of the metadata
+        phoneNumber:
+          type: string
+          example: 123456789
+          description: Phone number of the contact
+        source:
+          type: string
+          example: woocommerce
+          description: Source of the contact
+        sourceId:
+          type: string
+          example: 1
+          description: Source id of the contact
+        tags:
+          type: array
+          items:
+            type: string
+          example:
+            - tags-1
+            - tags-2
+          description: Tags of the contact
+        username:
+          type: string
+          example: xyz123
+          description: Username of the contact
+        verifiedEmail:
+          type: boolean
+          example: false
+          description: Determines if the contact email was verified
+        dateCreated:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Created date of the contact
+        dateCreatedGMT:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Created date of the contact in GMT
+        dateModified:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Modified date of the contact
+        dateModifiedGMT:
+          type: string
+          example: '2022-10-25T11:25:08.394Z'
+          description: Modified date of the contact in GMT
+        billing:
           type: object
           description: Billing address of the contact
           properties:
             firstName:
               type: string
               example: Earl
-              description: First name of the contact
+              description: First name of the contact address
             lastName:
               type: string
               example: Irwin
-              description: Last name of the contact
+              description: Last name of the contact address
+            company:
+              type: string
+              example: XYZ Company
+              description: Company of the contact addres
             address1:
               type: string
               example: Urban Homes
-              description: Address line 1 of the address
+              description: Address line 1 of the contact address
             address2:
               type: string
               example: Phase 2 Building
-              description: Address line 2 of the address
+              description: Address line 2 of the contact address
             city:
               type: string
               example: Adelaide
-              description: City of the address
+              description: City of the contact address
             state:
               type: string
               example: South Australia
-              description: State of the address
+              description: State of the contact address
             country:
               type: string
               example: AU
-              description: Country of the address
+              description: Country of the contact address
             postcode:
               type: string
               example: 6000
-              description: Post code of the address
-        shippingAddress:
+              description: Post code of the contact address
+            phone:
+              type: string
+              example: 12345678
+              description: Post code of the contact address
+            email:
+              type: string
+              example: earl+irwin@bocs.io
+              description: Post code of the contact address
+            default:
+              type: boolean
+              example: true
+              description: Determines if this is the default address
+        shipping:
           type: object
           description: Shipping address of the contact
           properties:
             firstName:
               type: string
               example: Earl
-              description: First name of the contact
+              description: First name of the contact address
             lastName:
               type: string
               example: Irwin
-              description: Last name of the contact
+              description: Last name of the contact address
+            company:
+              type: string
+              example: XYZ Company
+              description: Company of the contact addres
             address1:
               type: string
               example: Urban Homes
-              description: Address line 1 of the address
+              description: Address line 1 of the contact address
             address2:
               type: string
               example: Phase 2 Building
-              description: Address line 2 of the address
+              description: Address line 2 of the contact address
             city:
               type: string
               example: Adelaide
-              description: City of the address
+              description: City of the contact address
             state:
               type: string
               example: South Australia
-              description: State of the address
+              description: State of the contact address
             country:
               type: string
               example: AU
-              description: Country of the address
+              description: Country of the contact address
             postcode:
               type: string
               example: 6000
-              description: Post code of the address
+              description: Post code of the contact address
+            phone:
+              type: string
+              example: 12345678
+              description: Post code of the contact address
+            email:
+              type: string
+              example: earl+irwin@bocs.io
+              description: Post code of the contact address
+            default:
+              type: boolean
+              example: true
+              description: Determines if this is the default address
     ContactsPutResponse:
       type: object
       properties:
@@ -3425,78 +3957,184 @@ components:
               type: string
               example: Irwin
               description: Last name of the contact
-            billingAddress:
+            role:
+              type: string
+              example: customer
+              description: Role of the contact
+            groups:
+              type: array
+              items:
+                type: string
+              example:
+                - group-1
+                - group-2
+              description: Groups of the contact
+            metaData:
+              type: array
+              description: Meta data of the contact
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 1
+                    description: Id of the meta data
+                  key:
+                    type: string
+                    example: test
+                    description: Key of the meta data
+                  value:
+                    type: string
+                    example: test-value
+                    description: Value of the metadata
+            phoneNumber:
+              type: string
+              example: 123456789
+              description: Phone number of the contact
+            source:
+              type: string
+              example: woocommerce
+              description: Source of the contact
+            sourceId:
+              type: string
+              example: 1
+              description: Source id of the contact
+            tags:
+              type: array
+              items:
+                type: string
+              example:
+                - tags-1
+                - tags-2
+              description: Tags of the contact
+            username:
+              type: string
+              example: xyz123
+              description: Username of the contact
+            verifiedEmail:
+              type: boolean
+              example: false
+              description: Determines if the contact email was verified
+            dateCreated:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact
+            dateCreatedGMT:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in GMT
+            dateModified:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Modified date of the contact
+            dateModifiedGMT:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Modified date of the contact in GMT
+            billing:
               type: object
               description: Billing address of the contact
               properties:
                 firstName:
                   type: string
                   example: Earl
-                  description: First name of the contact
+                  description: First name of the contact address
                 lastName:
                   type: string
                   example: Irwin
-                  description: Last name of the contact
+                  description: Last name of the contact address
+                company:
+                  type: string
+                  example: XYZ Company
+                  description: Company of the contact addres
                 address1:
                   type: string
                   example: Urban Homes
-                  description: Address line 1 of the address
+                  description: Address line 1 of the contact address
                 address2:
                   type: string
                   example: Phase 2 Building
-                  description: Address line 2 of the address
+                  description: Address line 2 of the contact address
                 city:
                   type: string
                   example: Adelaide
-                  description: City of the address
+                  description: City of the contact address
                 state:
                   type: string
                   example: South Australia
-                  description: State of the address
+                  description: State of the contact address
                 country:
                   type: string
                   example: AU
-                  description: Country of the address
+                  description: Country of the contact address
                 postcode:
                   type: string
                   example: 6000
-                  description: Post code of the address
-            shippingAddress:
+                  description: Post code of the contact address
+                phone:
+                  type: string
+                  example: 12345678
+                  description: Post code of the contact address
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Post code of the contact address
+                default:
+                  type: boolean
+                  example: true
+                  description: Determines if this is the default address
+            shipping:
               type: object
               description: Shipping address of the contact
               properties:
                 firstName:
                   type: string
                   example: Earl
-                  description: First name of the contact
+                  description: First name of the contact address
                 lastName:
                   type: string
                   example: Irwin
-                  description: Last name of the contact
+                  description: Last name of the contact address
+                company:
+                  type: string
+                  example: XYZ Company
+                  description: Company of the contact addres
                 address1:
                   type: string
                   example: Urban Homes
-                  description: Address line 1 of the address
+                  description: Address line 1 of the contact address
                 address2:
                   type: string
                   example: Phase 2 Building
-                  description: Address line 2 of the address
+                  description: Address line 2 of the contact address
                 city:
                   type: string
                   example: Adelaide
-                  description: City of the address
+                  description: City of the contact address
                 state:
                   type: string
                   example: South Australia
-                  description: State of the address
+                  description: State of the contact address
                 country:
                   type: string
                   example: AU
-                  description: Country of the address
+                  description: Country of the contact address
                 postcode:
                   type: string
                   example: 6000
-                  description: Post code of the address
+                  description: Post code of the contact address
+                phone:
+                  type: string
+                  example: 12345678
+                  description: Post code of the contact address
+                email:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: Post code of the contact address
+                default:
+                  type: boolean
+                  example: true
+                  description: Determines if this is the default address
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
