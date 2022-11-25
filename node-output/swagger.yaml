@@ -40,7 +40,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "firstName:foo,lastName:bar"
           }
         }, {
           "name" : "limit",
@@ -62,7 +62,20 @@
           "style" : "form",
           "explode" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "string",
+            "example" : "MTUzNzRkMmUtMDZhYS00NTgyLWIyYzgtOTk0N2I0NjU4MDJh"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort contacts",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "descending",
+            "default" : "descending"
           }
         } ],
         "responses" : {
@@ -6707,11 +6720,84 @@
             "description" : "Last name of the contact",
             "example" : "Irwin"
           },
-          "billingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_billingAddress"
+          "role" : {
+            "type" : "string",
+            "description" : "Role of the contact",
+            "example" : "customer"
           },
-          "shippingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_shippingAddress"
+          "groups" : {
+            "type" : "array",
+            "description" : "Groups of the contact",
+            "example" : [ "group-1", "group-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "metaData" : {
+            "type" : "array",
+            "description" : "Meta data of the contact",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_metaData"
+            }
+          },
+          "phoneNumber" : {
+            "type" : "string",
+            "description" : "Phone number of the contact",
+            "example" : "123456789"
+          },
+          "source" : {
+            "type" : "string",
+            "description" : "Source of the contact",
+            "example" : "woocommerce"
+          },
+          "sourceId" : {
+            "type" : "string",
+            "description" : "Source id of the contact",
+            "example" : "1"
+          },
+          "tags" : {
+            "type" : "array",
+            "description" : "Tags of the contact",
+            "example" : [ "tags-1", "tags-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "username" : {
+            "type" : "string",
+            "description" : "Username of the contact",
+            "example" : "xyz123"
+          },
+          "verifiedEmail" : {
+            "type" : "boolean",
+            "description" : "Determines if the contact email was verified",
+            "example" : false
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "description" : "Created date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateCreatedGMT" : {
+            "type" : "string",
+            "description" : "Created date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModified" : {
+            "type" : "string",
+            "description" : "Modified date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModifiedGMT" : {
+            "type" : "string",
+            "description" : "Modified date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "billing" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_billing"
+          },
+          "shipping" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_shipping"
           }
         }
       },
@@ -6769,11 +6855,84 @@
             "description" : "Last name of the contact",
             "example" : "Irwin"
           },
-          "billingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_billingAddress"
+          "role" : {
+            "type" : "string",
+            "description" : "Role of the contact",
+            "example" : "customer"
           },
-          "shippingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_shippingAddress"
+          "groups" : {
+            "type" : "array",
+            "description" : "Groups of the contact",
+            "example" : [ "group-1", "group-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "metaData" : {
+            "type" : "array",
+            "description" : "Meta data of the contact",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_metaData"
+            }
+          },
+          "phoneNumber" : {
+            "type" : "string",
+            "description" : "Phone number of the contact",
+            "example" : "123456789"
+          },
+          "source" : {
+            "type" : "string",
+            "description" : "Source of the contact",
+            "example" : "woocommerce"
+          },
+          "sourceId" : {
+            "type" : "string",
+            "description" : "Source id of the contact",
+            "example" : "1"
+          },
+          "tags" : {
+            "type" : "array",
+            "description" : "Tags of the contact",
+            "example" : [ "tags-1", "tags-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "username" : {
+            "type" : "string",
+            "description" : "Username of the contact",
+            "example" : "xyz123"
+          },
+          "verifiedEmail" : {
+            "type" : "boolean",
+            "description" : "Determines if the contact email was verified",
+            "example" : false
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "description" : "Created date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateCreatedGMT" : {
+            "type" : "string",
+            "description" : "Created date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModified" : {
+            "type" : "string",
+            "description" : "Modified date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModifiedGMT" : {
+            "type" : "string",
+            "description" : "Modified date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "billing" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_billing"
+          },
+          "shipping" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_shipping"
           }
         }
       },
@@ -9044,94 +9203,154 @@
           }
         }
       },
-      "ContactsListResponse_billingAddress" : {
+      "ContactsListResponse_metaData" : {
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "description" : "Id of the meta data",
+            "example" : "1"
+          },
+          "key" : {
+            "type" : "string",
+            "description" : "Key of the meta data",
+            "example" : "test"
+          },
+          "value" : {
+            "type" : "string",
+            "description" : "Value of the metadata",
+            "example" : "test-value"
+          }
+        }
+      },
+      "ContactsListResponse_billing" : {
         "type" : "object",
         "properties" : {
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact",
+            "description" : "First name of the contact address",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact",
+            "description" : "Last name of the contact address",
             "example" : "Irwin"
+          },
+          "company" : {
+            "type" : "string",
+            "description" : "Company of the contact addres",
+            "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the address",
+            "description" : "Address line 1 of the contact address",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the address",
+            "description" : "Address line 2 of the contact address",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the address",
+            "description" : "City of the contact address",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the address",
+            "description" : "State of the contact address",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the address",
+            "description" : "Country of the contact address",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the address",
+            "description" : "Post code of the contact address",
             "example" : "6000"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "12345678"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "default" : {
+            "type" : "boolean",
+            "description" : "Determines if this is the default address",
+            "example" : true
           }
         },
         "description" : "Billing address of the contact"
       },
-      "ContactsListResponse_shippingAddress" : {
+      "ContactsListResponse_shipping" : {
         "type" : "object",
         "properties" : {
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact",
+            "description" : "First name of the contact address",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact",
+            "description" : "Last name of the contact address",
             "example" : "Irwin"
+          },
+          "company" : {
+            "type" : "string",
+            "description" : "Company of the contact addres",
+            "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the address",
+            "description" : "Address line 1 of the contact address",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the address",
+            "description" : "Address line 2 of the contact address",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the address",
+            "description" : "City of the contact address",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the address",
+            "description" : "State of the contact address",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the address",
+            "description" : "Country of the contact address",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the address",
+            "description" : "Post code of the contact address",
             "example" : "6000"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "12345678"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "default" : {
+            "type" : "boolean",
+            "description" : "Determines if this is the default address",
+            "example" : true
           }
         },
         "description" : "Shipping address of the contact"
@@ -9159,11 +9378,84 @@
             "description" : "Last name of the contact",
             "example" : "Irwin"
           },
-          "billingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_billingAddress"
+          "role" : {
+            "type" : "string",
+            "description" : "Role of the contact",
+            "example" : "customer"
           },
-          "shippingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_shippingAddress"
+          "groups" : {
+            "type" : "array",
+            "description" : "Groups of the contact",
+            "example" : [ "group-1", "group-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "metaData" : {
+            "type" : "array",
+            "description" : "Meta data of the contact",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_metaData"
+            }
+          },
+          "phoneNumber" : {
+            "type" : "string",
+            "description" : "Phone number of the contact",
+            "example" : "123456789"
+          },
+          "source" : {
+            "type" : "string",
+            "description" : "Source of the contact",
+            "example" : "woocommerce"
+          },
+          "sourceId" : {
+            "type" : "string",
+            "description" : "Source id of the contact",
+            "example" : "1"
+          },
+          "tags" : {
+            "type" : "array",
+            "description" : "Tags of the contact",
+            "example" : [ "tags-1", "tags-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "username" : {
+            "type" : "string",
+            "description" : "Username of the contact",
+            "example" : "xyz123"
+          },
+          "verifiedEmail" : {
+            "type" : "boolean",
+            "description" : "Determines if the contact email was verified",
+            "example" : false
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "description" : "Created date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateCreatedGMT" : {
+            "type" : "string",
+            "description" : "Created date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModified" : {
+            "type" : "string",
+            "description" : "Modified date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModifiedGMT" : {
+            "type" : "string",
+            "description" : "Modified date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "billing" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_billing"
+          },
+          "shipping" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_shipping"
           },
           "createdAt" : {
             "type" : "string",
@@ -9200,11 +9492,84 @@
             "description" : "Last name of the contact",
             "example" : "Irwin"
           },
-          "billingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_billingAddress"
+          "role" : {
+            "type" : "string",
+            "description" : "Role of the contact",
+            "example" : "customer"
           },
-          "shippingAddress" : {
-            "$ref" : "#/components/schemas/ContactsListResponse_shippingAddress"
+          "groups" : {
+            "type" : "array",
+            "description" : "Groups of the contact",
+            "example" : [ "group-1", "group-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "metaData" : {
+            "type" : "array",
+            "description" : "Meta data of the contact",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactsListResponse_metaData"
+            }
+          },
+          "phoneNumber" : {
+            "type" : "string",
+            "description" : "Phone number of the contact",
+            "example" : "123456789"
+          },
+          "source" : {
+            "type" : "string",
+            "description" : "Source of the contact",
+            "example" : "woocommerce"
+          },
+          "sourceId" : {
+            "type" : "string",
+            "description" : "Source id of the contact",
+            "example" : "1"
+          },
+          "tags" : {
+            "type" : "array",
+            "description" : "Tags of the contact",
+            "example" : [ "tags-1", "tags-2" ],
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "username" : {
+            "type" : "string",
+            "description" : "Username of the contact",
+            "example" : "xyz123"
+          },
+          "verifiedEmail" : {
+            "type" : "boolean",
+            "description" : "Determines if the contact email was verified",
+            "example" : false
+          },
+          "dateCreated" : {
+            "type" : "string",
+            "description" : "Created date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateCreatedGMT" : {
+            "type" : "string",
+            "description" : "Created date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModified" : {
+            "type" : "string",
+            "description" : "Modified date of the contact",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "dateModifiedGMT" : {
+            "type" : "string",
+            "description" : "Modified date of the contact in GMT",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "billing" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_billing"
+          },
+          "shipping" : {
+            "$ref" : "#/components/schemas/ContactsListResponse_shipping"
           },
           "createdAt" : {
             "type" : "string",
