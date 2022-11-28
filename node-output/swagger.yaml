@@ -7170,35 +7170,65 @@
         "required" : [ "address1", "city", "country", "postcode", "state" ],
         "type" : "object",
         "properties" : {
+          "firstName" : {
+            "type" : "string",
+            "description" : "First name of the contact address",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last name of the contact address",
+            "example" : "Irwin"
+          },
+          "company" : {
+            "type" : "string",
+            "description" : "Company of the contact addres",
+            "example" : "XYZ Company"
+          },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the address",
+            "description" : "Address line 1 of the contact address",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the address",
+            "description" : "Address line 2 of the contact address",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the address",
+            "description" : "City of the contact address",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the address",
+            "description" : "State of the contact address",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the address",
+            "description" : "Country of the contact address",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the address",
+            "description" : "Post code of the contact address",
             "example" : "6000"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "12345678"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "default" : {
+            "type" : "boolean",
+            "description" : "Determines if this is the default address",
+            "example" : true
           }
         }
       },
@@ -7241,35 +7271,65 @@
       "AddressPutRequest" : {
         "type" : "object",
         "properties" : {
+          "firstName" : {
+            "type" : "string",
+            "description" : "First name of the contact address",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last name of the contact address",
+            "example" : "Irwin"
+          },
+          "company" : {
+            "type" : "string",
+            "description" : "Company of the contact addres",
+            "example" : "XYZ Company"
+          },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the address",
+            "description" : "Address line 1 of the contact address",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the address",
+            "description" : "Address line 2 of the contact address",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the address",
+            "description" : "City of the contact address",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the address",
+            "description" : "State of the contact address",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the address",
+            "description" : "Country of the contact address",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the address",
+            "description" : "Post code of the contact address",
             "example" : "6000"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "12345678"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "default" : {
+            "type" : "boolean",
+            "description" : "Determines if this is the default address",
+            "example" : true
           }
         }
       },
@@ -9777,35 +9837,65 @@
             "type" : "string",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
+          "firstName" : {
+            "type" : "string",
+            "description" : "First name of the contact address",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last name of the contact address",
+            "example" : "Irwin"
+          },
+          "company" : {
+            "type" : "string",
+            "description" : "Company of the contact addres",
+            "example" : "XYZ Company"
+          },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the address",
+            "description" : "Address line 1 of the contact address",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the address",
+            "description" : "Address line 2 of the contact address",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the address",
+            "description" : "City of the contact address",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the address",
+            "description" : "State of the contact address",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the address",
+            "description" : "Country of the contact address",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the address",
+            "description" : "Post code of the contact address",
             "example" : "6000"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "12345678"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "default" : {
+            "type" : "boolean",
+            "description" : "Determines if this is the default address",
+            "example" : true
           },
           "createdAt" : {
             "type" : "string",
@@ -9826,35 +9916,65 @@
             "type" : "string",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
+          "firstName" : {
+            "type" : "string",
+            "description" : "First name of the contact address",
+            "example" : "Earl"
+          },
+          "lastName" : {
+            "type" : "string",
+            "description" : "Last name of the contact address",
+            "example" : "Irwin"
+          },
+          "company" : {
+            "type" : "string",
+            "description" : "Company of the contact addres",
+            "example" : "XYZ Company"
+          },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the address",
+            "description" : "Address line 1 of the contact address",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the address",
+            "description" : "Address line 2 of the contact address",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the address",
+            "description" : "City of the contact address",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the address",
+            "description" : "State of the contact address",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the address",
+            "description" : "Country of the contact address",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the address",
+            "description" : "Post code of the contact address",
             "example" : "6000"
+          },
+          "phone" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "12345678"
+          },
+          "email" : {
+            "type" : "string",
+            "description" : "Post code of the contact address",
+            "example" : "earl+irwin@bocs.io"
+          },
+          "default" : {
+            "type" : "boolean",
+            "description" : "Determines if this is the default address",
+            "example" : true
           },
           "createdAt" : {
             "type" : "string",
