@@ -12745,7 +12745,7 @@
     "tags" : [ "Collections", "Bocs" ]
   }, {
     "name" : "Products",
-    "tags" : [ "Products", "Categories", "Tags" ]
+    "tags" : [ "Products" ]
   }, {
     "name" : "Sales",
     "tags" : [ "Orders", "Subscriptions" ]
