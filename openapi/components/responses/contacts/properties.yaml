@@ -1,32 +1,32 @@
 contactId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-  description: Contact Id
+  description: The unique identifier for the contact
 email:
   type: string
   example: earl+irwin@bocs.io
-  description: Email of the contact
+  description: The email address for the contact.
 firstName:
   type: string
   example: Earl
-  description: First name of the contact
+  description: The contacts first name.
 lastName:
   type: string
   example: Irwin
-  description: Last name of the contact
+  description: The contacts last name.
 role:
   type: string
   example: customer
-  description: Role of the contact
+  description: The role of the contact.
 groups:
   type: array
   items:
     type: string
   example: ["group-1", "group-2"]
-  description: Groups of the contact
+  description: Groups related to the contact.
 metaData:
   type: array
-  description: Meta data of the contact
+  description: Attaches additional metadata for the contact.
   items:
     type: object
     properties:
@@ -45,49 +45,54 @@ metaData:
 # password:
 #   type: string
 #   example: abcde123456
-#   description: Password of the contact
+#   description: The contacts password.
 phoneNumber:
   type: string
   example: 123456789
-  description: Phone number of the contact
+  description: The unique phone number (E.164 format) for the contact.
 source:
   type: string
   example: woocommerce
-  description: Source of the contact
+  description: Where the contact was created or synced from.
+  enum:
+    - Wordpress
+    - Shopify
+    - Bigcommerce API
+    - Others
 sourceId:
   type: string
   example: 0001
-  description: Source id of the contact
+  description: ID of where the contact was created or synced from.
 tags:
   type: array
   items:
     type: string
   example: ["tags-1", "tags-2"]
-  description: Tags of the contact
+  description: Tags related to the contact
 username:
   type: string
   example: xyz123
-  description: Username of the contact
+  description: The contacts login name.
 verifiedEmail:
   type: boolean
   example: false
-  description: Determines if the contact email was verified
+  description: Whether the contact has verified their email address.
 dateCreated:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Created date of the contact
+  description: The date the contact was created, in the site's timezone.
 dateCreatedGMT:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Created date of the contact in GMT
+  description: The date the contact was created, as GMT.
 dateModified:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Modified date of the contact
+  description: The date the contact was last modified, in the site's timezone.
 dateModifiedGMT:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Modified date of the contact in GMT
+  description: The date the contact was last modified, as GMT.
 billing:
   type: object
   description: Billing address of the contact
@@ -95,51 +100,51 @@ billing:
     firstName:
       type: string
       example: Earl
-      description: First name of the contact address
+      description: The contact's first name.
     lastName:
       type: string
       example: Irwin
-      description: Last name of the contact address
+      description: The contact's last name.
     company:
       type: string
       example: XYZ Company
-      description: Company of the contact addres
+      description: The contacts's company.
     address1:
       type: string
       example: Urban Homes
-      description: Address line 1 of the contact address
+      description: The contacts's mailing address.
     address2:
       type: string
       example: Phase 2 Building
-      description: Address line 2 of the contact address
+      description: An additional field for the contact's mailing address.
     city:
       type: string
       example: Adelaide
-      description: City of the contact address
+      description: The contact's city, town, or village.
     state:
       type: string
       example: South Australia
-      description: State of the contact address
+      description: The contact's region name. Typically a province, a state, or a prefecture.
     country:
       type: string
       example: AU
-      description: Country of the contact address
+      description: The contact's country.
     postcode:
       type: string
       example: 6000
-      description: Post code of the contact address
+      description: The contact's postal code, also known as zip, Eircode, etc.
     phone:
       type: string
       example: 12345678
-      description: Post code of the contact address
+      description: The contact's phone number at this address.
     email:
       type: string
       example: earl+irwin@bocs.io
-      description: Post code of the contact address
+      description: The contact's email.
     default:
       type: boolean
       example: true
-      description: Determines if this is the default address
+      description: Whether this address is the default address for the contact.
 shipping:
   type: object
   description: Shipping address of the contact
@@ -147,56 +152,56 @@ shipping:
     firstName:
       type: string
       example: Earl
-      description: First name of the contact address
+      description: The contact's first name.
     lastName:
       type: string
       example: Irwin
-      description: Last name of the contact address
+      description: The contact's last name.
     company:
       type: string
       example: XYZ Company
-      description: Company of the contact addres
+      description: The contacts's company.
     address1:
       type: string
       example: Urban Homes
-      description: Address line 1 of the contact address
+      description: The contacts's mailing address.
     address2:
       type: string
       example: Phase 2 Building
-      description: Address line 2 of the contact address
+      description: An additional field for the contact's mailing address.
     city:
       type: string
       example: Adelaide
-      description: City of the contact address
+      description: The contact's city, town, or village.
     state:
       type: string
       example: South Australia
-      description: State of the contact address
+      description: The contact's region name. Typically a province, a state, or a prefecture.
     country:
       type: string
       example: AU
-      description: Country of the contact address
+      description: The contact's country.
     postcode:
       type: string
       example: 6000
-      description: Post code of the contact address
+      description: The contact's postal code, also known as zip, Eircode, etc.
     phone:
       type: string
       example: 12345678
-      description: Post code of the contact address
+      description: The contact's phone number at this address.
     email:
       type: string
       example: earl+irwin@bocs.io
-      description: Post code of the contact address
+      description: The contact's email.
     default:
       type: boolean
       example: true
-      description: Determines if this is the default address
+      description: Whether this address is the default address for the contact.
 createdAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Created date of the contact
+  description: Created date of the contact in the API
 updatedAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Updated date of the contact
+  description: Updated date of the contact in the API

@@ -1,35 +1,59 @@
 addressId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+firstName:
+  type: string
+  example: Earl
+  description: The contact's first name.
+lastName:
+  type: string
+  example: Irwin
+  description: The contact's last name.
+company:
+  type: string
+  example: XYZ Company
+  description: The contacts's company.
 address1:
   type: string
   example: Urban Homes
-  description: Address line 1 of the address
+  description: The contacts's mailing address.
 address2:
   type: string
   example: Phase 2 Building
-  description: Address line 2 of the address
+  description: An additional field for the contact's mailing address.
 city:
   type: string
   example: Adelaide
-  description: City of the address
+  description: The contact's city, town, or village.
 state:
   type: string
   example: South Australia
-  description: State of the address
+  description: The contact's region name. Typically a province, a state, or a prefecture.
 country:
   type: string
   example: AU
-  description: Country of the address
+  description: The contact's country.
 postcode:
   type: string
   example: 6000
-  description: Post code of the address
+  description: The contact's postal code, also known as zip, Eircode, etc.
+phone:
+  type: string
+  example: 12345678
+  description: The contact's phone number at this address.
+email:
+  type: string
+  example: earl+irwin@bocs.io
+  description: The contact's email.
+default:
+  type: boolean
+  example: true
+  description: Whether this address is the default address for the contact.
 createdAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Created date of the address
+  description: Created date of the address in the API
 updatedAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Updated date of the address
+  description: Updated date of the address in the API
