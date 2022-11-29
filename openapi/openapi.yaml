@@ -26,8 +26,8 @@ x-tagGroups:
   - name: Products
     tags:
       - Products
-      - Categories
-      - Tags
+      # - Categories
+      # - Tags
   - name: Sales
     tags:
       - Orders

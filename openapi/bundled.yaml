@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   x-logo:
-    url: https://git.bocs.io/bocs.png
+    url: https://git.bocs.io/bocs-logo.png
   description: |
     This is an **example** API to demonstrate features of the OpenAPI specification.
 
@@ -62,8 +62,6 @@ x-tagGroups:
   - name: Products
     tags:
       - Products
-      - Categories
-      - Tags
   - name: Sales
     tags:
       - Orders
