@@ -6696,27 +6696,27 @@
         "properties" : {
           "email" : {
             "type" : "string",
-            "description" : "Email of the contact",
+            "description" : "The email address for the contact.",
             "example" : "earl+irwin@bocs.io"
           },
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact",
+            "description" : "The contacts first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact",
+            "description" : "The contacts last name.",
             "example" : "Irwin"
           },
           "role" : {
             "type" : "string",
-            "description" : "Role of the contact",
+            "description" : "The role of the contact.",
             "example" : "customer"
           },
           "groups" : {
             "type" : "array",
-            "description" : "Groups of the contact",
+            "description" : "Groups related to the contact.",
             "example" : [ "group-1", "group-2" ],
             "items" : {
               "type" : "string"
@@ -6724,29 +6724,30 @@
           },
           "metaData" : {
             "type" : "array",
-            "description" : "Meta data of the contact",
+            "description" : "Attaches additional metadata for the contact.",
             "items" : {
               "$ref" : "#/components/schemas/ContactsListResponse_metaData"
             }
           },
           "phoneNumber" : {
             "type" : "string",
-            "description" : "Phone number of the contact",
+            "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
           "source" : {
             "type" : "string",
-            "description" : "Source of the contact",
-            "example" : "woocommerce"
+            "description" : "Where the contact was created or synced from.",
+            "example" : "woocommerce",
+            "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
           "sourceId" : {
             "type" : "string",
-            "description" : "Source id of the contact",
+            "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
           },
           "tags" : {
             "type" : "array",
-            "description" : "Tags of the contact",
+            "description" : "Tags related to the contact",
             "example" : [ "tags-1", "tags-2" ],
             "items" : {
               "type" : "string"
@@ -6754,32 +6755,32 @@
           },
           "username" : {
             "type" : "string",
-            "description" : "Username of the contact",
+            "description" : "The contacts login name.",
             "example" : "xyz123"
           },
           "verifiedEmail" : {
             "type" : "boolean",
-            "description" : "Determines if the contact email was verified",
+            "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
           "dateCreated" : {
             "type" : "string",
-            "description" : "Created date of the contact",
+            "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateCreatedGMT" : {
             "type" : "string",
-            "description" : "Created date of the contact in GMT",
+            "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModified" : {
             "type" : "string",
-            "description" : "Modified date of the contact",
+            "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModifiedGMT" : {
             "type" : "string",
-            "description" : "Modified date of the contact in GMT",
+            "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "billing" : {
@@ -6831,27 +6832,27 @@
         "properties" : {
           "email" : {
             "type" : "string",
-            "description" : "Email of the contact",
+            "description" : "The email address for the contact.",
             "example" : "earl+irwin@bocs.io"
           },
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact",
+            "description" : "The contacts first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact",
+            "description" : "The contacts last name.",
             "example" : "Irwin"
           },
           "role" : {
             "type" : "string",
-            "description" : "Role of the contact",
+            "description" : "The role of the contact.",
             "example" : "customer"
           },
           "groups" : {
             "type" : "array",
-            "description" : "Groups of the contact",
+            "description" : "Groups related to the contact.",
             "example" : [ "group-1", "group-2" ],
             "items" : {
               "type" : "string"
@@ -6859,29 +6860,30 @@
           },
           "metaData" : {
             "type" : "array",
-            "description" : "Meta data of the contact",
+            "description" : "Attaches additional metadata for the contact.",
             "items" : {
               "$ref" : "#/components/schemas/ContactsListResponse_metaData"
             }
           },
           "phoneNumber" : {
             "type" : "string",
-            "description" : "Phone number of the contact",
+            "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
           "source" : {
             "type" : "string",
-            "description" : "Source of the contact",
-            "example" : "woocommerce"
+            "description" : "Where the contact was created or synced from.",
+            "example" : "woocommerce",
+            "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
           "sourceId" : {
             "type" : "string",
-            "description" : "Source id of the contact",
+            "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
           },
           "tags" : {
             "type" : "array",
-            "description" : "Tags of the contact",
+            "description" : "Tags related to the contact",
             "example" : [ "tags-1", "tags-2" ],
             "items" : {
               "type" : "string"
@@ -6889,32 +6891,32 @@
           },
           "username" : {
             "type" : "string",
-            "description" : "Username of the contact",
+            "description" : "The contacts login name.",
             "example" : "xyz123"
           },
           "verifiedEmail" : {
             "type" : "boolean",
-            "description" : "Determines if the contact email was verified",
+            "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
           "dateCreated" : {
             "type" : "string",
-            "description" : "Created date of the contact",
+            "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateCreatedGMT" : {
             "type" : "string",
-            "description" : "Created date of the contact in GMT",
+            "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModified" : {
             "type" : "string",
-            "description" : "Modified date of the contact",
+            "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModifiedGMT" : {
             "type" : "string",
-            "description" : "Modified date of the contact in GMT",
+            "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "billing" : {
@@ -7172,62 +7174,62 @@
         "properties" : {
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact address",
+            "description" : "The contact's first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact address",
+            "description" : "The contact's last name.",
             "example" : "Irwin"
           },
           "company" : {
             "type" : "string",
-            "description" : "Company of the contact addres",
+            "description" : "The contacts's company.",
             "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the contact address",
+            "description" : "The contacts's mailing address.",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the contact address",
+            "description" : "An additional field for the contact's mailing address.",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the contact address",
+            "description" : "The contact's city, town, or village.",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the contact address",
+            "description" : "The contact's region name. Typically a province, a state, or a prefecture.",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the contact address",
+            "description" : "The contact's country.",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's postal code, also known as zip, Eircode, etc.",
             "example" : "6000"
           },
           "phone" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's phone number at this address.",
             "example" : "12345678"
           },
           "email" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's email.",
             "example" : "earl+irwin@bocs.io"
           },
           "default" : {
             "type" : "boolean",
-            "description" : "Determines if this is the default address",
+            "description" : "Whether this address is the default address for the contact.",
             "example" : true
           }
         }
@@ -7273,62 +7275,62 @@
         "properties" : {
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact address",
+            "description" : "The contact's first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact address",
+            "description" : "The contact's last name.",
             "example" : "Irwin"
           },
           "company" : {
             "type" : "string",
-            "description" : "Company of the contact addres",
+            "description" : "The contacts's company.",
             "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the contact address",
+            "description" : "The contacts's mailing address.",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the contact address",
+            "description" : "An additional field for the contact's mailing address.",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the contact address",
+            "description" : "The contact's city, town, or village.",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the contact address",
+            "description" : "The contact's region name. Typically a province, a state, or a prefecture.",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the contact address",
+            "description" : "The contact's country.",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's postal code, also known as zip, Eircode, etc.",
             "example" : "6000"
           },
           "phone" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's phone number at this address.",
             "example" : "12345678"
           },
           "email" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's email.",
             "example" : "earl+irwin@bocs.io"
           },
           "default" : {
             "type" : "boolean",
-            "description" : "Determines if this is the default address",
+            "description" : "Whether this address is the default address for the contact.",
             "example" : true
           }
         }
@@ -9277,62 +9279,62 @@
         "properties" : {
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact address",
+            "description" : "The contact's first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact address",
+            "description" : "The contact's last name.",
             "example" : "Irwin"
           },
           "company" : {
             "type" : "string",
-            "description" : "Company of the contact addres",
+            "description" : "The contacts's company.",
             "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the contact address",
+            "description" : "The contacts's mailing address.",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the contact address",
+            "description" : "An additional field for the contact's mailing address.",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the contact address",
+            "description" : "The contact's city, town, or village.",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the contact address",
+            "description" : "The contact's region name. Typically a province, a state, or a prefecture.",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the contact address",
+            "description" : "The contact's country.",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's postal code, also known as zip, Eircode, etc.",
             "example" : "6000"
           },
           "phone" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's phone number at this address.",
             "example" : "12345678"
           },
           "email" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's email.",
             "example" : "earl+irwin@bocs.io"
           },
           "default" : {
             "type" : "boolean",
-            "description" : "Determines if this is the default address",
+            "description" : "Whether this address is the default address for the contact.",
             "example" : true
           }
         },
@@ -9343,62 +9345,62 @@
         "properties" : {
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact address",
+            "description" : "The contact's first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact address",
+            "description" : "The contact's last name.",
             "example" : "Irwin"
           },
           "company" : {
             "type" : "string",
-            "description" : "Company of the contact addres",
+            "description" : "The contacts's company.",
             "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the contact address",
+            "description" : "The contacts's mailing address.",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the contact address",
+            "description" : "An additional field for the contact's mailing address.",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the contact address",
+            "description" : "The contact's city, town, or village.",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the contact address",
+            "description" : "The contact's region name. Typically a province, a state, or a prefecture.",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the contact address",
+            "description" : "The contact's country.",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's postal code, also known as zip, Eircode, etc.",
             "example" : "6000"
           },
           "phone" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's phone number at this address.",
             "example" : "12345678"
           },
           "email" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's email.",
             "example" : "earl+irwin@bocs.io"
           },
           "default" : {
             "type" : "boolean",
-            "description" : "Determines if this is the default address",
+            "description" : "Whether this address is the default address for the contact.",
             "example" : true
           }
         },
@@ -9409,32 +9411,32 @@
         "properties" : {
           "contactId" : {
             "type" : "string",
-            "description" : "Contact Id",
+            "description" : "The unique identifier for the contact",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "email" : {
             "type" : "string",
-            "description" : "Email of the contact",
+            "description" : "The email address for the contact.",
             "example" : "earl+irwin@bocs.io"
           },
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact",
+            "description" : "The contacts first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact",
+            "description" : "The contacts last name.",
             "example" : "Irwin"
           },
           "role" : {
             "type" : "string",
-            "description" : "Role of the contact",
+            "description" : "The role of the contact.",
             "example" : "customer"
           },
           "groups" : {
             "type" : "array",
-            "description" : "Groups of the contact",
+            "description" : "Groups related to the contact.",
             "example" : [ "group-1", "group-2" ],
             "items" : {
               "type" : "string"
@@ -9442,29 +9444,30 @@
           },
           "metaData" : {
             "type" : "array",
-            "description" : "Meta data of the contact",
+            "description" : "Attaches additional metadata for the contact.",
             "items" : {
               "$ref" : "#/components/schemas/ContactsListResponse_metaData"
             }
           },
           "phoneNumber" : {
             "type" : "string",
-            "description" : "Phone number of the contact",
+            "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
           "source" : {
             "type" : "string",
-            "description" : "Source of the contact",
-            "example" : "woocommerce"
+            "description" : "Where the contact was created or synced from.",
+            "example" : "woocommerce",
+            "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
           "sourceId" : {
             "type" : "string",
-            "description" : "Source id of the contact",
+            "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
           },
           "tags" : {
             "type" : "array",
-            "description" : "Tags of the contact",
+            "description" : "Tags related to the contact",
             "example" : [ "tags-1", "tags-2" ],
             "items" : {
               "type" : "string"
@@ -9472,32 +9475,32 @@
           },
           "username" : {
             "type" : "string",
-            "description" : "Username of the contact",
+            "description" : "The contacts login name.",
             "example" : "xyz123"
           },
           "verifiedEmail" : {
             "type" : "boolean",
-            "description" : "Determines if the contact email was verified",
+            "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
           "dateCreated" : {
             "type" : "string",
-            "description" : "Created date of the contact",
+            "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateCreatedGMT" : {
             "type" : "string",
-            "description" : "Created date of the contact in GMT",
+            "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModified" : {
             "type" : "string",
-            "description" : "Modified date of the contact",
+            "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModifiedGMT" : {
             "type" : "string",
-            "description" : "Modified date of the contact in GMT",
+            "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "billing" : {
@@ -9508,12 +9511,12 @@
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the contact",
+            "description" : "Created date of the contact in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the contact",
+            "description" : "Updated date of the contact in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
@@ -9523,32 +9526,32 @@
         "properties" : {
           "contactId" : {
             "type" : "string",
-            "description" : "Contact Id",
+            "description" : "The unique identifier for the contact",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "email" : {
             "type" : "string",
-            "description" : "Email of the contact",
+            "description" : "The email address for the contact.",
             "example" : "earl+irwin@bocs.io"
           },
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact",
+            "description" : "The contacts first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact",
+            "description" : "The contacts last name.",
             "example" : "Irwin"
           },
           "role" : {
             "type" : "string",
-            "description" : "Role of the contact",
+            "description" : "The role of the contact.",
             "example" : "customer"
           },
           "groups" : {
             "type" : "array",
-            "description" : "Groups of the contact",
+            "description" : "Groups related to the contact.",
             "example" : [ "group-1", "group-2" ],
             "items" : {
               "type" : "string"
@@ -9556,29 +9559,30 @@
           },
           "metaData" : {
             "type" : "array",
-            "description" : "Meta data of the contact",
+            "description" : "Attaches additional metadata for the contact.",
             "items" : {
               "$ref" : "#/components/schemas/ContactsListResponse_metaData"
             }
           },
           "phoneNumber" : {
             "type" : "string",
-            "description" : "Phone number of the contact",
+            "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
           "source" : {
             "type" : "string",
-            "description" : "Source of the contact",
-            "example" : "woocommerce"
+            "description" : "Where the contact was created or synced from.",
+            "example" : "woocommerce",
+            "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
           "sourceId" : {
             "type" : "string",
-            "description" : "Source id of the contact",
+            "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
           },
           "tags" : {
             "type" : "array",
-            "description" : "Tags of the contact",
+            "description" : "Tags related to the contact",
             "example" : [ "tags-1", "tags-2" ],
             "items" : {
               "type" : "string"
@@ -9586,32 +9590,32 @@
           },
           "username" : {
             "type" : "string",
-            "description" : "Username of the contact",
+            "description" : "The contacts login name.",
             "example" : "xyz123"
           },
           "verifiedEmail" : {
             "type" : "boolean",
-            "description" : "Determines if the contact email was verified",
+            "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
           "dateCreated" : {
             "type" : "string",
-            "description" : "Created date of the contact",
+            "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateCreatedGMT" : {
             "type" : "string",
-            "description" : "Created date of the contact in GMT",
+            "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModified" : {
             "type" : "string",
-            "description" : "Modified date of the contact",
+            "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "dateModifiedGMT" : {
             "type" : "string",
-            "description" : "Modified date of the contact in GMT",
+            "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "billing" : {
@@ -9622,12 +9626,12 @@
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the contact",
+            "description" : "Created date of the contact in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the contact",
+            "description" : "Updated date of the contact in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         },
@@ -9839,72 +9843,72 @@
           },
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact address",
+            "description" : "The contact's first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact address",
+            "description" : "The contact's last name.",
             "example" : "Irwin"
           },
           "company" : {
             "type" : "string",
-            "description" : "Company of the contact addres",
+            "description" : "The contacts's company.",
             "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the contact address",
+            "description" : "The contacts's mailing address.",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the contact address",
+            "description" : "An additional field for the contact's mailing address.",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the contact address",
+            "description" : "The contact's city, town, or village.",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the contact address",
+            "description" : "The contact's region name. Typically a province, a state, or a prefecture.",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the contact address",
+            "description" : "The contact's country.",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's postal code, also known as zip, Eircode, etc.",
             "example" : "6000"
           },
           "phone" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's phone number at this address.",
             "example" : "12345678"
           },
           "email" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's email.",
             "example" : "earl+irwin@bocs.io"
           },
           "default" : {
             "type" : "boolean",
-            "description" : "Determines if this is the default address",
+            "description" : "Whether this address is the default address for the contact.",
             "example" : true
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the address",
+            "description" : "Created date of the address in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the address",
+            "description" : "Updated date of the address in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
@@ -9918,72 +9922,72 @@
           },
           "firstName" : {
             "type" : "string",
-            "description" : "First name of the contact address",
+            "description" : "The contact's first name.",
             "example" : "Earl"
           },
           "lastName" : {
             "type" : "string",
-            "description" : "Last name of the contact address",
+            "description" : "The contact's last name.",
             "example" : "Irwin"
           },
           "company" : {
             "type" : "string",
-            "description" : "Company of the contact addres",
+            "description" : "The contacts's company.",
             "example" : "XYZ Company"
           },
           "address1" : {
             "type" : "string",
-            "description" : "Address line 1 of the contact address",
+            "description" : "The contacts's mailing address.",
             "example" : "Urban Homes"
           },
           "address2" : {
             "type" : "string",
-            "description" : "Address line 2 of the contact address",
+            "description" : "An additional field for the contact's mailing address.",
             "example" : "Phase 2 Building"
           },
           "city" : {
             "type" : "string",
-            "description" : "City of the contact address",
+            "description" : "The contact's city, town, or village.",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the contact address",
+            "description" : "The contact's region name. Typically a province, a state, or a prefecture.",
             "example" : "South Australia"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the contact address",
+            "description" : "The contact's country.",
             "example" : "AU"
           },
           "postcode" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's postal code, also known as zip, Eircode, etc.",
             "example" : "6000"
           },
           "phone" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's phone number at this address.",
             "example" : "12345678"
           },
           "email" : {
             "type" : "string",
-            "description" : "Post code of the contact address",
+            "description" : "The contact's email.",
             "example" : "earl+irwin@bocs.io"
           },
           "default" : {
             "type" : "boolean",
-            "description" : "Determines if this is the default address",
+            "description" : "Whether this address is the default address for the contact.",
             "example" : true
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the address",
+            "description" : "Created date of the address in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the address",
+            "description" : "Updated date of the address in the API",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         },
