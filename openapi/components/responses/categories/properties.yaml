@@ -1,24 +1,32 @@
 categoryId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-  description: Id of the category
+  description: Unique identifier for the category.
 parentId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-  description: Parent id of the category
+  description: Parent id of the category.
 name:
   type: string
   example: Test Category
-  description: Name of the category
+  description: Name of the category.
 description:
   type: string
   example: Test description
-  description: Descriptioin of the category
+  description: HTML description of the category.
+display:
+  type: string
+  example: default
+  description: Category archive display type.
+  enum:
+    - default
+    - products
+    - sub-categories
 createdAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Created date of the category
+  description: Created date of the category.
 updatedAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Updated date of the category
+  description: Updated date of the category.

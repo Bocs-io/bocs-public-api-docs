@@ -75,6 +75,11 @@ x-tagGroups:
   - name: Widgets
     tags:
       - Widgets
+  - name: Categories, Groups & Tags
+    tags:
+      - Categories
+      - Tags
+      - Groups
 paths:
   /contacts:
     get:
@@ -1867,6 +1872,231 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TagsDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /groups:
+    get:
+      operationId: ListGroups
+      summary: List Groups
+      description: List of groups
+      tags:
+        - Groups
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+            example: name:"bar"
+          description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/groups' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsListResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: PostGroup
+      summary: Create Group
+      description: Create properties of a group
+      tags:
+        - Groups
+      security:
+        - api_key: []
+      requestBody:
+        description: Parameters for creating a category
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupsPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/groups' \
+            --data '{}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /groups/{id}:
+    get:
+      operationId: GetGroup
+      summary: Get Group
+      description: Returns details about a group
+      tags:
+        - Groups
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the group
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/groups/<group ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsGetResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: PutGroup
+      summary: Update Group
+      description: Update properties of a group
+      tags:
+        - Groups
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the group
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request PUT \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/groups/<group ID>' \
+            --data '' \
+            | jq
+      requestBody:
+        description: Parameters for updating a group
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GroupsPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsPutResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: DeleteGroup
+      summary: Delete Group
+      description: Deletes a specified category
+      tags:
+        - Groups
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the group
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/groups/<group ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsDeleteResponse'
         '400':
           $ref: '#/components/responses/400'
         '401':
@@ -7508,27 +7738,35 @@ components:
               categoryId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                description: Id of the category
+                description: Unique identifier for the category.
               parentId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                description: Parent id of the category
+                description: Parent id of the category.
               name:
                 type: string
                 example: Test Category
-                description: Name of the category
+                description: Name of the category.
               description:
                 type: string
                 example: Test description
-                description: Descriptioin of the category
+                description: HTML description of the category.
+              display:
+                type: string
+                example: default
+                description: Category archive display type.
+                enum:
+                  - default
+                  - products
+                  - sub-categories
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
-                description: Created date of the category
+                description: Created date of the category.
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
-                description: Updated date of the category
+                description: Updated date of the category.
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/categories?pageToken=c70e668c
@@ -7539,15 +7777,23 @@ components:
         parentId:
           type: string
           example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-          description: Parent id of the category
+          description: Parent id of the category.
         name:
           type: string
           example: Test Category
-          description: Name of the category
+          description: Name of the category.
         description:
           type: string
           example: Test description
-          description: Description of the category
+          description: HTML description of the category.
+        display:
+          type: string
+          example: default
+          description: Category archive display type.
+          enum:
+            - default
+            - products
+            - sub-categories
       required:
         - name
     CategoriesPostResponse:
@@ -7568,27 +7814,35 @@ components:
             categoryId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the category
+              description: Unique identifier for the category.
             parentId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Parent id of the category
+              description: Parent id of the category.
             name:
               type: string
               example: Test Category
-              description: Name of the category
+              description: Name of the category.
             description:
               type: string
               example: Test description
-              description: Descriptioin of the category
+              description: HTML description of the category.
+            display:
+              type: string
+              example: default
+              description: Category archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Created date of the category
+              description: Created date of the category.
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Updated date of the category
+              description: Updated date of the category.
     CategoriesGetResponse:
       type: object
       properties:
@@ -7607,42 +7861,58 @@ components:
             categoryId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the category
+              description: Unique identifier for the category.
             parentId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Parent id of the category
+              description: Parent id of the category.
             name:
               type: string
               example: Test Category
-              description: Name of the category
+              description: Name of the category.
             description:
               type: string
               example: Test description
-              description: Descriptioin of the category
+              description: HTML description of the category.
+            display:
+              type: string
+              example: default
+              description: Category archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Created date of the category
+              description: Created date of the category.
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Updated date of the category
+              description: Updated date of the category.
     CategoriesPutRequest:
       type: object
       properties:
         parentId:
           type: string
           example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-          description: Parent id of the category
+          description: Parent id of the category.
         name:
           type: string
           example: Test Category
-          description: Name of the category
+          description: Name of the category.
         description:
           type: string
           example: Test description
-          description: Description of the category
+          description: HTML description of the category.
+        display:
+          type: string
+          example: default
+          description: Category archive display type.
+          enum:
+            - default
+            - products
+            - sub-categories
     CategoriesPutResponse:
       type: object
       properties:
@@ -7661,27 +7931,35 @@ components:
             categoryId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the category
+              description: Unique identifier for the category.
             parentId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Parent id of the category
+              description: Parent id of the category.
             name:
               type: string
               example: Test Category
-              description: Name of the category
+              description: Name of the category.
             description:
               type: string
               example: Test description
-              description: Descriptioin of the category
+              description: HTML description of the category.
+            display:
+              type: string
+              example: default
+              description: Category archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Created date of the category
+              description: Created date of the category.
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Updated date of the category
+              description: Updated date of the category.
     CategoriesDeleteResponse:
       type: object
       properties:
@@ -7713,23 +7991,35 @@ components:
               tagId:
                 type: string
                 example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-                description: Id of the tag
+                description: Unique identifier for the tag.
+              parentId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Parent id of the tag.
               name:
                 type: string
-                example: Test Tag
-                description: Name of the tag
+                example: Test Category
+                description: Name of the tag.
               description:
                 type: string
                 example: Test description
-                description: Descriptioin of the tag
+                description: HTML description of the tag.
+              display:
+                type: string
+                example: default
+                description: Tag archive display type.
+                enum:
+                  - default
+                  - products
+                  - sub-categories
               createdAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
-                description: Created date of the tag
+                description: Created date of the tag.
               updatedAt:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
-                description: Updated date of the tag
+                description: Updated date of the tag.
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/tags?pageToken=c70e668c
@@ -7737,14 +8027,26 @@ components:
     TagsPostRequest:
       type: object
       properties:
+        parentId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the tag.
         name:
           type: string
-          example: Test Tag
-          description: Name of the tag
+          example: Test Category
+          description: Name of the tag.
         description:
           type: string
           example: Test description
-          description: Description of the tag
+          description: HTML description of the tag.
+        display:
+          type: string
+          example: default
+          description: Tag archive display type.
+          enum:
+            - default
+            - products
+            - sub-categories
       required:
         - name
     TagsPostResponse:
@@ -7765,23 +8067,35 @@ components:
             tagId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the tag
+              description: Unique identifier for the tag.
+            parentId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the tag.
             name:
               type: string
-              example: Test Tag
-              description: Name of the tag
+              example: Test Category
+              description: Name of the tag.
             description:
               type: string
               example: Test description
-              description: Descriptioin of the tag
+              description: HTML description of the tag.
+            display:
+              type: string
+              example: default
+              description: Tag archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Created date of the tag
+              description: Created date of the tag.
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Updated date of the tag
+              description: Updated date of the tag.
     TagsGetResponse:
       type: object
       properties:
@@ -7800,34 +8114,58 @@ components:
             tagId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the tag
+              description: Unique identifier for the tag.
+            parentId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the tag.
             name:
               type: string
-              example: Test Tag
-              description: Name of the tag
+              example: Test Category
+              description: Name of the tag.
             description:
               type: string
               example: Test description
-              description: Descriptioin of the tag
+              description: HTML description of the tag.
+            display:
+              type: string
+              example: default
+              description: Tag archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Created date of the tag
+              description: Created date of the tag.
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Updated date of the tag
+              description: Updated date of the tag.
     TagsPutRequest:
       type: object
       properties:
+        parentId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the tag.
         name:
           type: string
-          example: Test Tag
-          description: Name of the tag
+          example: Test Category
+          description: Name of the tag.
         description:
           type: string
           example: Test description
-          description: Description of the tag
+          description: HTML description of the tag.
+        display:
+          type: string
+          example: default
+          description: Tag archive display type.
+          enum:
+            - default
+            - products
+            - sub-categories
     TagsPutResponse:
       type: object
       properties:
@@ -7846,24 +8184,289 @@ components:
             tagId:
               type: string
               example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-              description: Id of the tag
+              description: Unique identifier for the tag.
+            parentId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the tag.
             name:
               type: string
-              example: Test Tag
-              description: Name of the tag
+              example: Test Category
+              description: Name of the tag.
             description:
               type: string
               example: Test description
-              description: Descriptioin of the tag
+              description: HTML description of the tag.
+            display:
+              type: string
+              example: default
+              description: Tag archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
             createdAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Created date of the tag
+              description: Created date of the tag.
             updatedAt:
               type: string
               example: '2022-10-25T11:25:08.394Z'
-              description: Updated date of the tag
+              description: Updated date of the tag.
     TagsDeleteResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+    GroupsListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: array
+          description: Response data
+          items:
+            type: object
+            properties:
+              groupId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Unique identifier for the group.
+              parentId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: Parent id of the group.
+              name:
+                type: string
+                example: Test Category
+                description: Name of the group.
+              description:
+                type: string
+                example: Test description
+                description: HTML description of the group.
+              display:
+                type: string
+                example: default
+                description: Group archive display type.
+                enum:
+                  - default
+                  - products
+                  - sub-categories
+              createdAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the group.
+              updatedAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the group.
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/tags?pageToken=c70e668c
+          description: Next page link
+    GroupsPostRequest:
+      type: object
+      properties:
+        parentId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the group.
+        name:
+          type: string
+          example: Test Category
+          description: Name of the group.
+        description:
+          type: string
+          example: Test description
+          description: HTML description of the group.
+        display:
+          type: string
+          example: default
+          description: Group archive display type.
+          enum:
+            - default
+            - products
+            - sub-categories
+      required:
+        - name
+    GroupsPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            groupId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Unique identifier for the group.
+            parentId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the group.
+            name:
+              type: string
+              example: Test Category
+              description: Name of the group.
+            description:
+              type: string
+              example: Test description
+              description: HTML description of the group.
+            display:
+              type: string
+              example: default
+              description: Group archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the group.
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the group.
+    GroupsGetResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            groupId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Unique identifier for the group.
+            parentId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the group.
+            name:
+              type: string
+              example: Test Category
+              description: Name of the group.
+            description:
+              type: string
+              example: Test description
+              description: HTML description of the group.
+            display:
+              type: string
+              example: default
+              description: Group archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the group.
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the group.
+    GroupsPutRequest:
+      type: object
+      properties:
+        parentId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          description: Parent id of the group.
+        name:
+          type: string
+          example: Test Category
+          description: Name of the group.
+        description:
+          type: string
+          example: Test description
+          description: HTML description of the group.
+        display:
+          type: string
+          example: default
+          description: Group archive display type.
+          enum:
+            - default
+            - products
+            - sub-categories
+    GroupsPutResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            groupId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Unique identifier for the group.
+            parentId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: Parent id of the group.
+            name:
+              type: string
+              example: Test Category
+              description: Name of the group.
+            description:
+              type: string
+              example: Test description
+              description: HTML description of the group.
+            display:
+              type: string
+              example: default
+              description: Group archive display type.
+              enum:
+                - default
+                - products
+                - sub-categories
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the group.
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the group.
+    GroupsDeleteResponse:
       type: object
       properties:
         code:

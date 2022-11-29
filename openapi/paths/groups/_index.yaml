@@ -1,0 +1,92 @@
+get:
+  operationId: ListGroups
+  summary: List Groups
+  description: List of groups
+  tags:
+    - Groups
+  security:
+    - api_key: []
+  parameters:
+    - in: query
+      name: query
+      schema:
+        type: string
+        example: name:"bar"
+      description: Filter returned rows
+    - in: query
+      name: limit
+      schema:
+        type: string
+        default: 25
+        example: 25
+      description: The pagination page limit
+    - in: query
+      name: pageToken
+      schema:
+        type: string
+      description: The pagination page token
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request GET \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/groups' \
+        | jq
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/groups/GroupsListResponse.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "404":
+      $ref: ../../components/responses/404.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml
+
+post:
+  operationId: PostGroup
+  summary: Create Group
+  description: Create properties of a group
+  tags:
+    - Groups
+  security:
+    - api_key: []
+  requestBody:
+    description: Parameters for creating a category
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../../components/schemas/groups/GroupsPostRequest.yaml
+  x-codeSamples:
+    - label: "CLI"
+      lang: "cURL"
+      source: |
+        curl --request POST \
+        --header 'Authorization: <your API Key>' \
+        --header 'Content-Type: application/json' \
+        --url 'https://api.bocs.io/test/groups' \
+        --data '{}' \
+        | jq
+  responses:
+    "201":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../../components/responses/groups/GroupsPostResponse.yaml
+    "400":
+      $ref: ../../components/responses/400.yaml
+    "401":
+      $ref: ../../components/responses/401.yaml
+    "403":
+      $ref: ../../components/responses/403.yaml
+    "500":
+      $ref: ../../components/responses/500.yaml

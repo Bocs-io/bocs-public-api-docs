@@ -39,6 +39,11 @@ x-tagGroups:
   - name: Widgets
     tags:
       - Widgets
+  - name: Categories, Groups & Tags
+    tags:
+      - Categories
+      - Tags
+      - Groups
 
 # tags:
 #   - name: Echo
@@ -85,6 +90,10 @@ paths:
     $ref: "paths/tags/_index.yaml"
   /tags/{id}:
     $ref: "paths/tags/_id.yaml"
+  /groups:
+    $ref: "paths/groups/_index.yaml"
+  /groups/{id}:
+    $ref: "paths/groups/_id.yaml"
 
   # Sales
   /orders:

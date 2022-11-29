@@ -1,23 +1,23 @@
-tagId:
+groupId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-  description: Unique identifier for the tag.
+  description: Unique identifier for the group.
 parentId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-  description: Parent id of the tag.
+  description: Parent id of the group.
 name:
   type: string
   example: Test Category
-  description: Name of the tag.
+  description: Name of the group.
 description:
   type: string
   example: Test description
-  description: HTML description of the tag.
+  description: HTML description of the group.
 display:
   type: string
   example: default
-  description: Tag archive display type.
+  description: Group archive display type.
   enum:
     - default
     - products
@@ -25,8 +25,8 @@ display:
 createdAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Created date of the tag.
+  description: Created date of the group.
 updatedAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
-  description: Updated date of the tag.
+  description: Updated date of the group.
