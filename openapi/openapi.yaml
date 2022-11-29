@@ -10,7 +10,7 @@ info:
     name: Apache 2.0
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
   x-logo:
-    url: "https://git.bocs.io/bocs.png"
+    url: "https://git.bocs.io/bocs-logo.png"
   description:
     $ref: ./info-description.md
 x-tagGroups:
