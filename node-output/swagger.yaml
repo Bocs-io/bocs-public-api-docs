@@ -4299,6 +4299,540 @@
         } ]
       }
     },
+    "/groups" : {
+      "get" : {
+        "tags" : [ "Groups" ],
+        "summary" : "List Groups",
+        "description" : "List of groups",
+        "operationId" : "ListGroups",
+        "parameters" : [ {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "name:\"bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupsListResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/groups' \\\n| jq\n"
+        } ]
+      },
+      "post" : {
+        "tags" : [ "Groups" ],
+        "summary" : "Create Group",
+        "description" : "Create properties of a group",
+        "operationId" : "PostGroup",
+        "requestBody" : {
+          "description" : "Parameters for creating a category",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/GroupsPostRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupsPostResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request POST \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/groups' \\\n--data '{}' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/groups/{id}" : {
+      "get" : {
+        "tags" : [ "Groups" ],
+        "summary" : "Get Group",
+        "description" : "Returns details about a group",
+        "operationId" : "GetGroup",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the group",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupsGetResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/groups/<group ID>' \\\n| jq\n"
+        } ]
+      },
+      "put" : {
+        "tags" : [ "Groups" ],
+        "summary" : "Update Group",
+        "description" : "Update properties of a group",
+        "operationId" : "PutGroup",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the group",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Parameters for updating a group",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/GroupsPutRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupsPutResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request PUT \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/groups/<group ID>' \\\n--data '' \\\n| jq\n"
+        } ]
+      },
+      "delete" : {
+        "tags" : [ "Groups" ],
+        "summary" : "Delete Group",
+        "description" : "Deletes a specified category",
+        "operationId" : "DeleteGroup",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "ID of the group",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupsDeleteResponse"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 400,
+                  "message" : "Field is required"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/groups/<group ID>' \\\n| jq\n"
+        } ]
+      }
+    },
     "/orders" : {
       "get" : {
         "tags" : [ "Orders" ],
@@ -8058,18 +8592,24 @@
         "properties" : {
           "parentId" : {
             "type" : "string",
-            "description" : "Parent id of the category",
+            "description" : "Parent id of the category.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the category",
+            "description" : "Name of the category.",
             "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Description of the category",
+            "description" : "HTML description of the category.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Category archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           }
         }
       },
@@ -8114,18 +8654,24 @@
         "properties" : {
           "parentId" : {
             "type" : "string",
-            "description" : "Parent id of the category",
+            "description" : "Parent id of the category.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the category",
+            "description" : "Name of the category.",
             "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Description of the category",
+            "description" : "HTML description of the category.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Category archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           }
         }
       },
@@ -8193,15 +8739,26 @@
         "required" : [ "name" ],
         "type" : "object",
         "properties" : {
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the tag.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tag",
-            "example" : "Test Tag"
+            "description" : "Name of the tag.",
+            "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Description of the tag",
+            "description" : "HTML description of the tag.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Tag archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           }
         }
       },
@@ -8244,15 +8801,26 @@
       "TagsPutRequest" : {
         "type" : "object",
         "properties" : {
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the tag.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tag",
-            "example" : "Test Tag"
+            "description" : "Name of the tag.",
+            "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Description of the tag",
+            "description" : "HTML description of the tag.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Tag archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           }
         }
       },
@@ -8275,6 +8843,155 @@
         }
       },
       "TagsDeleteResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          }
+        }
+      },
+      "GroupsListResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "description" : "Response data",
+            "items" : {
+              "$ref" : "#/components/schemas/GroupsListResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/tags?pageToken=c70e668c"
+          }
+        }
+      },
+      "GroupsPostRequest" : {
+        "required" : [ "name" ],
+        "type" : "object",
+        "properties" : {
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the group.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the group.",
+            "example" : "Test Category"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "HTML description of the group.",
+            "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Group archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
+          }
+        }
+      },
+      "GroupsPostResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 201
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/GroupsPostResponse_data"
+          }
+        }
+      },
+      "GroupsGetResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/GroupsPostResponse_data"
+          }
+        }
+      },
+      "GroupsPutRequest" : {
+        "type" : "object",
+        "properties" : {
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the group.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the group.",
+            "example" : "Test Category"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "HTML description of the group.",
+            "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Group archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
+          }
+        }
+      },
+      "GroupsPutResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/GroupsPostResponse_data"
+          }
+        }
+      },
+      "GroupsDeleteResponse" : {
         "type" : "object",
         "properties" : {
           "code" : {
@@ -10830,32 +11547,38 @@
         "properties" : {
           "categoryId" : {
             "type" : "string",
-            "description" : "Id of the category",
+            "description" : "Unique identifier for the category.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "parentId" : {
             "type" : "string",
-            "description" : "Parent id of the category",
+            "description" : "Parent id of the category.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the category",
+            "description" : "Name of the category.",
             "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Descriptioin of the category",
+            "description" : "HTML description of the category.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Category archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the category",
+            "description" : "Created date of the category.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the category",
+            "description" : "Updated date of the category.",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
@@ -10865,32 +11588,38 @@
         "properties" : {
           "categoryId" : {
             "type" : "string",
-            "description" : "Id of the category",
+            "description" : "Unique identifier for the category.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "parentId" : {
             "type" : "string",
-            "description" : "Parent id of the category",
+            "description" : "Parent id of the category.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the category",
+            "description" : "Name of the category.",
             "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Descriptioin of the category",
+            "description" : "HTML description of the category.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Category archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the category",
+            "description" : "Created date of the category.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the category",
+            "description" : "Updated date of the category.",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         },
@@ -10901,27 +11630,38 @@
         "properties" : {
           "tagId" : {
             "type" : "string",
-            "description" : "Id of the tag",
+            "description" : "Unique identifier for the tag.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the tag.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tag",
-            "example" : "Test Tag"
+            "description" : "Name of the tag.",
+            "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Descriptioin of the tag",
+            "description" : "HTML description of the tag.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Tag archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the tag",
+            "description" : "Created date of the tag.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the tag",
+            "description" : "Updated date of the tag.",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         }
@@ -10931,27 +11671,121 @@
         "properties" : {
           "tagId" : {
             "type" : "string",
-            "description" : "Id of the tag",
+            "description" : "Unique identifier for the tag.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the tag.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tag",
-            "example" : "Test Tag"
+            "description" : "Name of the tag.",
+            "example" : "Test Category"
           },
           "description" : {
             "type" : "string",
-            "description" : "Descriptioin of the tag",
+            "description" : "HTML description of the tag.",
             "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Tag archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
           },
           "createdAt" : {
             "type" : "string",
-            "description" : "Created date of the tag",
+            "description" : "Created date of the tag.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
           "updatedAt" : {
             "type" : "string",
-            "description" : "Updated date of the tag",
+            "description" : "Updated date of the tag.",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        },
+        "description" : "Response data"
+      },
+      "GroupsListResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "groupId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the group.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the group.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the group.",
+            "example" : "Test Category"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "HTML description of the group.",
+            "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Group archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the group.",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the group.",
+            "example" : "2022-10-25T11:25:08.394Z"
+          }
+        }
+      },
+      "GroupsPostResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "groupId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the group.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "parentId" : {
+            "type" : "string",
+            "description" : "Parent id of the group.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          },
+          "name" : {
+            "type" : "string",
+            "description" : "Name of the group.",
+            "example" : "Test Category"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "HTML description of the group.",
+            "example" : "Test description"
+          },
+          "display" : {
+            "type" : "string",
+            "description" : "Group archive display type.",
+            "example" : "default",
+            "enum" : [ "default", "products", "sub-categories" ]
+          },
+          "createdAt" : {
+            "type" : "string",
+            "description" : "Created date of the group.",
+            "example" : "2022-10-25T11:25:08.394Z"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "description" : "Updated date of the group.",
             "example" : "2022-10-25T11:25:08.394Z"
           }
         },
@@ -11921,5 +12755,8 @@
   }, {
     "name" : "Widgets",
     "tags" : [ "Widgets" ]
+  }, {
+    "name" : "Categories, Groups & Tags",
+    "tags" : [ "Categories", "Tags", "Groups" ]
   } ]
 }
