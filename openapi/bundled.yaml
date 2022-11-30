@@ -7788,15 +7788,43 @@ components:
               contacts:
                 type: array
                 description: List of contacts
+                items:
+                  type: object
+                  properties:
+                    contactId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
               collections:
                 type: array
                 description: List of collections
+                items:
+                  type: object
+                  properties:
+                    collectionId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
               products:
                 type: array
                 description: List of products
+                items:
+                  type: object
+                  properties:
+                    productId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
               orders:
                 type: array
                 description: List of orders
+                items:
+                  type: object
+                  properties:
+                    orderId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
         nextPageLink:
           type: string
           example: https://api.bocs.io/dev/categories?pageToken=c70e668c
