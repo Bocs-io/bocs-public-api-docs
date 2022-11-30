@@ -1430,6 +1430,58 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
+  /categories/list-resources:
+    get:
+      operationId: ListResources
+      summary: List Resources
+      description: List of resources by category(s)
+      tags:
+        - Categories
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+            example: category:"foo,bar"
+          description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/categories/list-resources' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoriesListResourcesResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
   /categories:
     get:
       operationId: ListCategories
@@ -7716,6 +7768,39 @@ components:
           type: string
           example: success
           description: Success or error message
+    CategoriesListResourcesResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: array
+          description: Response data
+          items:
+            type: object
+            properties:
+              contacts:
+                type: array
+                description: List of contacts
+              collections:
+                type: array
+                description: List of collections
+              products:
+                type: array
+                description: List of products
+              orders:
+                type: array
+                description: List of orders
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/categories?pageToken=c70e668c
+          description: Next page link
     CategoriesListResponse:
       type: object
       properties:

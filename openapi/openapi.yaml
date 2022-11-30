@@ -82,6 +82,9 @@ paths:
     $ref: "paths/products/_index.yaml"
   /products/{id}:
     $ref: "paths/products/_id.yaml"
+
+  /categories/list-resources:
+    $ref: "paths/categories/_list-resources.yaml"
   /categories:
     $ref: "paths/categories/_index.yaml"
   /categories/{id}:

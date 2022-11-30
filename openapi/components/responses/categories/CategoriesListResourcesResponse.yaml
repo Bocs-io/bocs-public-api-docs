@@ -1,0 +1,32 @@
+type: object
+properties:
+  code:
+    type: integer
+    example: 200
+    description: Status code
+  message:
+    type: string
+    example: success
+    description: Success or error message
+  data:
+    type: array
+    description: Response data
+    items:
+      type: object
+      properties:
+        contacts:
+          type: array
+          description: List of contacts
+        collections:
+          type: array
+          description: List of collections
+        products:
+          type: array
+          description: List of products
+        orders:
+          type: array
+          description: List of orders
+  nextPageLink:
+    type: string
+    example: https://api.bocs.io/dev/categories?pageToken=c70e668c
+    description: Next page link
