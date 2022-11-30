@@ -3231,6 +3231,124 @@
         } ]
       }
     },
+    "/categories/list-resources" : {
+      "get" : {
+        "tags" : [ "Categories" ],
+        "summary" : "List Resources",
+        "description" : "List of resources by category(s)",
+        "operationId" : "ListResources",
+        "parameters" : [ {
+          "name" : "category",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "category:\"foo,bar\""
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CategoriesListResourcesResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/list-resources' \\\n| jq\n"
+        } ]
+      }
+    },
     "/categories" : {
       "get" : {
         "tags" : [ "Categories" ],
@@ -8559,6 +8677,33 @@
           }
         }
       },
+      "CategoriesListResourcesResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "description" : "Response data",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/categories?pageToken=c70e668c"
+          }
+        }
+      },
       "CategoriesListResponse" : {
         "type" : "object",
         "properties" : {
@@ -11541,6 +11686,79 @@
           }
         },
         "description" : "Response data"
+      },
+      "CategoriesListResourcesResponse_contacts" : {
+        "type" : "object",
+        "properties" : {
+          "contactId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_collections" : {
+        "type" : "object",
+        "properties" : {
+          "collectionId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_products" : {
+        "type" : "object",
+        "properties" : {
+          "productId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_orders" : {
+        "type" : "object",
+        "properties" : {
+          "orderId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "contacts" : {
+            "type" : "array",
+            "description" : "List of contacts",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_contacts"
+            }
+          },
+          "collections" : {
+            "type" : "array",
+            "description" : "List of collections",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_collections"
+            }
+          },
+          "products" : {
+            "type" : "array",
+            "description" : "List of products",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_products"
+            }
+          },
+          "orders" : {
+            "type" : "array",
+            "description" : "List of orders",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_orders"
+            }
+          }
+        }
       },
       "CategoriesListResponse_data" : {
         "type" : "object",
