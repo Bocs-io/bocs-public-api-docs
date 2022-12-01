@@ -1,6 +1,6 @@
 get:
-  operationId: ListTagsResources
-  summary: List Tags Resources
+  operationId: ListResourcesByTag
+  summary: List Resources By Tag
   description: List of resources by tag(s)
   tags:
     - Tags

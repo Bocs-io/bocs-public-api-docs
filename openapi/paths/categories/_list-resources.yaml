@@ -1,6 +1,6 @@
 get:
-  operationId: ListCategoriesResources
-  summary: List Categories Resources
+  operationId: ListResourcesByCategory
+  summary: List Resources By Category
   description: List of resources by category(s)
   tags:
     - Categories

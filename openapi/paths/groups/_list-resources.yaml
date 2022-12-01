@@ -1,6 +1,6 @@
 get:
-  operationId: ListGroupsResources
-  summary: List Groups Resources
+  operationId: ListResourcesByGroup
+  summary: List Resources By Group
   description: List of resources by group(s)
   tags:
     - Groups
