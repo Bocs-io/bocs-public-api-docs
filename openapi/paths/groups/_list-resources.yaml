@@ -8,7 +8,7 @@ get:
     - api_key: []
   parameters:
     - in: query
-      name: group
+      name: groups
       schema:
         type: string
         example: "foo,bar"
