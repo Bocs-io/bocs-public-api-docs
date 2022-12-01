@@ -3238,7 +3238,7 @@
         "description" : "List of resources by category(s)",
         "operationId" : "ListResourcesByCategory",
         "parameters" : [ {
-          "name" : "category",
+          "name" : "categories",
           "in" : "query",
           "description" : "Filter returned rows",
           "required" : false,
@@ -3890,7 +3890,7 @@
         "description" : "List of resources by tag(s)",
         "operationId" : "ListResourcesByTag",
         "parameters" : [ {
-          "name" : "tag",
+          "name" : "tags",
           "in" : "query",
           "description" : "Filter returned rows",
           "required" : false,
@@ -4542,7 +4542,7 @@
         "description" : "List of resources by group(s)",
         "operationId" : "ListResourcesByGroup",
         "parameters" : [ {
-          "name" : "group",
+          "name" : "groups",
           "in" : "query",
           "description" : "Filter returned rows",
           "required" : false,
@@ -8927,11 +8927,7 @@
             "example" : "success"
           },
           "data" : {
-            "type" : "array",
-            "description" : "Response data",
-            "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
-            }
+            "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
           },
           "nextPageLink" : {
             "type" : "string",
@@ -9103,11 +9099,7 @@
             "example" : "success"
           },
           "data" : {
-            "type" : "array",
-            "description" : "Response data",
-            "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
-            }
+            "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
           },
           "nextPageLink" : {
             "type" : "string",
@@ -9279,11 +9271,7 @@
             "example" : "success"
           },
           "data" : {
-            "type" : "array",
-            "description" : "Response data",
-            "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
-            }
+            "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
           },
           "nextPageLink" : {
             "type" : "string",
@@ -11977,7 +11965,7 @@
         },
         "description" : "Response data"
       },
-      "CategoriesListResourcesResponse_contacts" : {
+      "CategoriesListResourcesResponse_data_contacts" : {
         "type" : "object",
         "properties" : {
           "contactId" : {
@@ -11987,7 +11975,7 @@
           }
         }
       },
-      "CategoriesListResourcesResponse_collections" : {
+      "CategoriesListResourcesResponse_data_collections" : {
         "type" : "object",
         "properties" : {
           "collectionId" : {
@@ -11997,7 +11985,7 @@
           }
         }
       },
-      "CategoriesListResourcesResponse_products" : {
+      "CategoriesListResourcesResponse_data_products" : {
         "type" : "object",
         "properties" : {
           "productId" : {
@@ -12007,7 +11995,7 @@
           }
         }
       },
-      "CategoriesListResourcesResponse_orders" : {
+      "CategoriesListResourcesResponse_data_orders" : {
         "type" : "object",
         "properties" : {
           "orderId" : {
@@ -12024,31 +12012,32 @@
             "type" : "array",
             "description" : "List of contacts",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_contacts"
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_contacts"
             }
           },
           "collections" : {
             "type" : "array",
             "description" : "List of collections",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_collections"
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_collections"
             }
           },
           "products" : {
             "type" : "array",
             "description" : "List of products",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_products"
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_products"
             }
           },
           "orders" : {
             "type" : "array",
             "description" : "List of orders",
             "items" : {
-              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_orders"
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_orders"
             }
           }
-        }
+        },
+        "description" : "Response data"
       },
       "CategoriesListResponse_data" : {
         "type" : "object",
