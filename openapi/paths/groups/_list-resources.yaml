@@ -1,14 +1,14 @@
 get:
-  operationId: ListCategoriesResources
-  summary: List Categories Resources
-  description: List of resources by category(s)
+  operationId: ListGroupsResources
+  summary: List Groups Resources
+  description: List of resources by group(s)
   tags:
-    - Categories
+    - Groups
   security:
     - api_key: []
   parameters:
     - in: query
-      name: category
+      name: group
       schema:
         type: string
         example: "foo,bar"
@@ -32,7 +32,7 @@ get:
         curl --request GET \
         --header 'Authorization: <your API Key>' \
         --header 'Content-Type: application/json' \
-        --url 'https://api.bocs.io/test/categories/list-resources' \
+        --url 'https://api.bocs.io/test/groups/list-resources' \
         | jq
   responses:
     "200":
@@ -40,7 +40,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../../components/responses/categories/CategoriesListResourcesResponse.yaml
+            $ref: ../../components/responses/groups/GroupsListResourcesResponse.yaml
     "401":
       $ref: ../../components/responses/401.yaml
     "403":

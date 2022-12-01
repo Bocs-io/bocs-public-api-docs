@@ -89,10 +89,14 @@ paths:
     $ref: "paths/categories/_index.yaml"
   /categories/{id}:
     $ref: "paths/categories/_id.yaml"
+  /tags/list-resources:
+    $ref: "paths/tags/_list-resources.yaml"
   /tags:
     $ref: "paths/tags/_index.yaml"
   /tags/{id}:
     $ref: "paths/tags/_id.yaml"
+  /grouops/list-resources:
+    $ref: "paths/groups/_list-resources.yaml"
   /groups:
     $ref: "paths/groups/_index.yaml"
   /groups/{id}:

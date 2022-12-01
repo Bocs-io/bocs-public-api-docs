@@ -1432,8 +1432,8 @@ paths:
           $ref: '#/components/responses/500'
   /categories/list-resources:
     get:
-      operationId: ListResources
-      summary: List Resources
+      operationId: ListCategoriesResources
+      summary: List Categories Resources
       description: List of resources by category(s)
       tags:
         - Categories
@@ -1444,7 +1444,7 @@ paths:
           name: category
           schema:
             type: string
-            example: category:"foo,bar"
+            example: foo,bar
           description: Filter returned rows
         - in: query
           name: limit
@@ -1707,6 +1707,58 @@ paths:
           $ref: '#/components/responses/404'
         '500':
           $ref: '#/components/responses/500'
+  /tags/list-resources:
+    get:
+      operationId: ListTagsResources
+      summary: List Tags Resources
+      description: List of resources by tag(s)
+      tags:
+        - Tags
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: tag
+          schema:
+            type: string
+            example: foo,bar
+          description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/tags/list-resources' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagsListResourcesResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
   /tags:
     get:
       operationId: ListTags
@@ -1924,6 +1976,58 @@ paths:
                 $ref: '#/components/schemas/TagsDeleteResponse'
         '400':
           $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /grouops/list-resources:
+    get:
+      operationId: ListGroupsResources
+      summary: List Groups Resources
+      description: List of resources by group(s)
+      tags:
+        - Groups
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: group
+          schema:
+            type: string
+            example: foo,bar
+          description: Filter returned rows
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
+          name: pageToken
+          schema:
+            type: string
+          description: The pagination page token
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/groups/list-resources' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsListResourcesResponse'
         '401':
           $ref: '#/components/responses/401'
         '403':
@@ -8082,6 +8186,67 @@ components:
           type: string
           example: success
           description: Success or error message
+    TagsListResourcesResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: array
+          description: Response data
+          items:
+            type: object
+            properties:
+              contacts:
+                type: array
+                description: List of contacts
+                items:
+                  type: object
+                  properties:
+                    contactId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+              collections:
+                type: array
+                description: List of collections
+                items:
+                  type: object
+                  properties:
+                    collectionId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+              products:
+                type: array
+                description: List of products
+                items:
+                  type: object
+                  properties:
+                    productId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+              orders:
+                type: array
+                description: List of orders
+                items:
+                  type: object
+                  properties:
+                    orderId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/categories?pageToken=c70e668c
+          description: Next page link
     TagsListResponse:
       type: object
       properties:
@@ -8335,6 +8500,67 @@ components:
           type: string
           example: success
           description: Success or error message
+    GroupsListResourcesResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: array
+          description: Response data
+          items:
+            type: object
+            properties:
+              contacts:
+                type: array
+                description: List of contacts
+                items:
+                  type: object
+                  properties:
+                    contactId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+              collections:
+                type: array
+                description: List of collections
+                items:
+                  type: object
+                  properties:
+                    collectionId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+              products:
+                type: array
+                description: List of products
+                items:
+                  type: object
+                  properties:
+                    productId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+              orders:
+                type: array
+                description: List of orders
+                items:
+                  type: object
+                  properties:
+                    orderId:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Unique identifier for the category.
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/categories?pageToken=c70e668c
+          description: Next page link
     GroupsListResponse:
       type: object
       properties:
