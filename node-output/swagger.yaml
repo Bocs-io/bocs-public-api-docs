@@ -3234,9 +3234,9 @@
     "/categories/list-resources" : {
       "get" : {
         "tags" : [ "Categories" ],
-        "summary" : "List Categories Resources",
+        "summary" : "List Resources By Category",
         "description" : "List of resources by category(s)",
-        "operationId" : "ListCategoriesResources",
+        "operationId" : "ListResourcesByCategory",
         "parameters" : [ {
           "name" : "category",
           "in" : "query",
@@ -3886,9 +3886,9 @@
     "/tags/list-resources" : {
       "get" : {
         "tags" : [ "Tags" ],
-        "summary" : "List Tags Resources",
+        "summary" : "List Resources By Tag",
         "description" : "List of resources by tag(s)",
-        "operationId" : "ListTagsResources",
+        "operationId" : "ListResourcesByTag",
         "parameters" : [ {
           "name" : "tag",
           "in" : "query",
@@ -4538,9 +4538,9 @@
     "/grouops/list-resources" : {
       "get" : {
         "tags" : [ "Groups" ],
-        "summary" : "List Groups Resources",
+        "summary" : "List Resources By Group",
         "description" : "List of resources by group(s)",
-        "operationId" : "ListGroupsResources",
+        "operationId" : "ListResourcesByGroup",
         "parameters" : [ {
           "name" : "group",
           "in" : "query",
