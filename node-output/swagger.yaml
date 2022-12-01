@@ -3234,9 +3234,9 @@
     "/categories/list-resources" : {
       "get" : {
         "tags" : [ "Categories" ],
-        "summary" : "List Resources",
+        "summary" : "List Categories Resources",
         "description" : "List of resources by category(s)",
-        "operationId" : "ListResources",
+        "operationId" : "ListCategoriesResources",
         "parameters" : [ {
           "name" : "category",
           "in" : "query",
@@ -3246,7 +3246,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "category:\"foo,bar\""
+            "example" : "foo,bar"
           }
         }, {
           "name" : "limit",
@@ -3883,6 +3883,124 @@
         } ]
       }
     },
+    "/tags/list-resources" : {
+      "get" : {
+        "tags" : [ "Tags" ],
+        "summary" : "List Tags Resources",
+        "description" : "List of resources by tag(s)",
+        "operationId" : "ListTagsResources",
+        "parameters" : [ {
+          "name" : "tag",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "foo,bar"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TagsListResourcesResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/list-resources' \\\n| jq\n"
+        } ]
+      }
+    },
     "/tags" : {
       "get" : {
         "tags" : [ "Tags" ],
@@ -4414,6 +4532,124 @@
           "label" : "CLI",
           "lang" : "cURL",
           "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/grouops/list-resources" : {
+      "get" : {
+        "tags" : [ "Groups" ],
+        "summary" : "List Groups Resources",
+        "description" : "List of resources by group(s)",
+        "operationId" : "ListGroupsResources",
+        "parameters" : [ {
+          "name" : "group",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "foo,bar"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupsListResourcesResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/groups/list-resources' \\\n| jq\n"
         } ]
       }
     },
@@ -8853,6 +9089,33 @@
           }
         }
       },
+      "TagsListResourcesResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "description" : "Response data",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/categories?pageToken=c70e668c"
+          }
+        }
+      },
       "TagsListResponse" : {
         "type" : "object",
         "properties" : {
@@ -8999,6 +9262,33 @@
             "type" : "string",
             "description" : "Success or error message",
             "example" : "success"
+          }
+        }
+      },
+      "GroupsListResourcesResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "type" : "array",
+            "description" : "Response data",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
+            }
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/categories?pageToken=c70e668c"
           }
         }
       },
