@@ -10160,63 +10160,63 @@
         }
       },
       "TaxRatesPostRequest" : {
-        "required" : [ "class", "name" ],
+        "required" : [ "name" ],
         "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           }
         }
       },
@@ -10261,58 +10261,58 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           }
         }
       },
@@ -13005,65 +13005,65 @@
       "TaxRatesListResponse_data" : {
         "type" : "object",
         "properties" : {
-          "taxRateSettingsId" : {
+          "taxRateId" : {
             "type" : "string",
-            "description" : "Id of the tax rate",
+            "description" : "The unique identifier for the resource.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           },
           "createdAt" : {
             "type" : "string",
@@ -13080,65 +13080,65 @@
       "TaxRatesPostResponse_data" : {
         "type" : "object",
         "properties" : {
-          "taxRateSettingsId" : {
+          "taxRateId" : {
             "type" : "string",
-            "description" : "Id of the tax rate",
+            "description" : "The unique identifier for the resource.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           },
           "createdAt" : {
             "type" : "string",
