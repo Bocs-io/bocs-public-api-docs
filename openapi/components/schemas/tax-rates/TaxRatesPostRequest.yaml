@@ -3,4 +3,3 @@ properties:
   $ref: ./properties.yaml
 required:
   - name
-  - class

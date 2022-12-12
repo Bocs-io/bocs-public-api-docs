@@ -1,51 +1,51 @@
-taxRateSettingsId:
+taxRateId:
   type: string
   example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
-  description: Id of the tax rate
+  description: The unique identifier for the resource.
 name:
   type: string
   example: Test name
-  description: Name of the tax rate
+  description: Tax rate name
 class:
   type: string
   example: Test
-  description: Class of the tax rate
+  description: Tax class
 country:
   type: string
   example: AU
-  description: Country of the tax rate
-city:
+  description: Country ISO 3166 code
+cities:
   type: string
   example: Adelaide
-  description: City of the tax rate
+  description: City names
 state:
   type: string
-  example: South Australia
-  description: State of the tax rate
-postcode:
+  example: SA
+  description: State code
+postcodes:
   type: string
   example: 6000
-  description: Post code of the tax rate
+  description: Postcodes/ZIPs
 rate:
   type: number
   example: 10
-  description: Rate of the tax rate
+  description: Tax rate
 shipping:
   type: boolean
   example: true
-  description: Determines if the tax rate is shipping
+  description: Whether or not this tax rate also gets applied to shipping.
 priority:
   type: number
   example: 1
-  description: Priority of the tax rate
+  description: Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.
 order:
   type: number
   example: 1
-  description: Order of the tax rate
+  description: Indicates the order that will appear in queries
 compound:
-  type: string
-  example: boolean
-  description: Determines if tax rate is compound
+  type: boolean
+  example: false
+  description: Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.
 createdAt:
   type: string
   example: 2022-10-25T11:25:08.394Z
