@@ -2947,7 +2947,7 @@ paths:
           name: query
           schema:
             type: string
-            example: firstName:"bar"
+            example: name:"bar"
           description: Filter returned rows
         - in: query
           name: limit
@@ -3325,7 +3325,7 @@ components:
                 type: string
                 example: 123456789
                 description: The unique phone number (E.164 format) for the contact.
-              source:
+              externalSource:
                 type: string
                 example: woocommerce
                 description: Where the contact was created or synced from.
@@ -3334,7 +3334,7 @@ components:
                   - Shopify
                   - Bigcommerce API
                   - Others
-              sourceId:
+              externalSourceId:
                 type: string
                 example: 1
                 description: ID of where the contact was created or synced from.
@@ -3354,19 +3354,19 @@ components:
                 type: boolean
                 example: false
                 description: Whether the contact has verified their email address.
-              dateCreated:
+              externalDateCreated:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
                 description: The date the contact was created, in the site's timezone.
-              dateCreatedGMT:
+              externalDateCreatedGMT:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
                 description: The date the contact was created, as GMT.
-              dateModified:
+              externalDateModified:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
                 description: The date the contact was last modified, in the site's timezone.
-              dateModifiedGMT:
+              externalDateModifiedGMT:
                 type: string
                 example: '2022-10-25T11:25:08.394Z'
                 description: The date the contact was last modified, as GMT.
@@ -3542,7 +3542,7 @@ components:
           type: string
           example: 123456789
           description: The unique phone number (E.164 format) for the contact.
-        source:
+        externalSource:
           type: string
           example: woocommerce
           description: Where the contact was created or synced from.
@@ -3551,7 +3551,7 @@ components:
             - Shopify
             - Bigcommerce API
             - Others
-        sourceId:
+        externalSourceId:
           type: string
           example: 1
           description: ID of where the contact was created or synced from.
@@ -3571,19 +3571,19 @@ components:
           type: boolean
           example: false
           description: Whether the contact has verified their email address.
-        dateCreated:
+        externalDateCreated:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was created, in the site's timezone.
-        dateCreatedGMT:
+        externalDateCreatedGMT:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was created, as GMT.
-        dateModified:
+        externalDateModified:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was last modified, in the site's timezone.
-        dateModifiedGMT:
+        externalDateModifiedGMT:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was last modified, as GMT.
@@ -3758,7 +3758,7 @@ components:
               type: string
               example: 123456789
               description: The unique phone number (E.164 format) for the contact.
-            source:
+            externalSource:
               type: string
               example: woocommerce
               description: Where the contact was created or synced from.
@@ -3767,7 +3767,7 @@ components:
                 - Shopify
                 - Bigcommerce API
                 - Others
-            sourceId:
+            externalSourceId:
               type: string
               example: 1
               description: ID of where the contact was created or synced from.
@@ -3787,19 +3787,19 @@ components:
               type: boolean
               example: false
               description: Whether the contact has verified their email address.
-            dateCreated:
+            externalDateCreated:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was created, in the site's timezone.
-            dateCreatedGMT:
+            externalDateCreatedGMT:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was created, as GMT.
-            dateModified:
+            externalDateModified:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was last modified, in the site's timezone.
-            dateModifiedGMT:
+            externalDateModifiedGMT:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was last modified, as GMT.
@@ -3980,7 +3980,7 @@ components:
               type: string
               example: 123456789
               description: The unique phone number (E.164 format) for the contact.
-            source:
+            externalSource:
               type: string
               example: woocommerce
               description: Where the contact was created or synced from.
@@ -3989,7 +3989,7 @@ components:
                 - Shopify
                 - Bigcommerce API
                 - Others
-            sourceId:
+            externalSourceId:
               type: string
               example: 1
               description: ID of where the contact was created or synced from.
@@ -4009,19 +4009,19 @@ components:
               type: boolean
               example: false
               description: Whether the contact has verified their email address.
-            dateCreated:
+            externalDateCreated:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was created, in the site's timezone.
-            dateCreatedGMT:
+            externalDateCreatedGMT:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was created, as GMT.
-            dateModified:
+            externalDateModified:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was last modified, in the site's timezone.
-            dateModifiedGMT:
+            externalDateModifiedGMT:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was last modified, as GMT.
@@ -4186,7 +4186,7 @@ components:
           type: string
           example: 123456789
           description: The unique phone number (E.164 format) for the contact.
-        source:
+        externalSource:
           type: string
           example: woocommerce
           description: Where the contact was created or synced from.
@@ -4195,7 +4195,7 @@ components:
             - Shopify
             - Bigcommerce API
             - Others
-        sourceId:
+        externalSourceId:
           type: string
           example: 1
           description: ID of where the contact was created or synced from.
@@ -4215,19 +4215,19 @@ components:
           type: boolean
           example: false
           description: Whether the contact has verified their email address.
-        dateCreated:
+        externalDateCreated:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was created, in the site's timezone.
-        dateCreatedGMT:
+        externalDateCreatedGMT:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was created, as GMT.
-        dateModified:
+        externalDateModified:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was last modified, in the site's timezone.
-        dateModifiedGMT:
+        externalDateModifiedGMT:
           type: string
           example: '2022-10-25T11:25:08.394Z'
           description: The date the contact was last modified, as GMT.
@@ -4400,7 +4400,7 @@ components:
               type: string
               example: 123456789
               description: The unique phone number (E.164 format) for the contact.
-            source:
+            externalSource:
               type: string
               example: woocommerce
               description: Where the contact was created or synced from.
@@ -4409,7 +4409,7 @@ components:
                 - Shopify
                 - Bigcommerce API
                 - Others
-            sourceId:
+            externalSourceId:
               type: string
               example: 1
               description: ID of where the contact was created or synced from.
@@ -4429,19 +4429,19 @@ components:
               type: boolean
               example: false
               description: Whether the contact has verified their email address.
-            dateCreated:
+            externalDateCreated:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was created, in the site's timezone.
-            dateCreatedGMT:
+            externalDateCreatedGMT:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was created, as GMT.
-            dateModified:
+            externalDateModified:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was last modified, in the site's timezone.
-            dateModifiedGMT:
+            externalDateModifiedGMT:
               type: string
               example: '2022-10-25T11:25:08.394Z'
               description: The date the contact was last modified, as GMT.
