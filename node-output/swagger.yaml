@@ -6804,7 +6804,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -7622,13 +7622,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -7651,22 +7651,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
@@ -7758,13 +7758,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -7787,22 +7787,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
@@ -10594,13 +10594,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -10623,22 +10623,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
@@ -10709,13 +10709,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -10738,22 +10738,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
