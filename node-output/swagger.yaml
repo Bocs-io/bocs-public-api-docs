@@ -14,7 +14,7 @@
     },
     "version" : "1.0.0",
     "x-logo" : {
-      "url" : "https://git.bocs.io/bocs.png"
+      "url" : "https://git.bocs.io/bocs-logo.png"
     }
   },
   "servers" : [ {
@@ -3231,6 +3231,124 @@
         } ]
       }
     },
+    "/categories/list-resources" : {
+      "get" : {
+        "tags" : [ "Categories" ],
+        "summary" : "List Resources By Category",
+        "description" : "List of resources by category(s)",
+        "operationId" : "ListResourcesByCategory",
+        "parameters" : [ {
+          "name" : "categories",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "foo,bar"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CategoriesListResourcesResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/categories/list-resources' \\\n| jq\n"
+        } ]
+      }
+    },
     "/categories" : {
       "get" : {
         "tags" : [ "Categories" ],
@@ -3765,6 +3883,124 @@
         } ]
       }
     },
+    "/tags/list-resources" : {
+      "get" : {
+        "tags" : [ "Tags" ],
+        "summary" : "List Resources By Tag",
+        "description" : "List of resources by tag(s)",
+        "operationId" : "ListResourcesByTag",
+        "parameters" : [ {
+          "name" : "tags",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "foo,bar"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TagsListResourcesResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/list-resources' \\\n| jq\n"
+        } ]
+      }
+    },
     "/tags" : {
       "get" : {
         "tags" : [ "Tags" ],
@@ -4296,6 +4532,124 @@
           "label" : "CLI",
           "lang" : "cURL",
           "source" : "curl --request DELETE \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/tags/<tag ID>' \\\n| jq\n"
+        } ]
+      }
+    },
+    "/grouops/list-resources" : {
+      "get" : {
+        "tags" : [ "Groups" ],
+        "summary" : "List Resources By Group",
+        "description" : "List of resources by group(s)",
+        "operationId" : "ListResourcesByGroup",
+        "parameters" : [ {
+          "name" : "groups",
+          "in" : "query",
+          "description" : "Filter returned rows",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "foo,bar"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "The pagination page limit",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "25",
+            "default" : "25"
+          }
+        }, {
+          "name" : "pageToken",
+          "in" : "query",
+          "description" : "The pagination page token",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/GroupsListResourcesResponse"
+                }
+              }
+            }
+          },
+          "401" : {
+            "description" : "Unauthorized",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 401,
+                  "message" : "Unauthorized"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "Forbidden",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 403,
+                  "message" : "Forbidden"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 404,
+                  "message" : "Not found"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal server error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                },
+                "example" : {
+                  "code" : 500,
+                  "message" : "Internal server error"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "api_key" : [ ]
+        } ],
+        "x-codeSamples" : [ {
+          "label" : "CLI",
+          "lang" : "cURL",
+          "source" : "curl --request GET \\\n--header 'Authorization: <your API Key>' \\\n--header 'Content-Type: application/json' \\\n--url 'https://api.bocs.io/test/groups/list-resources' \\\n| jq\n"
         } ]
       }
     },
@@ -6450,7 +6804,7 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "example" : "firstName:\"bar\""
+            "example" : "name:\"bar\""
           }
         }, {
           "name" : "limit",
@@ -7268,13 +7622,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -7297,22 +7651,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
@@ -7404,13 +7758,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -7433,22 +7787,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
@@ -8559,6 +8913,29 @@
           }
         }
       },
+      "CategoriesListResourcesResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/categories?pageToken=c70e668c"
+          }
+        }
+      },
       "CategoriesListResponse" : {
         "type" : "object",
         "properties" : {
@@ -8708,6 +9085,29 @@
           }
         }
       },
+      "TagsListResourcesResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/categories?pageToken=c70e668c"
+          }
+        }
+      },
       "TagsListResponse" : {
         "type" : "object",
         "properties" : {
@@ -8854,6 +9254,29 @@
             "type" : "string",
             "description" : "Success or error message",
             "example" : "success"
+          }
+        }
+      },
+      "GroupsListResourcesResponse" : {
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "integer",
+            "description" : "Status code",
+            "example" : 200
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "Success or error message",
+            "example" : "success"
+          },
+          "data" : {
+            "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data"
+          },
+          "nextPageLink" : {
+            "type" : "string",
+            "description" : "Next page link",
+            "example" : "https://api.bocs.io/dev/categories?pageToken=c70e668c"
           }
         }
       },
@@ -9737,63 +10160,63 @@
         }
       },
       "TaxRatesPostRequest" : {
-        "required" : [ "class", "name" ],
+        "required" : [ "name" ],
         "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           }
         }
       },
@@ -9838,58 +10261,58 @@
         "properties" : {
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           }
         }
       },
@@ -10171,13 +10594,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -10200,22 +10623,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
@@ -10286,13 +10709,13 @@
             "description" : "The unique phone number (E.164 format) for the contact.",
             "example" : "123456789"
           },
-          "source" : {
+          "externalSource" : {
             "type" : "string",
             "description" : "Where the contact was created or synced from.",
             "example" : "woocommerce",
             "enum" : [ "Wordpress", "Shopify", "Bigcommerce API", "Others" ]
           },
-          "sourceId" : {
+          "externalSourceId" : {
             "type" : "string",
             "description" : "ID of where the contact was created or synced from.",
             "example" : "1"
@@ -10315,22 +10738,22 @@
             "description" : "Whether the contact has verified their email address.",
             "example" : false
           },
-          "dateCreated" : {
+          "externalDateCreated" : {
             "type" : "string",
             "description" : "The date the contact was created, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateCreatedGMT" : {
+          "externalDateCreatedGMT" : {
             "type" : "string",
             "description" : "The date the contact was created, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModified" : {
+          "externalDateModified" : {
             "type" : "string",
             "description" : "The date the contact was last modified, in the site's timezone.",
             "example" : "2022-10-25T11:25:08.394Z"
           },
-          "dateModifiedGMT" : {
+          "externalDateModifiedGMT" : {
             "type" : "string",
             "description" : "The date the contact was last modified, as GMT.",
             "example" : "2022-10-25T11:25:08.394Z"
@@ -11542,6 +11965,80 @@
         },
         "description" : "Response data"
       },
+      "CategoriesListResourcesResponse_data_contacts" : {
+        "type" : "object",
+        "properties" : {
+          "contactId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_data_collections" : {
+        "type" : "object",
+        "properties" : {
+          "collectionId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_data_products" : {
+        "type" : "object",
+        "properties" : {
+          "productId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_data_orders" : {
+        "type" : "object",
+        "properties" : {
+          "orderId" : {
+            "type" : "string",
+            "description" : "Unique identifier for the category.",
+            "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
+          }
+        }
+      },
+      "CategoriesListResourcesResponse_data" : {
+        "type" : "object",
+        "properties" : {
+          "contacts" : {
+            "type" : "array",
+            "description" : "List of contacts",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_contacts"
+            }
+          },
+          "collections" : {
+            "type" : "array",
+            "description" : "List of collections",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_collections"
+            }
+          },
+          "products" : {
+            "type" : "array",
+            "description" : "List of products",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_products"
+            }
+          },
+          "orders" : {
+            "type" : "array",
+            "description" : "List of orders",
+            "items" : {
+              "$ref" : "#/components/schemas/CategoriesListResourcesResponse_data_orders"
+            }
+          }
+        },
+        "description" : "Response data"
+      },
       "CategoriesListResponse_data" : {
         "type" : "object",
         "properties" : {
@@ -12508,65 +13005,65 @@
       "TaxRatesListResponse_data" : {
         "type" : "object",
         "properties" : {
-          "taxRateSettingsId" : {
+          "taxRateId" : {
             "type" : "string",
-            "description" : "Id of the tax rate",
+            "description" : "The unique identifier for the resource.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           },
           "createdAt" : {
             "type" : "string",
@@ -12583,65 +13080,65 @@
       "TaxRatesPostResponse_data" : {
         "type" : "object",
         "properties" : {
-          "taxRateSettingsId" : {
+          "taxRateId" : {
             "type" : "string",
-            "description" : "Id of the tax rate",
+            "description" : "The unique identifier for the resource.",
             "example" : "20f4d56d-2b58-430b-8d51-93d2b6a53d59"
           },
           "name" : {
             "type" : "string",
-            "description" : "Name of the tax rate",
+            "description" : "Tax rate name",
             "example" : "Test name"
           },
           "class" : {
             "type" : "string",
-            "description" : "Class of the tax rate",
+            "description" : "Tax class",
             "example" : "Test"
           },
           "country" : {
             "type" : "string",
-            "description" : "Country of the tax rate",
+            "description" : "Country ISO 3166 code",
             "example" : "AU"
           },
-          "city" : {
+          "cities" : {
             "type" : "string",
-            "description" : "City of the tax rate",
+            "description" : "City names",
             "example" : "Adelaide"
           },
           "state" : {
             "type" : "string",
-            "description" : "State of the tax rate",
-            "example" : "South Australia"
+            "description" : "State code",
+            "example" : "SA"
           },
-          "postcode" : {
+          "postcodes" : {
             "type" : "string",
-            "description" : "Post code of the tax rate",
+            "description" : "Postcodes/ZIPs",
             "example" : "6000"
           },
           "rate" : {
             "type" : "number",
-            "description" : "Rate of the tax rate",
+            "description" : "Tax rate",
             "example" : 10
           },
           "shipping" : {
             "type" : "boolean",
-            "description" : "Determines if the tax rate is shipping",
+            "description" : "Whether or not this tax rate also gets applied to shipping.",
             "example" : true
           },
           "priority" : {
             "type" : "number",
-            "description" : "Priority of the tax rate",
+            "description" : "Tax priority. Only 1 matching rate per priority will be used. To define multiple tax rates for a single area you need to specify a different priority per rate.",
             "example" : 1
           },
           "order" : {
             "type" : "number",
-            "description" : "Order of the tax rate",
+            "description" : "Indicates the order that will appear in queries",
             "example" : 1
           },
           "compound" : {
-            "type" : "string",
-            "description" : "Determines if tax rate is compound",
-            "example" : "boolean"
+            "type" : "boolean",
+            "description" : "Whether or not this is a compound rate. Compound tax rates are applied on top of the other tax rates.",
+            "example" : false
           },
           "createdAt" : {
             "type" : "string",
@@ -12745,7 +13242,7 @@
     "tags" : [ "Collections", "Bocs" ]
   }, {
     "name" : "Products",
-    "tags" : [ "Products", "Categories", "Tags" ]
+    "tags" : [ "Products" ]
   }, {
     "name" : "Sales",
     "tags" : [ "Orders", "Subscriptions" ]
