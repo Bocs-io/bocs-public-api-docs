@@ -1,0 +1,1327 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Bocs Private API
+  termsOfService: https://api.bocs.io/terms/
+  contact:
+    email: contact@bocs.io
+    url: https://bocs.io/contact
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  x-logo:
+    url: https://git.bocs.io/bocs-logo-blue.png
+  description: |
+    This is an **example** API to demonstrate features of the OpenAPI specification.
+
+    # Introduction
+
+    This API definition is intended to to be a good starting point for
+    describing your API in 
+
+    [OpenAPI/Swagger
+    format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md).
+
+    It also demonstrates features of the
+    [create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
+    and 
+
+    the [Redoc](https://github.com/Redocly/Redoc) documentation engine. Beyond
+    the standard OpenAPI syntax, we use a few 
+
+    [vendor
+    extensions](https://github.com/Redocly/Redoc/blob/master/docs/redoc-vendor-extensions.md).
+
+
+    # OpenAPI Specification
+
+    The goal of The OpenAPI Specification is to define a standard,
+    language-agnostic interface to REST APIs which
+
+    allows both humans and computers to discover and understand the capabilities
+    of the service without access to source
+
+    code, documentation, or through network traffic inspection. When properly
+    defined via OpenAPI, a consumer can 
+
+    understand and interact with the remote service with a minimal amount of
+    implementation logic. Similar to what
+
+    interfaces have done for lower-level programming, OpenAPI removes the
+    guesswork in calling the service.
+x-tagGroups:
+  - name: Organizations & Stores
+    tags:
+      - Organizations
+      - Stores
+  - name: Signup & Verify
+    tags:
+      - Signup
+      - Verify
+paths:
+  /clients/signup:
+    post:
+      operationId: PostSignup
+      summary: Signup
+      description: Bocs signup
+      tags:
+        - Signup
+      security:
+        - api_key: []
+      requestBody:
+        description: Parameters for signup
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignupPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/clients/signup' \
+            --data '{}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignupPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /organizations:
+    post:
+      operationId: PostOrganization
+      summary: Create Organization
+      description: Create properties of a organization
+      tags:
+        - Organizations
+      security:
+        - api_key: []
+      requestBody:
+        description: Parameters for creating a organization
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationsPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/organizations' \
+            --data '{}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /organizations/{id}:
+    get:
+      operationId: GetOrganization
+      summary: Get Organization
+      description: Returns details about a organization
+      tags:
+        - Organizations
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the organization
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/organizations/<organization ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsGetResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: DeleteOrganization
+      summary: Delete Organization
+      description: Deletes a specified organization
+      tags:
+        - Organizations
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the organization
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/organizations/<organization ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /organizations/{id}/members/:
+    post:
+      operationId: PostOrganizationMember
+      summary: Create Organization Member
+      description: Creates a specified organization member
+      tags:
+        - Organizations
+      security:
+        - api_key: []
+      requestBody:
+        description: Parameters for creating a organization
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrganizationsPostMemberRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/organizations/<organization ID>/members' \
+            --data '{}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsPostMemberResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /organizations/{id}/members/{memberId}:
+    delete:
+      operationId: DeleteOrganizationMember
+      summary: Delete Organization Member
+      description: Deletes a specified organization member
+      tags:
+        - Organizations
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the organization
+        - name: memberId
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the member
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/organizations/<organization ID>/members/<member ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationsDeleteMemberResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /stores:
+    get:
+      operationId: ListStores
+      summary: List Stores
+      description: Returns a list of stores
+      tags:
+        - Stores
+      security:
+        - api_key: []
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: string
+            default: 25
+            example: 25
+          description: The pagination page limit
+        - in: query
+          name: sort
+          schema:
+            type: string
+            example: descending
+            default: descending
+          description: Sort stores
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/stores' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresListResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    post:
+      operationId: PostStore
+      summary: Create Store
+      description: Create properties of a store
+      tags:
+        - Stores
+      security:
+        - api_key: []
+      requestBody:
+        description: Parameters for creating a store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoresPostRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/stores' \
+            --data '{}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresPostResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /stores/{id}:
+    get:
+      operationId: GetStore
+      summary: Get Store
+      description: Returns details about a store
+      tags:
+        - Stores
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the store
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request GET \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/stores/<store ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresGetResponse'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    put:
+      operationId: PutStore
+      summary: Update Store
+      description: Update properties for a store
+      tags:
+        - Stores
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the store
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request PUT \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/stores/<store ID>' \
+            --data '' \
+            | jq
+      requestBody:
+        description: Parameters for updating a store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoresPutRequest'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresPutResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+    delete:
+      operationId: DeleteStore
+      summary: Delete Store
+      description: Deletes a specified store
+      tags:
+        - Stores
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the store
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/stores/<store ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresDeleteResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+  /stores/{id}/members/:
+    post:
+      operationId: PostStoreMember
+      summary: Create Store Member
+      description: Creates a specified store member
+      tags:
+        - Stores
+      security:
+        - api_key: []
+      requestBody:
+        description: Parameters for creating a store
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoresPostMemberRequest'
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request POST \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/stores/<store ID>/members' \
+            --data '{}' \
+            | jq
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresPostMemberResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '500':
+          $ref: '#/components/responses/500'
+  /stores/{id}/members/{memberId}:
+    delete:
+      operationId: DeleteStoreMember
+      summary: Delete Store Member
+      description: Deletes a specified store member
+      tags:
+        - Stores
+      parameters:
+        - name: id
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the store
+        - name: memberId
+          in: path
+          schema:
+            type: string
+            example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+          required: true
+          description: ID of the member
+      security:
+        - api_key: []
+      x-codeSamples:
+        - label: CLI
+          lang: cURL
+          source: |
+            curl --request DELETE \
+            --header 'Authorization: <your API Key>' \
+            --header 'Content-Type: application/json' \
+            --url 'https://api.bocs.io/test/stores/<store ID>/members/<member ID>' \
+            | jq
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StoresDeleteMemberResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '500':
+          $ref: '#/components/responses/500'
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: header
+      name: Authorization
+  schemas:
+    SignupPostRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d58
+          description: The id of the user
+        demoSite:
+          type: string
+          example: Green Sun
+          description: The demo site name
+        displayName:
+          type: string
+          example: Earl Irwin
+          description: The display name of the user
+        email:
+          type: string
+          example: earl+irwin@bocs.io
+          description: The email of the user
+        firstName:
+          type: string
+          example: Earl
+          description: The first name of the user
+        lastName:
+          type: string
+          example: Irwin
+          description: The last name of the user
+        picture:
+          type: string
+          example: ''
+          description: The picture of the user
+        providerName:
+          type: string
+          example: password
+          description: The provider name
+        providerUid:
+          type: string
+          example: earl+irwin@bocs.io
+          description: The provider UID
+      required:
+        - userId
+        - email
+        - firstName
+        - lastName
+        - providerName
+        - providerUid
+    SignupPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            apiKey:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d58
+              description: The API key of the user
+            userId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d58
+              description: The id of the user
+            displayName:
+              type: string
+              example: Earl Irwin
+              description: The display name of the user
+            email:
+              type: string
+              example: earl+irwin@bocs.io
+              description: The email of the user
+            firstName:
+              type: string
+              example: Earl
+              description: The first name of the user
+            lastName:
+              type: string
+              example: Irwin
+              description: The last name of the user
+            picture:
+              type: string
+              example: ''
+              description: The picture of the user
+            provider:
+              type: object
+              description: The provider of the user
+              properties:
+                name:
+                  type: string
+                  example: password
+                  description: The user provider name
+                uid:
+                  type: string
+                  example: earl+irwin@bocs.io
+                  description: The user provider uid
+            name:
+              type: string
+              example: password
+              description: The provider name of the user
+            uid:
+              type: string
+              example: earl+irwin@bocs.io
+              description: The provider uid of the user
+            signupCompleted:
+              type: boolean
+              example: false
+              description: Determines if signup has been completed
+            productCategories:
+              type: array
+              description: The product categories of the user
+              examples: []
+            preRegister:
+              type: boolean
+              example: false
+              description: Determines if user has been pre registered
+            verified:
+              type: boolean
+              example: false
+              description: Determines if user has been verified or not
+            zohoCustomerId:
+              type: string
+              example: 1673308830955
+              description: The zoho customer id of the user
+            zohoSubscriptionId:
+              type: string
+              example: 1673308830955
+              description: The zoho subscription id of the user
+            createdAt:
+              type: string
+              example: 1673308830955
+              description: The user created at
+            updatedAt:
+              type: string
+              example: 1673308830955
+              description: The user updated at
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+    OrganizationsPostRequest:
+      type: object
+      properties:
+        ownerId:
+          type: string
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d58
+          description: The owner of the organization.
+        members:
+          type: array
+          description: The members of the organization
+          items:
+            type: string
+          example:
+            - 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+            - 20f4d56d-2b58-430b-8d51-93d2b6a53d58
+      required:
+        - ownerId
+    OrganizationsPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            organizationId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The unique identifier for the organization
+            ownerId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The owner of the organization.
+            members:
+              type: array
+              description: The members of the organization
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the user
+                  createdAt:
+                    type: string
+                    example: '2022-10-25T11:25:08.394Z'
+                    description: The date member created at
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in the API
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact in the API
+    OrganizationsGetResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            organizationId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The unique identifier for the organization
+            ownerId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The owner of the organization.
+            members:
+              type: array
+              description: The members of the organization
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the user
+                  createdAt:
+                    type: string
+                    example: '2022-10-25T11:25:08.394Z'
+                    description: The date member created at
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in the API
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact in the API
+    OrganizationsDeleteResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+    OrganizationsPostMemberRequest:
+      type: object
+      properties:
+        memberId:
+          type: string
+          description: The user's id
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required:
+        - ownerId
+        - memberId
+    OrganizationsPostMemberResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            organizationId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The unique identifier for the organization
+            ownerId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The owner of the organization.
+            members:
+              type: array
+              description: The members of the organization
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the user
+                  createdAt:
+                    type: string
+                    example: '2022-10-25T11:25:08.394Z'
+                    description: The date member created at
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in the API
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact in the API
+    OrganizationsDeleteMemberResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+    StoresListResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: array
+          description: Response data
+          items:
+            type: object
+            properties:
+              storeId:
+                type: string
+                example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                description: The unique identifier for the store
+              settingsA:
+                type: string
+                example: A
+                description: The settings A
+              settingsB:
+                type: string
+                example: B
+                description: The settings B
+              members:
+                type: array
+                description: The members of the organization
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                      description: Id of the user
+                    createdAt:
+                      type: string
+                      example: '2022-10-25T11:25:08.394Z'
+                      description: The date member created at
+              createdAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Created date of the contact in the API
+              updatedAt:
+                type: string
+                example: '2022-10-25T11:25:08.394Z'
+                description: Updated date of the contact in the API
+        nextPageLink:
+          type: string
+          example: https://api.bocs.io/dev/contacts?pageToken=c70e668c
+          description: Next page link
+    StoresPostRequest:
+      type: object
+      properties:
+        settingsA:
+          type: string
+          example: A
+          description: The settings A
+        settingsB:
+          type: string
+          example: B
+          description: The settings B
+      required:
+        - ownerId
+    StoresPostResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            storeId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The unique identifier for the store
+            settingsA:
+              type: string
+              example: A
+              description: The settings A
+            settingsB:
+              type: string
+              example: B
+              description: The settings B
+            members:
+              type: array
+              description: The members of the organization
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the user
+                  createdAt:
+                    type: string
+                    example: '2022-10-25T11:25:08.394Z'
+                    description: The date member created at
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in the API
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact in the API
+    StoresGetResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            storeId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The unique identifier for the store
+            settingsA:
+              type: string
+              example: A
+              description: The settings A
+            settingsB:
+              type: string
+              example: B
+              description: The settings B
+            members:
+              type: array
+              description: The members of the organization
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the user
+                  createdAt:
+                    type: string
+                    example: '2022-10-25T11:25:08.394Z'
+                    description: The date member created at
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in the API
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact in the API
+    StoresPutRequest:
+      type: object
+      properties:
+        settingsA:
+          type: string
+          example: A
+          description: The settings A
+        settingsB:
+          type: string
+          example: B
+          description: The settings B
+    StoresPutResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            storeId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The unique identifier for the store
+            settingsA:
+              type: string
+              example: A
+              description: The settings A
+            settingsB:
+              type: string
+              example: B
+              description: The settings B
+            members:
+              type: array
+              description: The members of the organization
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the user
+                  createdAt:
+                    type: string
+                    example: '2022-10-25T11:25:08.394Z'
+                    description: The date member created at
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in the API
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact in the API
+    StoresDeleteResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+    StoresPostMemberRequest:
+      type: object
+      properties:
+        memberId:
+          type: string
+          description: The user's id
+          example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+      required:
+        - ownerId
+        - memberId
+    StoresPostMemberResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+        data:
+          type: object
+          description: Response data
+          properties:
+            storeId:
+              type: string
+              example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+              description: The unique identifier for the store
+            settingsA:
+              type: string
+              example: A
+              description: The settings A
+            settingsB:
+              type: string
+              example: B
+              description: The settings B
+            members:
+              type: array
+              description: The members of the organization
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 20f4d56d-2b58-430b-8d51-93d2b6a53d59
+                    description: Id of the user
+                  createdAt:
+                    type: string
+                    example: '2022-10-25T11:25:08.394Z'
+                    description: The date member created at
+            createdAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Created date of the contact in the API
+            updatedAt:
+              type: string
+              example: '2022-10-25T11:25:08.394Z'
+              description: Updated date of the contact in the API
+    StoresDeleteMemberResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 200
+          description: Status code
+        message:
+          type: string
+          example: success
+          description: Success or error message
+  responses:
+    '400':
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 400
+            message: Field is required
+    '401':
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 401
+            message: Unauthorized
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 403
+            message: Forbidden
+    '404':
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
+    '500':
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 500
+            message: Internal server error
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/MyPik-App/bocs/1.0.0
+  - description: Test server
+    url: https://api.bocs.io/test
+
